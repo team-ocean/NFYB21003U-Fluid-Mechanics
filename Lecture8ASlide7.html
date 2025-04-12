@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle and Field Descriptions of Fluid Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        .description {
+            text-align: left;
+            font-size: 16px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Example 1D system </div>
+
+        <p>A more physical way to think about the vector field: imagine that fluid is flowing steadily along the \( x \)-axis with a velocity that varies from place to place, according to the rule \( \dot{x} = \sin x \). 
+            As shown in the figure, the <span class="sql">flow</span> is to the right when \( \dot{x} > 0 \) and to the left when \( \dot{x} < 0 \). At points where \( \dot{x} = 0 \), there is no flow; 
+            such points are therefore called <span class="sql">fixed points</span>. There are two kinds of fixed points: solid black dots represent <span class="sql">stable</span> fixed points (often called <span class="sql">attractors</span> or <span class="sql">sinks</span>, because the flow is toward them) 
+            and open circles represent <span class="sql">unstable</span> fixed points (also known as <span class="sql">repellers</span> or <span class="sql">sources</span>)</p>
+
+        <div class="description">
+                
+            <div class="image-container" style="text-align: center;">
+                <p>\[
+                    \dot{x} = \sin x
+                    \]</p>
+                    <img src="Figures/Lecture8A_Sin1DExample.png" alt="Sin1DExample" style="max-width: 50%; height: auto; display: block; margin: auto;">
+
+            </div>
+    
+    </div>
+
+    <div class="image-container" style="text-align: center;">
+        <img src="Figures/Lecture8A_ConcaveUpandDown.png" alt="ConcaveUpandDown" style="max-width: 50%; height: auto; display: block; margin: auto;">
+        <p>The same reasoning applies to any initial condition \(x_0\). Figure 2.1.1 shows that if \(\dot{x} > 0\) initially, the particle heads to the right and asymptotically approaches the nearest stable fixed point. 
+            Similarly, if \(\dot{x} < 0\) initially, the particle approaches the nearest stable fixed point to its left. If \(\dot{x} = 0\), then \(x\) remains constant</p>
+        <p>The curve is concave up at first, and then concave down; this corresponds to the initial acceleration for \(x < \pi/2\), followed by the deceleration toward \(x = \pi\)</p>
+    </div>
+
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <p class="footnote"><sup>1</sup>Strogatz, S.H. (2015). Nonlinear Dynamics and Chaos: With Applications to Physics, Biology, Chemistry, and Engineering (2nd ed.). CRC Press.</p>
+            </p>
+        </div>
+                
+        <!-- Navigation Buttons -->
+        <a href="Lecture8ASlide6.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture8ASlide8.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equations of Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 110%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 110%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .blue-box {
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Noninertial Frame of Reference</div>
+
+        <div class="slide">
+            <div class="description">
+            If \( \delta S \) is an infinitesimal surface element whose normal points in the direction of the unit vector \( \hat{\mathbf{n}} \)
+            \begin{equation}
+                \hat{\mathbf{n}} \cdot (\nabla \times \mathbf{v}) = \frac{1}{\delta S} \oint_{\delta r} \mathbf{v} \cdot d\mathbf{r}
+            \end{equation}
+            <p>where the line integral is around the infinitesimal area. Thus at a point the component of vorticity in the direction of \( \mathbf{n} \) is proportional to the circulation around the surrounding infinitesimal fluid element, divided by the elemental area bounded by the path of the integral</p>
+            </div>
+            <p>A heuristic test for the presence of vorticity is to imagine a small paddle wheel in the
+                flow; the paddle wheel acts as a ‘circulation-meter’, and rotates if the vorticity is non-zero.
+                Vorticity might seem to be similar to angular momentum, in that it is a measure of spin.
+                However, unlike angular momentum, the value of vorticity at a point does not depend on the
+                particular choice of an axis of rotation; indeed, the definition of vorticity makes no reference
+                at all to an axis of rotation or to a coordinate system. Rather, vorticity is a measure of the
+                local spin of a fluid element.</p>
+                <ul class="custom-list">
+                    <li>If the paddle wheel is rotating clockwise then there is negative (or anticyclonic) relative vorticity.</li>
+                    <li>If the paddle wheel is rotating counter-clockwise then there is positive (or cyclonic) relative vorticity.</li>
+                </ul>
+        </div>
+        <!-- Image Row -->
+        <div class="image-container">
+            <img src="Figures/Lecture3A_VorticityPaddleWheel.png" alt="VorticityPaddleWheel">
+          
+        </div>
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>Carlton, J.S. (2018). Marine propellers and propulsion. 10.1016/C2014-0-01177-X.
+                <a href="https://www.sciencedirect.com/science/article/pii/B9780081003664000225" target="_blank">
+                    <code>https://www.sciencedirect.com/science/article/pii/B9780081003664000225</code>
+                </a>
+            </p>
+            <p class="footnote">
+                <sup>2</sup>Karl P Burr 2003-08-31. 13.021 - Marine Hydrodynamics, Fall 2003.
+            </p>
+        </div>
+
+        <!-- Left Arrow to go back to Slide x -->
+        <a href="Lecture3ASlide4.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide x -->
+        <a href="Lecture3ASlide6.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

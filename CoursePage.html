@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFYB21003U Fluid Mechanics</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap');
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Center the title */
+        .title-container {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            font-weight: bold;
+            color: #666371;
+        }
+
+        /* Align content to the left but keep it responsive */
+        .content {
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .section-title {
+            font-weight: bold;
+            color: #7DCDF4;
+            margin-top: 20px;
+        }
+
+        /* Custom Bullet Points */
+        .description ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .description ul li {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .description ul li::before {
+            content: "■";
+            color: #7DCDF4;
+            font-size: 14px;
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        /* Remove underline and color change from links */
+        .no-style-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Slides - Ensure all slide boxes are small enough to fit without scrolling */
+        .slides-container {
+            display: flex;
+            justify-content: flex-start; /* Align items from the left */
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+
+        .slide {
+            width: 142px; /* Smaller width */
+            height: 102px; /* Smaller height */
+            text-align: center;
+            background-color: white;
+            padding: 3px;
+            box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Ensures full image is visible without cropping */
+        }
+
+        /* Footer */
+        .footer {
+            font-family: 'Noto Sans JP', sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            font-size: 12px;
+            color: #1e1e1e;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Title Section -->
+    <div class="title-container">
+        <div class="title">NFYB21003U Fluid Mechanics</div>
+        <div class="subtitle">Markus Jochum, Amin Doostmohammadi, Qi-fan Wu & Marta Mrozowska<br>University of Copenhagen</div>
+    </div>
+
+    <!-- Lecture 1A -->
+
+    <!-- Content aligned to the left -->
+    <div class="content">
+        <div class="section-title">Introduction and Flow Kinematics</div>
+        <div class="description">
+            <ul>
+                <li>
+                    <a href="Lecture1ASlide1.html" class="no-style-link">Start online slide show</a>
+                </li>
+                <li>
+                    <a href="Lecture1AOverview.html" class="no-style-link">Overview of slides</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Slides aligned to the left -->
+        <div class="slides-container">
+            <a href="Lecture1ASlide1.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture1ASlide1.png" alt="Lecture1A Slide 1">
+                </div>
+            </a>
+            <a href="Lecture1ASlide2.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture1ASlide2.png" alt="Lecture1A Slide 2">
+                </div>
+            </a>
+            <a href="Lecture1ASlide3.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture1ASlide3.png" alt="Lecture1A Slide 3">
+                </div>
+            </a>
+            <a href="Lecture1ASlide4.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture1ASlide4.png" alt="Lecture1A Slide 4">
+                </div>
+            </a>
+            <a href="Lecture1ASlide5.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture1ASlide5.png" alt="Lecture1A Slide 5">
+                </div>
+            </a>
+            <a href="Lecture1ASlide6.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture1ASlide6.png" alt="Lecture1A Slide 6">
+                </div>
+            </a>
+            <a href="Lecture1ASlide7.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture1ASlide7.png" alt="Lecture1A Slide 7">
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Lecture 1B -->
+    <!-- Content aligned to the left -->
+    <div class="content">
+        <div class="section-title">From Newton's Second Law to the Navier–Stokes Equations</div>
+        <div class="description">
+            <ul>
+                <li>
+                    <a href="Lecture1BSlide1.html" class="no-style-link">Start online slide show</a>
+                </li>
+                <li>
+                    <a href="Lecture1BOverview.html" class="no-style-link">Overview of Slides</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Slides aligned to the left -->
+        <div class="slides-container">
+            <a href="Lecture1BSlide1.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture1BSlide1.png" alt="Lecture1B Slide 1">
+                </div>
+            </a>
+            <a href="Lecture1BSlide2.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture1BSlide2.png" alt="Lecture1B Slide 2">
+                </div>
+            </a>
+            <a href="Lecture1BSlide3.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture1BSlide3.png" alt="Lecture1B Slide 3">
+                </div>
+            </a>
+            <a href="Lecture1BSlide4.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture1BSlide4.png" alt="Lecture1B Slide 4">
+                </div>
+            </a>
+            <a href="Lecture1BSlide5.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture1BSlide5.png" alt="Lecture1B Slide 5">
+                </div>
+            </a>
+            <a href="Lecture1BSlide6.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture1BSlide6.png" alt="Lecture1B Slide 6">
+                </div>
+            </a>
+            <a href="Lecture1BSlide7.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture1BSlide7.png" alt="Lecture1B Slide 7">
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Lecture 2A -->
+    <!-- Content aligned to the left -->
+    <div class="content">
+        <div class="section-title">Boundary Conditions and Gravity Waves</div>
+        <div class="description">
+            <ul>
+                <li>
+                    <a href="Lecture2ASlide1.html" class="no-style-link">Start online slide show</a>
+                </li>
+                <li>
+                    <a href="Lecture2AOverview.html" class="no-style-link">Overview of Slides</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Slides aligned to the left -->
+        <div class="slides-container">
+            <a href="Lecture2ASlide1.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture2ASlide1.png" alt="Lecture2A Slide 1">
+                </div>
+            </a>
+            <a href="Lecture2ASlide2.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture2ASlide2.png" alt="Lecture2A Slide 2">
+                </div>
+            </a>
+            <a href="Lecture2ASlide3.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture2ASlide3.png" alt="Lecture2A Slide 3">
+                </div>
+            </a>
+            <a href="Lecture2ASlide4.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture2ASlide4.png" alt="Lecture2A Slide 4">
+                </div>
+            </a>
+            <a href="Lecture2ASlide5.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture2ASlide5.png" alt="Lecture2A Slide 5">
+                </div>
+            </a>
+            <a href="Lecture2ASlide6.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture2ASlide6.png" alt="Lecture2A Slide 6">
+                </div>
+            </a>
+            <a href="Lecture2ASlide7.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture2ASlide7.png" alt="Lecture2A Slide 7">
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Lecture 2B -->
+    <!-- Content aligned to the left -->
+    <div class="content">
+        <div class="section-title">Internal Waves and Normal Modes in a Continuously Stratified Noninertial Fluid</div>
+        <div class="description">
+            <ul>
+                <li>
+                    <a href="Lecture2BSlide1.html" class="no-style-link">Start online slide show</a>
+                </li>
+                <li>
+                    <a href="Lecture2BOverview.html" class="no-style-link">Overview of Slides</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Slides aligned to the left -->
+        <div class="slides-container">
+            <a href="Lecture2BSlide1.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture2BSlide1.png" alt="Lecture2B Slide 1">
+                </div>
+            </a>
+            <a href="Lecture2BSlide2.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture2BSlide2.png" alt="Lecture2B Slide 2">
+                </div>
+            </a>
+            <a href="Lecture2BSlide3.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture2BSlide3.png" alt="Lecture2B Slide 3">
+                </div>
+            </a>
+            <a href="Lecture2BSlide4.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture2BSlide4.png" alt="Lecture2B Slide 4">
+                </div>
+            </a>
+            <a href="Lecture2BSlide5.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture2BSlide5.png" alt="Lecture2B Slide 5">
+                </div>
+            </a>
+            <a href="Lecture2BSlide6.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture2BSlide6.png" alt="Lecture2B Slide 6">
+                </div>
+            </a>
+            <a href="Lecture2BSlide7.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture2BSlide7.png" alt="Lecture2B Slide 7">
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Lecture 3A -->
+    <!-- Content aligned to the left -->
+    <div class="content">
+        <div class="section-title">Vorticity and Potential Vorticity</div>
+        <div class="description">
+            <ul>
+                <li>
+                    <a href="Lecture3ASlide1.html" class="no-style-link">Start online slide show</a>
+                </li>
+                <li>
+                    <a href="Lecture3AOverview.html" class="no-style-link">Overview of Slides</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Slides aligned to the left -->
+        <div class="slides-container">
+            <a href="Lecture3ASlide1.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture3ASlide1.png" alt="Lecture3A Slide 1">
+                </div>
+            </a>
+            <a href="Lecture3ASlide2.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture3ASlide2.png" alt="Lecture3A Slide 2">
+                </div>
+            </a>
+            <a href="Lecture3ASlide3.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture3ASlide3.png" alt="Lecture3A Slide 3">
+                </div>
+            </a>
+            <a href="Lecture3ASlide4.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture3ASlide4.png" alt="Lecture3A Slide 4">
+                </div>
+            </a>
+            <a href="Lecture3ASlide5.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture3ASlide5.png" alt="Lecture3A Slide 5">
+                </div>
+            </a>
+            <a href="Lecture3ASlide6.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture3ASlide6.png" alt="Lecture3A Slide 6">
+                </div>
+            </a>
+            <a href="Lecture3ASlide7.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture3ASlide7.png" alt="Lecture3A Slide 7">
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Lecture 3B -->
+    <!-- Content aligned to the left -->
+    <div class="content">
+        <div class="section-title">Planetary Waves</div>
+        <div class="description">
+            <ul>
+                <li>
+                    <a href="Lecture3BSlide1.html" class="no-style-link">Start online slide show</a>
+                </li>
+                <li>
+                    <a href="Lecture3BOverview.html" class="no-style-link">Overview of Slides</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Slides aligned to the left -->
+        <div class="slides-container">
+            <a href="Lecture3BSlide1.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture3BSlide1.png" alt="Lecture3B Slide 1">
+                </div>
+            </a>
+            <a href="Lecture3BSlide2.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture3BSlide2.png" alt="Lecture3B Slide 2">
+                </div>
+            </a>
+            <a href="Lecture3BSlide3.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture3BSlide3.png" alt="Lecture3B Slide 3">
+                </div>
+            </a>
+            <a href="Lecture3BSlide4.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture3BSlide4.png" alt="Lecture3B Slide 4">
+                </div>
+            </a>
+            <a href="Lecture3BSlide5.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture3BSlide5.png" alt="Lecture3B Slide 5">
+                </div>
+            </a>
+            <a href="Lecture3BSlide6.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture3BSlide6.png" alt="Lecture3B Slide 6">
+                </div>
+            </a>
+            <a href="Lecture3BSlide7.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture3BSlide7.png" alt="Lecture3B Slide 7">
+                </div>
+            </a>
+        </div>
+    </div>
+
+
+    <!-- Lecture 4A -->
+    <!-- Content aligned to the left -->
+    <div class="content">
+        <div class="section-title">Computational Fluid Dynamics</div>
+        <div class="description">
+            <ul>
+                <li>
+                    <a href="Lecture4ASlide1.html" class="no-style-link">Start online slide show</a>
+                </li>
+                <li>
+                    <a href="Lecture4AOverview.html" class="no-style-link">Overview of Slides</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Slides aligned to the left -->
+        <div class="slides-container">
+            <a href="Lecture4ASlide1.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture4ASlide1.png" alt="Lecture4A Slide 1">
+                </div>
+            </a>
+            <a href="Lecture4ASlide2.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture4ASlide2.png" alt="Lecture4A Slide 2">
+                </div>
+            </a>
+            <a href="Lecture4ASlide3.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture4ASlide3.png" alt="Lecture4A Slide 3">
+                </div>
+            </a>
+            <a href="Lecture4ASlide4.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture4ASlide4.png" alt="Lecture4A Slide 4">
+                </div>
+            </a>
+            <a href="Lecture4ASlide5.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture4ASlide5.png" alt="Lecture4A Slide 5">
+                </div>
+            </a>
+            <a href="Lecture4ASlide6.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture4ASlide6.png" alt="Lecture4A Slide 6">
+                </div>
+            </a>
+            <a href="Lecture4ASlide7.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture4ASlide7.png" alt="Lecture4A Slide 7">
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Lecture 4B -->
+    <!-- Content aligned to the left -->
+    <div class="content">
+        <div class="section-title">Boundary Layers and Turbulent Mixing</div>
+        <div class="description">
+            <ul>
+                <li>
+                    <a href="Lecture4BSlide1.html" class="no-style-link">Start online slide show</a>
+                </li>
+                <li>
+                    <a href="Lecture4BOverview.html" class="no-style-link">Overview of Slides</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Slides aligned to the left -->
+        <div class="slides-container">
+            <a href="Lecture4BSlide1.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture4BSlide1.png" alt="Lecture4B Slide 1">
+                </div>
+            </a>
+            <a href="Lecture4BSlide2.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture4BSlide2.png" alt="Lecture4B Slide 2">
+                </div>
+            </a>
+            <a href="Lecture4BSlide3.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture4BSlide3.png" alt="Lecture4B Slide 3">
+                </div>
+            </a>
+            <a href="Lecture4BSlide4.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture4BSlide4.png" alt="Lecture4B Slide 4">
+                </div>
+            </a>
+            <a href="Lecture4BSlide5.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture4BSlide5.png" alt="Lecture4B Slide 5">
+                </div>
+            </a>
+            <a href="Lecture4BSlide6.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture4BSlide6.png" alt="Lecture4B Slide 6">
+                </div>
+            </a>
+            <a href="Lecture4BSlide7.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture4BSlide7.png" alt="Lecture4B Slide 7">
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Lecture 5A -->
+    <!-- Content aligned to the left -->
+    <div class="content">
+        <div class="section-title">Vorticity Budget on a Rotating Sphere</div>
+        <div class="description">
+            <ul>
+                <li>
+                    <a href="Lecture5ASlide1.html" class="no-style-link">Start online slide show</a>
+                </li>
+                <li>
+                    <a href="Lecture5AOverview.html" class="no-style-link">Overview of Slides</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Slides aligned to the left -->
+        <div class="slides-container">
+            <a href="Lecture5ASlide1.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture5ASlide1.png" alt="Lecture5A Slide 1">
+                </div>
+            </a>
+            <a href="Lecture5ASlide2.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture5ASlide2.png" alt="Lecture5A Slide 2">
+                </div>
+            </a>
+            <a href="Lecture5ASlide3.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture5ASlide3.png" alt="Lecture5A Slide 3">
+                </div>
+            </a>
+            <a href="Lecture5ASlide4.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture5ASlide4.png" alt="Lecture5A Slide 4">
+                </div>
+            </a>
+            <a href="Lecture5ASlide5.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture5ASlide5.png" alt="Lecture5A Slide 5">
+                </div>
+            </a>
+            <a href="Lecture5ASlide6.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture5ASlide6.png" alt="Lecture5A Slide 6">
+                </div>
+            </a>
+            <a href="Lecture5ASlide7.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture5ASlide7.png" alt="Lecture5A Slide 7">
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Lecture 5B -->
+    <!-- Content aligned to the left -->
+    <div class="content">
+        <div class="section-title">Vorticity Budget in the Frictional Boundary Layers</div>
+        <div class="description">
+            <ul>
+                <li>
+                    <a href="Lecture5BSlide1.html" class="no-style-link">Start online slide show</a>
+                </li>
+                <li>
+                    <a href="Lecture5BOverview.html" class="no-style-link">Overview of Slides</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Slides aligned to the left -->
+        <div class="slides-container">
+            <a href="Lecture5BSlide1.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture5BSlide1.png" alt="Lecture5B Slide 1">
+                </div>
+            </a>
+            <a href="Lecture5BSlide2.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture5BSlide2.png" alt="Lecture5B Slide 2">
+                </div>
+            </a>
+            <a href="Lecture5BSlide3.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture5BSlide3.png" alt="Lecture5B Slide 3">
+                </div>
+            </a>
+            <a href="Lecture5BSlide4.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture5BSlide4.png" alt="Lecture5B Slide 4">
+                </div>
+            </a>
+            <a href="Lecture5BSlide5.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture5BSlide5.png" alt="Lecture5B Slide 5">
+                </div>
+            </a>
+            <a href="Lecture5BSlide6.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture5BSlide6.png" alt="Lecture5B Slide 6">
+                </div>
+            </a>
+            <a href="Lecture5BSlide7.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture5BSlide7.png" alt="Lecture5B Slide 7">
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Lecture 6A -->
+    <!-- Content aligned to the left -->
+    <div class="content">
+        <div class="section-title">Dynamic Similarity</div>
+        <div class="description">
+            <ul>
+                <li>
+                    <a href="Lecture6ASlide1.html" class="no-style-link">Start online slide show</a>
+                </li>
+                <li>
+                    <a href="Lecture6AOverview.html" class="no-style-link">Overview of Slides</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Slides aligned to the left -->
+        <div class="slides-container">
+            <a href="Lecture6ASlide1.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture6ASlide1.png" alt="Lecture6A Slide 1">
+                </div>
+            </a>
+            <a href="Lecture6ASlide2.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture6ASlide2.png" alt="Lecture6A Slide 2">
+                </div>
+            </a>
+            <a href="Lecture6ASlide3.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture6ASlide3.png" alt="Lecture6A Slide 3">
+                </div>
+            </a>
+            <a href="Lecture6ASlide4.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture6ASlide4.png" alt="Lecture6A Slide 4">
+                </div>
+            </a>
+            <a href="Lecture6ASlide5.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture6ASlide5.png" alt="Lecture6A Slide 5">
+                </div>
+            </a>
+            <a href="Lecture6ASlide6.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture6ASlide6.png" alt="Lecture6A Slide 6">
+                </div>
+            </a>
+            <a href="Lecture6ASlide7.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture6ASlide7.png" alt="Lecture6A Slide 7">
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Lecture 6B -->
+    <!-- Content aligned to the left -->
+    <div class="content">
+        <div class="section-title">Laminar Flow</div>
+        <div class="description">
+            <ul>
+                <li>
+                    <a href="Lecture6BSlide1.html" class="no-style-link">Start online slide show</a>
+                </li>
+                <li>
+                    <a href="Lecture6BOverview.html" class="no-style-link">Overview of Slides</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Slides aligned to the left -->
+        <div class="slides-container">
+            <a href="Lecture6BSlide1.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture6BSlide1.png" alt="Lecture6B Slide 1">
+                </div>
+            </a>
+            <a href="Lecture6BSlide2.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture6BSlide2.png" alt="Lecture6B Slide 2">
+                </div>
+            </a>
+            <a href="Lecture6BSlide3.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture6BSlide3.png" alt="Lecture6B Slide 3">
+                </div>
+            </a>
+            <a href="Lecture6BSlide4.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture6BSlide4.png" alt="Lecture6B Slide 4">
+                </div>
+            </a>
+            <a href="Lecture6BSlide5.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture6BSlide5.png" alt="Lecture6B Slide 5">
+                </div>
+            </a>
+            <a href="Lecture6BSlide6.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture6BSlide6.png" alt="Lecture6B Slide 6">
+                </div>
+            </a>
+            <a href="Lecture6BSlide7.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture6BSlide7.png" alt="Lecture6B Slide 7">
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Lecture 7A -->
+    <!-- Content aligned to the left -->
+    <div class="content">
+        <div class="section-title">Instability</div>
+        <div class="description">
+            <ul>
+                <li>
+                    <a href="Lecture7ASlide1.html" class="no-style-link">Start online slide show</a>
+                </li>
+                <li>
+                    <a href="Lecture7AOverview.html" class="no-style-link">Overview of Slides</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Slides aligned to the left -->
+        <div class="slides-container">
+            <a href="Lecture7ASlide1.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture7ASlide1.png" alt="Lecture7A Slide 1">
+                </div>
+            </a>
+            <a href="Lecture7ASlide2.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture7ASlide2.png" alt="Lecture7A Slide 2">
+                </div>
+            </a>
+            <a href="Lecture7ASlide3.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture7ASlide3.png" alt="Lecture7A Slide 3">
+                </div>
+            </a>
+            <a href="Lecture7ASlide4.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture7ASlide4.png" alt="Lecture7A Slide 4">
+                </div>
+            </a>
+            <a href="Lecture7ASlide5.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture7ASlide5.png" alt="Lecture7A Slide 5">
+                </div>
+            </a>
+            <a href="Lecture7ASlide6.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture7ASlide6.png" alt="Lecture7A Slide 6">
+                </div>
+            </a>
+            <a href="Lecture7ASlide7.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture7ASlide7.png" alt="Lecture7A Slide 7">
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Lecture 7B -->
+    <!-- Content aligned to the left -->
+    <div class="content">
+        <div class="section-title">Turbulence</div>
+        <div class="description">
+            <ul>
+                <li>
+                    <a href="Lecture7BSlide1.html" class="no-style-link">Start online slide show</a>
+                </li>
+                <li>
+                    <a href="Lecture7BOverview.html" class="no-style-link">Overview of Slides</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Slides aligned to the left -->
+        <div class="slides-container">
+            <a href="Lecture7BSlide1.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture7BSlide1.png" alt="Lecture7B Slide 1">
+                </div>
+            </a>
+            <a href="Lecture7BSlide2.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture7BSlide2.png" alt="Lecture7B Slide 2">
+                </div>
+            </a>
+            <a href="Lecture7BSlide3.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture7BSlide3.png" alt="Lecture7B Slide 3">
+                </div>
+            </a>
+            <a href="Lecture7BSlide4.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture7BSlide4.png" alt="Lecture7B Slide 4">
+                </div>
+            </a>
+            <a href="Lecture7BSlide5.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture7BSlide5.png" alt="Lecture7B Slide 5">
+                </div>
+            </a>
+            <a href="Lecture7BSlide6.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture7BSlide6.png" alt="Lecture7B Slide 6">
+                </div>
+            </a>
+            <a href="Lecture7BSlide7.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture7BSlide7.png" alt="Lecture7B Slide 7">
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Lecture 8A -->
+    <!-- Content aligned to the left -->
+    <div class="content">
+        <div class="section-title">Introduction to Dynamical Systems and Chaos</div>
+        <div class="description">
+            <ul>
+                <li>
+                    <a href="Lecture8ASlide1.html" class="no-style-link">Start online slide show</a>
+                </li>
+                <li>
+                    <a href="Lecture8AOverview.html" class="no-style-link">Overview of Slides</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Slides aligned to the left -->
+        <div class="slides-container">
+            <a href="Lecture8ASlide1.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture8ASlide1.png" alt="Lecture8A Slide 1">
+                </div>
+            </a>
+            <a href="Lecture8ASlide2.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture8ASlide2.png" alt="Lecture8A Slide 2">
+                </div>
+            </a>
+            <a href="Lecture8ASlide3.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture8ASlide3.png" alt="Lecture8A Slide 3">
+                </div>
+            </a>
+            <a href="Lecture8ASlide4.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture8ASlide4.png" alt="Lecture8A Slide 4">
+                </div>
+            </a>
+            <a href="Lecture8ASlide5.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture8ASlide5.png" alt="Lecture8A Slide 5">
+                </div>
+            </a>
+            <a href="Lecture8ASlide6.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture8ASlide6.png" alt="Lecture8A Slide 6">
+                </div>
+            </a>
+            <a href="Lecture8ASlide7.html" class="no-style-link">
+                <div class="slide">
+                    <img src="Figures/Lecture8ASlide7.png" alt="Lecture8A Slide 7">
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        &copy; 2025 TeamOcean | NBI/KU
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+

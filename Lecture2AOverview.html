@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture Overview</title>
+
+    <!-- Embedded CSS -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap');
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Title Section */
+        .title-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            font-weight: bold;
+            color: #666371; /* Dark Green */
+            margin-top: 5px;
+        }
+
+        /* Links Section */
+        .links {
+            text-align: left;
+            margin-top: 15px;
+        }
+
+        .links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .links ul li {
+            margin-bottom: 5px;
+        }
+
+        .links ul li a {
+            text-decoration: none;
+            color: #666371; /* Green links */
+            font-weight: bold;
+        }
+
+        .links ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Slide Grid Layout - 2 columns */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two slides per row */
+            gap: 20px; /* Space between slides */
+            justify-content: center;
+            align-items: center;
+            max-width: 900px;
+            margin-top: 30px;
+        }
+
+        /* Slide Box */
+        .slide-box {
+            width: 390px;  /* Fixed box width */
+            height: 270px;  /* Fixed box height */
+            background-color: white;
+            padding: 10px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-radius: 5px;
+        }
+
+        /* Slide Images */
+        .slide-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Ensures the full image is visible */
+        }
+
+        /* Links Section with Custom Bullet Points */
+        .links {
+            text-align: left;
+            margin-top: 15px;
+        }
+
+        .links ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .links ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 5px;
+        }
+
+        /* Custom Square Bullet */
+        .links ul li::before {
+            content: "■";
+            color: #7DCDF4; /* Light Blue */
+            font-size: 14px;
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        /* Remove underline and color change from links */
+        .links ul li a {
+            text-decoration: none;
+            color: #1e1e1e;
+            font-weight: normal;
+        }
+
+        /* Hover Effect - Underline Bar */
+        .slide-box::after {
+            content: "";
+            width: 0;
+            height: 9px;
+            background-color: #DCF4FF;
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: width 0.3s ease-in-out;
+        }
+
+        .slide-link:hover .slide-box::after {
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Title Section -->
+    <div class="title-container">
+        <h1 class="title">NFYB21003U Fluid Mechanics</h1>
+        <h1 class="title">Boundary Conditions and Gravity Waves</h1>
+        <div class="subtitle">Markus Jochum & Qi-fan Wu <br>University of Copenhagen</div>
+    </div>
+
+    <!-- Links Section with Bullet Points -->
+    <div class="links">
+        <ul>
+            <li><a href="Lecture2ASlide1.html">Start online slide show</a></li>
+            <li><a href="Lecture2AOverview.html">Overview of slides</a></li>
+            <li><a href="CoursePage.html">Overview of the course</a></li>
+        </ul>
+    </div>
+
+    <!-- Slide Grid -->
+    <div class="grid-container">
+        <a href="Lecture2ASlide1.html" class="slide-link">
+            <div class="slide-box">
+                <img src="Figures/Lecture2ASlide1.png" alt="Slide 1">
+            </div>
+        </a>
+        <a href="Lecture2ASlide2.html" class="slide-link">
+            <div class="slide-box">
+                <img src="Figures/Lecture2ASlide2.png" alt="Slide 2">
+            </div>
+        </a>
+        <a href="Lecture2ASlide3.html" class="slide-link">
+            <div class="slide-box">
+                <img src="Figures/Lecture2ASlide3.png" alt="Slide 3">
+            </div>
+        </a>
+        <a href="Lecture2ASlide4.html" class="slide-link">
+            <div class="slide-box">
+                <img src="Figures/Lecture2ASlide4.png" alt="Slide 4">
+            </div>
+        </a>
+        <a href="Lecture2ASlide5.html" class="slide-link">
+            <div class="slide-box">
+                <img src="Figures/Lecture2ASlide5.png" alt="Slide 5">
+            </div>
+        </a>
+        <a href="Lecture2ASlide6.html" class="slide-link">
+            <div class="slide-box">
+                <img src="Figures/Lecture2ASlide6.png" alt="Slide 6">
+            </div>
+        </a>
+        <a href="Lecture2ASlide7.html" class="slide-link">
+            <div class="slide-box">
+                <img src="Figures/Lecture2ASlide7.png" alt="Slide 7">
+            </div>
+        </a>
+        <a href="Lecture2ASlide8.html" class="slide-link">
+            <div class="slide-box">
+                <img src="Figures/Lecture2ASlide8.png" alt="Slide 8">
+            </div>
+        </a>
+        <a href="Lecture2ASlide9.html" class="slide-link">
+            <div class="slide-box">
+                <img src="Figures/Lecture2ASlide9.png" alt="Slide 9">
+            </div>
+        </a>
+        <a href="Lecture2ASlide10.html" class="slide-link">
+            <div class="slide-box">
+                <img src="Figures/Lecture2ASlide10.png" alt="Slide 10">
+            </div>
+        </a>
+        <a href="Lecture2ASlide11.html" class="slide-link">
+            <div class="slide-box">
+                <img src="Figures/Lecture2ASlide11.png" alt="Slide 11">
+            </div>
+        </a>
+    </div>
+
+</body>
+</html>

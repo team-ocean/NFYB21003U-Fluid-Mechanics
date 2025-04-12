@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            TeX: { extensions: ["cancel.js"] }
+        });
+    </script>
+    <style>
+    body {
+      text-align: left;
+      margin-left: 20px;
+    }
+
+    .description {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-top: 20px;
+      gap: 20px;
+    }
+
+    .description-text {
+      flex: 1;
+    }
+
+    .description img {
+      max-width: 240px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .MathJax_Display {
+      text-align: left !important;
+      display: block !important;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">The Navier-Stokes Equations II: Further Simplifications</div>
+
+        <div class="slide">    
+
+            \(
+            \begin{aligned}
+            \mathcal{O}\left( \frac{u \, \frac{\partial DIC}{\partial x}}{k \, \frac{\partial^2 DIC}{\partial x^2}} \right) 
+            &= \mathcal{O}\left( \frac{u}{k} \cdot \frac{\frac{\partial DIC}{\partial x}}{\frac{\partial^2 DIC}{\partial x^2}} \right) 
+            \approx \mathcal{O}\left( \frac{u}{k} \cdot \frac{\Delta DIC / \Delta x}{\Delta DIC / \Delta x^2} \right) 
+            = \mathcal{O}\left( \frac{u}{k} \cdot \frac{\Delta DIC / \Delta x}{\Delta DIC / (\Delta x)^2} \right) 
+            = \mathcal{O}\left( \frac{u}{k} \cdot \frac{(\Delta x)^2}{\Delta x} \right) \\[8pt]
+            = \mathcal{O}\left( \frac{u \cdot \Delta x}{k} \right) 
+            &\approx \mathcal{O}\left( \frac{U \cdot L}{k} \right) 
+            = \mathcal{O}\left( \frac{UL}{k} \right) 
+            \end{aligned}
+            \) 
+            <p>with \( U = 1 \times 10^{-4} \, \text{m/s}, \quad L = 1 \times 10^6 \, \text{m}, \quad k = 1 \times 10^2 \, \text{m}^2/\text{s} \Rightarrow \text{Pe} \approx 1 \)</p>
+
+    <!-- Rossby number block with image inside description -->
+    <div class="description">
+        <div class="description-text">
+          \[
+          \text{Rossby number} = \frac{U}{fL}
+          =
+          \begin{cases}
+          \ll 1 & \text{Coriolis force dominates} \\
+          \sim 1 & \text{Advection and Coriolis are comparable} \\
+          \gg 1 & \text{Advection dominates; rotation negligible}
+          \end{cases}
+          \]
+          <p>A tropical cyclone has a small Rossby number \((Ro \ll 1)\), a tornado has a large one \((Ro \gg 1)\)</p>
+        </div>
+        <img src="Figures/Lecture5A_RossbyNumberEffect.png" alt="RossbyNumberEffect">
+      </div>
+  
+      <!-- Péclet number block with image inside description -->
+      <div class="description">
+        <div class="description-text">
+          \[
+          \text{Péclet number} = \frac{UL}{k}
+          =
+          \begin{cases}
+          \ll 1 & \text{Diffusion dominates (slow, smoothed transport)} \\
+          \sim 1 & \text{Advection and diffusion are both important} \\
+          \gg 1 & \text{Advection dominates (sharp gradients persist)}
+          \end{cases}
+          \]
+        </div>
+        <img src="Figures/Lecture5A_PecletNumberThermocline.png" alt="PecletNumberThermocline" style="max-width: 21%; height: 21%;">
+        </div>
+
+        </div>
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>On the origin of the Λ effect, the updated ideas of Kitchatinov, L. L. 1987, Geophys & Astrophys. Fluid Dynamics, 38, 273.
+            </p>
+
+            <p class="footnote">
+                <sup>2</sup>Yogender Pal Chandra & Tomas Matuska. Stratification analysis of domestic hot water storage tanks: A comprehensive review.
+            </p>
+        </div>
+
+
+        <!-- Left Arrow to go back to Slide x -->
+        <a href="Lecture5ASlide5.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide x -->
+        <a href="Lecture5ASlide7.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle and Field Descriptions of Fluid Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .description {
+            text-align: left;
+            font-size: 16px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Transcritical Bifurcation</div>
+
+        <div class="slide">
+
+            <div class="description">
+                <p>There are certain scientific situations where a fixed point must exist for all values of a parameter and can never be destroyed. 
+                    For example, in the logistic equation and other simple models for the growth of a single species, there is a fixed point at zero population, regardless of the value of the growth rate. 
+                    However, such a fixed point may <span class="sql">change its stability</span> as the parameter is varied. The transcritical bifurcation is the standard mechanism for such changes in stability</p>
+            </div>
+
+            <div class="description">
+                <p>The normal form for a transcritical bifurcation is
+                    \(
+                    \dot{x} = rx - x^2
+                    \)</p>
+            </div>
+            <div class="image-container" style="text-align: left;">
+                <img src="Figures/Lecture8A_TranscriticalBifurcation.png" alt="TranscriticalBifurcation.png" style="max-width: 60%; height: auto; display: block; margin: auto;">
+                <p>There is a fixed point at \( x^* = 0 \) for <span class="sql">all</span> values of \( r \)</p>
+
+            </div>
+            <p>The important difference between the saddle-node and transcritical bifurcations: in the transcritical case, the two fixed points don’t disappear after the bifurcation—instead they just switch their stability</p>
+
+
+            <div class="image-container" style="text-align: left;">
+                <img src="Figures/Lecture8A_SinkSourceTranscriticalBifurcation.png" alt="SinkSourceTranscriticalBifurcation" style="max-width: 60%; height: auto; display: block; margin: auto;">
+                <p>Transcritical bifurcation diagram</p>
+            </div>
+
+            <p>This equation is <span class="sql">invariant</span> under the change of variables \( x \rightarrow -x \)</p>
+
+
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <p class="footnote"><sup>1</sup>Strogatz, S.H. (2015). Nonlinear Dynamics and Chaos: With Applications to Physics, Biology, Chemistry, and Engineering (2nd ed.). CRC Press.</p>
+            </p>
+            <p class="footnote">
+                <p class="footnote"><sup>2</sup>Daniel Rothman. (2022). Nonlinear Dynamics: Chaos. MIT OpenCourseWare</p>
+            </p>
+        </div>
+
+        </div>
+
+
+        <!-- Navigation Buttons -->
+        <a href="Lecture8ASlide16.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture8ASlide18.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

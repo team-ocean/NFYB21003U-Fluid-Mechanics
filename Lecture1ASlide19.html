@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            "HTML-CSS": { scale: 80 }  // Default is 100
+        });
+    </script>
+    
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 110%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 110%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Fluid Rotation</div>
+
+        <div class="slide">
+
+        <div class="description">
+            <p>A fluid particle moving in a general three-dimensional flow field may rotate about all three coordinate axes. Thus particle rotation is a vector quantity and, in general,
+
+                \[
+                \vec{\omega} = \omega_x \hat{i} + \omega_y \hat{j} + \omega_z \hat{k}
+                \]
+                
+                where \(\omega_x\) is the rotation about the \(x\) axis, \(\omega_y\) is the rotation about the \(y\) axis, and \(\omega_z\) is the rotation about the \(z\) axis. The positive sense of rotation is given by the right-hand rule</p>
+        </div>
+        <p>Rotation and angular deformation of perpendicular line segments in a two-dimensional flow</p>
+        <img src="Figures/Lecture1A_RotationAngularDeformation2D.png" alt="RotationAngularDeformation2D" style="max-width: 80%; height: auto; display: block; margin: auto;">
+
+        </div>        
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>Fox and McDonald's Introduction to Fluid Mechanics, 8th Edition. 
+            </p>
+        </div>
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture1ASlide18.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture1ASlide20.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

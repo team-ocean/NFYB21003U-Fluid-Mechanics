@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle and Field Descriptions of Fluid Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 110%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 110%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .blue-box {
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Pendulum Example</div>
+
+        <div class="slide">
+
+            <p>
+                The fixed points are \((\theta^*, v^*) = (k\pi, 0)\), where \(k\) is any integer. 
+                There's no physical difference between angles that differ by \(2\pi\), so we'll concentrate 
+                on the two fixed points \((0,0)\) and \((\pi,0)\). At \((0,0)\), the Jacobian is
+
+                \(
+                A = \begin{bmatrix}
+                0 & 1 \\
+                -1 & 0
+                \end{bmatrix}
+                \)
+
+                so the origin is a linear center.
+
+                The origin is a <span class="sql">nonlinear</span> center, for two reasons </p>
+                <ul class="custom-list">
+                    <li><Table></Table>The system is <span class="sql">reversible</span>: 
+                        the equations are invariant under the transformation \(\tau \to -\tau,\; v \to -v\)</li>
+                    <li>The system is also <span class="sql">conservative</span>. 
+                        Multiplying \(
+                        \ddot{\theta} + \sin \theta = 0 
+                        \)   by \(\dot{\theta}\) and integrating yields
+                        \[
+                        \dot{\theta}(\ddot{\theta} + \sin\theta) = 0 \Rightarrow \frac{1}{2}\dot{\theta}^2 - \cos\theta = \text{constant}.
+                        \]
+                    </li>
+                </ul>
+
+            <p>The energy function
+
+                \(
+                E(\theta,v) = \frac{1}{2}v^2 - \cos\theta
+                \)
+
+                has a local minimum at \((0,0)\), since \(E \approx \frac{1}{2}(v^2 + \theta^2) - 1\) for 
+                small \((\theta,v)\). The origin is a nonlinear center. 
+                The closed orbits are approximately <span class="sql">circular</span>, 
+                with \(\theta^2 + v^2 \approx 2(E+1)\)
+            </p>
+            <div class="image-container" style="text-align: left;">
+                <img src="Figures/Lecture8A_PendulumPhaseNearFixedPoint.png" alt="PendulumPhaseNearFixedPoint" style="max-width: 50%; height: auto; display: block; margin: auto;">
+                <p>Consider the fixed point at \((\pi,0)\). The Jacobian is
+
+                    \(
+                    A = \begin{bmatrix}
+                    0 & 1 \\
+                    1 & 0
+                    \end{bmatrix}.
+                    \)
+                    
+                    The characteristic equation is \(\lambda^2 - 1 = 0\). Therefore \(\lambda_1 = -1,\;\lambda_2 = 1\); the fixed point is a saddle. 
+                    The corresponding eigenvectors are \(\mathbf{v}_1 = (1,-1)\) and \(\mathbf{v}_2 = (1,1)\).
+                    
+                    The phase portrait near the fixed points can be sketched.</p>
+            </div>
+            <div class="image-container" style="text-align: left;">
+                <img src="Figures/Lecture8A_PendulumEnergyPhase.png" alt="PendulumEnergyPhase" style="max-width: 39%; height: auto; display: block; margin: auto;">
+                <p>Include the energy contours \(E = \frac{1}{2}v^2 - \cos\theta\) for different values of \(E\). The picture is periodic in the \(\theta\)-direction.
+                    \(
+                    \ddot{\theta} + \sin{\theta} = 0 \rightarrow
+                    \begin{cases}
+                    \dot{\theta} = v \\
+                    \dot{v} = -\sin{\theta}
+                    \end{cases}
+                    \rightarrow J = 
+                    \begin{bmatrix}
+                    0 & 1 \\[6pt]
+                    -\cos{\theta} & 0
+                    \end{bmatrix}
+                    \rightarrow \lambda^2 = -\cos{\theta}
+                    \)
+
+                </p>
+    
+            </div>
+            
+            <p>
+                <ul class="custom-list">
+                    <li>                    
+                        \(
+                        \text{for } \theta = n\pi,\; n=\text{even} \quad\rightarrow\quad \lambda = \pm i \quad\text{center}
+                        \)
+                    </li>
+                    <li>
+                        \(
+                        \text{for } \theta = n\pi,\; n=\text{odd} \quad\rightarrow\quad \lambda = \pm 1 \quad\text{saddle}\quad u_1 = \begin{bmatrix}1 \\[4pt] 1\end{bmatrix},\quad u_2 = \begin{bmatrix}1 \\[4pt] -1\end{bmatrix}
+                        \)  
+                    </li>
+    
+
+                </ul>
+            </p>
+
+
+
+
+
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <p class="footnote"><sup>1</sup>Strogatz, S.H. (2015). Nonlinear Dynamics and Chaos: With Applications to Physics, Biology, Chemistry, and Engineering (2nd ed.). CRC Press.</p>
+            </p>
+        </div>
+
+        </div>
+
+
+        <!-- Navigation Buttons -->
+        <a href="Lecture8ASlide27.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture8ASlide29.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

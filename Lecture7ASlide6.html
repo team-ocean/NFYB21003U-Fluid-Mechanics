@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equations of Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],  // Allow inline math with $...$ and \( ... \)
+            displayMath: [['$$', '$$'], ['\\[', '\\]']] // Allow display math with $$...$$ and \[ ... \]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+        </script>
+        <script type="text/javascript" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        
+    <style>
+        .custom-list { list-style: none; padding-left: 20px; }
+        .custom-list li { position: relative; padding-left: 20px; text-align: left; }
+        .custom-list li::before { content: "■"; color: #7DCDF4; font-size: 14px; position: absolute; left: 0; top: 2px; }
+        .image-container { display: flex; align-items: center; justify-content: center; text-align: left; }
+        .image-container img { max-width: 100%; height: auto; }
+        .image-text { max-width: 100%; padding-left: 10px; font-size: 16px; }
+        /* Ensure all text and equations are left-aligned */
+        body {
+            text-align: left;
+            margin-left: 20px;  /* Add some left margin for better readability */
+        }
+
+        .description {
+            text-align: left;
+        }
+        p {
+            text-align: left;
+        }
+        /* Force MathJax equations to be left-aligned */
+        .MathJax_Display {
+            text-align: left !important;
+            display: block !important;
+        }
+        /* Proper alignment for the equation table */
+
+        .footnote-container {
+            margin-top: 20px;
+            font-size: 12px;
+            text-align: left;
+        }
+        .footnote-line {
+            border: 0;
+            height: 1px;
+            background: #000;
+        }
+        .footnote {
+            font-style: italic;
+        }
+        .footnote a code, .footnote code {
+            font-family: monospace;
+            color: #1e1e1e;
+            text-decoration: none;
+            font-style: normal; /* Ensures code text is not italic */
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Method of Normal Modes</div>
+
+        <div class="slide">
+            <div class="description">
+                <p>Basic linear stability analysis consists of presuming the existence of sinusoidal disturbances to a <span class="sql">basic state</span> (also called a background, initial, or equilibrium state), which is the flow whose stability is being investigated. 
+                    For example, the velocity field of a basic state involving a flow parallel to the <span class="sql">x-axis</span> and varying along the <span class="sql">z-axis</span> is \( \mathbf{U} = U(z)\mathbf{e}_x \). On this background flow we superpose a spatially extended disturbance of the form:
+
+                    \[
+                    \underbrace{u(x, y, z, t)}_{\text{Disturbance field}} 
+                    = 
+                    \underbrace{\hat{u}(z)}_{\text{Amplitude in } z}  
+                    \underbrace{e^{i(kx + my + \sigma t)}}_{\text{Planar wave in } x, y \text{ with temporal growth}} 
+                    = 
+                    \hat{u}(z) 
+                    \underbrace{e^{i|\mathbf{K}| (\mathbf{e}_K \cdot \mathbf{x} - ct)}}_{\text{Traveling wave in direction of } \mathbf{K}}
+                    \]
+                    where \( \hat{u}(z) \) is a complex amplitude, \( i = \sqrt{-1} \) is the imaginary root, \( \mathbf{K} = (k, m, 0) \) is the disturbance wave number, 
+                    \( \mathbf{e}_K = \mathbf{K}/|\mathbf{K}| \), \( \mathbf{x} = (x, y, z) \), \( \sigma \) is the temporal growth rate, \( c \) is the complex phase speed of the disturbance, 
+                    and the real part of this equation is taken to obtain physical quantities</p>
+            </div>
+
+
+
+            <p>For simplicity ignore interfacial (surface) tension, and assume that only small-slope linear waves exist on the interface and that both fluids are infinitely deep, 
+                so that only those solutions that decay exponentially from the interface are allowed. Therefore, <span class="sql">complex notation</span> will be used to ease the algebraic and trigonometric effort</p>
+                
+                <p>The two forms of \(u(x, y, z, t) = \hat{u}(z) \exp \{i kx + imy + \sigma t \} = \hat{u}(z) \exp \{i |\mathbf{K}| (\mathbf{e}_K \cdot \mathbf{x} - ct) \}\) are useful when  
+                <ul class="custom-list">
+                    <li>the disturbance is stationary</li>
+
+                    <li>it takes the form of a traveling wave</li>
+
+                    </ul>
+                </p>
+
+            
+
+
+        </div>
+
+
+
+        <!-- Navigation Arrows -->
+        <a href="Lecture7ASlide5.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture7ASlide7.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+        
+        <style>
+            .custom-list { list-style: none; padding-left: 20px; }
+            .custom-list li { position: relative; padding-left: 20px; text-align: left; }
+            .custom-list li::before { content: "■"; color: #7DCDF4; font-size: 14px; position: absolute; left: 0; top: 2px; }
+            .image-container { display: flex; align-items: center; justify-content: center; text-align: left; }
+            .image-container img { max-width: 100%; height: auto; }
+            .image-text { max-width: 100%; padding-left: 10px; font-size: 16px; }
+            /* Ensure all text and equations are left-aligned */
+            body {
+                text-align: left;
+                margin-left: 20px;  /* Add some left margin for better readability */
+            }
+    
+            .description {
+                text-align: left;
+            }
+            p {
+                text-align: left;
+            }
+            /* Force MathJax equations to be left-aligned */
+            .MathJax_Display {
+                text-align: left !important;
+                display: block !important;
+            }
+            /* Proper alignment for the equation table */
+    
+            .footnote-container {
+                margin-top: 20px;
+                font-size: 12px;
+                text-align: left;
+            }
+            .footnote-line {
+                border: 0;
+                height: 1px;
+                background: #000;
+            }
+            .footnote {
+                font-style: italic;
+            }
+            .footnote a code, .footnote code {
+                font-family: monospace;
+                color: #1e1e1e;
+                text-decoration: none;
+                font-style: normal; /* Ensures code text is not italic */
+            }
+    
+    
+        </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Method of Normal Modes</div>
+
+        <div class="slide">
+                <p>The method of analysis involving the examination of Fourier components is called the <span class="sql">normal mode method</span>. An arbitrary disturbance can be decomposed into a complete set of normal modes. 
+                In this method the stability of each of the modes is examined separately, as the linearity of the problem implies that the various modes do not interact. The method leads to an eigenvalue problem.
+                </p>
+
+            </div>
+
+
+        <!-- Image Replacement for Equations and Explanation -->
+        <div class="image-container" style="text-align: center;">
+            <img src="Figures/Lecture7A_Eigen.png" alt="Eigen" style="max-width: 90%; height: auto; display: block; margin: auto;">
+        </div>
+
+        <p>The eigenvalues and eigenvectors of a matrix (linear operator)capture the directions in which vectors can grow or shrink. Location in the eigenvalue spectrum determines whether a mode grows (unstable: \(Re(λ) > 0\)), decays (stable: \(Re(λ) < 0\)) or oscillates (complex frequency: \(Im(λ) \uparrow\))</p>
+
+        <!-- Image Replacement for Equations and Explanation -->
+        <div class="image-container" style="text-align: center;">   
+            <img src="Figures/Lecture7A_LinearSystemEigenvalues.png" alt="LinearSystemEigenvalues" style="max-width: 100%; height: auto; display: block; margin: auto;">
+        </div>
+
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>Modal Analysis of Fluid Flows: An Overview. Kunihiko Taira, Steven L. Brunton, Scott T. M. Dawson, Clarence W. Rowley, Tim Colonius, Beverley J. McKeon, Oliver T. Schmidt, Stanislav Gordeyev, Vassilios Theofilis, and Lawrence S. Ukeiley. AIAA Journal 2017 55:12, 4013-4041
+            </p>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <a href="Lecture7ASlide7.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture7ASlide9.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

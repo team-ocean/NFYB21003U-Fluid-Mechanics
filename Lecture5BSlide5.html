@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            TeX: { extensions: ["cancel.js"] }
+        });
+    </script>
+    <style>
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 70%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 50%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .blue-box {
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="title">The Stommel model</div>
+
+        <div class="slide">
+            <div class="description">
+                <p>Take the curl of \(f \times \mathbf{u} = -\nabla \phi + \frac{1}{\rho_0} \frac{\partial \boldsymbol{\tau}}{\partial z}\) (cross differentiate its \( x \) and \( y \) components) and integrate over the depth of the ocean to give</p>
+                \[
+                \int f \nabla \cdot \mathbf{u} \, dz + \frac{\partial f}{\partial y} \int v \, dz = \text{curl}_z (\boldsymbol{\tau}_T - \boldsymbol{\tau}_B)
+                \]
+                <p>where the operator \( \text{curl}_z \) is defined by  
+                    \(
+                    \text{curl}_z \mathbf{A} \equiv \frac{\partial A^y}{\partial x} - \frac{\partial A^x}{\partial y} = \mathbf{k} \cdot \nabla \times \mathbf{A},
+                    \)
+                    and the subscripts \( T \) and \( B \) are for top and bottom</p>
+            </div>
+
+            <p>
+                \(
+                    \because f \nabla \cdot \mathbf{u} = \nabla \cdot (f \mathbf{u}) - (\nabla f) \cdot \mathbf{u}
+                \)<br>
+
+                \(f = f(y) \Rightarrow   \nabla f = \frac{\partial f}{\partial y} \hat{\mathbf{y}}, \quad \mathbf{u} = u \hat{\mathbf{x}} + v \hat{\mathbf{y}} \)<br>
+
+
+                \(
+                \therefore (\nabla f) \cdot \mathbf{u} = \frac{\partial f}{\partial y} v
+                \) <br>
+
+                \(
+                \therefore \int (\nabla f) \cdot \mathbf{u} \, dz = \frac{\partial f}{\partial y} \int v \, dz
+                \)<br>
+
+                \(
+                \int f \nabla \cdot \mathbf{u} \, dz = \int \left[ \nabla \cdot (f \mathbf{u}) - \frac{\partial f}{\partial y} v \right] dz
+                \)
+
+                \(\Rightarrow \int f \nabla \cdot \mathbf{u} \, dz = \int \nabla \cdot (f \mathbf{u}) \, dz - \frac{\partial f}{\partial y} \int v \, dz\)<br>
+
+                \(
+                \because \int f \nabla \cdot \mathbf{u} \, dz + \frac{\partial f}{\partial y} \int v \, dz = \text{curl}_z(\boldsymbol{\tau}_T - \boldsymbol{\tau}_B)    
+                \)<br>
+
+                \(\therefore \left( \int \nabla \cdot (f \mathbf{u}) \, dz - \cancel{\frac{\partial f}{\partial y} \int v \, dz} \right) + \cancel{\frac{\partial f}{\partial y} \int v \, dz} = \text{curl}_z(\boldsymbol{\tau}_T - \boldsymbol{\tau}_B)\)
+
+                \(
+                \because \int_B^T \nabla \cdot (f \mathbf{u}) \, dz = \nabla \cdot \left( \int_B^T f \mathbf{u} \, dz \right) - \left[ f \, \mathbf{u} \cdot \hat{\mathbf{z}} \right]_B^T, \quad \mathbf{u} \cdot \hat{\mathbf{z}} = 0 \Rightarrow \text{no vertical flux of horizontal velocity}  
+                \) 
+
+                \(
+                \therefore \int \nabla \cdot (f \mathbf{u}) \, dz = \nabla \cdot \left( \int f \mathbf{u} \, dz \right)    
+                \)<br>
+
+                \(
+                \because \text{Continuity equation \( \nabla \cdot \mathbf{v} = 0 \), where  \(\mathbf{v} = (u, v, w)\)} 
+                \)
+
+                \(
+                \Rightarrow \int_B^T \nabla \cdot \mathbf{u} \, dz = -\int_B^T \frac{\partial w}{\partial z} \, dz = -w|_T + w|_B
+                \)<br>
+
+                \(
+                \therefore  \text{if \( w = 0 \) at both the surface and bottom (assume rigid lid and flat bottom):}
+                \)
+
+                \(
+                \int \nabla \cdot \mathbf{u} \, dz = 0 \Rightarrow \int f \nabla \cdot \mathbf{u} \, dz = 0    
+                \)
+
+                \(
+                \Rightarrow \frac{\partial f}{\partial y} \int v \, dz = \text{curl}_z(\boldsymbol{\tau}_T - \boldsymbol{\tau}_B)
+                \)
+
+                \(
+                \because \frac{\partial f}{\partial y} = \beta \Rightarrow \beta \int v \, dz = \text{curl}_z(\boldsymbol{\tau}_T - \boldsymbol{\tau}_B)    
+                \)
+
+                \(
+                \therefore \beta \int v \, dz = \text{curl}_z(\boldsymbol{\tau}_T - \boldsymbol{\tau}_B) \Rightarrow \boxed{\beta \overline{v} = \text{curl}_z(\boldsymbol{\tau}_T - \boldsymbol{\tau}_B)}    
+                \)
+
+            </p>
+
+           
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture5BSlide4.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture5BSlide6.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

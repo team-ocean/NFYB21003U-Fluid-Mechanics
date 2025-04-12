@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 110%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 110%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Introduction to Computational Fluid Dynamics</div>
+
+        <div class="slide">
+            
+            <p>For example, even though we may limit ourselves to incompressible flows for which the viscosity is constant, 
+            we still end up with the following equations:</p>
+
+            <div class="math-container">
+                \[
+                \underbrace{\frac{\partial \boxed{u}}{\partial x} + \frac{\partial \boxed{v}}{\partial y} + \frac{\partial \boxed{w}}{\partial z} = 0}_{\text{Continuity equation (mass conservation)}}
+                \]
+            </div>
+
+                \[
+                \left.
+                \begin{aligned}
+                    \rho \left( \boxed{\frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} + w \frac{\partial u}{\partial z}} \right) &= \rho g_x - \frac{\partial \boxed{p}}{\partial x} + \boxed{\mu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial z^2} \right)} \\
+                    \rho \left( \frac{\partial v}{\partial t} + u \frac{\partial v}{\partial x} + v \frac{\partial v}{\partial y} + w \frac{\partial v}{\partial z} \right) &= \rho g_y - \frac{\partial p}{\partial y} + \mu \left( \frac{\partial^2 v}{\partial x^2} + \frac{\partial^2 v}{\partial y^2} + \frac{\partial^2 v}{\partial z^2} \right) \\
+                    \rho \left( \frac{\partial w}{\partial t} + u \frac{\partial w}{\partial x} + v \frac{\partial w}{\partial y} + w \frac{\partial w}{\partial z} \right) &= \rho g_z - \frac{\partial p}{\partial z} + \mu \left( \frac{\partial^2 w}{\partial x^2} + \frac{\partial^2 w}{\partial y^2} + \frac{\partial^2 w}{\partial z^2} \right)
+                \end{aligned}
+                \right\}
+                \begin{aligned}
+                    &\text{Navier-Stokes equations} \\
+                    &\text{(momentum)}
+                \end{aligned}
+                \]
+                
+            </div>
+            <div class="description">                
+
+            <p>In principle, these equations can be solved for the velocity field \(\mathbf{u}\) and pressure field \( p \), given sufficient initial and boundary conditions. Note that in general, \( u, v, w, \) and \( p \) all depend on \( x, y, z, \) and \( t \). 
+            In practice, there is no general analytic solution to these equations, for the combined effect of a number of reasons (none of which is insurmountable by itself): </p>
+            <ul class="custom-list">
+                <li>They are coupled. The unknowns, \( u, v, w, \) and \( p \), appear in all the equations (\( p \) is not in the continuity equation) and we cannot manipulate the equations to end up with a single equation for any one of the unknowns. Hence we must solve for all unknowns simultaneously.</li>
+                <li>They are nonlinear. For example, the convective acceleration term \( u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} + w \frac{\partial u}{\partial z}\)
+                    has products of \( u \) with itself as well as with \( v \) and \( w \). The consequence of this is that we cannot take one solution to the equations and combine it with a second solution to obtain a third solution. If frictionless flow is assumed, linear equations can be derived to do this combining procedure.</li>
+                <li>They are second-order partial differential equations. For example, the viscous term
+                    \(
+                    \mu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial z^2} \right)
+                    \)
+                    is second-order in \( u \). These are obviously of a different order of complexity.</li>
+            </ul>
+            </div>
+
+        <!-- Left Arrow to go back to Slide 1 -->
+        <a href="Lecture4ASlide2.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide 3 -->
+        <a href="Lecture4ASlide4.html" class="nav-button right">&#9654;</a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient, Divergence, and Curl</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Gradient, Divergence, and Curl</div>
+
+        <div class="slide">
+            <div class="description">
+                <p>Divergence of a Vector Field:</p>
+                <p>
+                    \[
+                    \nabla \cdot \mathbf{F} = \begin{pmatrix} 
+                    \frac{\partial}{\partial x} \\ \frac{\partial}{\partial y} \\ \frac{\partial}{\partial z}
+                    \end{pmatrix} \cdot \begin{pmatrix} f \\ g \\ h \end{pmatrix} 
+                    = \frac{\partial f}{\partial x} + \frac{\partial g}{\partial y} + \frac{\partial h}{\partial z} 
+                    \]
+                </p>
+            </div>
+
+            <div class="description">
+                <p>Curl of a Vector Field:</p>
+                <p>
+                    \[
+                    \nabla \times \mathbf{F} = \begin{pmatrix} 
+                    \frac{\partial}{\partial x} \\ \frac{\partial}{\partial y} \\ \frac{\partial}{\partial z}
+                    \end{pmatrix} \times \begin{pmatrix} f \\ g \\ h \end{pmatrix}
+                    = \begin{pmatrix} 
+                    \frac{\partial h}{\partial y} - \frac{\partial g}{\partial z} \\
+                    \frac{\partial f}{\partial z} - \frac{\partial h}{\partial x} \\
+                    \frac{\partial g}{\partial x} - \frac{\partial f}{\partial y}
+                    \end{pmatrix}
+                    \]
+                </p>
+            </div>
+
+
+        <!-- Image Section (Centered and Box Removed) -->
+        <div class="image-container" style="display: flex; justify-content: center; gap: 20px; margin-top: 10px;">
+            <div class="image-box" style="width: 25%; text-align: center;">
+                <img src="Figures/Lecture1A_divergence.png" alt="Fluid moving outward" style="max-width: 100%; height: auto; border: none;">
+                <p class="caption" style="font-size: 12px;">Divergent vector field</p>
+            </div>
+            <div class="image-box" style="width: 22%; text-align: center;">
+                <img src="Figures/Lecture1A_curl.png" alt="Fluid moving inward" style="max-width: 100%; height: auto; border: none;">
+                <p class="caption" style="font-size: 12px;">A rotating vector field</p>
+            </div>
+        </div>
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>Divergence and curl example: 
+                <a href="https://mathinsight.org/divergence_curl_examples" target="_blank">
+                    <code>https://mathinsight.org/divergence_curl_examples</code>
+                </a>
+            </p>
+        </div>
+    </div>
+
+        <!-- Left Arrow to go back to Slide 3 -->
+        <a href="Lecture1ASlide5.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide 5 -->
+        <a href="Lecture1ASlide7.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>
+
+

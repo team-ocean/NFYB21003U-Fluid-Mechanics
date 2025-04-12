@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Particle and Field Descriptions of Fluid Motion</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Include MathJax for LaTeX Rendering -->
+  <script type="text/javascript" async 
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+  <style>
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+    .description {
+      text-align: left;
+      font-size: 16px;
+    }
+    /* Custom bullet list styled as flex container */
+    ul.custom {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
+    }
+    ul.custom li {
+      flex: 0 0 45%; /* roughly two items per row */
+      display: flex;
+      align-items: center;
+      gap: 10px; /* space between the text and image */
+      position: relative;
+      padding-left: 20px; /* extra padding for the bullet */
+    }
+    ul.custom li::before {
+      content: "■"; /* Unicode for small square bullet */
+      color: #7DCDF4;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Ensure images align properly */
+    ul.custom li img {
+      max-width: 39%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="title">Classification of Fixed Points</div>
+
+    <div class="slide">
+        <div class="description">
+            <p>
+                <span class="sql">Two-dimensional systems:</span>
+
+                \[
+                \dot{x} = f(x, y)
+                \]
+                \[
+                \dot{y} = g(x, y)
+                \]
+                
+                <ul>
+                <li>For stability, look at <span class="sql">Jacobian</span><br> \( J = \begin{bmatrix}
+                \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} \\
+                \frac{\partial g}{\partial x} & \frac{\partial g}{\partial y}
+                \end{bmatrix} \)</li>
+                
+                <li>\( J \Rightarrow \lambda_1, \lambda_2 \): eigenvalues</li>
+                <li>\( \ell_1, \ell_2 \): eigenvectors</li>
+                </ul>
+            </p>
+        </div>
+        
+      <div class="description">
+        <ul class="custom">
+          <li>
+            \( \lambda_1, \lambda_2 \) real, positive → unstable node
+            <img src="Figures/Lecture8A_UnstableNode.png" alt="UnstableNode">
+          </li>
+          <li>
+            \( \lambda_1, \lambda_2 \) real, negative → stable node
+            <img src="Figures/Lecture8A_StableNode.png" alt="StableNode" style="max-width: 23%; height: auto; display: block; margin: auto;">
+          </li>
+          <li>
+            \( \lambda_1 > 0, \lambda_2 < 0 \) → saddle node
+            <img src="Figures/Lecture8A_SaddleNode.png" alt="SaddleNode" style="max-width: 23%; height: auto; display: block; margin: auto;">
+          </li>
+          <li>
+            \( \lambda_1, \lambda_2 \) pure imaginary → center
+            <img src="Figures/Lecture8A_Centre.png" alt="Centre" style="max-width: 23%; height: auto; display: block; margin: auto;">
+          </li>
+          <li>
+            \( \lambda_1, \lambda_2 = \lambda_R \pm i \lambda_I \), \( \lambda_R > 0 \) → unstable spiral
+            <img src="Figures/Lecture8A_UnstableSpiral.png" alt="UnstableSpiral" style="max-width: 18%; height: auto; display: block; margin: auto;">
+          </li>
+          <li>
+            \( \lambda_1, \lambda_2 = \lambda_R \pm i \lambda_I \), \( \lambda_R < 0 \)  → stable spiral
+            <img src="Figures/Lecture8A_StableSpiral.png" alt="StableSpiral" style="max-width: 20%; height: auto; display: block; margin: auto;">
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <a href="Lecture8ASlide25.html" class="nav-button left">&#9664;</a>
+    <a href="Lecture8ASlide27.html" class="nav-button right">&#9654;</a>
+  </div>
+</body>
+</html>

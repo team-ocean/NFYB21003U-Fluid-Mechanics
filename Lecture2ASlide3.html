@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle and Field Descriptions of Fluid Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        .description {
+            text-align: left;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Boundary Value Problems and Boundary Conditions</div>
+
+        <div class="slide">
+            <div class="description">
+                <p><span class="sql">Definition:</span> A second-order <span style="text-decoration: underline">boundary value problem</span> in the (unknown) variable \( y(x) \) on \( [L, R] \) is a system of the form:</p>               
+                \[
+                \begin{cases}
+                -(p(x) y'(x))' + r(x) y'(x) + q(x) y(x) = f(x), & L \leq x \leq R, \\[8pt]
+                a_L y(L) + b_L y'(L) = c_L, & \\[8pt]
+                a_R y(R) + b_R y'(R) = c_R, & 
+                \end{cases}
+                \]
+                <p>where the last two equations are called <span style="text-decoration: underline">boundary conditions</span> and all constants and functions are known.</p>
+                <p>You may assume \( p(x) > 0 \) and \( q(x) \geq 0 \).</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="description">
+                <p><span class="sql">Definition:</span> Assume a boundary condition of the form:</p>               
+                \[
+                a_L y(L) + b_L y'(L) = c_L,
+                \]
+                <p>The classification of the boundary condition depends on the values of \( a_L \) and \( b_L \):</p>
+                <p>If \( a_L \neq 0, b_L = 0 \), we call it a <span class="sql">Dirichlet</span> boundary condition.</p>
+                <p>If \( a_L = 0, b_L \neq 0 \), we call it a <span class="sql">Neumann</span> boundary condition.</p>
+                <p>If \( a_L \neq 0, b_L \neq 0 \), we call it a <span class="sql">Robin</span> or <span class="sql">mixed</span> boundary condition.</p>
+            </div>
+        </div>
+        
+        
+        <!-- Navigation Buttons -->
+        <a href="Lecture2ASlide2.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture2ASlide4.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

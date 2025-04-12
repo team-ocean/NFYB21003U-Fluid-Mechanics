@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From Leibniz's Theorem to Reynolds Transport Theorem</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            TeX: { extensions: ["cancel.js"] }
+        });
+    </script>
+    <style>
+        .description {
+            font-size: 14px;
+            line-height: 1.2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">From Leibniz's Theorem to the Reynolds Transport Theorem</div>
+
+        <div class="slide">
+        <div class="description">
+            <p>For \( \Delta t \to 0 \), approximate the integral: \( \int_{V^*(t+\Delta t)} F(\mathbf{x},t+\Delta t) dV \approx \int_{V^*(t)} F(\mathbf{x},t) dV + \int_{V^*(t)} \Delta t \frac{\partial F(\mathbf{x},t)}{\partial t} dV + \int_{\Delta V} F(\mathbf{x},t) dV + \int_{\Delta V} \Delta t \frac{\partial F(\mathbf{x},t)}{\partial t} dV\)</p>
+        </div>
+        <div class="description">
+            <p>This simplifies to: 
+                \[
+                \frac{d}{dt} \int_{V^*(t)} F(\mathbf{x},t) \, dV =
+                \lim_{\Delta t \to 0} \frac{1}{\Delta t} 
+                \left\{ \int_{V^*(t)} \Delta t \frac{\partial F(\mathbf{x},t)}{\partial t} \, dV
+                + \int_{\Delta V} F(\mathbf{x},t) \, dV \right\}
+                \]</p>
+                <p>   and this limit may be taken once the relationship between  \( \Delta V\) and  \( \Delta t\) is known.</p>
+        </div>
+        <p>Substituting into the time derivative equation: \( \frac{d}{dt} \int_{V^*(t)} F(\mathbf{x},t) dV = \lim\limits_{\Delta t \to 0} \frac{1}{\Delta t} \left( \int_{V^*(t+\Delta t)} F(\mathbf{x},t+\Delta t) dV - \int_{V^*(t)} F(\mathbf{x},t) dV \right)\)</p>
+        <p>Rearranging:</p>
+        <p style="font-size: 13px; line-height: 1.1;"> \( \frac{d}{dt} \int_{V^*(t)} F(\mathbf{x},t) dV = \lim\limits_{\Delta t \to 0} \frac{1}{\Delta t} \bigg( \cancel{\int_{V^*(t)} F(\mathbf{x},t) dV} + \int_{V^*(t)} \Delta t \frac{\partial F(\mathbf{x},t)}{\partial t} dV + \int_{\Delta V} F(\mathbf{x},t) dV + \int_{\Delta V} \Delta t \frac{\partial F(\mathbf{x},t)}{\partial t} dV - \cancel{\int_{V^*(t)} F(\mathbf{x},t) dV} \bigg)\)</p>
+        <p>Since \( \Delta t \) is a constant factor: \( \frac{d}{dt} \int_{V^*(t)} F(\mathbf{x},t) dV = \lim\limits_{\Delta t \to 0} \left( \int_{V^*(t)} \frac{\partial F(\mathbf{x},t)}{\partial t} dV + \frac{1}{\Delta t} \int_{\Delta V} F(\mathbf{x},t) dV + \int_{\Delta V} \frac{\partial F(\mathbf{x},t)}{\partial t} dV \right)\)</p>
+        <p>Since \( \int_{\Delta V} \frac{\partial F(\mathbf{x},t)}{\partial t} dV \) is of order \( \mathcal{O}(\Delta t) \), it vanishes as \( \Delta t \to 0 \), leading to the final equation: \( \frac{d}{dt} \int_{V^*(t)} F(\mathbf{x},t) dV = \int_{V^*(t)} \frac{\partial F(\mathbf{x},t)}{\partial t} dV + \lim\limits_{\Delta t \to 0} \frac{1}{\Delta t} \int_{\Delta V} F(\mathbf{x},t) dV\)</p>
+        <p>This simplifies to: \( \frac{d}{dt} \int_{V^*(t)} F(\mathbf{x},t) dV = \int_{V^*(t)} \frac{\partial F(\mathbf{x},t)}{\partial t} dV + \int_{\Delta V} F(\mathbf{x},t) dV\)</p>
+        </div>
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture1BSlide6.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture1BSlide8.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>
+

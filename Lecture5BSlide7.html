@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 70%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 50%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .blue-box {
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .figure-row {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* spacing between images */
+            margin-top: 10px;
+        }
+
+        .small-img {
+            max-width: 25%;
+            height: auto;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">The Stommel model</div>
+
+        <div class="slide">
+
+            <div class="slide">
+                <div class="description">
+                <p>Equation \(\beta \overline{v} = \text{curl}_z(\boldsymbol{\tau}_T - \boldsymbol{\tau}_B)\) then becomes</p>
+                \[
+                \beta \overline{v} = -r \overline{\zeta} + F_T(x, y) 
+                \]
+                </div>
+            
+                <p>
+                \(
+                \because \beta \overline{v} = \text{curl}_z(\boldsymbol{\tau}_T - \boldsymbol{\tau}_B)
+                \)<br>
+
+                \(
+                \text{The top stress is the wind stress \(\text{curl}_z(\boldsymbol{\tau}_T) = F_T(x, y)\) where \( F_T \) is a known forcing (wind stress curl)}
+                \)
+
+                \(
+                \text{The bottom stress is parameterized by linear Rayleigh drag \(\boldsymbol{\tau}_B = r \, \overline{\mathbf{u}} \Rightarrow \text{curl}_z(\boldsymbol{\tau}_B) = r \, \overline{\zeta}\) }
+                \)<br>
+
+                \(
+                \text{where \( \overline{\zeta} = \frac{\partial \overline{v}}{\partial x} - \frac{\partial \overline{u}}{\partial y} \) is the vertically integrated relative vorticity}
+                \)
+
+                \(
+                \therefore \beta \overline{v} = \text{curl}_z(\boldsymbol{\tau}_T) - \text{curl}_z(\boldsymbol{\tau}_B) = F_T(x, y) - r \, \overline{\zeta} \Rightarrow \boxed{\beta \overline{v} = -r \, \overline{\zeta} + F_T(x, y)}    
+                \)
+
+                </p>
+
+                <div class="description">
+                    <p>Because the velocity is divergence-free, define a streamfunction \( \psi \) such that  
+                        \(
+                        \overline{u} = -\frac{\partial \psi}{\partial y}, \quad \overline{v} = \frac{\partial \psi}{\partial x}
+                        \)
+                        
+                        \(\beta \overline{v} = -r \overline{\zeta} + F_T(x, y) \) then becomes
+                        \(
+                        r \nabla^2 \psi + \beta \frac{\partial \psi}{\partial x} = F_T(x, y)
+                        \)
+                </div>
+                <p>
+                    \(
+                    \because \text{Assuming the vertically integrated velocity field is incompressible \(\nabla \cdot \overline{\mathbf{u}} = \frac{\partial \overline{u}}{\partial x} + \frac{\partial \overline{v}}{\partial y} = 0\)}, \overline{u} = -\frac{\partial \psi}{\partial y}, \overline{v} = \frac{\partial \psi}{\partial x}
+                    \)<br>
+
+                    \(
+                    \therefore \overline{\zeta} = \frac{\partial \overline{v}}{\partial x} - \frac{\partial \overline{u}}{\partial y} = \frac{\partial^2 \psi}{\partial x^2} + \frac{\partial^2 \psi}{\partial y^2} = \nabla^2 \psi
+                    \)<br>
+
+                    \(
+                    \therefore \beta \frac{\partial \psi}{\partial x} = -r \nabla^2 \psi + F_T(x, y) \Rightarrow \boxed{r \nabla^2 \psi + \beta \frac{\partial \psi}{\partial x} = F_T(x, y)}
+                    \)
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture5BSlide6.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture5BSlide8.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

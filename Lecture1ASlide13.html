@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Material Derivative and Acceleration Components</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript">
+        MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']], /* Ensures inline equations render correctly */
+                displayMath: [['\\[', '\\]']] /* Ensures block equations render correctly */
+            }
+        };
+    </script>
+    <script type="text/javascript" async 
+        src="https://polyfill.io/v3/polyfill.min.js?features=es6">
+    </script>
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js">
+    </script>
+
+    <style>
+        /* Ensure bullet points align left */
+        ul {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+        ul li {
+            position: relative;
+            padding-left: 25px; /* Ensure space for custom bullet */
+            text-align: left; /* Ensure text starts from the left */
+        }
+        ul li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Blue bullet */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align bullet with text */
+            display: block; /* Ensures the bullet aligns properly with text */
+        }
+        p {
+            text-align: left; /* Ensure all paragraphs are left-aligned */
+        }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        Material Derivative and Acceleration Components
+        
+        <div class="slide">
+            <div class="description">
+
+                <p>The previous material derivative equation is a vector equation. As with all vector equations, it may be written in scalar component equations. Relative to an \( xyz \) coordinate system, the scalar components of the equation are written:</p>
+
+                \[
+                a_{x_p} = \frac{D v_x}{D t} = v_x \frac{\partial v_x}{\partial x} + v_y \frac{\partial v_x}{\partial y} + v_z \frac{\partial v_x}{\partial z} + \frac{\partial v_x}{\partial t}
+                \]
+
+                \[
+                a_{y_p} = \frac{D v_y}{D t} = v_x \frac{\partial v_y}{\partial x} + v_y \frac{\partial v_y}{\partial y} + v_z \frac{\partial v_y}{\partial z} + \frac{\partial v_y}{\partial t}
+                \]
+
+                \[
+                a_{z_p} = \frac{D v_z}{D t} = v_x \frac{\partial v_z}{\partial x} + v_y \frac{\partial v_z}{\partial y} + v_z \frac{\partial v_z}{\partial z} + \frac{\partial v_z}{\partial t}
+                \]
+            </div>
+        </div>
+
+        <!-- Left Arrow to go back to Slide 13 -->
+        <a href="Lecture1ASlide12.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide 15 -->
+        <a href="Lecture1ASlide14.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>
+

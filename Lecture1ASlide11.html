@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceleration of Fluid Particles in a Velocity Field (Fluid translation)</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script type="text/javascript" async 
+        src="https://polyfill.io/v3/polyfill.min.js?features=es6">
+    </script>
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Fluid Acceleration in a Velocity Field</div>
+
+        <div class="slide">
+            <div class="description">
+                <p><span class="sql">Acceleration of Fluid Particles:</span> The translation of a fluid particle is directly related to the velocity field $ \mathbf{V} $. However, computing acceleration as $ d \mathbf{V} / dt $ directly is incorrect because $ \mathbf{V} = \mathbf{V}(x, y, z, t) $ is a field, describing the entire flow rather than just an individual particle.</p>
+                
+                <p>The problem is to determine the acceleration of a fluid particle as it moves in a flow field:</p>
+            </div>
+
+        <div class="slide">
+                <p><strong>Given the velocity field:</strong> $ \mathbf{V} = \mathbf{V}(x, y, z, t) $, find the acceleration $ \mathbf{a}_p $ of a fluid particle</p>
+
+                <p>At time $ t $, a particle at position $ (x, y, z) $ has a velocity: $ \mathbf{V}_p |_{t} = \mathbf{V}(x, y, z, t) $</p>
+                
+                <p>At $ t + dt $, the particle moves to $ (x + dx, y + dy, z + dz) $ and its velocity becomes: $ \mathbf{V}_p |_{t+dt} = \mathbf{V}(x + dx, y + dy, z + dz, t + dt) $</p>
+
+                <p>Using the chain rule, the change in velocity is given by: 
+                $ d \mathbf{V}_p = \frac{\partial \mathbf{V}}{\partial x} dx_p + \frac{\partial \mathbf{V}}{\partial y} dy_p + \frac{\partial \mathbf{V}}{\partial z} dz_p + \frac{\partial \mathbf{V}}{\partial t} dt $</p>
+
+                <p>Thus, the total acceleration of the fluid particle is: 
+                $ \mathbf{a}_p = \frac{d \mathbf{V}_p}{dt} = \frac{\partial \mathbf{V}}{\partial x} \frac{dx_p}{dt} + \frac{\partial \mathbf{V}}{\partial y} \frac{dy_p}{dt} + \frac{\partial \mathbf{V}}{\partial z} \frac{dz_p}{dt} + \frac{\partial \mathbf{V}}{\partial t} $</p>
+
+                <p>Since $ \frac{dx_p}{dt} = v_x $, $ \frac{dy_p}{dt} = v_y $, and $ \frac{dz_p}{dt} = v_z $, the acceleration equation simplifies to:</p>
+        <div class="slide">
+            <div class="description">
+                </p>$ \mathbf{a}_p = v_x \frac{\partial \mathbf{V}}{\partial x} + v_y \frac{\partial \mathbf{V}}{\partial y} + v_z \frac{\partial \mathbf{V}}{\partial z} + \frac{\partial \mathbf{V}}{\partial t} $</p>
+
+            </div>
+        </div>
+
+        <!-- Left Arrow to go back to Slide 10 -->
+        <a href="Lecture1ASlide10.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide 12 -->
+        <a href="Lecture1ASlide12.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>
+
+
+

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle and Field Descriptions of Fluid Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        .description {
+            text-align: left;
+            font-size: 16px;
+        }
+        ul.custom {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 0;
+        gap: 10px 40px; /* space between items and between rows */
+        }
+
+        ul.custom li {
+        flex: 0 0 45%; /* 2 items per row */
+        display: flex;
+        align-items: center;
+        }
+
+        ul.custom li::before {
+        content: "❆";
+        color: #7DCDF4;
+        margin-right: 10px;
+        font-size: 1.2em;
+        font-family: "Segoe UI Symbol", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Example 1D system </div>
+
+        <div class="description">
+            <p>One of the most basic techniques of dynamics: <span class="sql">interpreting a differential equation as a vector field</span></p>
+
+            <p>Consider \(\dot{x} = \sin x\)</p>
+
+        
+        </div>
+
+        <p>
+            Separate the variables and then integrate: \(dt = \frac{dx}{\sin x}\)<br>
+
+            \(\Rightarrow dt = \frac{dx}{\sin x}, dt = \csc x \, dx \Rightarrow \int dt = \int \csc x \, dx \Rightarrow t = \int \csc x \, dx \)<br>
+
+            which implies \(t = \int \csc x \, dx = -\ln|\csc x + \cot x| + C\)<br>
+
+            To evaluate the constant \( C \), suppose \( x = x_0 \) at \( t = 0 \)<br>
+            
+            Then \( C = \ln |\csc x_0 + \cot x_0| \)<br>
+            
+            Hence the solution is \(t = \ln \left| \frac{\csc x_0 + \cot x_0}{\csc x + \cot x} \right|\)<br>
+
+            This result is exact, but a headache to interpret<br>
+
+        </p>
+
+        <div class="description">
+                
+                <div class="image-container" style="text-align: center;">
+                    <p>\[
+                        \dot{x} = \sin x
+                        \]</p>
+                        <img src="Figures/Lecture8A_Sin1DExample.png" alt="Sin1DExample" style="max-width: 50%; height: auto; display: block; margin: auto;">
+
+                </div>
+        
+        </div>
+
+        <p>Think of \( t \) as time, \( x \) as the position of an imaginary particle moving along the real line, and \( \dot{x} \) as the velocity of that particle. Then the differential equation \( \dot{x} = \sin x \) represents a <span class="sql">vector field</span> on the line:
+            it dictates the velocity vector \( \dot{x} \) at each \( x \). To sketch the vector field, it is convenient to plot \( \dot{x} \) versus \( x \), and then draw arrows on the \( x \)-axis to indicate the corresponding velocity vector at each \( x \)</p> 
+            <p>The arrows point to the right when \( \dot{x} > 0 \) and to the left when \( \dot{x} < 0 \)</p>
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <p class="footnote"><sup>1</sup>Some food for thought: Strogatz, S.H. (2015). Nonlinear Dynamics and Chaos: With Applications to Physics, Biology, Chemistry, and Engineering (2nd ed.). CRC Press.</p>
+            </p>
+        </div>
+                
+        <!-- Navigation Buttons -->
+        <a href="Lecture8ASlide5.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture8ASlide7.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

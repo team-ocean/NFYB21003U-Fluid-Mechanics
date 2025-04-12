@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Material Derivative and Acceleration Components</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript">
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$']], /* Ensures inline equations render correctly */
+                displayMath: [['$$', '$$']] /* Ensures block equations render correctly */
+            }
+        };
+    </script>
+    <script type="text/javascript" async 
+        src="https://polyfill.io/v3/polyfill.min.js?features=es6">
+    </script>
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js">
+    </script>
+
+    <style>
+        /* Ensure bullet points align left */
+        ul {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+        ul li {
+            position: relative;
+            padding-left: 25px; /* Ensure space for custom bullet */
+            text-align: left; /* Ensure text starts from the left */
+        }
+        ul li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Blue bullet */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align bullet with text */
+            display: block; /* Ensures the bullet aligns properly with text */
+        }
+        p {
+            text-align: left; /* Ensure all paragraphs are left-aligned */
+        }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        Material Derivative and Acceleration Components
+        
+        <div class="slide">
+            <div class="description">
+                <p>The previous material derivative equation is a vector equation. As with all vector equations, it may be written in scalar component equations. Relative to an $xyz$ coordinate system, the scalar components of the equation are written:</p>
+
+                <p>$ a_{x_p} = \frac{D v_x}{D t} = v_x \frac{\partial v_x}{\partial x} + v_y \frac{\partial v_x}{\partial y} + v_z \frac{\partial v_x}{\partial z} + \frac{\partial v_x}{\partial t} $,</p>
+
+                <p>$ a_{y_p} = \frac{D v_y}{D t} = v_x \frac{\partial v_y}{\partial x} + v_y \frac{\partial v_y}{\partial y} + v_z \frac{\partial v_y}{\partial z} + \frac{\partial v_y}{\partial t} $,</p>
+
+                <p>$ a_{z_p} = \frac{D v_z}{D t} = v_x \frac{\partial v_z}{\partial x} + v_y \frac{\partial v_z}{\partial y} + v_z \frac{\partial v_z}{\partial z} + \frac{\partial v_z}{\partial t} $.</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <p>The previous result is often written in shorthand notation as: $ \vec{a} = \frac{D \vec{V}}{D t} $</p>
+        </div>
+
+        <div class="slide">
+            <p>where the operator:  
+            $ \frac{D( \ )}{D t} = \frac{\partial ( \ )}{\partial t} + v_x \frac{\partial ( \ )}{\partial x} + v_y \frac{\partial ( \ )}{\partial y} + v_z \frac{\partial ( \ )}{\partial z} $</p>
+
+            <p>It is termed the <em>material derivative</em> or <em>substantial derivative</em>. An often-used shorthand notation for the material derivative operator is:  
+            $ \frac{D( \ )}{D t} = \frac{\partial ( \ )}{\partial t} + ( \vec{V} \cdot \nabla )( \ ) $</p>
+        </div>
+
+        <div class="slide">
+            <p>The dot product of the velocity vector, $ \vec{V} $, and the gradient operator, $ \nabla ( \ ) $, provides a convenient notation for the spatial derivative terms appearing in the Cartesian coordinate representation of the material derivative.</p>
+
+            <p>Note that the notation $ \vec{V} \cdot \nabla ( \ ) $ represents the operator:  
+            $ \vec{V} \cdot \nabla ( \ ) = v_x \frac{\partial ( \ )}{\partial x} + v_y \frac{\partial ( \ )}{\partial y} + v_z \frac{\partial ( \ )}{\partial z} $</p>
+
+            <p>Substituting this into the material derivative, we get:  
+            $ \frac{D( \ )}{D t} = \frac{\partial ( \ )}{\partial t} + \vec{V} \cdot \nabla ( \ ) $</p>
+
+            <p>This compact notation is frequently used in fluid mechanics to express acceleration and other time-dependent properties of fluid motion.</p>
+        </div>
+
+        <!-- Left Arrow to go back to Slide 13 -->
+        <a href="Lecture1ASlide13.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide 15 -->
+        <a href="Lecture1ASlide15.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>
+

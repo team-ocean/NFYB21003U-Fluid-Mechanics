@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        ul {
+        list-style: none;       /* Keep custom style if needed */
+        padding: 0;
+        margin: 0;
+        }
+
+        ul li {
+        margin-bottom: 10px;    /* Adds space between list items */
+        }
+
+
+        .custom-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        }
+
+        .custom-list li {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 8px; /* Optional spacing between bullet points */
+        }
+
+        .custom-list li::before {
+        content: "■"; /* Unicode for small square */
+        color: #7DCDF4;
+        font-size: 14px;
+        position: absolute;
+        left: 0;
+        top: 2px;
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 110%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 110%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .blue-box {
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">The Jacobi Matrix</div>
+
+        <div class="slide">
+
+            <div class="description">
+                <p>
+                    <span class="sql">The Jacobi Matrix:</span>
+                    Using \(\mathrm{d}f(x)h = \frac{\partial f}{\partial x^1}(x) h^1 + \cdots + \frac{\partial f}{\partial x^m}(x) h^m\), we derive the coordinate representation of the differential for a vector-valued function \( f : E \to \mathbb{R}^n \), with \( E \subset \mathbb{R}^m \), as  
+                    \[
+                    \mathrm{d}f(x) h =
+                    \begin{pmatrix}
+                    \mathrm{d}f^1(x) h \\
+                    \vdots \\
+                    \mathrm{d}f^n(x) h
+                    \end{pmatrix}
+                    =
+                    \begin{pmatrix}
+                    \partial_i f^1(x) h^i \\
+                    \vdots \\
+                    \partial_i f^n(x) h^i
+                    \end{pmatrix}
+                    =
+                    \begin{pmatrix}
+                    \frac{\partial f^1}{\partial x^1}(x) & \cdots & \frac{\partial f^1}{\partial x^m}(x) \\
+                    \vdots & \ddots & \vdots \\
+                    \frac{\partial f^n}{\partial x^1}(x) & \cdots & \frac{\partial f^n}{\partial x^m}(x)
+                    \end{pmatrix}
+                    \begin{pmatrix}
+                    h^1 \\
+                    \vdots \\
+                    h^m
+                    \end{pmatrix}
+                    \]
+                </p>
+            </div>
+
+            <div class="description">
+                <p>
+                    The matrix \(\left( \partial_i f^j(x) \right), (i = 1, \dots, m,\ j = 1, \dots, n)\) of partial 
+                    derivatives of the coordinate functions of a given mapping at the point \( x \in E \), 
+                    is called the <span class="sql">Jacobi matrix</span> or the <span class="sql">Jacobian</span> of the mapping at that point
+                </p>
+            </div>
+
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <p class="footnote"><sup>1</sup>Zorich, V.A. (2015). The Differential Calculus of Functions of Several Variables. In: Mathematical Analysis I. Universitext. Springer, Berlin, Heidelberg.</p>
+            </p>
+        </div>
+
+
+        </div>
+
+        <!-- Navigation Buttons -->
+        <a href="Lecture8ASlide23.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture8ASlide25.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

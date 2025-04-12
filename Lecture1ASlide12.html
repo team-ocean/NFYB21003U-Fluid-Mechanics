@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceleration of Fluid Particles in a Velocity Field (Fluid translation)</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript">
+        MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']], /* Ensures inline equations render correctly */
+                displayMath: [['\\[', '\\]']] /* Ensures block equations render correctly */
+            }
+        };
+    </script>
+    <script type="text/javascript" async 
+        src="https://polyfill.io/v3/polyfill.min.js?features=es6">
+    </script>
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js">
+    </script>
+
+    <style>
+        /* Ensure bullet points align left */
+        ul {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+        ul li {
+            position: relative;
+            padding-left: 25px; /* Ensure space for custom bullet */
+            text-align: left; /* Ensure text starts from the left */
+        }
+        ul li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Blue bullet */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align bullet with text */
+            display: block; /* Ensures the bullet aligns properly with text */
+        }
+        p {
+            text-align: left; /* Ensure all paragraphs are left-aligned */
+        }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        Fluid Acceleration in a Velocity Field
+        <div class="slide">
+            <p>The derivative, \( D/Dt \), defined by the previous slide, is commonly called the <em>substantial derivative</em> to remind us that it is computed for a particle of "substance." It is often also called the <em>material derivative</em> or <em>particle derivative</em>.</p>
+
+            <p>The physical significance of the terms is:  
+            \( \underbrace{\frac{D \vec{V}}{D t} = \vec{a}_p}_{\text{total acceleration of a particle}} = 
+            \underbrace{ v_x \frac{\partial \vec{V}}{\partial x} + v_y \frac{\partial \vec{V}}{\partial y} + v_z \frac{\partial \vec{V}}{\partial z} }_{\text{convective acceleration}} +
+            \underbrace{ \frac{\partial \vec{V}}{\partial t} }_{\text{local acceleration}} \)</p>
+        </div>
+
+        <div class="slide">
+            <p>We recognize that a fluid particle moving in a flow field may undergo acceleration for either of two reasons:</p>
+            <ul>
+                <li>A steady flow convects particles toward a low-velocity region and then away to a high-velocity region.</li>
+                <li>If a flow field is unsteady, a fluid particle will undergo an additional local acceleration because the velocity field is a function of time.</li>
+            </ul>
+
+            <p>The convective acceleration can be rewritten using the gradient operator \( \nabla \):  
+            \( v_x \frac{\partial \vec{V}}{\partial x} + v_y \frac{\partial \vec{V}}{\partial y} + v_z \frac{\partial \vec{V}}{\partial z} = (\vec{V} \cdot \nabla) \vec{V} \)</p>
+
+            <p>where \( \cdot \) is the dot product. Thus, the material derivative may be rewritten as:  
+            \( \frac{D \vec{V}}{D t} = \vec{a}_p = (\vec{V} \cdot \nabla) \vec{V} + \frac{\partial \vec{V}}{\partial t} \)</p>
+        </div>
+
+        <div class="slide">
+            <div class="description">
+                <p>For a steady flow in three dimensions, the equation simplifies to:  
+                \( \frac{D \vec{V}}{D t} = \vec{a}_p = (\vec{V} \cdot \nabla) \vec{V} \)</p>
+            <p>which is not necessarily zero even though the flow is steady. <strong>Thus, a fluid particle may undergo a convective acceleration due to its motion, even in a steady velocity field.</strong></p>
+            </div>
+        </div>
+
+        <!-- Left Arrow to go back to Slide 11 -->
+        <a href="Lecture1ASlide11.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide 13 -->
+        <a href="Lecture1ASlide13.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>
+
+
+
+
+

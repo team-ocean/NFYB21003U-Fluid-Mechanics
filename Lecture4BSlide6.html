@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Boundary Layer Theory</div>
+                
+        <div class="slide">
+                
+            <div class="description">              
+                <p>Here the surface may be curved but its radius of curvature is assumed to be much larger than the boundary-layer thickness. We shall refer to the solution of the irrotational flow outside the boundary layer as the <span class="sql">outer</span> problem and that of the boundary-layer flow as the <span class="sql">inner</span> problem</p>  
+            </div>
+                
+            <div class="description">              
+                <p>According to the boundary-layer theory, when a fluid flows past an object, <span class="sql">frictional effects</span> are significant only in a thin region close to the wall, where large transverse gradients of velocity exist. 
+                Within this <span class="sql">thin boundary layer</span>, the <span class="sql">velocity rises</span> rapidly from zero at the wall to the freestream value at its edge</p>  
+            </div>
+
+
+            <div class="description">              
+                <p>For a thin boundary layer that is contiguous to the solid surface on which it has formed, the full equations of motion for a constant-density constant-viscosity fluid,</p>  
+                <ul>
+                    <li>Continuity Equation (Incompressible flow condition):
+                        \(
+                        \nabla \cdot \mathbf{u} = 0
+                        \)</li>
+                    <li>Navier-Stokes Equation (Momentum equation for a Newtonian fluid):
+                        \(
+                        \frac{D\mathbf{u}}{Dt} = -\frac{1}{\rho} \nabla p + \nu \nabla^2 \mathbf{u}
+                        \)</li>
+                </ul>
+                <p>may be simplified</p>
+            </div>
+
+
+            <p>Let \( \bar{\delta} (x) \) be the average thickness of the boundary layer at downstream location \( x \) on the surface of a body having a local radius of curvature \( R \). The steady-flow momentum equation for the surface-parallel velocity component, \( u \),  is</p>
+
+            \(
+            u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} = -\frac{1}{\rho} \frac{\partial p}{\partial x} + \nu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right)
+            \)
+            
+            <p>which is valid when \( \bar{\delta} / R \ll 1 \)</p>
+
+            <p>The normal pressure gradient \( \frac{\partial p}{\partial y} \) is negligible due to the boundary layer thickness \( \delta \):</p>
+
+            \(
+                -\frac{1}{\rho} \frac{\partial p}{\partial y} = \mathcal{O}(\delta)
+            \)
+
+            <p>This is a key assumption in boundary layer theory</p>
+                 
+            </div>
+                
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>S. Goldstein (Ed.), Modern Developments in Fluid Dynamics (Page 114), Oxford University Press, London (1938)
+            </p>
+            </div>
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture4BSlide5.html" class="nav-button left">&#9664;</a>
+                
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture4BSlide7.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

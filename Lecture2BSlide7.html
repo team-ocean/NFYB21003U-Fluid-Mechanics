@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equations of Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript">
+        window.MathJax = {
+            tex: {
+                displayMath: [['\\[', '\\]'], ['$$', '$$']]
+            },
+            chtml: {
+                displayAlign: "left"  // Force left alignment
+            }
+        };
+    </script>
+    <script type="text/javascript" async 
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
+
+    <style>
+        /* Ensure all text and equations are left-aligned */
+        body {
+            text-align: left;
+            margin-left: 20px;  /* Add some left margin for better readability */
+        }
+
+        .description {
+            text-align: left;
+        }
+        p {
+            text-align: left;
+        }
+        /* Force MathJax equations to be left-aligned */
+        .MathJax_Display {
+            text-align: left !important;
+            display: block !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Noninertial Frame of Reference</div>
+
+        <div class="slide">
+            <div class="description">
+                <p>The velocity \( \mathbf{u} \) of the fluid particle is obtained by time differentiation: </p>
+                \[
+                \mathbf{u} = \frac{d\mathbf{x}}{dt} = \frac{d\mathbf{X}}{dt} + \frac{d\mathbf{x'}}{dt} = \mathbf{U} + \frac{d}{dt} \left( x'_1 \mathbf{e}'_1 + x'_2 \mathbf{e}'_2 + x'_3 \mathbf{e}'_3 \right)
+                \]
+            
+                \[
+                = \mathbf{U} + {\frac{dx'_1}{dt} \mathbf{e}'_1 + \frac{dx'_2}{dt} \mathbf{e}'_2 + \frac{dx'_3}{dt} \mathbf{e}'_3} 
+                + {x'_1 \frac{d\mathbf{e}'_1}{dt} + x'_2 \frac{d\mathbf{e}'_2}{dt} + x'_3 \frac{d\mathbf{e}'_3}{dt}}
+                \]
+            
+                \[
+                = \mathbf{U} + \mathbf{u'} + \mathbf{\Omega} \times \mathbf{x'}
+                \]
+            </div>
+
+            <div class="description">
+                <p>To find the acceleration \( \mathbf{a} \) of a fluid particle at P, take the time derivative to find: </p>     
+                \[
+                \mathbf{a} = \frac{d \mathbf{u}}{dt} = \frac{d}{dt} \left( \mathbf{U} + \mathbf{u}' + \boldsymbol{\Omega} \times \mathbf{x}' \right) = \frac{d \mathbf{U}}{dt} + \mathbf{a}' + 2 \boldsymbol{\Omega} \times \mathbf{u}' + \frac{d \boldsymbol{\Omega}}{dt} \times \mathbf{x}' + \boldsymbol{\Omega} \times (\boldsymbol{\Omega} \times \mathbf{x}') 
+                \]
+            </div>
+
+            <p>
+                \(\because\) \( \frac{d\mathbf{x}'}{dt} = \mathbf{u}' + \boldsymbol{\Omega} \times \mathbf{x}' \), defined the velocity in the rotating frame, differentiate \( \mathbf{u} \) to find:  
+                \[
+                \mathbf{a} = \frac{d \mathbf{u}}{dt} = \frac{d \mathbf{U}}{dt} + \frac{d \mathbf{u}'}{dt} + \frac{d}{dt} \left( \boldsymbol{\Omega} \times \mathbf{x}' \right)
+                \]
+                Expanding each term,  
+                \[
+                \mathbf{a} = \frac{d \mathbf{U}}{dt} + \frac{d}{dt} ( u'_1 \mathbf{e}'_1 + u'_2 \mathbf{e}'_2 + u'_3 \mathbf{e}'_3 ) + \frac{d \boldsymbol{\Omega}}{dt} \times \mathbf{x}' + \boldsymbol{\Omega} \times \frac{d \mathbf{x}'}{dt}
+                \]
+
+                \(\therefore\) \(\mathbf{a} = \frac{d \mathbf{U}}{dt} + 
+                \underbrace{\frac{d u'_1}{dt} \mathbf{e}'_1 + \frac{d u'_2}{dt} \mathbf{e}'_2 + \frac{d u'_3}{dt} \mathbf{e}'_3}_{\text{Fluid particle acceleration } \mathbf{a}' \text{ in non-inertial frame}}
+                + \underbrace{u'_1 \frac{d \mathbf{e}'_1}{dt} + u'_2 \frac{d \mathbf{e}'_2}{dt} + u'_3 \frac{d \mathbf{e}'_3}{dt}}_{\text{Time derivatives of unit vectors}}
+                + \frac{d \boldsymbol{\Omega}}{dt} \times \mathbf{x}' + \boldsymbol{\Omega} \times (\mathbf{u}' + \boldsymbol{\Omega} \times \mathbf{x}')
+                \)
+                \(\because\) The time derivatives of the unit vectors can be rewritten in terms of a cross product,
+                \[
+                u'_1 \frac{d \mathbf{e}'_1}{dt} + u'_2 \frac{d \mathbf{e}'_2}{dt} + u'_3 \frac{d \mathbf{e}'_3}{dt} = \boldsymbol{\Omega} \times \mathbf{u}'
+                \]
+                \(\therefore\) Simplifies to:  
+                \(
+                \mathbf{a} = \frac{d \mathbf{u}}{dt} = \frac{d}{dt} \left( \mathbf{U} + \mathbf{u}' + \boldsymbol{\Omega} \times \mathbf{x}' \right) = \frac{d \mathbf{U}}{dt} + \mathbf{a}' + 2 \boldsymbol{\Omega} \times \mathbf{u}' + \frac{d \boldsymbol{\Omega}}{dt} \times \mathbf{x}' + \boldsymbol{\Omega} \times (\boldsymbol{\Omega} \times \mathbf{x}') 
+                \)
+            </p>
+            
+            
+        </div>
+
+        <!-- Left Arrow to go back to Slide x -->
+        <a href="Lecture2BSlide6.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide x -->
+        <a href="Lecture2BSlide8.html" class="nav-button right">&#9654;</a>
+    </div>
+</body> 
+</html>

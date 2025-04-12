@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle and Field Descriptions of Fluid Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        .description {
+            text-align: left;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Linear Stability Analysis</div>
+    
+        <div class="slide">
+        <div class="description">
+        <p>To have a more quantitative measure of stability, such as the rate of decay to a stable fixed point. This sort of information may be obtained by <span class="sql">linearizing</span> about a fixed point</p>
+        </div>
+
+        <p>Let \( x^* \) be a fixed point, and let \( \eta(t) = x(t) - x^* \) be a small perturbation away from \( x^* \). To see whether the perturbation grows or decays, derive a differential equation for \( \eta \): \(\quad \boxed{ \dot{\eta} = \frac{d}{dt}(x - x^*) = \dot{x}}\)</p>
+
+        <p>
+        \(
+            \because \text{\( x^* \) is constant} \quad \therefore \dot{\eta} = \dot{x} = f(x) = f(x^* + \eta)  
+        \)<br>
+        
+        \(
+        \therefore \text{Using Taylor’s expansion } f(x^* + \eta) = f(x^*) + \eta f'(x^*) + \mathcal{O}(\eta^2) \quad \because \text{\( x^* \) is a fixed point, } f(x^*) = 0 
+        \)<br>
+
+        \(
+        \therefore \dot{\eta} = \eta f'(x^*) + \mathcal{O}(\eta^2)    
+        \)<br>
+
+        \(
+        \text{If \( f'(x^*) \neq 0 \), the \( \mathcal{O}(\eta^2) \) terms are negligible and we may write the approximation }  \boxed{\dot{\eta} \approx \eta f'(x^*)}
+        \)<br>
+
+        \(
+        \therefore \frac{d\eta}{\eta} = f'(x^*) \, dt \quad \therefore \int \frac{d\eta}{\eta} = \int f'(x^*) \, dt
+        \Rightarrow \ln|\eta| = f'(x^*) t + C     
+        \)<br>
+
+        \(\therefore |\eta| = e^{f'(x^*) t + C} = C_1 e^{f'(x^*) t}
+        \Rightarrow \eta(t) = C_1 e^{f'(x^*) t}\)
+
+        <div class="description">
+
+            \[
+            f'(x^*) =
+            \begin{cases}
+            > 0 & \Rightarrow \eta \text{ grows exponentially} \\
+            < 0 & \Rightarrow \eta \text{ decays exponentially}
+            \end{cases}
+
+            \Rightarrow \text{slope } f'(x^*) \text{ determines stability at fixed points}
+            \]
+        </div>
+
+
+        </p>
+
+        <div class="description">
+            <p>This is a linear equation in \( \eta \), and is called the <span class="sql">linearization about</span> \( x^* \). It shows that the perturbation \( \eta(t) \) grows <span class="sql">exponentially</span> if \( f'(x^*) > 0 \) and <span class="sql">decays</span> if \( f'(x^*) < 0 \). 
+                If \( f'(x^*) = 0 \), the \( \mathcal{O}(\eta^2) \) terms are not negligible and a nonlinear analysis is needed to determine stability</p>
+        </div>
+
+        <p>The slope \( f'(x^*) \) at the fixed point determines its stability. The importance of the <span class="sql">sign</span> of \( f'(x^*) \) was clear from graphical approach; 
+            the new feature is that now we have a measure of <span class="sql">how</span> stable a fixed point is — that’s determined by the <span class="sql">magnitude</span> of \( f'(x^*) \).
+            This magnitude plays the role of an exponential growth or decay rate. Its reciprocal \( 1/|f'(x^*)| \) is a <span class="sql">characteristic time scale</span>; it determines the time required for \( x(t) \) to vary significantly in the neighborhood of \( x^* \)</p>
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <p class="footnote"><sup>1</sup>Strogatz, S.H. (2015). Nonlinear Dynamics and Chaos: With Applications to Physics, Biology, Chemistry, and Engineering (2nd ed.). CRC Press.</p>
+            </p>
+        </div>
+               
+                
+    </div>
+
+
+
+        <!-- Navigation Buttons -->
+        <a href="Lecture8ASlide9.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture8ASlide11.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

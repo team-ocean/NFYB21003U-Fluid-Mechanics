@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        ul {
+        list-style: none;       /* Keep custom style if needed */
+        padding: 0;
+        margin: 0;
+        }
+
+        ul li {
+        margin-bottom: 10px;    /* Adds space between list items */
+        }
+
+
+        .custom-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        }
+
+        .custom-list li {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 8px; /* Optional spacing between bullet points */
+        }
+
+        .custom-list li::before {
+        content: "■"; /* Unicode for small square */
+        color: #7DCDF4;
+        font-size: 14px;
+        position: absolute;
+        left: 0;
+        top: 2px;
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 110%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 110%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .blue-box {
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Stability in Two-Dimensional Systems</div>
+
+        <div class="slide">
+
+            <div class="description">
+                <p>
+                    <span class="sql">Two-dimensional systems:</span>
+
+                    \[
+                    \dot{x} = f(x, y)
+                    \]
+                    \[
+                    \dot{y} = g(x, y)
+                    \]
+                    
+                    <ul>
+                    <li>For stability, look at <span class="sql">Jacobian</span><br> \( J = \begin{bmatrix}
+                    \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} \\
+                    \frac{\partial g}{\partial x} & \frac{\partial g}{\partial y}
+                    \end{bmatrix} \)</li>
+                    
+                    <li>\( J \Rightarrow \lambda_1, \lambda_2 \): eigenvalues</li>
+                    <li>\( \ell_1, \ell_2 \): eigenvectors</li>
+                    </ul>
+                </p>
+            </div>
+
+
+
+
+        </div>
+
+
+        <!-- Navigation Buttons -->
+        <a href="Lecture8ASlide21.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture8ASlide23.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

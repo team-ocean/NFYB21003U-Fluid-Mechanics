@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equations of Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 30%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 50%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .blue-box {
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Vorticity and Potential Vorticity</div>
+
+        <div class="slide">
+        <div class="description">
+            <p>Vorticity and potential vorticity both play a central role in geophysical fluid dynamics. 
+                The large-scale circulations of both the ocean and atmosphere are in large part governed 
+                by the evolution of the potential vorticity. In this lecture, we will: </p>
+                <ul>
+                    <li>Define and discuss these quantities</li>
+                    <li>Deduce some of their dynamical properties</li>
+                    <li>Kelvin’s circulation theorem</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Image Row -->
+        <div class="image-container">
+            <img src="Figures/Lecture3A_PotentialVorticityGlobalGif.gif" alt="Potential Vorticity Global GIF">
+            <div class="image-text">
+                <p>One way to track the polar vortex is through potential vorticity, which describes the amount of rotational energy, or "spin," in a parcel of air.</p>
+                <p>This animation shows daily potential vorticity in the stratosphere in February 2025. The darkest blues represent the coldest, most isolated air. In the second week of February, the vortex remained strong, but began to stretch out over North America.</p>
+            </div>
+        </div>
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup> NOAA Climate.gov animation by Breanna Zavadoff, based on ERA5 reanalysis data.
+                <a href="https://www.climate.gov/media/16808" target="_blank">
+                    <code>https://www.climate.gov/media/16808</code>
+                </a>
+            </p>
+        </div>
+
+
+        <!-- Left Arrow to go back to Slide x -->
+        <a href="Lecture3ASlide1.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide x -->
+        <a href="Lecture3ASlide3.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

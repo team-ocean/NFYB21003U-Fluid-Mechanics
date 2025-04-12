@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle and Field Descriptions of Fluid Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 110%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 100%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .blue-box {
+            text-align: center;
+            font-size: 14px;
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Hopf Bifurcations</div>
+
+        <div class="slide">
+            <div class="description">
+                <div class="image-container" style="text-align: left;">
+                <img src="Figures/Lecture8A_ImHopf.png" alt="ImHopf" style="max-width: 49%; height: auto; display: block; margin: auto;">
+                <p>Suppose a 2D system has a stable fixed point. 
+                    What are possible ways it could lose stability as a parameter \(\mu\) varies? 
+                    The eigenvalues of the Jacobian are the key<br>
+                    If the fixed point is stable, the eigenvalues \(\lambda_1, \lambda_2\) must both lie in the left half-plane 
+                    Re \(\lambda < 0\). Either the eigenvalues are both real and negative or they are 
+                    complex conjugates. To destabilize the fixed point, one or both of the eigenvalues to cross into the right half-plane as \(\mu\) varies</p>
+                </div>
+            </div>
+            <div class="description">
+                <p><span class="sql">Supercritical Hopf bifurcation:</span> stable spiral becomes unstable spiral surrounded by a limit cycle</p>
+                <p><span class="sql">Physically:</span> oscillations that decay in time become oscillations with constant amplitude in time</p>
+            </div>
+            <img src="Figures/Lecture8A_SupercriticalHopf.png" alt="SupercriticalHopf" style="max-width: 59%; height: auto; display: block; margin: auto;">
+
+            <div class="description">
+                <p><span class="sql">Subcritical Hopf bifurcation:</span> unstable spiral shrinks & engulfs the origin which
+                changes from a stable to an unstable fixed point</p>
+            </div>
+            <img src="Figures/Lecture8A_SubcriticalHopf.png" alt="SubcriticalHopf" style="max-width: 59%; height: auto; display: block; margin: auto;">
+
+
+
+
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <p class="footnote"><sup>1</sup>Strogatz, S.H. (2015). Nonlinear Dynamics and Chaos: With Applications to Physics, Biology, Chemistry, and Engineering (2nd ed.). CRC Press.</p>
+            </p>
+        </div>
+
+        </div>
+
+
+        <!-- Navigation Buttons -->
+        <a href="Lecture8ASlide31.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture8ASlide33.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

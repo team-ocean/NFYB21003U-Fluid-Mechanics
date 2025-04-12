@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle and Field Descriptions of Fluid Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 110%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 110%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .blue-box {
+            text-align: center;
+            font-size: 14px;
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Bifurcations Revisited</div>
+
+        <div class="slide">
+
+            <div class="description">
+                <p><span class="sql">Bifurcations in 2D:</span> Saddle-node, transcritical, pitchfork are found also 
+                in 2D with the new dimension just giving attraction or repulsion</p>
+            </div>
+            
+            <p>The saddle-node bifurcation is the basic mechanism for the creation and destruction of fixed points. 
+                Example in 2D:
+
+                \[
+                \dot{x} = \mu - x^2
+                \]
+                \[
+                \dot{y} = -y
+                \]
+                In the \( x \)-direction we see the bifurcation behavior, 
+                while in the \( y \)-direction the motion is exponentially damped.</p>
+                <p>Consider the phase portrait as \( \mu \) varies. 
+                    For \( \mu > 0 \), there are two fixed points, a stable node at \((x^*,y^*)=\boxed{(\sqrt{\mu},0)}\) 
+                    and a saddle at \(\boxed{(- \sqrt{\mu},0)}\). As \( \mu \) decreases, the saddle and node approach each 
+                    other, then collide when \( \mu = 0 \), and finally disappear when \( \mu < 0 \)</p>
+                <img src="Figures/Lecture8A_Sketch2DBifurcationExample.png" alt="Sketch2DBifurcationExample" style="max-width:80%; height: auto; display: block; margin: auto;">
+
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <p class="footnote"><sup>1</sup>Strogatz, S.H. (2015). Nonlinear Dynamics and Chaos: With Applications to Physics, Biology, Chemistry, and Engineering (2nd ed.). CRC Press.</p>
+            </p>
+        </div>
+
+        </div>
+
+
+        <!-- Navigation Buttons -->
+        <a href="Lecture8ASlide29.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture8ASlide31.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

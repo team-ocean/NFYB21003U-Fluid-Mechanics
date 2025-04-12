@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle and Field Descriptions of Fluid Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        .description {
+            text-align: left;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Fixed Points and Stability</div>
+    
+                <div class="slide">
+                    <div class="description">
+                            <div class="image-container" style="text-align: left;">
+                                <img src="Figures/Lecture8A_Any1DSystem.png" alt="Any1DSystem" style="max-width: 39%; height: auto; display: block; margin: auto;">
+                                <p>To any one-dimensional system \(\dot{x} = f(x)\), just need to draw the graph of \(f(x)\) and then use it to sketch the vector field on the real line</p>
+                            </div>
+
+                    </div>
+
+        <p>Imagine that a fluid is flowing along the real line with a local velocity \(f(x)\). This imaginary fluid is called the phase fluid, and the real line is the phase space. The flow is to the right where \(f(x) > 0\) and to the left where \(f(x) < 0\). To find the solution to \(\dot{x} = f(x)\) starting from an arbitrary initial condition \(x_0\), 
+            place an imaginary particle (a <span class="sql">phase point</span>) at \(x_0\) and watch how it is carried along by the flow. As time goes on, the phase point moves along the \(x\)-axis according to some function \(x(t)\). </p>
+            <p>This function is called the <span class="sql">trajectory</span> based at \(x_0\), and it represents the solution of the differential equation starting from the initial condition \(x_0\). A figure shows all the qualitatively different trajectories of the system is called a <span class="sql">phase portrait</span></p>
+
+        <div class="description">
+            <p>The appearance of the phase portrait is controlled by the fixed points \(x^*\), defined by \(f(x^*) = 0\); they correspond to stagnation points of the flow. \(\boxed{\text{ fixed points} = 
+                \begin{cases}
+                \text{stable (attractor, sink)} \\
+                \text{unstable (repeller, source)}
+                \end{cases}}
+                \) </p>
+                <ul>
+                    <li>The solid black dot is a stable fixed point (the local flow is toward it)</li>
+                    <li>The open dot is an unstable fixed point (the flow is away from it)</li>
+                </ul>
+
+        </div>
+
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <p class="footnote"><sup>1</sup>Strogatz, S.H. (2015). Nonlinear Dynamics and Chaos: With Applications to Physics, Biology, Chemistry, and Engineering (2nd ed.). CRC Press.</p>
+            </p>
+        </div>
+               
+                
+    </div>
+
+
+
+        <!-- Navigation Buttons -->
+        <a href="Lecture8ASlide8.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture8ASlide10.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

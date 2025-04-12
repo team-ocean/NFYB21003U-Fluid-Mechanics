@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle and Field Descriptions of Fluid Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .text-container {
+            width: 65%;
+        }
+        .description {
+            text-align: left;
+            font-size: 16px;
+        }
+        .image-container {
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .image-container img {
+            width: 85%;
+            height: auto;
+            border-radius: 5px;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Boundary Value Problems and Boundary Conditions</div>
+
+        <div class="content">
+            <!-- Left Side: Descriptions -->
+            <div class="text-container">
+                <div class="description">
+                    <p>Laplace and Poisson equations are elliptic partial differential equations and occur in many practical situations such as inviscid flow (also called potential flow or ideal fluid flow), heat conduction, mass diffusion etc. These equations are boundary value problems applied over multi-dimensions.</p> 
+                </div>
+                <div class="description">
+                    <p>The corner node may be associated partly to the plane parallel to the y axis and partly to the plane parallel to the x axis. We may assume that the Robin condition is the mean of the two. Ghost nodes are used to simplify the implementation of boundary conditions at corners by introducing additional points that allow for a more accurate numerical approximation of mixed or Robin conditions.</p>
+                </div>
+                <div class="description">
+                    <p>The wave equation typically requires initial-value or initial/boundary-value problems. Unlike the heat equation, which needs only one initial condition, the wave equation, being second order in time, requires two initial conditions: <ul><li>the initial transverse displacement \( u(x,0) \)</li></ul><ul><li> the initial transverse velocity \( u_t(x,0) \)</li></ul> Boundary conditions depend on the physical setup: Dirichlet boundary conditions occur when the string is fixed at both ends, meaning \( u = 0 \) at these points. Neumann boundary conditions specify the derivative of \( u \) at the boundary, which is relevant for certain acoustic wave problems.
+                    </p> 
+                </div>
+            </div>
+
+            <!-- Right Side: Images -->
+            <div class="image-container">
+                <img src="Figures/Lecture2A_BoundaryComputationDomain.png" alt="BoundaryComputationDomain">
+                <img src="Figures/Lecture2A_BoundaryRobinGhost.png" alt="BoundaryRobinGhost">
+                <img src="Figures/Lecture2A_BoundaryWaveLaplace.png" alt="BoundaryWaveLaplace" style="width: 100%;">
+
+            </div>
+        </div>
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup> Analysis in Mechanical Engineering. FAMU-FSU College of Engineering.
+            </p>
+            <p class="footnote">
+                <sup>2</sup> Computational Methods in Engineering. S.P. Venkateshan and Prasanna Swaminathan. 2014. Chapter 13 - Laplace and Poisson Equations.
+            </p>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <a href="Lecture2ASlide4.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture2ASlide6.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From Leibniz's Theorem to Reynolds Transport Theorem</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="title">From Leibniz's Theorem to the Reynolds Transport Theorem</div>
+
+        <div class="slide">
+            <div class="description">
+                <ul>
+                    <li>A system [also called a closed system] is a quantity of matter of fixed identity. No mass can cross a system boundary. </li>
+                    <li>A control volume [also called an open system] is a region in space chosen for study. Mass can cross a control surface (the surface of the control volume). </li>
+                    <li>The fundamental conservation laws (conservation of mass, energy, and momentum) apply directly to systems.  </li>
+                    <li>However, in most fluid mechanics problems, control volume analysis is preferred over system analysis (for the same reason that the Eulerian description is usually preferred over the Lagrangian description).  </li>
+                    <li>Therefore, we need to transform the conservation laws from a system to a control volume. This is accomplished with the Reynolds transport theorem.  </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="description">
+                <p><span class="sql">Usefulness of the Reynolds Transport Theorem:</span> The Reynolds Transport Theorem contains a material volume on the left hand side and control volumes and control surfaces on the right hand side. Thus, the left hand side is in the Lagrangian or system frame, while the right hand side is in the Eulerian or control volume frame. The usefulness of the Reynolds Transport Theorem is that it bridges the gap between the Lagrangian and Eulerian descriptions or frames of reference. It thus enables us to transform conservation laws (which apply directly to Lagrangian material volumes) into Eulerian forms, which are usually more desirable in fluid mechanics.
+
+            </div>
+        </div>
+
+        <!-- Image Replacement for Equations and Explanation -->
+        <div class="image-container" style="text-align: center;">
+            <img src="Figures/Lecture1B_ReynoldsLagrangianEulerian.png" alt="Graphical Leibniz Control" style="max-width: 70%; height: 70%;">
+        </div>
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>Professor John M. Cimbala. ME 320 Fluid Flow. 
+            </p>
+                <p class="footnote">
+                <sup>2</sup>Introduction to Aerospace Flight Vehicles. 
+                <a href="https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/equations-of-fluid-motion/" target="_blank">
+                    <code>https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/chapter/equations-of-fluid-motion/</code>
+                </a>
+            </p>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <a href="Lecture1BSlide9.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture1BSlide11.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

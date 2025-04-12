@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leibniz's Theorem & Reynolds Transport Theorem</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="title">From Leibniz's Theorem to the Reynolds Transport Theorem</div>
+
+        <div class="slide">
+            <div class="description">
+                <p><span class="sql">Leibniz's Theorem:</span> 
+                
+                <div class="blue-box">
+                    \[
+                    \frac{d}{dt} \int_{a(t)}^{b(t)} F(x,t) dx = \int_{a}^{b} \frac{\partial F}{\partial t} dx + \frac{db}{dt} F(b,t) - \frac{da}{dt} F(a,t)
+                    \]
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="description">
+                A geometrical generalization of Leibniz’s rule is presented using control volumes.</p>             
+                <div class="blue-box">
+                    \[
+                    \frac{d}{dt} \int_{V^*(t)} F(x,t) dV = \lim_{\Delta t \to 0} \frac{1}{\Delta t} \left\{ \int_{V^*(t+\Delta t)} F(x,t+\Delta t) dV - \int_{V^*(t)} F(x,t) dV \right\}
+                    \]
+                </div>              
+            </div>
+        </div>
+        <!-- Image Replacement for Equations and Explanation -->
+        <div class="image-container" style="text-align: center;">
+            <img src="Figures/Lecture1B_GraphicalLeibnizControl.png" alt="Graphical Leibniz Control" style="max-width: 90%; height: 90%;">
+        </div>
+
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture1BSlide2.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture1BSlide4.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

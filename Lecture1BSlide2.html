@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leibniz's Theorem & Reynolds Transport Theorem</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="title">From Leibniz's Theorem to the Reynolds Transport Theorem</div>
+
+        <div class="slide">
+            <div class="description">
+                <p><span class="sql">Leibniz's Theorem:</span> Consider a function \( F \) that depends on one independent spatial variable, \( x \), and time \( t \). The time derivative of the integral of \( F(x,t) \) between \( x = a(t) \) and \( x = b(t) \) is given by:</p>
+                
+                <div class="blue-box">
+                    \[
+                    \frac{d}{dt} \int_{a(t)}^{b(t)} F(x,t) dx = \int_{a}^{b} \frac{\partial F}{\partial t} dx + \frac{db}{dt} F(b,t) - \frac{da}{dt} F(a,t)
+                    \]
+                </div>
+                
+                <p>where \( a, b, F \), and their derivatives appearing on the right side of the equation are all evaluated at time \( t \).</p>
+                <p>Reynolds Transport Theorem is a generalization of the Leibniz rule. The key difference is that the velocity has three components, and only the perpendicular component enters the calculations.</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="description">
+                A geometrical generalization of Leibniz’s rule is presented using control volumes.</p>
+                
+                <p>Consider a moving volume \( V^*(t) \) with a closed surface \( A^*(t) \) having an outward normal \( \mathbf{n} \) and a local velocity \( \mathbf{b} \).</p>
+                
+                <div class="blue-box">
+                    \[
+                    \frac{d}{dt} \int_{V^*(t)} F(x,t) dV = \lim_{\Delta t \to 0} \frac{1}{\Delta t} \left\{ \int_{V^*(t+\Delta t)} F(x,t+\Delta t) dV - \int_{V^*(t)} F(x,t) dV \right\}
+                    \]
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- Left Arrow to go back to Slide 3 -->
+        <a href="Lecture1BSlide1.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide 5 -->
+        <a href="Lecture1BSlide3.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

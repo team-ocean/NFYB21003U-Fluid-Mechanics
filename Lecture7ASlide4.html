@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equations of Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],  // Allow inline math with $...$ and \( ... \)
+            displayMath: [['$$', '$$'], ['\\[', '\\]']] // Allow display math with $$...$$ and \[ ... \]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+        </script>
+        <script type="text/javascript" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        
+    <style>
+        .custom-list { list-style: none; padding-left: 20px; }
+        .custom-list li { position: relative; padding-left: 20px; text-align: left; }
+        .custom-list li::before { content: "■"; color: #7DCDF4; font-size: 14px; position: absolute; left: 0; top: 2px; }
+        .image-container { display: flex; align-items: center; justify-content: center; text-align: left; }
+        .image-container img { max-width: 100%; height: auto; }
+        .image-text { max-width: 100%; padding-left: 10px; font-size: 16px; }
+        /* Ensure all text and equations are left-aligned */
+        body {
+            text-align: left;
+            margin-left: 20px;  /* Add some left margin for better readability */
+        }
+
+        .description {
+            text-align: left;
+        }
+        p {
+            text-align: left;
+        }
+        /* Force MathJax equations to be left-aligned */
+        .MathJax_Display {
+            text-align: left !important;
+            display: block !important;
+        }
+        /* Proper alignment for the equation table */
+
+        .footnote-container {
+            margin-top: 20px;
+            font-size: 12px;
+            text-align: left;
+        }
+        .footnote-line {
+            border: 0;
+            height: 1px;
+            background: #000;
+        }
+        .footnote {
+            font-style: italic;
+        }
+        .footnote a code, .footnote code {
+            font-family: monospace;
+            color: #1e1e1e;
+            text-decoration: none;
+            font-style: normal; /* Ensures code text is not italic */
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Stable and Unstable Mechanical Systems: Example</div>
+
+        <div class="slide">
+            <div class="description">
+                <p>Consider the linear differential equation for the position, \( x(t) \), of a mass \( m \) constrained by a linear damper with coefficient \( \gamma \), and a spring of stiffness \( k_s \):  
+                    \[
+                    m \left( \frac{d^2 x}{dt^2} \right) + \gamma \left( \frac{dx}{dt} \right) + k_s x = 0
+                    \]  
+                    If the mass is given a slight displacement \( \varepsilon \) away from \( x = 0 \) and released from rest at \( t = 0 \), when is the subsequent \( x(t) \) stable, neutrally stable, or unstable when \( m > 0 \), \( k_s \geq 0 \), but \( \gamma \ne 0 \) may have either sign?</p>
+            </div>
+
+
+
+            <p>For the given initial conditions, the solution for \( x(t) \) is:
+
+                \[
+                x(t) = A e^{\beta_- t} + B e^{\beta_+ t}, \quad \text{where }
+
+                \beta_{\pm} = -\frac{\gamma}{2m} \pm \sqrt{ \frac{\gamma^2}{4m^2} - \frac{k_s}{m} }
+                \]</p>
+                
+                <p>There are three distinct cases:  
+                <ul class="custom-list">
+                    <li>If \( \gamma > 0 \) and \( k_s > 0 \), then \( x(t) \) is <span class="sql">stable</span> because both \( \beta_+ \) and \( \beta_- \) will have negative real parts and the initial displacement decays exponentially with increasing time</li>
+
+                    <li>If \( k_s = 0 \), then \( \beta_+ \) will be zero for any value of \( \gamma \), and the solution for \( x(t) \) reduces to \( x = \varepsilon \). This represents <span class="sql">neutral stability</span> since a new steady solution emerges after the initial displacement</li>
+
+                    <li>If \( \gamma < 0 \) and \( k_s > 0 \), then \( x(t) \) is <span class="sql">unstable</span> since both \( \beta_+ \) and \( \beta_- \) have a positive real part and the initial displacement grows exponentially with increasing time</li>
+
+                    </ul>
+
+                
+                <p>Interestingly, real fluid flows can mimic this negative-damping destabilizing effect</p>
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>Read more about spring-mass systems and vibration: Rao, S.S. (2006) Mechanical Vibration. 5th Edition, Pearson Education, Inc., Upper Saddle River, 603-606.
+            </p>
+        </div>
+
+
+        </div>
+
+
+
+        <!-- Navigation Arrows -->
+        <a href="Lecture7ASlide3.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture7ASlide5.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

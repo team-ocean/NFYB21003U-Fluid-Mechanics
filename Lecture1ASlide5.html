@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divergence of a Vector Field</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Divergence of a Vector Field</div>
+
+        <div class="slide">
+            <div class="description">
+                <p><span class="sql">Vector Operators:</span> Both the divergence and curl are vector operators whose properties are revealed by viewing a vector field as the flow of a fluid or gas.</p>
+                
+                <p><span class="sql">Intuitive Understanding:</span> The divergence of a vector field is relatively easy to understand. Imagine a fluid flowing with velocity field \( \mathbf{F} \), where the fluid appears to be expanding outward from the origin.</p>
+
+                <!-- Blue Box for Equation -->
+                <div class="blue-box">
+                    \[
+                    \nabla \cdot \mathbf{F} = \frac{\partial f}{\partial x} + \frac{\partial g}{\partial y} + \frac{\partial h}{\partial z}
+                    \]
+                </div>
+
+                <p><span class="sql">Interpretation:</span> The divergence of this vector field is positive, indicating expansion. Conversely, if the fluid compresses toward the origin, the divergence is negative.</p>
+                
+                <p><span class="sql">Gradient Definition:</span> If \( f \) is a scalar function, its gradient is given by:</p>
+                <p style="text-align: center;">
+                    \[
+                    \nabla f = \begin{pmatrix} 
+                    \frac{\partial f}{\partial x} \\
+                    \frac{\partial f}{\partial y} \\
+                    \frac{\partial f}{\partial z}
+                    \end{pmatrix}
+                    \]
+                </p>
+
+                <p><span class="sql">Laplacian Operator:</span> The divergence of a gradient is the Laplacian:</p>
+                <p style="text-align: center;">
+                    \[
+                    \text{div}(\nabla f) = \nabla^2 f = \Delta f
+                    \]
+                </p>
+            </div>
+        </div>
+
+        <!-- Left Arrow to go back to Slide 2 -->
+        <a href="Lecture1ASlide4.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide 4 -->
+        <a href="Lecture1ASlide6.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

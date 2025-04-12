@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Step 1. Select Variables and Parameter</div>
+
+        <div class="slide">
+            <div class="description">   
+
+            <p>Creating the list of variables and parameters to include in a dimensional analysis effort is the most important step. The parameter list should usually contain only one unknown variable, the <span class="sql">solution variable</span></p>
+            <p>The rest of the variables and parameters should come from the problem’s geometry, boundary conditions, initial conditions, and material parameters. Physical constants and other fundamental limits may also be included</p>
+
+            </div>
+
+            <div class="description">   
+                <p>However, shorter parameter lists tend to produce the most powerful dimensional analysis results; expansive lists commonly produce less useful results</p>  
+            </div>
+
+                <p>For the round-pipe pressure drop example, select \(\Delta p\) as the solution variable, and then choose as additional parameters: 
+                    the distance \(\Delta x\) between the pressure measurement locations, the inside diameter \(d\) of the pipe, the average height \(\varepsilon\) of the pipe’s wall roughness, the average flow velocity \(U\), the fluid density \(\rho\), and the fluid viscosity \(\mu\)</p>  
+
+                <p> The resulting functional dependence between these seven parameters can be stated as
+
+                <div class="description">   
+                    <p>\[f(\Delta p, \Delta x, d, \varepsilon, U, \rho, \mu) = 0\]</p>
+                    <p>This parameter listing embodies the assumptions of isothermal and constant density flow</p>
+                </div>
+
+
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture6ASlide6.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture6ASlide8.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

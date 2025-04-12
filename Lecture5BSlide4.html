@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 70%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 50%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .blue-box {
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">The Stommel model</div>
+
+        <div class="slide">
+            <div class="description">
+                <p>The planetary-geostrophic equations for a Boussinesq fluid are:</p>
+                \(
+                \underbrace{\frac{Db}{Dt} = \dot{b}}_{\text{Thermodynamic equation}}, \quad 
+                \underbrace{\nabla_3 \cdot \mathbf{v} = 0}_{\text{Mass continuity equation}}, \quad 
+                \underbrace{f \times \mathbf{u} = -\nabla \phi + \frac{1}{\rho_0} \frac{\partial \tau}{\partial z}}_{\text{Horizontal momentum equation}}, \quad 
+                \underbrace{\frac{\partial \phi}{\partial z} = b}_{\text{Vertical momentum equation}}
+                \)
+            </div>
+
+            <p>                
+                    
+                \(
+                    \because f \times \mathbf{u} = -\nabla \phi + \frac{1}{\rho_0} \frac{\partial \boldsymbol{\tau}}{\partial z}
+                    \)<br>
+                    
+                    \(
+                    \because \text{Take horizontal curl \( \hat{\mathbf{z}} \cdot \nabla \times (\cdot) \) to both sides of the equation}
+                    \)<br>
+                    
+                    \(
+                    \therefore  \nabla \times (-\nabla \phi) = 0 , \hat{\mathbf{z}} \cdot \left[ \nabla \times (f \times \mathbf{u}) \right] = \frac{1}{\rho_0} \hat{\mathbf{z}} \cdot \left[ \nabla \times \frac{\partial \boldsymbol{\tau}}{\partial z} \right]
+                    \)<br>
+                    
+                    \(
+                    \because \nabla \times (f \mathbf{u}) = f \nabla \cdot \mathbf{u} + (\nabla f) \times \mathbf{u}
+                    \)<br>
+                    
+                    \(
+                    \because \hat{\mathbf{z}} \cdot [(\nabla f) \times \mathbf{u}] = \frac{\partial f}{\partial y} v
+                    \)<br>
+                    
+                    \(
+                    \therefore f \nabla \cdot \mathbf{u} + \frac{\partial f}{\partial y} v = \frac{1}{\rho_0} \hat{\mathbf{z}} \cdot \left[ \frac{\partial}{\partial z} (\nabla \times \boldsymbol{\tau}) \right]
+                    \)
+                    
+                    \(
+                    \Rightarrow f \nabla \cdot \mathbf{u} + \frac{\partial f}{\partial y} v = \frac{1}{\rho_0} \frac{\partial}{\partial z} \left( \nabla \times \boldsymbol{\tau} \right)_z
+                    \)<br>
+                    
+                    \(
+                    \because \text{Integrate vertically from } z = B \text{ to } z = T:
+                    \)
+
+                    \(\int_B^T \left[ f \nabla \cdot \mathbf{u} + \frac{\partial f}{\partial y} v \right] dz = \frac{1}{\rho_0} \int_B^T \frac{\partial}{\partial z} \left( \nabla \times \boldsymbol{\tau} \right)_z dz\)
+                    
+                    \(
+                    \int_B^T f \nabla \cdot \mathbf{u} \, dz + \frac{\partial f}{\partial y} \int_B^T v \, dz = \frac{1}{\rho_0} \int_B^T \frac{\partial}{\partial z} \left( \nabla \times \boldsymbol{\tau} \right)_z \, dz
+                    \)<br>
+
+                    \(
+                    \therefore \int_B^T \frac{\partial f}{\partial y} v \, dz = \frac{\partial f}{\partial y} \int_B^T v \, dz
+                    \)
+                    
+                    \(
+                    \Rightarrow \int_B^T \frac{\partial}{\partial z} \left( \nabla \times \boldsymbol{\tau} \right)_z dz = \left( \nabla \times \boldsymbol{\tau} \right)_z \Big|_T - \left( \nabla \times \boldsymbol{\tau} \right)_z \Big|_B
+                    \)
+
+                    \(
+                    \because \left( \nabla \times \boldsymbol{\tau} \right)_z = \frac{\partial \tau_y}{\partial x} - \frac{\partial \tau_x}{\partial y} \equiv \text{curl}_z(\boldsymbol{\tau})
+                    \)
+
+                    \(
+                    \frac{1}{\rho_0} \left[ \left( \nabla \times \boldsymbol{\tau} \right)_z \right]_T^B = \frac{1}{\rho_0} \left[ \left( \frac{\partial \tau_y}{\partial x} - \frac{\partial \tau_x}{\partial y} \right)\Big|_T - \left( \frac{\partial \tau_y}{\partial x} - \frac{\partial \tau_x}{\partial y} \right)\Big|_B \right] = \text{curl}_z\left( \frac{1}{\rho_0} \boldsymbol{\tau}_T - \frac{1}{\rho_0} \boldsymbol{\tau}_B \right)
+                    \)
+
+
+                    \(
+                    \therefore \int f \nabla \cdot \mathbf{u} \, dz + \frac{\partial f}{\partial y} \int v \, dz = \frac{1}{\rho_0} \left[ \left( \nabla \times \boldsymbol{\tau} \right)_z \right]_T^B
+                    \)
+                    
+                    \(
+                    \Rightarrow \boxed{\int f \nabla \cdot \mathbf{u} \, dz + \frac{\partial f}{\partial y} \int v \, dz = \text{curl}_z (\boldsymbol{\tau}_T - \boldsymbol{\tau}_B)}
+                    \)
+                </p>
+                
+
+
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture5BSlide3.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture5BSlide5.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

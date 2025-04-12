@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From Leibniz's Theorem to Reynolds Transport Theorem</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 50%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 50%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .blue-box {
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">From Leibniz's Theorem to the Reynolds Transport Theorem</div>
+
+        <div class="slide">
+            <div class="description">
+                <p>The geometry for the two integrals inside the \(\{\}\)-braces is shown where solid lines represent time \( t \) and dashed lines represent time \( t + \Delta t \). The time derivative of the integral on the left is properly written as a total time derivative since the volume integration subsumes the possible spatial dependence of \( F \).</p>
+            </div>
+
+
+
+        <!-- Image and Text Side by Side -->
+        <div class="image-container">
+            <img src="Figures/Lecture1B_GeometricalControlVolume.png" alt="Graphical Control Volume">
+            <div class="image-text">
+                <p>Geometrical depiction of a control volume \( V^*(t) \) having a surface \( A^*(t) \) that moves at a nonuniform velocity \( \mathbf{b} \) during a small time increment \( \Delta t \).</p>
+                <p>When \( \Delta t \) is small enough, the volume increment \( \Delta V = V^*(t+\Delta t) - V^*(t) \) will lie very near \( A^*(t) \), so the volume-increment element adjacent to \( dA \) will be \( (\mathbf{b} \Delta t) \cdot \mathbf{n} dA \) where \( \mathbf{n} \) is the outward normal on \( A^*(t) \).</p>
+            </div>
+        </div>
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture1BSlide3.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture1BSlide5.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>
+
+
+

@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap');
+
+body {
+    font-family: 'Noto Sans JP', sans-serif; /* Apply Noto Sans JP Medium 500 */
+    background-color: white; /* White background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Keep the footer font unchanged */
+.footer {
+    font-family: "Times New Roman", serif;
+}
+
+/* Remove box shadow, border, and background for a seamless slide */
+.container {
+    position: relative;
+    padding: 20px;
+    width: 100%; /* Full width */
+    max-width: 900px; /* Adjust for consistency */
+    text-align: center;
+}
+
+/* Title Slide */
+.title-slide {
+    text-align: center;
+    padding: 20px;
+}
+
+.title-box {
+    background-color: #dadada;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 22px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.author {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.university {
+    font-size: 16px;
+    color: gray;
+}
+
+/* Table Styles */
+.students {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #DCF4FF;
+    margin: 10px 0;
+}
+
+.students caption {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.students th, .students td {
+    border: 1px solid #1e1e1e;
+    padding: 5px;
+}
+
+.students th {
+    background-color: #dadada;
+}
+
+.description {
+    text-align: left;
+    background-color: #ddf1f3;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.sql {
+    font-weight: bold;
+    font-family: monospace;
+    color: #666371;
+    font-size: 16px;
+}
+
+/* Navigation Buttons */
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 39px; /* Increased font size for a larger arrow */
+    text-decoration: none;
+    cursor: pointer;
+    color: #7DCDF4;
+    font-weight: bold; /* Make it more prominent */
+}
+
+
+.left {
+    left: -70px;
+}
+
+.right {
+    right: -70px;
+}
+
+.nav-button:hover {
+    color: #4B8DDF;
+}
+
+/* Footnote Styling */
+.footnote {
+    font-size: 12px;
+    font-style: italic;
+    margin-top: 15px;
+    color: #1e1e1e;
+}
+
+.footnote a {
+    color: #2d6a4f;
+    text-decoration: none;
+}
+
+.footnote a:hover {
+    text-decoration: underline;
+}
+
+/* Ensure content is well-spaced */
+.description {
+    margin-bottom: 8px;
+}
+
+/* Image Container */
+.image-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* Individual Image Box */
+.image-box {
+    width: 48%;  /* Makes sure both images fit side by side */
+    text-align: center;
+}
+
+/* Image Styling */
+.image-box img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #1e1e1e;
+    border-radius: 5px;
+}
+
+/* Caption Styling */
+.caption {
+    font-size: 14x;
+    font-style: normal;
+    color: #555;
+    margin-top: 5px;
+}
+
+/* Footnote Container */
+.footnote-container {
+    margin-top: 15px;
+    font-size: 12px;
+    color: #1e1e1e; /* Black color */
+    text-align: left; /* Align to the left */
+}
+
+/* Footnote Horizontal Line */
+.footnote-line {
+    border: none;
+    border-top: 1px solid #1e1e1e;
+    width: 100px; /* Adjust width to start from the left */
+    margin-left: 0; /* Ensures it starts from the left */
+    margin-bottom: 5px;
+}
+
+/* Footnote Text */
+.footnote {
+    font-family: "Times New Roman", serif;
+    font-size: 12px;
+    font-style: normal; /* Non-italic */
+}
+
+/* Superscript Number */
+.footnote sup {
+    font-size: 10px;
+    vertical-align: super;
+}
+
+/* Monospaced URL Styling */
+.footnote a code {
+    font-family: monospace;
+    color: #1e1e1e;
+    text-decoration: none;
+}
+
+.footnote a:hover code {
+    text-decoration: underline;
+}
+
+/* Custom Bullet Points */
+.description ul {
+    list-style: none; /* Remove default bullets */
+    padding-left: 20px; /* Adjust indentation */
+}
+
+.description ul li {
+    position: relative;
+    padding-left: 20px; /* Space for custom bullet */
+}
+
+.description ul li::before {
+    content: "■"; /* Unicode for small square */
+    color: #7DCDF4; /* Adjusted to match the blue color */
+    font-size: 14px; /* Adjust size */
+    position: absolute;
+    left: 0;
+    top: 2px; /* Align with text */
+}
+
+p:not(.description p) {
+    text-align: left;
+}
+
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container scaling */
+.container {
+    transform-origin: top center;
+    max-width: 900px;
+    width: 100%;
+    margin: auto;
+}
+
+/* Adjust scaling based on viewport size */
+@media screen and (max-width: 1000px), (max-height: 800px) {
+    .container {
+        transform: scale(0.9);
+    }
+}
+
+@media screen and (max-width: 900px), (max-height: 700px) {
+    .container {
+        transform: scale(0.8);
+    }
+}
+
+@media screen and (max-width: 800px), (max-height: 600px) {
+    .container {
+        transform: scale(0.7);
+    }
+}
+
+@media screen and (max-width: 700px), (max-height: 500px) {
+    .container {
+        transform: scale(0.6);
+    }
+}
+
+@media screen and (max-width: 600px), (max-height: 400px) {
+    .container {
+        transform: scale(0.5);
+    }
+}
+
+/* Ensure content remains centered after scaling */
+.container {
+    transition: transform 0.2s ease-in-out;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        ul {
+        list-style: none;       /* Keep custom style if needed */
+        padding: 0;
+        margin: 0;
+        }
+
+        ul li {
+        margin-bottom: 10px;    /* Adds space between list items */
+        }
+
+
+        .custom-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        }
+
+        .custom-list li {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 8px; /* Optional spacing between bullet points */
+        }
+
+        .custom-list li::before {
+        content: "■"; /* Unicode for small square */
+        color: #7DCDF4;
+        font-size: 14px;
+        position: absolute;
+        left: 0;
+        top: 2px;
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 50%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 50%;
+            padding-left: 50;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Eigenvalues and Eigenvectors</div>
+
+        <div class="slide">
+
+            <div class="description">
+                <p>
+                    <span class="sql">Definition:</span> Let \( A \) be an \( n \times n \) matrix. 
+                    A real number \( \lambda \) is called an <span class="sql">eigenvalue</span> of \( A \) if there 
+                    exists a nonzero vector \( \mathbf{v} \) in \( \mathbb{R}^n \) for which  
+                    \[
+                    A\mathbf{v} = \lambda \mathbf{v}
+                    \]  
+                    Such a (nonzero) vector \( \mathbf{v} \) is then called an <span class="sql">eigenvector</span> of \( A \) 
+                    for the eigenvalue \( \lambda \)
+                </p>
+            </div>
+
+            <div class="description">
+                <div class="image-container">
+                    <iframe 
+                        src="https://openla.ewi.tudelft.nl/applet/eigenvalue_eigenvector/no_eigenvector?position2D=0%2C0&zoom2D=1"
+                        width="500" 
+                        height="390" 
+                        allowfullscreen>
+                    </iframe>
+                        <ul>
+                            <li>\( A^n x = \lambda^n x \) for every \( n \) and \( (A + cI)x = (\lambda + c)x \) and \( A^{-1}x = x/\lambda \) if \( \lambda \neq 0 \)</li>
+                            <li>\( (A - \lambda I)x = 0 \Rightarrow \) the determinant of \( A - \lambda I \) is zero: this equation produces \( n \) \(\lambda\)'s</li>
+                            <li>Check \( \lambda \)'s by \( (\lambda_1)(\lambda_2)\cdots(\lambda_n) = \det A \) and \( \lambda_1 + \cdots + \lambda_n = \) diagonal sum \( a_{11} + \cdots + a_{nn} \)</li>
+                            <li>Projections have \( \lambda = 1 \) and \( 0 \). Rotations have \( \lambda = e^{i\theta} \) and \( e^{-i\theta} \): complex numbers!</li>
+                        </ul>
+                </div>
+            </div>
+            
+
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>Linear Algebra. André Hensbergen & Nikolaas Verhulst. 2024.
+            <a href="https://doi.org/10.59490/tb.88" target="_blank">
+                <code>https://doi.org/10.59490/tb.88</code>
+            </a>
+            <p class="footnote">
+                <sup>2</sup>Introduction to Linear Algebra, Sixth Edition (2023). Gilbert Strang. ISBN : 978-17331466-7-8
+        </div>
+
+
+        </div>
+
+        <!-- Navigation Buttons -->
+        <a href="Lecture8ASlide24.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture8ASlide26.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From Leibniz's Theorem to Reynolds Transport Theorem</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        
+        .description {
+            text-align: left;
+            font-size: 16px;
+        }
+        .boxed-equation {
+            display: inline-block;
+            padding: 5px;
+            border: 2px solid black; /* Box without rounded corners */
+            font-size: 16px;
+            width: 150px; /* Fixed width to make it square */
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">From Leibniz's Theorem to the Reynolds Transport Theorem</div>
+
+        <div class="slide">
+            <div class="description">
+                <p>Starting with:</p>
+
+                <p>
+                    \[
+                    \frac{d}{dt} \int_{V^*(t)} F(\mathbf{x},t) dV = 
+                    \lim_{\Delta t \to 0} \frac{1}{\Delta t} 
+                    \left\{ \int_{V^*(t)} \Delta t \frac{\partial F(\mathbf{x},t)}{\partial t} dV
+                    + \int_{\Delta V} F(\mathbf{x},t) dV \right\}
+                    \]
+                </p>
+
+                <p>Substituting Equation:</p>
+
+                <p>
+                    \[
+                    \int_{\Delta V} F(\mathbf{x},t) dV \approx \int_{A^*(t)} F(\mathbf{x},t) (\mathbf{b} \Delta t \cdot \mathbf{n}) dA.
+                    \]
+                </p>
+            </div>
+        </div>
+
+        <div class="slide">
+                <p>Substituting:</p>
+                <p>
+                    \[
+                    \frac{d}{dt} \int_{V^*(t)} F(\mathbf{x},t) dV = 
+                    \lim_{\Delta t \to 0} \frac{1}{\Delta t} 
+                    \left\{ \int_{V^*(t)} \Delta t \frac{\partial F(\mathbf{x},t)}{\partial t} dV
+                    + \fbox{$\int_{\Delta V} F(\mathbf{x},t) dV$} \right\}
+                    \]
+                </p>
+
+                <p>Replacing the boxed term:</p>
+
+
+                    \[
+                    \frac{d}{dt} \int_{V^*(t)} F(\mathbf{x},t) dV = 
+                    \lim_{\Delta t \to 0} \frac{1}{\Delta t} 
+                    \left\{ \int_{V^*(t)} \Delta t \frac{\partial F(\mathbf{x},t)}{\partial t} dV
+                    + \fbox{$\int_{A^*(t)} F(\mathbf{x},t) (\mathbf{b} \Delta t \cdot \mathbf{n}) dA$} \right\}
+                    \]
+
+
+                <p>\( \Delta t \) is a common factor, divide by \( \Delta t \):</p>
+                <div class="description">
+                    \[
+                    \frac{d}{dt} \int\limits_{V^*(t)} F(\mathbf{x},t) dV =
+                    \int\limits_{\substack{V^*(t)}} \frac{\partial F(\mathbf{x},t)}{\partial t} dV
+                    + \int\limits_{\substack{A^*(t)}} F(\mathbf{x},t) \mathbf{b} \cdot \mathbf{n} dA.
+                    \]
+                <p>It produces the statement of <strong>Reynolds Transport Theorem</strong>.</p>
+                </div>
+                <p>This final result follows the pattern set by Liebniz’s theorem that the total time derivative of an integral with time-dependent limits equals the integral of the partial time derivative of the integrand plus a term that accounts for the motion of the integration boundary.</p>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <a href="Lecture1BSlide8.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture1BSlide10.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>
+
+

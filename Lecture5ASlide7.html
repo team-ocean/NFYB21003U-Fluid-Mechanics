@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle and Field Descriptions of Fluid Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .text-container {
+            width: 65%;
+        }
+        .description {
+            text-align: left;
+            font-size: 16px;
+        }
+        .image-container {
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Geostrophy, Ekman Transport and Thermal Wind</div>
+
+        <div class="content">
+            <!-- Left Side: Descriptions -->
+            <div class="text-container">
+                <div class="description">
+                    <p><span class="sql">Geostrophic flow</span> arises from a balance between the Coriolis force and the horizontal pressure gradient. 
+                    In this geostrophic balance, the flow aligns perpendicular to the horizontal pressure gradient (i.e., along the contours of constant pressure) and its strength would be proportional to that pressure gradient.</p> 
+                </div>
+                <div class="description">
+                    <p>The term <span class="sql">thermal wind</span> refers to steady or slowly time‐varying shear flow, driven by buoyancy forces due to lateral gradients in density and modified by planetary rotation through the Coriolis acceleration.</p>
+                </div>
+                <div class="description">
+                    <p><span class="sql">Ekman transport</span> piles up surface water in some areas of the ocean and removes water from other areas. This causes the ocean surface to slope gradually. A sloping ocean surface generates water pressure gradients across ocean surfaces. 
+                        Just as air flows from regions of high pressure to regions of low pressure, oceanic pressure gradients give rise to geostrophic flow in which water moves from regions of higher water pressure to regions of lower pressure.
+                    </p> 
+                    <img src="Figures/Lecture5A_EkmanSpiral.png" alt="EkmanSpiral" style="width: 35%;height: 35%;">
+                </div>
+            </div>
+
+            <!-- Right Side: Images -->
+            <div class="image-container">
+                <img src="Figures/Lecture5A_StratifiedFluid.png" alt="StratifiedFluid">
+                <img src="Figures/Lecture5A_BaroclinicPlanetaryWave.png" alt="BaroclinicPlanetaryWave"style="width: 70%;height: 50%;">
+                <img src="Figures/Lecture5A_GeostrophyPedlosky1.png" alt="Lecture5A_GeostrophyPedlosky1" style="width: 100%;">
+                <img src="Figures/Lecture5A_GeostrophyPedlosky2.png" alt="Lecture5A_GeostrophyPedlosky2" style="width: 100%;">
+
+            </div>
+        </div>
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup> Benoit Cushman-Roisin & Jean-Marie Beckers. Introduction to Geophysical Fluid Dynamics - Physical and Numerical Aspects. International Geophysics, Volume 101, 2011.
+            </p>
+            <p class="footnote">
+                <sup>2</sup> Joseph Pedlosky (1987). Geophysical Fluid Dynamics.
+            </p>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <a href="Lecture5ASlide6.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture5ASlide8.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

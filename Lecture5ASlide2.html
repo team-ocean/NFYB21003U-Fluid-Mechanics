@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 100%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .blue-box {
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Navier-Stokes equations for a hydrostatic ocean on the rotating sphere</div>
+
+        <div class="slide">
+            <div class="description">
+
+            <p>The governing equations for a real fluid are the Navier-Stokes equations (conservation of linear momentum and mass) along with conservation of salt, conservation of heat (the first law of thermodynamics), and an equation of state 
+                </p>
+
+            </div>
+
+
+            <div class="description">
+
+                    <p>However, these equations support fast acoustic modes and involve nonlinearities in many terms that make solving them both difficult and expensive and particularly ill suited for long time scale calculations. 
+                    Instead, a series of approximations are made to simplify the Navier-Stokes equations to yield the “primitive equations,” which are the basis of most general circulation models</p>
+
+            </div>
+
+        </div>
+        <!-- Image Row -->
+        <div class="image-container">
+            <img src="Figures/Lecture5A_RotatingEarth.png" alt="RotatingEarth">
+          
+        </div>
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>Blumberg AF, Bruno MS. Governing Dynamics. In: The Urban Ocean: The Interaction of Cities with Water. Cambridge University Press; 2018:33-42.
+            </p>
+
+            <p class="footnote">
+                <sup>2</sup>MIT OpenCourseWare. 12.950 | Spring 2004 | Graduate. Atmospheric and Oceanic Modeling.
+            </p>
+        </div>
+
+        <!-- Left Arrow to go back to Slide x -->
+        <a href="Lecture5ASlide1.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide x -->
+        <a href="Lecture5ASlide3.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

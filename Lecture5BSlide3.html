@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle and Field Descriptions of Fluid Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .text-container {
+            width: 65%;
+        }
+        .description {
+            text-align: left;
+            font-size: 16px;
+        }
+        .image-container {
+            width: 48%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .image-container img {
+            width: 80%;
+            height: auto;
+            border-radius: 5px;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Wind-Driven Gyres</div>
+
+        <div class="content">
+            <!-- Left Side: Descriptions -->
+            <div class="text-container">
+                <div class="description">
+                    <p>We consider a model, and variations about it, that explains the
+                        large-scale features of ocean gyres and that lies at the core of ocean circulation theory — the
+                        steady, forced-dissipative, homogeneous model of the ocean circulation first formulated by
+                        Stommel</p>
+                </div> 
+
+                <div class="description">
+                    <p>Such models explain many of the zeroth-order features of the ocean, in particular
+                    the existence of gyres and the appearance of intense western boundary currents</p>
+                </div> 
+
+                <div class="description">
+                    <p>Thermodynamic effects can effectively be eliminated by the simple device of vertical integration; the resulting
+                    equations are linear, and the only external forcing is that due to the wind stress</p>
+                </div> 
+
+                <div class="description">
+                    <p>The resulting model then, at the price of some comprehensiveness, gives a useful picture of the
+                        <span class="sql">wind-driven</span> circulation of the ocean</p>
+                </div> 
+
+                <div class="description">
+                    <p>Can you see the Gulf Stream?</p>
+                </div> 
+
+
+            </div>
+
+            <!-- Right Side: Images -->
+            <div class="image-container">
+                <img src="Figures/Lecture5B_VelocityFieldGulfstream.png" alt="VelocityFieldGulfstream" style="max-width: 80%; height: auto; border: none;">
+                <img src="Figures/Lecture5B_StreamfunctionVerticalGulfstream.png" alt="StreamfunctionVerticalGulfstream" style="max-width: 80%; height: auto; border: none;">
+                <img src="Figures/Lecture5B_DynamicGulfStream.gif" alt="StreamfunctionVerticalGulfstream"style="max-width: 90%; height: auto; border: none;">
+            </div>
+        </div>
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>Vallis GK. The Overturning Circulation: Hadley and Ferrel Cells. In: Atmospheric and Oceanic Fluid Dynamics: Fundamentals and Large-Scale Circulation. Cambridge University Press; 2017:511-538.
+            </p>
+            <p class="footnote">
+                <sup>2</sup>Copernicus Marine Service Level-4 NRT.
+            </p>
+        </div>
+
+
+        <!-- Navigation Buttons -->
+        <a href="Lecture5BSlide2.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture5BSlide4.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

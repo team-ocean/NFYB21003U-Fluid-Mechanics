@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equations of Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Noninertial Frame of Reference</div>
+
+        <div class="slide">
+            <ul class="custom-list">
+                <li>In many laboratory situations, the relevant distances and time scales are short enough so that a frame of reference attached to the earth (sometimes referred to as the laboratory frame of reference) is a suitable inertial frame of reference.</li>
+                <li>In atmospheric, oceanic, or geophysical studies where time and length scales are much larger, the earth’s rotation may play an important role, so an earth-fixed frame of reference must often be treated as a noninertial frame of reference.</li>
+            </ul>
+
+            <div class="description">
+                <p><span class="sql">In a noninertial frame of reference, the continuity equation is unchanged:</span> </p>
+                \[
+                \frac{\partial \rho (\mathbf{x},t)}{\partial t} + \nabla \cdot \left( \rho (\mathbf{x},t) \mathbf{u} (\mathbf{x},t) \right) = 0
+                \quad \text{or,}
+                \]
+                \[
+                \text{in index notation:} \quad \frac{\partial \rho}{\partial t} + \frac{\partial}{\partial x_i} (\rho u_i) = 0
+                \]
+            </div>
+
+            <div class="description">
+                <p><span class="sql">But the momentum equation must be modified:</span> </p>
+                \[
+                \rho \left( \frac{\partial u_j}{\partial t} + u_i \frac{\partial u_j}{\partial x_i} \right) 
+                = -\frac{\partial p}{\partial x_j} + \rho g_j + \frac{\partial}{\partial x_i} \left[ \mu \left( \frac{\partial u_j}{\partial x_i} + \frac{\partial u_i}{\partial x_j} \right) 
+                + \left( \mu_v - \frac{2}{3} \mu \right) \frac{\partial u_m}{\partial x_m} \delta_{ij} \right]
+                \]
+            </div>
+        </div>
+
+        <!-- Left Arrow to go back to Slide x -->
+        <a href="Lecture2BSlide3.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide x -->
+        <a href="Lecture2BSlide5.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

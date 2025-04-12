@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle and Field Descriptions of Fluid Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        .description {
+            text-align: left;
+            font-size: 16px;
+        }
+        ul.custom {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 0;
+        gap: 10px 40px; /* space between items and between rows */
+        }
+
+        ul.custom li {
+        flex: 0 0 45%; /* 2 items per row */
+        display: flex;
+        align-items: center;
+        }
+
+        ul.custom li::before {
+        content: "❆";
+        color: #7DCDF4;
+        margin-right: 10px;
+        font-size: 1.2em;
+        font-family: "Segoe UI Symbol", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Introduction to Dynamical Systems</div>
+
+        <div class="description">
+            <p>Geometric way of thinking: the aim is to <span class="sql">interpret</span> dynamics of differential equations without fully solving them!  
+                \[
+                \dot{x}_1 = f_1(x_1, \ldots, x_n)  
+                \cdots
+                \dot{x}_n = f_n(x_1, \ldots, x_n)
+                \]  
+                Instead, we interpret them as vector fields by looking at <span class="sql">flows</span> & trajectories</p>
+        </div>
+
+        <p>To measure the fractal dimension of a surface by the direct procedure described above is difficult, and so it is convenient to adopt alternative procedures based on sections with lower-dimensional subspaces</p>
+
+        <!-- Image Replacement for Equations and Explanation -->
+        <div class="image-container" style="text-align: center;">
+            <img src="Figures/Lecture8A_SchematcFractalInterface.png" alt="SchematcFractalInterface" style="max-width: 80%; height: auto; display: block; margin: auto;">
+            <p>A schematic of an object \( F \) with a fractal interface, and its intersections with a plane
+                and a line</p>
+        </div>
+
+        <p>Fractal geometry methods have been used to analyze various turbulent flow data. Due to the chaotic nature of turbulence, fractal geometry offers a method of analysis which is natural to spatial and time series data. </p>
+        <div class="image-container" style="text-align: center;">
+            <img src="Figures/Lecture8A_FractalGeometryTurbulent.png" alt="FractalGeometryTurbulent" style="max-width: 70%; height: auto; display: block; margin: auto;">
+        </div>
+
+        <p>The figures above illustrate, for turbulent flow data, the interpolation of sparse experimental data into a 3-D space curve, the extension of the \( Y\text{–}X \) plane curve into a three-dimensional surface, and the evaluation of interpolation accuracy using the 95% confidence interval of correlation coefficient between the interpolated data and actual \( Z\text{–}X \) plane data</p>
+
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <p class="footnote"><sup>1</sup>Sreenivasan KR, Meneveau C. The fractal facets of turbulence. <i>Journal of Fluid Mechanics.</i> 1986;173:357-386. doi:10.1017/S0022112086001209</p>
+                <p class="footnote"><sup>2</sup>M.A. Marvasti, W.C. Strahle. Fractal Geometry Analysis of Turbulent Data: IEEE Signal Processing Magazine. Vol. 41 (1995), pp. 191-201</p>
+            </p>
+        </div>
+                
+        <!-- Navigation Buttons -->
+        <a href="Lecture8ASlide4.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture8ASlide6.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

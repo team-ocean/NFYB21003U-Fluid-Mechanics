@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            "HTML-CSS": { scale: 80 }  // Default is 100
+        });
+    </script>
+    
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 110%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 110%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Fluid Translation</div>
+
+        <div class="slide">
+
+        <div class="description">
+            <div class="image-container" style="text-align: left;">
+
+            <p>The translation of a fluid particle is connected with the velocity field \(\vec{V} = \vec{V}(x, y, z, t)\) that previously discussed
+            </p>
+
+            <p>Stated simply, the problem is: Given the velocity field, \(\vec{V} = \vec{V}(x, y, z, t)\), find the acceleration of a fluid particle, \(\vec{a}_p\)</p>
+            <img src="Figures/Lecture1A_ParticleMotionFlowField.png" alt="ParticleMotionFlowField" style="max-width: 24%; height: auto; display: block; margin: auto;">
+
+            </div>
+        </div>
+
+        <div class="description">
+            \(
+            \frac{D \vec{V}}{D t} \equiv \vec{a}_p = u \frac{\partial \vec{V}}{\partial x} + v \frac{\partial \vec{V}}{\partial y} + w \frac{\partial \vec{V}}{\partial z} + \frac{\partial \vec{V}}{\partial t}
+            \)
+            \(\quad \boxed{
+            \vec{a}_p = \frac{D \vec{V}}{D t} = 
+            \underbrace{u \frac{\partial \vec{V}}{\partial x} + v \frac{\partial \vec{V}}{\partial y} + w \frac{\partial \vec{V}}{\partial z}}_{\text{convective acceleration}} + \underbrace{\frac{\partial \vec{V}}{\partial t}}_{\text{local acceleration}}}
+            \)
+        </div>
+
+        <div class="description">
+            \[
+            a_{x_p} = \frac{D u}{D t} = u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} + w \frac{\partial u}{\partial z} + \frac{\partial u}{\partial t}
+            \]
+            \[
+            a_{y_p} = \frac{D v}{D t} = u \frac{\partial v}{\partial x} + v \frac{\partial v}{\partial y} + w \frac{\partial v}{\partial z} + \frac{\partial v}{\partial t}
+            \]
+            \[
+            a_{z_p} = \frac{D w}{D t} = u \frac{\partial w}{\partial x} + v \frac{\partial w}{\partial y} + w \frac{\partial w}{\partial z} + \frac{\partial w}{\partial t}
+            \]
+        </div>
+
+        <div class="description">
+            <div class="image-container" style="text-align: left;">
+            <p>
+            \[
+            a_{r_p} = V_r \frac{\partial V_r}{\partial r} + \frac{V_\theta}{r} \frac{\partial V_r}{\partial \theta} - \frac{V_\theta^2}{r} + V_z \frac{\partial V_r}{\partial z} + \frac{\partial V_r}{\partial t}
+            \]
+            \[
+            a_{\theta_p} = V_r \frac{\partial V_\theta}{\partial r} + \frac{V_\theta}{r} \frac{\partial V_\theta}{\partial \theta} + \frac{V_r V_\theta}{r} + V_z \frac{\partial V_\theta}{\partial z} + \frac{\partial V_\theta}{\partial t}
+            \]
+            \[
+            a_{z_p} = V_r \frac{\partial V_z}{\partial r} + \frac{V_\theta}{r} \frac{\partial V_z}{\partial \theta} + V_z \frac{\partial V_z}{\partial z} + \frac{\partial V_z}{\partial t}
+            \]
+        </p>
+            <img src="Figures/Lecture1A_CylindricalCoordinates.png" alt="CylindricalCoordinates" style="max-width: 55%; height: auto; display: block; margin: auto;">
+
+        </div>
+
+        </div>
+
+
+        </div>        
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>Fox and McDonald's Introduction to Fluid Mechanics, 8th Edition. 
+            </p>
+        </div>
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture1ASlide17.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture1ASlide19.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

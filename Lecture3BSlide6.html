@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equations of Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],  // Allow inline math with $...$ and \( ... \)
+            displayMath: [['$$', '$$'], ['\\[', '\\]']] // Allow display math with $$...$$ and \[ ... \]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+        </script>
+        <script type="text/javascript" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        
+    <style>
+        .custom-list { list-style: none; padding-left: 20px; }
+        .custom-list li { position: relative; padding-left: 20px; text-align: left; }
+        .custom-list li::before { content: "■"; color: #7DCDF4; font-size: 14px; position: absolute; left: 0; top: 2px; }
+        .image-container { display: flex; align-items: center; justify-content: center; text-align: left; }
+        .image-container img { max-width: 100%; height: auto; }
+        .image-text { max-width: 100%; padding-left: 10px; font-size: 16px; }
+
+        /* Proper alignment for the equation table */
+        .equation-container {
+            display: flex;
+            justify-content: flex-start;  /* Aligns everything to the left */
+            align-items: flex-start;
+            width: 100%;
+        }
+        .equation-column {
+            width: 55%;
+            text-align: left;
+            padding-right: 10px; /* Add spacing to prevent overlap */
+            vertical-align: top;
+        }
+        .footnote-container {
+            margin-top: 20px;
+            font-size: 12px;
+            text-align: left;
+        }
+        .footnote-line {
+            border: 0;
+            height: 1px;
+            background: #000;
+        }
+        .footnote {
+            font-style: italic;
+        }
+        .footnote a code, .footnote code {
+            font-family: monospace;
+            color: #1e1e1e;
+            text-decoration: none;
+            font-style: normal; /* Ensures code text is not italic */
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Kelvin Wave</div>
+        <div class="description">
+            If the left wall is moved away to infinity, what remains is a gravity wave  
+            trapped to the coast. Such coastally-trapped long gravity waves, in which  
+            the transverse velocity \( v = 0 \) everywhere, are called <span class='sql'>Kelvin waves</span>
+        </div>
+
+        <div class="slide">
+            <div class="description">
+                From the shallow-water set:
+                \[
+                \frac{\partial \eta}{\partial t} + H \left( \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} \right) = 0, \quad
+                \frac{\partial u}{\partial t} - fv = -g \frac{\partial \eta}{\partial x}, \quad \text{and} \quad
+                \frac{\partial v}{\partial t} + fu = -g \frac{\partial \eta}{\partial y}
+                \]
+            </div>
+
+            <div class="description">
+                The equations of motion for a Kelvin wave propagating along a coast aligned with the x-axis are:
+                \[
+                \frac{\partial \eta}{\partial t} + H \left( \frac{\partial u}{\partial x} + \cancel{\frac{\partial v}{\partial y}} \right) = 0, \quad
+                \frac{\partial u}{\partial t} - \cancel{fv} = -g \frac{\partial \eta}{\partial x}, \quad \text{and} \quad
+                \cancel{\frac{\partial v}{\partial t}} + fu = -g \frac{\partial \eta}{\partial y}
+                \]
+                \[
+                \frac{\partial \eta}{\partial t} + H \frac{\partial u}{\partial x} = 0, \quad \frac{\partial u}{\partial t} = -g \frac{\partial \eta}{\partial x}, \quad \text{and} \quad fu = -g \frac{\partial \eta}{\partial y}
+                \]
+            </div>
+    
+
+        <!-- Image Replacement for Equations and Explanation -->
+        <div class="image-container" style="text-align: center;">
+            <img src="Figures/Lecture3B_CoastalKelvinWaveXaxis.png" alt="CoastalKelvinWaveXaxis" style="max-width: 70%; height: 50%;">
+            
+            <div class="image-text">
+                <p>Coastal Kelvin wave propagating along the x-axis. The sea surface shape across a section through a crest is indicated by the continuous line, and that along a trough is indicated by the dashed line</p>
+
+            </div>
+        </div>
+        
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture3BSlide5.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture3BSlide7.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

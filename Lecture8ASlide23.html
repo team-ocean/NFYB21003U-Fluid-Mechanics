@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        ul {
+        list-style: none;       /* Keep custom style if needed */
+        padding: 0;
+        margin: 0;
+        }
+
+        ul li {
+        margin-bottom: 10px;    /* Adds space between list items */
+        }
+
+
+        .custom-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        }
+
+        .custom-list li {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 8px; /* Optional spacing between bullet points */
+        }
+
+        .custom-list li::before {
+        content: "■"; /* Unicode for small square */
+        color: #7DCDF4;
+        font-size: 14px;
+        position: absolute;
+        left: 0;
+        top: 2px;
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 110%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 110%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .blue-box {
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">The Jacobi Matrix</div>
+
+        <div class="slide">
+
+            <div class="description">
+                <p>
+                    <span class="sql">Differentiability and the Differential of a Function at a Point:</span>
+                    A function  \(f: E \to \mathbb{R}^n\) defined on a set \( E \subset \mathbb{R}^m \) 
+                    is <span class="sql">differentiable at the point</span> \( x \in E \),
+                     which is a limit point of \( E \), if  \[\boxed{f(x + h) - f(x)= L(x) h + \alpha(x; h)}\]
+                    where \( L(x): \mathbb{R}^m \to \mathbb{R}^n \) is a linear function in \( h \), and  
+                    \(\alpha(x; h) = o(h) \text{ as } h \to 0, x + h \in E\)
+                </p>
+            </div>
+
+            <div class="description">
+                <p>
+                    <span class="sql">The Differential and Partial Derivatives of a Real-Valued Function:</span>
+                    If the vectors \( f(x + h), f(x), L(x)h, \alpha(x; h) \) in \( \mathbb{R}^n \) are written in coordinates, 
+                    \(\boxed{f(x + h) - f(x)= L(x) h + \alpha(x; h)}\) becomes equivalent to the \( n \) equalities  
+                    \[
+                    f^i(x + h) - f^i(x) = L^i(x) h + \alpha^i(x; h), \quad (i = 1, \dots, n)
+                    \]
+                </p>
+            </div>
+
+            <div class="description">
+                <p>
+                    If a function \(f: E \to \mathbb{R}\) defined on a set \( E \subset \mathbb{R}^m \) is differentiable at 
+                    an interior point \( x \in E \), then the function has a partial derivative at that point with respect to 
+                    each variable, and the differential of the function is uniquely determined by these partial derivatives in the form  
+                    \[
+                    \mathrm{d}f(x)h = \frac{\partial f}{\partial x^1}(x) h^1 + \cdots + \frac{\partial f}{\partial x^m}(x) h^m
+                    \]
+                </p>
+            </div>
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <p class="footnote"><sup>1</sup>Zorich, V.A. (2015). The Differential Calculus of Functions of Several Variables. In: Mathematical Analysis I. Universitext. Springer, Berlin, Heidelberg.</p>
+            </p>
+        </div>
+
+        </div>
+
+        <!-- Navigation Buttons -->
+        <a href="Lecture8ASlide22.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture8ASlide24.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

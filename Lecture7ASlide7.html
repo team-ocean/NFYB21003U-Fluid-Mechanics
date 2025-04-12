@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+        
+    <style>
+        .custom-list { list-style: none; padding-left: 20px; }
+        .custom-list li { position: relative; padding-left: 20px; text-align: left; }
+        .custom-list li::before { content: "■"; color: #7DCDF4; font-size: 14px; position: absolute; left: 0; top: 2px; }
+        .image-container { display: flex; align-items: center; justify-content: center; text-align: left; }
+        .image-container img { max-width: 100%; height: auto; }
+        .image-text { max-width: 100%; padding-left: 10px; font-size: 16px; }
+        /* Ensure all text and equations are left-aligned */
+        body {
+            text-align: left;
+            margin-left: 20px;  /* Add some left margin for better readability */
+        }
+
+        .description {
+            text-align: left;
+        }
+        p {
+            text-align: left;
+        }
+        /* Force MathJax equations to be left-aligned */
+        .MathJax_Display {
+            text-align: left !important;
+            display: block !important;
+        }
+        /* Proper alignment for the equation table */
+
+        .footnote-container {
+            margin-top: 20px;
+            font-size: 12px;
+            text-align: left;
+        }
+        .footnote-line {
+            border: 0;
+            height: 1px;
+            background: #000;
+        }
+        .footnote {
+            font-style: italic;
+        }
+        .footnote a code, .footnote code {
+            font-family: monospace;
+            color: #1e1e1e;
+            text-decoration: none;
+            font-style: normal; /* Ensures code text is not italic */
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Method of Normal Modes</div>
+
+        <div class="slide">
+            <div class="description">
+                <p>
+                    
+                    \[u(x, y, z, t) = \hat{u}(z) \exp \{i kx + imy + \sigma t \} = \hat{u}(z) \exp \{i |\mathbf{K}| (\mathbf{e}_K \cdot \mathbf{x} - ct) \}\]
+                    where \( \hat{u}(z) \) is a complex amplitude, \( i = \sqrt{-1} \) is the imaginary root, \( \mathbf{K} = (k, m, 0) \) is the disturbance wave number, 
+                    \( \mathbf{e}_K = \mathbf{K}/|\mathbf{K}| \), \( \mathbf{x} = (x, y, z) \), \( \sigma \) is the temporal growth rate, \( c \) is the complex phase speed of the disturbance, 
+                    and the real part of this equation is taken to obtain physical quantities</p>
+            </div>
+
+
+
+            <p>The reason solutions exponential in \( (x, y, t) \) are allowed is that the coefficients of the differential equation governing the perturbation in this flow are independent of \( (x, y, t) \). The flow field is assumed to be unbounded in the \( x \) and \( y \) directions, 
+                hence the wave number components \( k \) and \( m \) can only be real (and \( |\mathbf{K}| \) positive real) in order that the dependent variables remain bounded as \( x, y \to \pm\infty \); </p>
+                
+                <p>however, 
+                \(
+                \sigma = \sigma_r + i\sigma_i \quad \text{and} \quad c = c_r + i c_i
+                \)
+                are regarded as complex</p>
+            
+                
+                <p>The behavior of the system for all possible disturbance wave numbers, \( \mathbf{K} \), is examined in the analysis. If \( \sigma_r \) or \( c_i \) are positive for <span class="sql">any</span> value of the wave number, the system is unstable to disturbances of this wave number. If no such unstable state can be found, the system is stable. 
+
+                <div class="description">
+                \[
+                \begin{cases}
+                \sigma_r < 0 \quad \text{or} \quad c_i < 0 & \text{implies a \(stable\) flow} \\
+                \sigma_r = 0 \quad \text{or} \quad c_i = 0 & \text{implies a \(neutrally\) \(stable\) flow} \\
+                \sigma_r > 0 \quad \text{or} \quad c_i > 0 & \text{implies an \(unstable\) flow}
+                \end{cases}
+                \]
+                </div>
+                
+                <p>The method of analysis involving the examination of Fourier components is called the <span class="sql">normal mode method</span>. An arbitrary disturbance can be decomposed into a complete set of normal modes. 
+                In this method the stability of each of the modes is examined separately, as the linearity of the problem implies that the various modes do not interact. The method leads to an eigenvalue problem.
+                </p>
+
+        </div>
+
+
+
+        <!-- Navigation Arrows -->
+        <a href="Lecture7ASlide6.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture7ASlide8.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

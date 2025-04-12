@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equations of Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],  // Allow inline math with $...$ and \( ... \)
+            displayMath: [['$$', '$$'], ['\\[', '\\]']] // Allow display math with $$...$$ and \[ ... \]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+        </script>
+        <script type="text/javascript" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        
+    <style>
+        .custom-list { list-style: none; padding-left: 20px; }
+        .custom-list li { position: relative; padding-left: 20px; text-align: left; }
+        .custom-list li::before { content: "■"; color: #7DCDF4; font-size: 14px; position: absolute; left: 0; top: 2px; }
+        .image-container { display: flex; align-items: center; justify-content: center; text-align: left; }
+        .image-container img { max-width: 100%; height: auto; }
+        .image-text { max-width: 100%; padding-left: 10px; font-size: 16px; }
+        /* Ensure all text and equations are left-aligned */
+        body {
+            text-align: left;
+            margin-left: 20px;  /* Add some left margin for better readability */
+        }
+
+        .description {
+            text-align: left;
+        }
+        p {
+            text-align: left;
+        }
+        /* Force MathJax equations to be left-aligned */
+        .MathJax_Display {
+            text-align: left !important;
+            display: block !important;
+        }
+        /* Proper alignment for the equation table */
+
+        .footnote-container {
+            margin-top: 20px;
+            font-size: 12px;
+            text-align: left;
+        }
+        .footnote-line {
+            border: 0;
+            height: 1px;
+            background: #000;
+        }
+        .footnote {
+            font-style: italic;
+        }
+        .footnote a code, .footnote code {
+            font-family: monospace;
+            color: #1e1e1e;
+            text-decoration: none;
+            font-style: normal; /* Ensures code text is not italic */
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Stable and Unstable Mechanical Systems</div>
+
+        <div class="slide">
+            <div class="description">
+                <div class="image-container" style="text-align: center;">
+                    <img src="Figures/Lecture7A_MechanicsofStreakBreakup.png" alt="MechanicsofStreakBreakup" style="max-width: 39%; height: auto; display: block; margin: auto;">
+                    <p>As a limit of this situation, the flow becomes a superposition of a variety of interacting nonlinear disturbances with nearly random phases, a state of chaotic or nearly chaotic fluctuations that is commonly described as <span class="sql">turbulence</span></p>
+
+                </div>
+            </div>
+
+            <div class="description">
+                <p>In fact, two primary motivations for studying fluid-flow stability are</p>
+                <ul>
+                    <li>to understand the process of laminar to turbulent transition</li>
+                    <li>to predict the onset of this transition</li>
+                </ul>  
+            </div>
+
+
+            <div class="description">
+                    <p>In this analysis, the perturbations are commonly assumed to be small enough so that linearization is possible through neglect of quadratic and higher order terms in the perturbation variables and their derivatives</p>
+
+            </div>
+
+            <p>In addition, a real flow may be stable to infinitesimal disturbances (linearly stable), but may be unstable to sufficiently large disturbances (nonlinearly unstable)</p>
+
+
+<!-- Image Replacement for Equations and Explanation -->
+<div class="image-container" style="text-align: center;">
+    <img src="Figures/Lecture7A_FlowTransitions.png" alt="FlowTransitions" style="max-width: 100%; height: auto; display: block; margin: auto;">
+</div>
+
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>NASA Glenn Research Center. Beginners Guide to Aeronautics: Drag of a Sphere.
+                <a href="https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/drag-of-a-sphere/" target="_blank">
+                    <code>https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/drag-of-a-sphere/</code>
+                </a>
+                <sup>2</sup>Kline SJ, Reynolds WC, Schraub FA, Runstadler PW. The structure of turbulent boundary layers. Journal of Fluid Mechanics. 1967;30(4):741-773. 
+            </p>
+        </div>
+
+        </div>
+
+
+
+        <!-- Navigation Arrows -->
+        <a href="Lecture7ASlide2.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture7ASlide4.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

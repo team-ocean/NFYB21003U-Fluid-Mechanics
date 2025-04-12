@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle and Field Descriptions of Fluid Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        .description {
+            text-align: left;
+            font-size: 16px;
+        }
+
+        ul {
+        list-style: none;       /* Remove default bullets */
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: 50px;              /* Optional spacing between items */
+        }
+
+        ul li {
+        display: inline-block;
+        }
+
+        .custom-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        }
+
+        .custom-list li {
+        position: relative;
+        padding-left: 20px;  /* creates space for the square bullet */
+        display: inline-block; /* to keep items side by side */
+        margin-right: 20px;   /* optional spacing between items */
+        }
+
+        .custom-list li::before {
+        content: "■"; /* Unicode for small square */
+        color: #7DCDF4;
+        font-size: 14px;
+        position: absolute;
+        left: 0;
+        top: 2px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Linear Stability Analysis</div>
+    
+        <div class="slide">
+        <div class="description">
+        <p>What can be said about the stability of a fixed point when \( f'(x^*) = 0 \)? Nothing can be said in general.</p>
+        </div>
+
+        <p>The stability is best determined on a case-by-case basis, using graphical methods. Consider </p>
+        <ul class="custom-list">
+            <li>(a) \(\quad \dot{x} = -x^3 \quad\quad\)</li>
+            <li>(b) \(\quad \dot{x} = x^3 \quad\quad\)</li>
+            <li>(c) \(\quad \dot{x} = x^2 \quad\quad\)</li>
+            <li>(d) \(\quad \dot{x} = 0 \quad\quad\)</li>
+        </ul>   
+
+        <div class="image-container" style="text-align: left;">
+            <img src="Figures/Lecture8A_CaseByCase.png" alt="CaseByCase" style="max-width: 100%; height: auto; display: block; margin: auto;">
+        </div>
+
+        <p>Each of these systems has a fixed point \( x^* = 0 \) with \( f'(x^*) = 0 \). However the stability is different in each case. Case (a) is stable and (b) is unstable. Case (c) is a hybrid case <span class="sql">half-stable</span>, 
+            since the fixed point is attracting from the left and repelling from the right, we therefore indicate this type of fixed point by a half-filled circle. Case (d) is a whole line of fixed points; perturbations neither grow nor decay.</p>
+
+        <p>They arise naturally in the context of <span class="sql">bifurcations</span></p>
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <p class="footnote"><sup>1</sup>Strogatz, S.H. (2015). Nonlinear Dynamics and Chaos: With Applications to Physics, Biology, Chemistry, and Engineering (2nd ed.). CRC Press.</p>
+            </p>
+        </div>
+               
+                
+    </div>
+
+        <!-- Navigation Buttons -->
+        <a href="Lecture8ASlide10.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture8ASlide12.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

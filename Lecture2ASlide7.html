@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle and Field Descriptions of Fluid Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        .description {
+            text-align: left;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Boundary Value Problems and Boundary Conditions</div>
+
+        <div class="slide">
+            <p>The differential equations for the conservation laws require boundary conditions for proper solution. Specifically, the Navier-Stokes momentum equation requires the specification of the velocity vector on all surfaces bounding the flow domain. For an external flow, one that is not contained by walls or surfaces at specified locations, the fluid’s velocity vector and the thermodynamic state must be specified on a closed distant surface. </p>
+            <div class="description">
+                \[
+                \rho \left( \frac{\partial u_j}{\partial t} + u_i \frac{\partial u_j}{\partial x_i} \right) = - \frac{\partial p}{\partial x_j} + \rho g_j + \frac{\partial}{\partial x_i} \left[ \mu \left( \frac{\partial u_j}{\partial x_i} + \frac{\partial u_i}{\partial x_j} \right) + \left( \mu_v - \frac{2}{3} \mu \right) \frac{\partial u_m}{\partial x_m} \delta_{ij} \right]
+                \]             
+                This is the Navier-Stokes momentum equation.            
+            </div>
+            <div class="description">
+                \begin{equation}
+                \underbrace{\frac{\partial \mathbf{u}}{\partial t}}_{\text{Unsteady Term}} + 
+                \underbrace{(\mathbf{u} \cdot \nabla) \mathbf{u}}_{\text{Convection}} = 
+                \underbrace{-\frac{1}{\rho} \nabla p}_{\text{Pressure Gradient}} + 
+                \underbrace{g\mathbf{k}}_{\text{Gravity}} + 
+                \underbrace{\nu \nabla^2 \mathbf{u}}_{\text{Viscous Term}}
+                \end{equation}  
+
+                \begin{equation}
+                \underbrace{\nabla \cdot \mathbf{u} = 0}_{\text{Mass conservation (Incompressibility)}}
+                \end{equation}
+            </div>
+        </div>
+        
+        <!-- Navigation Buttons -->
+        <a href="Lecture2ASlide6.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture2ASlide8.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

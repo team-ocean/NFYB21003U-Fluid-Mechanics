@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Introduction to Computational Fluid Dynamics</div>
+
+        <div class="slide">
+            <div class="description">                
+                <p>The equations are so complex that we can only find analytical solutions for a few relatively simple cases. Various approximations expand the range of solvable problems somewhat, but detailed solutions for complex flows were not possible until the development of computers, around the middle of the twentieth century, 
+                    and the emergence of <span class="sql">computational fluid dynamics (CFD)</span></p>     
+            </div>
+        </div>
+
+            <div class="description">                
+                <p>Computers work with discrete numbers so we must approximate the continuous flow field by discrete values and the partial differential equations must be replaced by discrete equations that relate the discrete values to each other. There are several ways to do so but here we will focus on two approaches:</p>     
+                <ul>
+                    <li>Finite differences: start with the governing equations in differential form and approximate the continuum equations for the values at each point by approximate formula for the various derivatives, usually using a Taylor series expansion</li>
+                    <li>Finite volumes: divide the flow domain into small control volumes and use the governing equations in integral form to derive discrete approximate equations for the average values in each control volume</li>
+                </ul>
+            </div>
+
+            <div class="description">     
+                <p>In both cases the grid must be sufficiently fine so that the velocity, pressure, and other variables in each control volume, or in between the points, are well described by simple functions determined by one or few parameters. The discrete equations are then used to determine these parameters</p>   
+
+
+
+
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture4ASlide3.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture4ASlide5.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

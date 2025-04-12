@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equations of Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],  // Allow inline math with $...$ and \( ... \)
+            displayMath: [['$$', '$$'], ['\\[', '\\]']] // Allow display math with $$...$$ and \[ ... \]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+        </script>
+        <script type="text/javascript" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        
+    <style>
+        .custom-list { list-style: none; padding-left: 20px; }
+        .custom-list li { position: relative; padding-left: 20px; text-align: left; }
+        .custom-list li::before { content: "■"; color: #7DCDF4; font-size: 14px; position: absolute; left: 0; top: 2px; }
+        .image-container { display: flex; align-items: center; justify-content: center; text-align: left; }
+        .image-container img { max-width: 100%; height: auto; }
+        .image-text { max-width: 100%; padding-left: 10px; font-size: 16px; }
+        /* Ensure all text and equations are left-aligned */
+        body {
+            text-align: left;
+            margin-left: 20px;  /* Add some left margin for better readability */
+        }
+
+        .description {
+            text-align: left;
+        }
+        p {
+            text-align: left;
+        }
+        /* Force MathJax equations to be left-aligned */
+        .MathJax_Display {
+            text-align: left !important;
+            display: block !important;
+        }
+        /* Proper alignment for the equation table */
+
+        .footnote-container {
+            margin-top: 20px;
+            font-size: 12px;
+            text-align: left;
+        }
+        .footnote-line {
+            border: 0;
+            height: 1px;
+            background: #000;
+        }
+        .footnote {
+            font-style: italic;
+        }
+        .footnote a code, .footnote code {
+            font-family: monospace;
+            color: #1e1e1e;
+            text-decoration: none;
+            font-style: normal; /* Ensures code text is not italic */
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Kelvin Wave</div>
+
+            <div class="description">
+                The equations of motion for a Kelvin wave propagating along a coast aligned with the x-axis are:
+                \[
+                \frac{\partial \eta}{\partial t} + H \frac{\partial u}{\partial x} = 0, \quad \frac{\partial u}{\partial t} = -g \frac{\partial \eta}{\partial x}, \quad \text{and} \quad fu = -g \frac{\partial \eta}{\partial y}
+                \]
+            </div>
+
+            <div class="description">               
+                <span class='sql'>Assume a solution</span> of the form:  
+                \[
+                (u, \eta) = (\hat{u}(y), \hat{\eta}(y)) \exp \{i(kx - \omega t)\}
+                \]
+            </div>
+
+            <p>
+            Three Fourier series: sines, cosines, and exponentials \( e^{ikx} \)
+            <img src="Figures/Lecture3B_WavesCircularlyPolarised.png" alt="Divergence" style="max-width: 25%; height: 25%;"><br>
+            \(
+            \because S(x) = \sum_{n=1}^{\infty} b_n \sin(n x), \quad F(x) = \sum_{n=-\infty}^{\infty} c_n e^{i n x}
+            \)<br>
+            
+            \(
+            \because \int_0^\pi \sin(n x) \sin(m x) dx = 0, \quad \text{for } n \neq m
+            \)<br>
+            
+            \(
+            \therefore \text{Sinusoids and exponentials form an orthogonal basis for representing wave-like solutions}
+            \)<br>
+            
+            \(
+            \because F(k) = \int_{-\infty}^{\infty} f(x) e^{-i k x} dx
+            \)<br>
+            
+            \(
+            \therefore f(x) = \int_{-\infty}^{\infty} F(k) e^{i k x} dk
+            \)<br>
+            
+            \(
+            \because u(x, t) = A(x) B(t) \quad \text{(separation of variables)}
+            \)<br>
+            
+            \(
+            \because A(x) \text{ and } B(t) \text{ satisfy wave equations}
+            \)<br>
+            
+            \(
+            \therefore A(x) = e^{i k x}, \quad B(t) = e^{-i \omega t}
+            \)<br>
+            
+            \(
+            \because \text{Fourier transform solutions are plane waves in space and time}
+            \)<br>
+            
+            \(
+            \therefore u(x, t) = \hat{u}(y) e^{i (k x - \omega t)}
+            \)
+        </p>
+
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>Gilbert Strang. 2014. Computational Science and Engineering.
+                <a href="https://math.mit.edu/~gs/cse/websections/cse41.pdf" target="_blank">
+                    <code>https://math.mit.edu/~gs/cse/websections/cse41.pdf</code>
+                </a>
+            </p>
+        </div>
+    
+        
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture3BSlide6.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture3BSlide8.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

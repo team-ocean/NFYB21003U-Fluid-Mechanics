@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle and Field Descriptions of Fluid Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        .description {
+            text-align: left;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Nom-Equilibrium Phase Transitions — Order and Chaos in Nature </div>
+
+        <div class="slide">
+            <div class="description">
+                <p>Pierre Curie: "Dissymmetry is what creates the phenomenon" </p>  
+            </div>
+
+            <div class="slide">
+                <div class="description">
+                    <p>
+                        In physics, there remains a long-standing challenge that has yet to be fundamentally resolved — that is, to explain the mechanism behind the onset of turbulence and to provide an accurate description of turbulent states</p>               
+                </div>
+    
+                <div class="slide">
+                    <div class="description">
+                        <p>
+                            In the context of flow instability, the maximum macroscopic velocity \( v \) is the order parameter, which describes the degree of spatial translational symmetry breaking. In contrast, for equilibrium phase transitions, control parameters such as temperature play a similar role as the Reynolds number does here.
+                            The change of the order parameter with the control parameter is given by
+                            \(
+                            v \propto (R - R_c)^{\beta}
+                            \)
+                            , where \( \beta \) is the critical exponent of the order parameter</p>               
+                    </div>
+
+                <div class="description">
+                    <p><span class="sql">Inverse Phase Transitions</span>→ Iterative result of \( x_{n+1} = \lambda x_n (1 - x_n) \)</p>  
+                </div>
+
+
+        <!-- Image Replacement for Equations and Explanation -->
+        <div class="image-container" style="text-align: center;">
+            <img src="Figures/Lecture7B_NonEquilibriumPhaseTransition.png" alt="NonEquilibriumPhaseTransition" style="max-width: 100%; height: auto; display: block; margin: auto;">
+        </div>
+
+
+        </div>
+    
+        
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup> Lu Yu, Bolin Hao & Xiaosong Chen. 2016. The Miracle at the Edge: Phase Transitions and Critical Phenomena.
+            </p>
+            <p class="footnote">
+                <sup>2</sup>  Л. Д. Laudau. 1944. On the Problem of Turbulence.
+            </p>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <a href="Lecture7BSlide2.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture7BSlide4.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

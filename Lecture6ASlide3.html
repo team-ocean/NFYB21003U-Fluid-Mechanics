@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Dimensionless Forms of the Equations and Dynamic Similarity</div>
+
+        <div class="slide">
+
+            <div class="description">             
+                <p>The dimensionless parameters for any particular problem can be determined in two ways</p>  
+
+                <ul>
+                    <li>They can be deduced directly from the governing differential equations if these equations are known</li>
+                    <ul>
+                        <li>Dimensionless parameters determined from the equations of motion are more readily interpreted and linked to the physical phenomena occurring in the flow</li>
+                        <li>Knowledge of the relevant dimensionless parameters frequently aids the solution process, especially when assumptions and approximations are necessary to reach a solution</li>
+                    </ul>
+                    <li>If the governing differential equations are unknown or the parameter of interest does not appear in the known equations, dimensionless parameters can be determined from dimensional analysis</li>
+                </ul>             
+            </div>
+
+            <p><span class="sql">Dimensional Analysis: </span>The natural realm does not need mankind’s units of measurement to function. Natural laws are independent of any unit system imposed on them by human beings</p>
+
+            <p>Consider Newton’s second law, generically stated as <i>force</i> = (<i>mass</i>) × (<i>acceleration</i>); it is true whether a scientist or engineer uses cgs (centimeter, gram, second), <i>MKS</i> (meter, kilogram, second), or even US customary (inch or foot, pound, second) units in its application</p>
+
+            <ul class="custom-list">
+                <li>All correct physical relationships can be stated in dimensionless form</li>
+                <ul class="custom-list">
+                    <li>the problem-simplification or scaling-law-development technique known as dimensional analysis</li>
+                </ul>
+                <li>in any comparison, the units of the items being compared must be the same for the comparison to be valid</li>
+                <ul class="custom-list">
+                    <li>the principle of <span class="sql">dimensional homogeneity</span></li>
+                </ul>
+                <p style="margin-left: 2.5em;line-height: 0.5;">&#x2514;&#x2500; Requires all terms in an equation to have the same dimension(s)</p>
+                <p style="margin-left: 4.5em;line-height: 0.5;">&#x2514;&#x2500; If terms in an equation do not have the same dimension(s) then the equation is not correct</p>
+            </ul>
+            
+            
+
+
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture6ASlide2.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture6ASlide4.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

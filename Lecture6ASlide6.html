@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">The Buckingham \(π\) Theorem</div>
+
+        <div class="slide">
+            <div class="description">   
+                <p>The Buckingham \(π\) technique is a formal "cookbook" recipe for determining the dimensionless parameters formed by a list of variables</p>  
+                <p>The symbol \(π\) is used as a placeholder, similar to how we use \(x\), \(y\), or \(z\) for unknowns, and has nothing to do with circles</p>
+                <div class="image-container">
+                    <img src="Figures/Lecture6A_PiPie.png" alt="PiPie" style="max-width: 29%; height: 29%;">
+                    <div class="image-text">
+                        <p>Pi Pie</p>
+                    </div>
+                </div>
+            </div>
+
+                <p>The process of dimensional analysis is presented here as a series of six steps that should be followed by a seventh whenever possible</p>  
+                <ul class="custom-list">
+                    <li>Step 1. Select Variables and Parameters</li>
+                    <li>Step 2. Create the Dimensional Matrix</li>
+                    <li>Step 3. Determine the Rank of the Dimensional Matrix</li>
+                    <li>Step 4. Determine the Number of Dimensionless Groups</li>
+                    <li>Step 5. Construct the Dimensionless Groups</li>
+                    <li>Step 6. State the Dimensionless Relationship</li>
+                    <li>Step 7. Use Physical Reasoning or Additional Knowledge to Simplify the Dimensionless Relationship</li>
+                </ul>  
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>Pi Pie, created at Delft University of Technology, applied physics, seismics and acoustics.
+            </p>
+        </div>
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture6ASlide5.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture6ASlide7.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equations of Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 80%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 50%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .blue-box {
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Noninertial Frame of Reference</div>
+
+        <div class="slide">
+            <div class="description">
+                <p>The velocity \( \mathbf{u} \) of the fluid particle is obtained by time differentiation: </p>
+                \[
+                \mathbf{u} = \frac{d\mathbf{x}}{dt} = \frac{d\mathbf{X}}{dt} + \frac{d\mathbf{x'}}{dt} = \mathbf{U} + \frac{d}{dt} \left( x'_1 \mathbf{e}'_1 + x'_2 \mathbf{e}'_2 + x'_3 \mathbf{e}'_3 \right)
+                \]
+            
+                \[
+                = \mathbf{U} + \underbrace{\frac{dx'_1}{dt} \mathbf{e}'_1 + \frac{dx'_2}{dt} \mathbf{e}'_2 + \frac{dx'_3}{dt} \mathbf{e}'_3}_{\mathbf{u'} \text{ (Velocity in rotating frame)}} 
+                + \underbrace{x'_1 \frac{d\mathbf{e}'_1}{dt} + x'_2 \frac{d\mathbf{e}'_2}{dt} + x'_3 \frac{d\mathbf{e}'_3}{dt}}_{\mathbf{\Omega} \times \mathbf{x'} \text{ (Rotational contribution)}}
+                \]
+            
+                \[
+                = \mathbf{U} + \mathbf{u'} + \mathbf{\Omega} \times \mathbf{x'}
+                \]
+            </div>
+
+            <p>The final equality is based on the geometric construction of the cross  
+                product for \( \mathbf{e}'_1 \), one of the unit vectors in the rotating  
+                frame. In a small time \( dt \), the rotation of \( O'1'2'3' \) causes \( \mathbf{e}'_1 \) to trace a small  
+                portion of a cone with radius \( \sin \alpha \) as shown. The magnitude of the change in  
+                \( \mathbf{e}'_1 \) is \( |\mathbf{e}'_1| = (\sin \alpha) |\boldsymbol{\Omega}| dt \), so \( d|\mathbf{e}'_1|/dt = (\sin \alpha) |\boldsymbol{\Omega}| \), which is equal to the  
+                magnitude of \( \boldsymbol{\Omega} \times \mathbf{e}'_1 \). The direction of the rate of change of \( \mathbf{e}'_1 \) is  
+                perpendicular to \( \boldsymbol{\Omega} \) and \( \mathbf{e}'_1 \), which is the direction of \( \boldsymbol{\Omega} \times \mathbf{e}'_1 \). Thus, by  
+                geometric construction, \( \frac{d \mathbf{e}'_1}{dt} = \boldsymbol{\Omega} \times \mathbf{e}'_1 \), and by direct extension to the  
+                other unit vectors, \( \frac{d \mathbf{e}'_i}{dt} = \boldsymbol{\Omega} \times \mathbf{e}'_i \).     </p>
+            
+        </div>
+        <!-- Image Row -->
+        <div class="image-container">
+            <img src="Figures/Lecture2B_CoordinateSystemRotationalO.png" alt="CoordinateSystemRotationalO">
+        </div>
+
+        <!-- Left Arrow to go back to Slide x -->
+        <a href="Lecture2BSlide5.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide x -->
+        <a href="Lecture2BSlide7.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>

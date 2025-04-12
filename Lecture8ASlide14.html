@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle and Field Descriptions of Fluid Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .description {
+            text-align: left;
+            font-size: 16px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        .arrow-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .arrow {
+            position: absolute;
+            top: -19px;  /* Height above the word */
+            left: 10px;  /* Adjust based on word width */
+            font-size: 20px;
+            color: #7DCDF4;
+            transform: rotate(0deg); /* Pointing upward */
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Graphical Conventions</div>
+
+        <div class="slide">
+            <div class="description">
+                <div class="image-container" style="text-align: left;">
+                    <p>The curve shown is  
+                        \(
+                        r = -x^2, \quad \text{i.e.,} \quad \dot{x} = 0,
+                        \)
+                        which gives the fixed points for different \( r \). \( r \) plays the role of an independent variable, and so should be plotted horizontally. 
+                        This picture is called the <span class="sql">bifurcation diagram</span> for the saddle-node bifurcation</p>
+                    <img src="Figures/Lecture8A_GraphicalConvention.png" alt="GraphicalConvention" style="max-width: 39%; height: auto; display: block; margin: auto;">
+                </div>
+
+            </div>
+
+            <p>For example, the vector field  
+                \(
+                \dot{x} = r - x^2 
+                \)
+                has no fixed points for \( r < 0 \), but then one materializes when \( r = 0 \) and splits into two when \( r > 0 \). This example also explains why we use the word “bifurcation”: it means “splitting into two branches”</p>
+                <img src="Figures/Lecture8A_TerminologyExample.png" alt="TerminologyExample" style="max-width: 90%; height: auto; display: block; margin: auto;">
+
+            <p><span class="sql">Give a linear stability analysis of the fixed points:</span>the fixed points for \(\dot{x} = f(x) = r - x^2\) are given by \(x^* = \pm \sqrt{r}\).
+                There are two fixed points for \(r > 0\), and none for \(r < 0\). To determine linear stability, compute \(f'(x^*) = -2x^*\). Thus \(x^* = +\sqrt{r}\) is stable, since \(f'(x^*) < 0\). Similarly, \(x^* = -\sqrt{r}\) is unstable. At the bifurcation point \(r = 0\), \(f'(x^*) = 0\); the linearization vanishes when the fixed points coalesce</p>
+
+
+
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <p class="footnote"><sup>1</sup>Strogatz, S.H. (2015). Nonlinear Dynamics and Chaos: With Applications to Physics, Biology, Chemistry, and Engineering (2nd ed.). CRC Press.</p>
+            </p>
+        </div>
+
+        </div>
+
+
+        <!-- Navigation Buttons -->
+        <a href="Lecture8ASlide13.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture8ASlide15.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

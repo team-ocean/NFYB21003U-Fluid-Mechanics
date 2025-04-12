@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle and Field Descriptions of Fluid Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        .description {
+            text-align: left;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Boundary Value Problems and Boundary Conditions</div>
+
+        <div class="slide">
+            <div class="description">
+                <p><span class="sql">Definition:</span> Boundary conditions, which exist in the form of mathematical equations, exert a set of additional constraints to the problem on specified boundaries. The concept of boundary conditions applies to both ordinary and partial differential equations.</p> 
+                <p> There are five types of boundary conditions: <span class="sql">Dirichlet, Neumann, Robin, Mixed, </span>and<span class="sql"> Cauchy</span>, within which Dirichlet and Neumann are predominant. The Dirichlet, Neumann, and Robin are also called the first-type, second-type and third-type boundary condition respectively.</p>               
+            </div>
+            <div class="description">
+                <p>The mixed boundary condition refers to the cases in which Dirichlet boundary conditions are prescribed in some parts of the boundary while Neumann boundary conditions exist in the others.  While being less common, Cauchy boundary conditions are also used in second-order differential equations, correspond to imposing a Dirichlet and a Neumann boundary conditions simultaneously.</p> 
+            </div>
+        </div>
+        
+        <div class="image-container">
+            <img src="Figures/Lecture2A_RelationsDirichletNeumannRobin.png" alt="RelationsDirichletNeumannRobin" width="300">
+            <div class="image-text">
+                <p>Relations among Dirichlet, Neumann and Robin boundaries.</p>
+            </div>
+        </div>
+        
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup> Multiphysics Learning & Networking. Dr. Leo Liu. University of Virginia.
+            </p>
+            <p class="footnote">
+                <sup>2</sup> Chen, Zheng & Ni, Pengpeng & Chen, Yifeng & Mei, Guoxiong. (2020). Plane-strain consolidation theory with distributed drainage boundary. Acta Geotechnica.
+            </p>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <a href="Lecture2ASlide3.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture2ASlide5.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

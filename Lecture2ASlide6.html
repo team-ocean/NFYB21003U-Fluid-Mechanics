@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        .description {
+            text-align: left;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Common Boundary Conditions in Fluid Mechanics</div>
+
+        <div class="slide">
+            <div class="description">
+                <ul>
+                    <li><span class="sql">No-slip at the wall:</span> This boundary condition says that the fluid in contact with a wall will have the same velocity as the velocity of the wall. Often the walls are not moving, so the fluid velocity is zero. In drag flows like the previous example, the velocity of the wall is finite, and the fluid velocity is equal to the wall velocity.
+                        \[
+                        v_p \Big|_{\text{at the boundary}} = V_{\text{wall}}
+                        \]</li>
+                    <li><span class="sql">Symmetry:</span> In some flows, there is a plane of symmetry. Since the velocity field is the same on either side of the plane of symmetry, the velocity must go through a minimum or a maximum at the plane of symmetry. Thus, the boundary condition to use is that the first derivative of the velocity is zero at the plane of symmetry.
+                        \[
+                        \frac{\partial v_p}{\partial x_m} \Big|_{\text{at the boundary}} = 0
+                        \]</li>
+                    <li><span class="sql">Stress continuity:</span> When a fluid forms one of the boundaries of the flow, the stress is continuous from one fluid to another. Thus for a viscous fluid in contact with an inviscid (zero or very low viscosity fluid), this means that at the boundary, the stress in the viscous fluid is the same as the stress in the inviscid fluid. Since the inviscid fluid can support no shear stress (zero viscosity) this means that the stress is zero at this interface. The boundary condition between a fluid such as a polymer and air, for example, would be that the shear stress in the polymer at the interface would be zero.
+                        \[
+                        \tau_{jk} \big|_{\text{at the boundary}} = 0
+                        \]
+                        Alternatively, if two viscous fluids meet and form a flow boundary, this same boundary condition would require that the stress in one fluid equal the stress in the other at the boundary.
+                        \[
+                        \tau_{jk} (\text{fluid 1}) \big|_{\text{at the boundary}} = \tau_{jk} (\text{fluid 2}) \big|_{\text{at the boundary}}
+                        \]</li>
+                    <li><span class="sql">Velocity continuity:</span> When a fluid forms one of the boundaries of the flow, the velocity is also continuous from one fluid to another.
+                        \[
+                        v_p (\text{fluid 1}) \Big|_{\text{at the boundary}} = v_p (\text{fluid 2}) \Big|_{\text{at the boundary}}
+                        \]</li>
+            </div>
+        </div>
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup> 1998 Faith A. Morrison. CM3110 Transport/Unit Operations I (fluid mechanics/steady heat transfer).
+            </p>
+        </div>
+
+        
+        <!-- Navigation Buttons -->
+        <a href="Lecture2ASlide5.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture2ASlide7.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

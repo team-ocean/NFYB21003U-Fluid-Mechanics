@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Motion of a Fluid Particle (Kinematics)</div>
+
+        <div class="slide">
+
+        <p>A typical finite fluid element, within which we have selected an infinitesimal particle of mass <i>dm</i> and initial volume <i>dx dy dz</i>, at time <i>t</i>, and as it 
+                    (and the infinitesimal particle) may appear after a time interval <i>dt</i>. The finite element has moved and changed its shape and orientation</p>
+
+        <!-- Image Replacement for Equations and Explanation -->
+        <div class="image-container" style="text-align: center;">
+            <img src="Figures/Lecture1A_FluidMotion.png" alt="FluidMotion" style="max-width: 100%; height: 100%;">
+        </div>
+
+
+        <div class="description">
+            <p>While the finite element has quite severe distortion, the infinitesimal particle has changes in shape limited to stretching/shrinking and rotation of the element’s sides, because we are                    
+                considering both an infinitesimal time step and particle, so that the sides remain straight</p>
+        </div>
+
+        <div class="description">
+            <p>We can decompose this particle’s motion into four components: 
+                <ul>
+                <li><span class="sql">translation</span>, in which the particle moves from one point to another</li>
+                <li><span class="sql">rotation</span> of the particle, which can occur about any or all of the <span class="sql">x</span>, <span class="sql">y</span> or <span class="sql">z</span> axes</li>
+                <li><span class="sql">linear deformation</span>, in which the particle’s sides stretch or contract</li>
+                <li><span class="sql">angular deformation</span>, in which the angles (which were initially 90° for our particle) between the sides change</li>
+                </ul>
+        </div>
+
+        </div>        
+
+
+
+
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>Fox and McDonald's Introduction to Fluid Mechanics, 8th Edition. 
+            </p>
+        </div>
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture1ASlide15.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture1ASlide17.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

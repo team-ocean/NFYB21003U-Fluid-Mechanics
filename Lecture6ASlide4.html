@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Rayleigh’s Algorithm</div>
+
+        <div class="slide">
+
+            <div class="description">   
+            <p><span class="sql">Dimensional Formulae: </span>We need to know the dimension the dimensional formula of every relevant dimensional variable and constant in order to dimensionally analyze a state or process</p>
+            </div>
+
+            <p>Use the symbol <i>M</i> to stand for the dimension <i>mass</i>, <i>L</i> to stand for the dimension <i>length</i>, and <i>T</i> to stand for the dimension <i>time</i>. The notation \([x]\) means “the dimension of \(x\).”</p>
+
+            <p>
+                \(
+                \Rightarrow \text{\([m] = M\) and \([g] = LT^{-2}\) are dimensional formulae}
+                \)
+            
+            <p>The dimensional formula of a product of factors is the product of the dimensional formula of each factor. Thus \([ma] = [m][a]\)  
+            \(
+            \Rightarrow   [9.8 \cdot \text{m/s}^2] = [9.8] \cdot [\text{m/s}^2] = [m] \cdot [s^{-2}] = LT^{-2}
+            \)</p>
+
+            <div class="description">   
+                <p>John William Strutt (1842–1919), also known as Lord Rayleigh, successfully applied dimensional analysis to a number of problems over a long career</p>  
+                </div>
+
+                <p>Rayleigh’s method of dimensional analysis identifies the dimensionless products one can form out of the model variables and constants, in this case Δt, m, R, g, and θ. Each dimensionless product takes a form  
+                    \(\Delta t^\alpha m^\beta R^\gamma g^\delta \theta^\varepsilon\) determined by the Greek letter exponents α, β, γ, δ, and ε or, somewhat more simply, by the form  \(\Delta t^\alpha m^\beta R^\gamma g^\delta\)</p>
+
+                <p>The key to Rayleigh’s method of finding dimensionless products is to require that the product \(\Delta t^\alpha m^\beta R^\gamma g^\delta\) be dimensionless</p> 
+                
+                <p>
+                \(
+                [\Delta t^\alpha m^\beta R^\gamma g^\delta] = [\Delta t^\alpha] [m^\beta] [R^\gamma] [g^\delta] 
+                = [\Delta t]^\alpha [m]^\beta [R]^\gamma [g]^\delta 
+                = T^\alpha M^\beta L^\gamma (LT^{-2})^\delta 
+                = T^{\alpha - 2\delta} M^\beta L^{\gamma + \delta}
+                \)</p>
+                
+                <p>the product \(\Delta t^\alpha m^\beta R^\gamma g^\delta\) is dimensionless when
+                
+                \(
+                \begin{cases}
+                \text{T: } \alpha - 2\delta = 0\\
+                \text{M: } \beta = 0\\
+                \text{L: } \gamma + \delta = 0 
+                \end{cases}
+                \)</p>
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>Lemons DS. Introduction. In: A Student’s Guide to Dimensional Analysis. Student’s Guides. Cambridge University Press; 2017:1-16.
+            </p>
+        </div>
+
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture6ASlide3.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture6ASlide5.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

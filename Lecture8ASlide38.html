@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle and Field Descriptions of Fluid Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 110%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 100%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .blue-box {
+            text-align: center;
+            font-size: 14px;
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Rayleigh-Bénard Convection</div>
+
+        <div class="slide">
+            <div class="description">
+                <p><span class="sql">Linear stability analysis:</span> Consider the linear stability of this conducting state towards two-dimensional perturbations.  
+                    The linearized equations:
+                    \(\boxed{
+                    \frac{\partial}{\partial t} \nabla^2 \psi = -\text{Ra} \, \text{Pr} \, \frac{\partial \theta}{\partial x} + \text{Pr} \, \nabla^2 \psi}, \quad
+                    \)
+                    
+                    \(\boxed{
+                    \frac{\partial \theta}{\partial t} = -\frac{\partial \psi}{\partial x} + \nabla^2 \theta}
+                    \)
+                    
+                     ,where \(\psi\) is the streamfunction of the perturbation</p>
+            </div>
+
+            <div class="description">
+                <p> Solutions are sought in the form of <span class="sql">normal modes</span>
+
+                    \(
+                    q(x, y, t) = \hat{q}(y) e^{ikx + \lambda t} + c,
+                    \)
+                    
+                    where \(\lambda\) is the growth rate and \(k\) the perturbation’s wavenumber.
+                    
+                    Obtain the following generalized eigenvalue problem:
+                    
+                    \(
+                    \lambda
+                    \begin{bmatrix}
+                    D^2 - k^2 & 0 \\
+                    0 & 1
+                    \end{bmatrix}
+                    \begin{bmatrix}
+                    \hat{\psi} \\
+                    \hat{\theta}
+                    \end{bmatrix}
+                    =
+                    \begin{bmatrix}
+                    \text{Pr}(D^2 - k^2) & -ik \, \text{Ra} \, \text{Pr} \\
+                    -ik & D^2 - k^2
+                    \end{bmatrix}
+                    \begin{bmatrix}
+                    \hat{\psi} \\
+                    \hat{\theta}
+                    \end{bmatrix}
+                    \)
+                    
+                    where \(D = d/dy\)</p>
+
+            </div>
+
+            <div class="image-container" style="text-align: left;">
+                <img src="Figures/Lecture8A_ValueRaandk.png" alt="ValueRaandk" style="max-width: 22%; height: auto; display: block; margin: auto;">
+            
+                        <ul class="custom-list">
+                        <li>Problem solved analytically in 1916 with free-slip boundary conditions, i.e.
+
+                            \(
+                            \psi(x, y, t) = \hat{\psi}(t) \sin(n \pi y) \sin(kx)
+                            \)
+                            
+                            \(
+                            \theta(x, y, t) = \hat{\theta}(t) \sin(n \pi y) \cos(kx)
+                            \)</li>
+                        <li>The dispersion relation reduces to a quadratic equation.
+
+                            One then obtains
+                            
+                            \(
+                            Ra_c = \frac{27 \pi^4}{4}, \quad
+                            k_c = \frac{\pi}{\sqrt{2}}
+                            \)</li>
+                        
+                    </ul>
+                </div>
+
+                <div class="image-container" style="text-align: left;">
+                    <img src="Figures/Lecture8A_IsocontourRayleighBenardInstability.png" alt="IsocontourRayleighBenardInstability" style="max-width: 49%; height: auto; display: block; margin: auto;">
+                    <p>Isocontours of temperature and velocity field of the instability mode</p>
+                            
+                            
+                    </div>
+
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <p class="footnote"><sup>1</sup>Jean-Christophe Loiseau. (2019). Chaotic convection
+                    and Lorenz-like dynamics. Machine Learning for Physics: Workshop III, IPAM Long Program.</p>
+            </p>
+
+        </div>
+        
+        </div>
+
+
+        <!-- Navigation Buttons -->
+        <a href="Lecture8ASlide37.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture8ASlide39.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

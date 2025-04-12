@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle and Field Descriptions of Fluid Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        .description {
+            text-align: left;
+            font-size: 16px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Example 1D system </div>
+
+
+        <div class="description">
+                
+            <div class="image-container" style="text-align: center;">
+                <p>\[
+                    \dot{x} = \sin x
+                    \]</p>
+                    <img src="Figures/Lecture8A_Sin1DExample.png" alt="Sin1DExample" style="max-width: 50%; height: auto; display: block; margin: auto;">
+
+            </div>
+    
+    </div>
+
+
+    <div class="image-container" style="text-align: center;">
+        <img src="Figures/Lecture8A_ConcaveAnyInitialConditions.png" alt="ConcaveAnyInitialConditions" style="max-width: 50%; height: auto; display: block; margin: auto;">
+        <p>A particle starting at \(x_0 = \pi/4\) moves to the right faster and faster until it crosses \(x = \pi/2\) (where \(\sin x\) reaches its maximum). Then the particle starts slowing down and eventually approaches the stable fixed point \(x = \pi\) from the left<br>
+        The curve is concave up at first, and then concave down; this corresponds to the initial acceleration for \(x < \pi/2\), followed by the deceleration toward \(x = \pi\)</p>
+        <p>A picture can’t tell us certain <span class="sql">quantitative</span> things: for instance, we don’t know the time at which the speed \(|\dot{x}|\) is greatest. But in many cases <span class="sql">qualitative</span> information is what we care about</p>
+
+    </div>
+
+
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <p class="footnote"><sup>1</sup>Strogatz, S.H. (2015). Nonlinear Dynamics and Chaos: With Applications to Physics, Biology, Chemistry, and Engineering (2nd ed.). CRC Press.</p>
+            </p>
+        </div>
+                
+        <!-- Navigation Buttons -->
+        <a href="Lecture8ASlide7.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture8ASlide9.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

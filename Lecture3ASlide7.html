@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equations of Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .custom-list { list-style: none; padding-left: 20px; }
+        .custom-list li { position: relative; padding-left: 20px; text-align: left; }
+        .custom-list li::before { content: "■"; color: #7DCDF4; font-size: 14px; position: absolute; left: 0; top: 2px; }
+        .image-container { display: flex; align-items: center; justify-content: center; text-align: left; }
+        .image-container img { max-width: 100%; height: auto; }
+        .image-text { max-width: 100%; padding-left: 20px; font-size: 16px; }
+        .blue-box { text-align: center; font-size: 14px; }
+
+        /* Proper alignment for the equation table */
+        .equation-container {
+            display: flex;
+            justify-content: flex-start;  /* Aligns everything to the left */
+            align-items: flex-start;
+            width: 100%;
+        }
+        .equation-column {
+            width: 55%;
+            text-align: left;
+            padding-right: 10px; /* Add spacing to prevent overlap */
+            vertical-align: top;
+        }
+        .footnote-container {
+            margin-top: 20px;
+            font-size: 12px;
+            text-align: left;
+        }
+        .footnote-line {
+            border: 0;
+            height: 1px;
+            background: #000;
+        }
+        .footnote {
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Simple axisymmetric examples</div>
+        <div class="slide">
+            <p>Consider axisymmetric motion in two dimensions, so that the flow is confined to a plane. 
+            Use cylindrical coordinates \( (r, \phi, z) \), where \( z \) is the direction perpendicular to the plane, 
+            with velocity components \( (u^r, u^\phi, u^z) \). For axisymmetric flow \( u^z = u^r = 0 \) but \( u^\phi \neq 0 \).</p>
+
+            <div class="description">
+                <span class="sql">Rigid body motion:</span> For a body in rigid body rotation, the velocity distribution is given by:
+                \[
+                u^\phi = \Omega r
+                \]
+                where \( \Omega \) is the angular velocity of the fluid and \( r \) is the distance from the axis of rotation.
+                Associated with this rotation is a vorticity given by:
+                \[
+                \mathbf{\omega} = \nabla \times \mathbf{v} = \omega^z \mathbf{k}
+                \]
+                where:
+                \[
+                \omega^z = \frac{1}{r} \frac{\partial}{\partial r} (r u^\phi) - \frac{1}{r} \frac{\partial}{\partial r} (r^2 \Omega) = 2\Omega
+                \]
+                The vorticity of a fluid in solid body rotation is thus twice the angular velocity of the fluid about the axis of rotation, and is pointed in a direction orthogonal to the plane of rotation.
+            </div>
+
+            <div class="equation-container">
+                <!-- Left Side: Equations from the images -->
+                <div class="equation-column">
+                    \begin{gather}
+                    {\small
+                    \text{curl } A = e_1 \!\left(\frac{\partial A^3}{\partial x^2} - \frac{\partial A^2}{\partial x^3} \right) 
+                    + e_2 \!\left(\frac{\partial A^1}{\partial x^3} - \frac{\partial A^3}{\partial x^1} \right) 
+                    + e_3 \!\left(\frac{\partial A^2}{\partial x^1} - \frac{\partial A^1}{\partial x^2} \right) \\[10pt]
+                    \text{curl } A =
+                    \begin{vmatrix}
+                        e_1 & e_2 & e_3 \\
+                        \frac{\partial}{\partial x^1} & \frac{\partial}{\partial x^2} & \frac{\partial}{\partial x^3} \\
+                        A^1 & A^2 & A^3
+                    \end{vmatrix} \\[10pt]
+                    d\omega^1_A = \omega^2_{\text{curl} A}
+                    }
+                    \end{gather}
+                </div>                
+
+                <!-- Right Side: Corresponding equations from the HTML derivation -->
+                <div class="equation-column">
+                    <p>\(\because\) \( \boldsymbol{\omega} = \nabla \times \mathbf{v} \),
+                    \( \nabla \times \mathbf{v} =
+                    \begin{vmatrix}
+                    \hat{\mathbf{r}} & \hat{\boldsymbol{\phi}} & \hat{\mathbf{z}} \\
+                    \frac{\partial}{\partial r} & \frac{1}{r} \frac{\partial}{\partial \phi} & \frac{\partial}{\partial z} \\
+                    u^r & u^\phi & u^z
+                    \end{vmatrix} \)</p>
+
+                    <p>\(\because\) \( u^r = 0, u^z = 0, u^\phi = \Omega r \),
+                    \( \therefore \mathbf{v} = (0, \Omega r, 0) \)</p>
+
+                    <p>\(\because\) \( \omega^r = 0, \omega^\phi = 0 \), 
+                    \( \omega^z = \frac{1}{r} \frac{\partial}{\partial r} (r u^\phi) \)</p>
+
+                    <p>\(\because\) \(\frac{1}{r} \frac{\partial}{\partial r} (r u^\phi) = \frac{1}{r} \left( u^\phi + r \frac{\partial u^\phi}{\partial r} \right)\)</p>
+
+                    <p>\(\because\) \( u^\phi = \Omega r \),
+                    \( \therefore r u^\phi = \Omega r^2 \)</p>
+
+                    <p>\(\therefore\) \( \frac{\partial}{\partial r} (\Omega r^2) = 2 \Omega r \),
+                    \(\frac{1}{r} \frac{\partial}{\partial r} (r^2 \Omega) = \frac{1}{r} (2 r \Omega) = 2\Omega\)</p>
+
+                    <p>\(\therefore \omega^z = \frac{1}{r} (2 \Omega r) = 2 \Omega \)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>Vladimir Zorich (2016). Mathematical Analysis II.
+            </p>
+        </div>
+
+        <a href="Lecture3ASlide6.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture3ASlide8.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle and Field Descriptions of Fluid Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .text-container {
+            width: 65%;
+        }
+        .description {
+            text-align: left;
+            font-size: 16px;
+        }
+        .image-container {
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .image-container img {
+            width: 85%;
+            height: auto;
+            border-radius: 5px;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Vorticity and Circulation Preliminaries</div>
+
+        <div class="content">
+            <!-- Left Side: Descriptions -->
+            <div class="text-container">
+                <div class="description">
+                    <p><span class="sql">Vorticity</span>, \( \mathbf{\omega} \), is defined to be the curl of velocity and so is given by
+                    \begin{equation}
+                        \mathbf{\omega} \equiv \nabla \times \mathbf{v}
+                    \end{equation}
+                </div> 
+
+
+        <div class="description">
+            <p><span class="sql">Circulation</span>, \( C \) (or \( \Gamma \)), is defined to be the integral of velocity around a closed fluid loop and so is given by
+            \begin{equation}
+                C \equiv \oint \mathbf{v} \cdot d\mathbf{r} = \int_S \mathbf{\omega} \cdot d\mathbf{S}
+            \end{equation}
+        <p>where the second expression uses Stokes’ theorem and \( S \) is any surface bounded by the loop. The circulation around the path is equal to the integral of the normal component of vorticity over <span class="sql">any</span> surface bounded by that path. The circulation is not a field like vorticity and velocity; rather, we think of the circulation around a particular material line of finite length, and so its value generally depends on the path chosen</p>
+        </div>
+
+        <div class="description">
+        If \( \delta S \) is an infinitesimal surface element whose normal points in the direction of the unit vector \( \hat{\mathbf{n}} \)
+        \begin{equation}
+            \hat{\mathbf{n}} \cdot (\nabla \times \mathbf{v}) = \frac{1}{\delta S} \oint_{\delta r} \mathbf{v} \cdot d\mathbf{r}
+        \end{equation}
+        <p>where the line integral is around the infinitesimal area. Thus at a point the component of vorticity in the direction of \( \mathbf{n} \) is proportional to the circulation around the surrounding infinitesimal fluid element, divided by the elemental area bounded by the path of the integral</p>
+        </div>
+            </div>
+
+            <!-- Right Side: Images -->
+            <div class="image-container">
+                <img src="Figures/Lecture3A_StreamTube.png" alt="StreamTube">
+                <img src="Figures/Lecture3A_VortexTube.png" alt="VortexTube">
+
+            </div>
+        </div>
+
+
+        <!-- Navigation Buttons -->
+        <a href="Lecture3ASlide3.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture3ASlide5.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

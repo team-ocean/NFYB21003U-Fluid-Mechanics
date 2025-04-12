@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle and Field Descriptions of Fluid Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .text-container {
+            width: 65%;
+        }
+        .description {
+            text-align: left;
+            font-size: 16px;
+        }
+        .image-container {
+            width: 48%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .image-container img {
+            width: 80%;
+            height: auto;
+            border-radius: 5px;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Lorenz Equations</div>
+
+        <div class="content">
+            <!-- Left Side: Descriptions -->
+            <div class="text-container">
+                <div class="description">
+                <p>We begin our study of chaos with the <span class="sql">Lorenz equations</span>
+
+                    \[
+                    \dot{x} = \sigma(y - x)
+                    \]
+                    \[
+                    \dot{y} = r x - y - x z
+                    \]
+                    \[
+                    \dot{z} = x y - b z.
+                    \]
+                    
+                    Here \(\sigma, r, b > 0\) are parameters,  \(\sigma\) is the <span class="sql">Prandtl number</span>, 
+                    \(r\) is the Rayleigh number, and \(b\) has no name 
+                    (In the convection problem it is related to the aspect ratio of the rolls).
+                    Ed Lorenz (1963) derived this three-dimensional system from a drastically 
+                    simplified model of convection rolls in the atmosphere</p>
+                </div>
+                <div class="description">
+                <p>In Lorenz’s original model, \(x\) is proportional to the rate of convection in the atmosphere when 
+                    heated from below by a vertical temperature gradient proportional to \(z\), with horizontal temperature 
+                    variation characterised by \(y\)</p>
+                </div>
+            </div>
+
+            <!-- Right Side: Images -->
+            <div class="image-container">
+                <img src="Figures/Lecture8A_ArtisticLorenz.png" alt="ArtisticLorenz" style="max-width: 100%; height: auto; border: none;">
+            </div>
+        </div>
+
+
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <p class="footnote"><sup>1</sup>Strogatz, S.H. (2015). Nonlinear Dynamics and Chaos: With Applications to Physics, Biology, Chemistry, and Engineering (2nd ed.). CRC Press.</p>
+            </p>
+            <p class="footnote">
+                <p class="footnote"><sup>2</sup>The chaos of confusing the concepts. Posted on 22 January 2010 by Jacob Bock Axelsen.</p>
+            </p>
+        </div>
+
+
+
+        <!-- Navigation Buttons -->
+        <a href="Lecture8ASlide32.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture8ASlide34.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

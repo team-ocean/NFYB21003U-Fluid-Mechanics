@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From Leibniz's Theorem to Reynolds Transport Theorem</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="title">From Leibniz's Theorem to the Reynolds Transport Theorem</div>
+
+        <div class="slide">
+            <div class="description">
+                <p>The Taylor series expansion of \( F(\mathbf{x}, t) \) around \( t \) is given by:</p>
+                <div class="blue-box">
+                    \[
+                    F(\mathbf{x}, t+\Delta t) = F(\mathbf{x}, t) + \frac{F'(\mathbf{x},t)}{1!} \Delta t + \frac{F''(\mathbf{x},t)}{2!} (\Delta t)^2 + \frac{F'''(\mathbf{x},t)}{3!} (\Delta t)^3 + \dots
+                    \]
+                </div>
+                <p>For sufficiently small \( \Delta t \), keep only the first-order term:</p>
+                <div class="blue-box">
+                    \[
+                    F(\mathbf{x}, t+\Delta t) \approx F(\mathbf{x}, t) + \frac{F'(\mathbf{x},t)}{1!} \Delta t.
+                    \]
+                </div>
+                <p>This means that for small time increments, the change in \( F \) is linearly proportional to \( \Delta t \).</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="description">
+                <p>The first term inside the \(\{\}\)-braces can be expanded to four terms by defining the volume increment 
+                \( \Delta V \equiv V^*(t + \Delta t) - V^*(t) \) and applying a Taylor expansion to the integrand function:</p>
+                
+                <div class="blue-box">
+                    \[
+                    F(x, t + \Delta t) \approx F(x, t) + \Delta t \left( \frac{\partial F}{\partial t} \right)
+                    \]
+                </div>
+            </div>
+        </div>
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture1BSlide4.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture1BSlide6.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

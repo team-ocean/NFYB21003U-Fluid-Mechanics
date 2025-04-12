@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle and Field Descriptions of Fluid Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 110%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 100%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .blue-box {
+            text-align: center;
+            font-size: 14px;
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Bifurcations in 2D</div>
+
+        <div class="slide">
+
+            <div class="description">
+                <p>From 1D to 2D systems, fixed points
+                    can still be created or destroyed or destabilized as parameters are varied — but now the
+                    same is true of closed orbits as well.
+                     We can begin to <span class="sql">describe the ways in which
+                    oscillations can be turned on or off</span></p>
+            </div>
+            <div class="description">
+                <p>Examples</p>
+                <ul>
+                    <li>\(\dot{x} = \mu x - x^2,\quad \dot{y} = -y \qquad\qquad\quad (\text{transcritical})\)</li>
+                    <li>\(\dot{x} = \mu x - x^3,\quad \dot{y} = -y \qquad\qquad\quad (\text{supercritical pitchfork})\)</li>
+                    <li>\(\dot{x} = \mu x + x^3,\quad \dot{y} = -y \qquad\qquad\quad (\text{subcritical pitchfork})\)</li>
+                </ul>
+            </div>
+            <div class="description">
+                <p>The bifurcation points so far have one common feature. 
+                    All the branches have represented equilibria — both branches intersecting in a bifurcation point have consisted of 
+                    (stationary) solutions of the equation \(\boxed{\dot{\mathbf{y}} = 0 = \mathbf{f}(\mathbf{y},\lambda)}\). 
+                    A bifurcation that is characterized by intersecting branches of equilibrium points 
+                    <span class="sql">stationary bifurcation</span> (also called <span class="sql">steady-state bifurcation</span>)</p>
+            </div>
+            <div class="description">
+                <div class="image-container" style="text-align: left;">
+                <img src="Figures/Lecture8A_Hopf.png" alt="Hopf" style="max-width: 22%; height: auto; display: block; margin: auto;">
+                <p>
+                    The corresponding function spaces of \(\mathbf{y}(t)\) include equilibria as the special-case constant solutions. 
+                    The type of bifurcation that connects equilibria with periodic motion is <span class="sql">Hopf bifurcation</span>. 
+                    Hopf bifurcation is the door that opens from the small room of equilibria to the large 
+                    hall of periodic solutions, which in turn is just a small part of the realm of functions</p>
+                </div>
+            </div>
+
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <p class="footnote"><sup>1</sup>Strogatz, S.H. (2015). Nonlinear Dynamics and Chaos: With Applications to Physics, Biology, Chemistry, and Engineering (2nd ed.). CRC Press.</p>
+            </p>
+            <p class="footnote">
+                <p class="footnote"><sup>2</sup>Seydel, R. (2010). Practical Bifurcation and Stability Analysis. Interdisciplinary Applied Mathematics, vol 5. Springer, New York, NY.</p>
+            </p>
+        </div>
+
+        </div>
+
+
+        <!-- Navigation Buttons -->
+        <a href="Lecture8ASlide30.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture8ASlide32.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

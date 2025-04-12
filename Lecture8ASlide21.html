@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        ul {
+        list-style: none;       /* Keep custom style if needed */
+        padding: 0;
+        margin: 0;
+        }
+
+        ul li {
+        margin-bottom: 10px;    /* Adds space between list items */
+        }
+
+
+        .custom-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        }
+
+        .custom-list li {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 8px; /* Optional spacing between bullet points */
+        }
+
+        .custom-list li::before {
+        content: "■"; /* Unicode for small square */
+        color: #7DCDF4;
+        font-size: 14px;
+        position: absolute;
+        left: 0;
+        top: 2px;
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 110%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 110%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .blue-box {
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">The Geometric View</div>
+
+        <div class="slide">
+
+            <div class="image-container" style="text-align: left;">
+                <img src="Figures/Lecture8A_BifurcationTypes.png" alt="BifurcationTypes" style="max-width: 50%; height: auto; display: block; margin: auto;">
+                <p>Stability at bifurcations (solid line for stable solutions)</p>
+                    <ul class="custom-list">
+                        <li>A hysteresis phenomenon may collapse into a situation like that shown in (a), 
+                            this kind of branch point is called a <span class="sql">hysteresis point</span> or <span class="sql">cusp point</span> </li>
+                        <li>In (b) bifurcation point where more than two branches intersect is called a <span class="sql">multiple bifurcation point</span></li>
+                        <li>In (c) an <span class="sql">isola center</span> is depicted (also called <span class="sql">point of isola formation</span>). 
+                            A neighboring solution cannot be found to the right or to the left of an isola center</li>
+                    </ul>
+            </div>
+
+            <p>The simplest equations that represent a certain type of bifurcation are called <span class="sql">normal forms</span>. The normal forms of the bifurcations discussed so far:
+
+                \[
+                \begin{aligned}
+                0 &= \lambda \pm y^2 && \text{turning point, fold bifurcation} \\
+                0 &= \lambda y \pm y^2 && \text{transcritical bifurcation} \\
+                0 &= \lambda y \pm y^3 && \text{pitchfork bifurcation}
+                \end{aligned}
+                \]</p>
+
+
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <p class="footnote"><sup>1</sup>Seydel, R. (2010). Practical Bifurcation and Stability Analysis. Interdisciplinary Applied Mathematics, vol 5. Springer, New York, NY.</p>
+            </p>
+        </div>
+
+        </div>
+
+
+        <!-- Navigation Buttons -->
+        <a href="Lecture8ASlide20.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture8ASlide22.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From Leibniz's Theorem to Reynolds Transport Theorem</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 50%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 50%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .blue-box {
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">From Leibniz's Theorem to the Reynolds Transport Theorem</div>
+
+        <div class="slide">
+            <div class="description">
+                <p><span class="sql">Expressing \( \Delta V \) in Terms of the Surface Integral:</span>
+
+                Starting with the time derivative of the integral over the control volume:  
+                \[ \frac{d}{dt} \int_{V^*(t)} F(\mathbf{x},t) \, dV = \lim_{\Delta t \to 0} \frac{1}{\Delta t} \left\{ \int_{V^*(t)} \Delta t \frac{\partial F(\mathbf{x},t)}{\partial t} \, dV + \int_{\Delta V} F(\mathbf{x},t) \, dV \right\} \]</p>
+
+                <p>To evaluate the total time derivative of the integral over a moving control volume, express the volume increment as:  
+                \( \Delta V = V^*(t+\Delta t) - V^*(t) \)</p>
+
+                <p>Since small element of \( \Delta V \) is located adjacent to the surface \( A^*(t) \), approximate it using:  
+                \( \Delta V \approx (\mathbf{b} \Delta t) \cdot \mathbf{n} dA \), where:</p>
+                <ul>
+                    <li>\( \mathbf{b} \) is the velocity of the moving surface \( A^*(t) \),</li>
+                    <li>\( \mathbf{n} \) is the outward normal to \( A^*(t) \).</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="description">
+                <p><span class="sql">Evaluating the Integral over \( \Delta V \):</span>
+
+                Using the volume increment approximation, the integral \( \int_{\Delta V} F(\mathbf{x},t) dV \) can be rewritten as:  
+                \( \int_{\Delta V} F(\mathbf{x},t) dV = \int_{A^*(t)} F(\mathbf{x},t) (\mathbf{b} \Delta t \cdot \mathbf{n}) dA\)</p>
+
+                <p>All these elemental contributions to ΔV may be summed together via a surface integral, and, as \( \Delta t \) goes to zero, the integrand value of F(x,t) within these elemental volumes may be taken as that of F on the surface \( A^*(t) \), thus:  </p>
+                \[
+                \int\limits_{\Delta V} F(\mathbf{x},t) dV \cong 
+                \int\limits_{A^*(t)} F(\mathbf{x},t) (\mathbf{b} \Delta t \cdot \mathbf{n}) dA \text{ as } \Delta t \to 0.
+                \]
+
+            </div>
+        </div>
+
+        <!-- Image and Text Side by Side -->
+        <div class="image-container">
+            <img src="Figures/Lecture1B_GeometricalControlVolume.png" alt="Graphical Control Volume">
+            <div class="image-text">
+                <p>Geometrical depiction of a control volume \( V^*(t) \) having a surface \( A^*(t) \) that moves at a nonuniform velocity \( \mathbf{b} \) during a small time increment \( \Delta t \).</p>
+                <p>When \( \Delta t \) is small enough, the volume increment \( \Delta V = V^*(t+\Delta t) - V^*(t) \) will lie very near \( A^*(t) \), so the volume-increment element adjacent to \( dA \) will be \( (\mathbf{b} \Delta t) \cdot \mathbf{n} dA \) where \( \mathbf{n} \) is the outward normal on \( A^*(t) \).</p>
+            </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <a href="Lecture1BSlide7.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture1BSlide9.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>
+
