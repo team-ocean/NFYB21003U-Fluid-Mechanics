@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+
+    
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+        /* Center the table horizontally */
+        .slide table {
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        /* Left-align table text */
+        .slide table th,
+        .slide table td {
+        text-align: left;
+        }
+
+        /* Custom bullet list styled as flex container */
+    ul.custom {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
+    }
+    ul.custom li {
+      flex: 0 0 45%; /* roughly two items per row */
+      display: flex;
+      align-items: center;
+      gap: 10px; /* space between the text and image */
+      position: relative;
+      padding-left: 20px; /* extra padding for the bullet */
+    }
+    ul.custom li::before {
+      content: "■"; /* Unicode for small square bullet */
+      color: #7DCDF4;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Ensure images align properly */
+    ul.custom li img {
+      max-width: 49%;
+      height: auto;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Let's Have More Boundary Conditions</div>
+
+        <div class="slide">
+
+            <div class="description">
+                For the case of a liquid in contact with a gas with negligible surface tension effects, the <span class="sql">free-surface boundary conditions</span> are
+                \[
+                P_{\text{liquid}} = P_{\text{gas}} \quad \text{and} \quad \tau_{s,\, \text{liquid}} \approx 0 
+                \]
+            </div>
+            <div class="image-container" style="text-align: left;">
+                <img src="Figures/Lecture2A_WaterAirFreeSurfaceBoundary.png" alt="WaterAirFreeSurfaceBoundary" style="max-width: 36%; height: auto; display: block; margin: auto;">
+                <p>A degenerate form of the interface boundary condition occurs at the <span class="sql">free surface</span> of a liquid, meaning that fluid A is a liquid and fluid B is a gas (usually air).
+                    <span class="sql">Boundary conditions at water–air interface:</span>
+                    \[
+                    u_{\text{water}} = u_{\text{air}} \quad \text{and} \quad 
+                    \tau_{s,\, \text{water}} = \mu_{\text{water}} \left( \frac{\partial u}{\partial y} \right)_{\text{water}} 
+                    = \tau_{s,\, \text{air}} = \mu_{\text{air}} \left( \frac{\partial u}{\partial y} \right)_{\text{air}} 
+                    \]</p>
+            </div>
+            <p>Dynamic viscosity \(\mu_{\text{water}}\) is over 50 times greater than \(\mu_{\text{air}}\)
+                <img src="Figures/Lecture2A_ViscosityTable.png" 
+                alt="ViscosityTable" 
+                style="height: 22em; vertical-align: middle;">According to the Newton’s law of viscosity \(\tau_s = \mu \left( \frac{\partial u}{\partial y} \right)\), in order for the shear stresses to be equal, <span class="sql">Boundary conditions at water–air interface</span> requires that slope \((\partial u / \partial y)_{\text{air}}\) be more than 50 times greater than \((\partial u / \partial y)_{\text{water}}\). 
+                Since  \(\mu_{\text{air}} \ll \mu_{\text{water}}\)
+                a good approximation is that the shear stress at the water surface is negligibly small</p>
+            <div class="description">
+                Other boundary conditions arise depending on the problem setup. 
+                We often need to define <span class="sql">inlet boundary conditions</span> at a boundary of a flow domain where fluid enters the domain and <span class="sql">outlet boundary conditions</span> at an outflow. 
+                <span class="sql">Symmetry boundary conditions</span> are useful along an axis or plane of symmetry. For unsteady flow problems we also need to define <span class="sql">initial conditions</span> (at the starting time, usually \( t = 0 \))
+            </div>
+
+        <div class="footnote-container">
+            <hr class="footnote-line">
+                <p class="footnote">
+                    <sup>1</sup> Fluid Mechanics: Fundamentals and Applications Fourth Edition. Çengel and J. M. Cimbala, McGraw-Hill, New York (2018).
+                </p>
+                <p class="footnote">
+                    <sup>2</sup> The figure variation of dynamic (absolute) viscosity of common fluids with temperature at 1 atm,   
+                    \( 
+                    (1 \, \text{N} \cdot \text{s}/\text{m}^2 = 1 \, \text{kg}/\text{m} \cdot \text{s})
+                    \) is also Fluid Mechanics: Fundamentals and Applications Fourth Edition. Çengel and J. M. Cimbala, McGraw-Hill, New York (2018). Data from EES and F. M. White, Fluid Mechanics 7e
+                </p>
+        </div>
+
+        
+        <!-- Navigation Buttons -->
+        <a href="Lecture2ASlide20.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture2ASlide22.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

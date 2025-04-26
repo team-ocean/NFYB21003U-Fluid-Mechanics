@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script>
+        window.MathJax = {
+          tex: {
+            packages: ['base', 'ams'] // loads AMS by default
+          }
+        };
+      </script>
+      <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            "HTML-CSS": { scale: 80 }  // Default is 100
+        });
+    </script>
+      
+      
+    <style>
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 110%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 110%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Stream Functions</div>
+
+        <div class="slide">
+
+
+        <div class="description">
+            <p>
+                Consider the steady form of the continuity equation
+
+                \[
+                \nabla \cdot (\rho \mathbf{u}) = 0
+                \]
+            </p>
+        </div>
+
+        <div class="description">
+            <p>
+                The divergence of the curl of any vector field is identically zero, so \( \rho \mathbf{u} \) will satisfy \(\nabla \cdot (\rho \mathbf{u}) = 0\) when written as the curl of a vector potential \( \mathbf{\Psi} \)
+
+                \[
+                \rho \mathbf{u} = \nabla \times \mathbf{\Psi}
+                \]
+            </p>
+        </div>
+
+        <p><span class="sql">[Q] Use the vector integral theorems to prove that \( \nabla \cdot (\nabla \times \mathbf{u}) = 0 \) for any twice-differentiable vector function \( \mathbf{u} \) regardless of the coordinate system</span></p>
+
+        
+        <div class="image-container" style="text-align: left;">
+            <p>[Pf]
+                \(\because\) Gauss’ theorem
+
+                \(
+                \iiint_V \nabla \cdot \mathbf{Q} \, dV = \iint_A \mathbf{n} \cdot \mathbf{Q} \, dA
+                \)<br>
+                The arbitrary closed volume \( V \) has surface \( A \), and the outward normal is \( \mathbf{n} \)<br>
+                Let \( \mathbf{Q} = \nabla \times \mathbf{u} \)
+                \(\therefore\)
+                
+                \(
+                \iiint_V \nabla \cdot (\nabla \times \mathbf{u}) \, dV = \iint_A \mathbf{n} \cdot (\nabla \times \mathbf{u}) \, dA
+                \)<br>
+                
+                Split \( V \) into two sub-volumes \( V_1 \) and \( V_2 \), where the surface of \( V_1 \) is \( A_1 \) and the surface of \( V_2 \) is \( A_2 \), \( A_1 + A_2 = A \)<br>
+                \(\therefore\)
+                
+                \(
+                \iiint_V \nabla \cdot (\nabla \times \mathbf{u}) \, dV = \iint_{A_1} \mathbf{n} \cdot (\nabla \times \mathbf{u}) \, dA + \iint_{A_2} \mathbf{n} \cdot (\nabla \times \mathbf{u}) \, dA
+                \)
+            </p>
+            <img src="Figures/Lecture1B_KunduExercise2.21.png" alt="KunduExercise2.21" style="max-width: 39%; height: auto; display: block; margin: auto;">
+        </div>
+
+        <p>\(\because\) the bounding curve \( C \) for \( A_1 \) and \( A_2 \) is the same<br>
+            \(\therefore\) Stokes’ theorem produces
+
+            \(
+            \iiint_V \nabla \cdot (\nabla \times \mathbf{u}) \, dV = \int_C \mathbf{u} \cdot \mathbf{t}_1 \, ds + \int_C \mathbf{u} \cdot \mathbf{t}_2 \, ds
+            \)<br>
+            
+            Here the tangent vectors \( \mathbf{t}_1 = \mathbf{n}_{c1} \times \mathbf{n} \) and \( \mathbf{t}_2 = \mathbf{n}_{c2} \times \mathbf{n} \) have opposite signs because \( \mathbf{n}_{c1} \) and \( \mathbf{n}_{c2} \), the normals to \( C \) that are tangent to surfaces \( A_1 \) and \( A_2 \) have opposite sign,
+            the two terms on the right side of the last equation are equal and opposite<br>
+            \(\therefore\)
+            
+            \(\boxed{
+            \iiint_V \nabla \cdot (\nabla \times \mathbf{u}) \, dV = 0}
+            \)
+            
+            for an arbitrary closed volume of any size, shape, or location<br>
+            This can only be true if \( \nabla \cdot (\nabla \times \mathbf{u}) = 0 \). If \( \nabla \cdot (\nabla \times \mathbf{u}) \) were nonzero at some location, then integration in a small volume centered on this location would not be zero, \( \nabla \cdot (\nabla \times \mathbf{u}) \) must be zero everywhere because \( V \) is arbitrary</p>
+
+
+    
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture1BSlide17.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture1BSlide19.html" class="nav-button right">&#9654;</a>
+    </div>
+
+
+</body>
+</html>

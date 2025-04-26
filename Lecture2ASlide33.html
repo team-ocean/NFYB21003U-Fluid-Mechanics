@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+
+    
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+        /* Center the table horizontally */
+        .slide table {
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        /* Left-align table text */
+        .slide table th,
+        .slide table td {
+        text-align: left;
+        }
+
+        /* Custom bullet list styled as flex container */
+    ul.custom {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
+    }
+    ul.custom li {
+      flex: 0 0 45%; /* roughly two items per row */
+      display: flex;
+      align-items: center;
+      gap: 10px; /* space between the text and image */
+      position: relative;
+      padding-left: 20px; /* extra padding for the bullet */
+    }
+    ul.custom li::before {
+      content: "■"; /* Unicode for small square bullet */
+      color: #7DCDF4;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Ensure images align properly */
+    ul.custom li img {
+      max-width: 49%;
+      height: auto;
+    }
+
+    .highlight {
+    background-color:#ddf1f3; 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    .highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Implications of Linear Surface-Wave Solutions and Dispersion Relations</div>
+
+        <div class="slide">
+            <div class="description">
+                Streamlines may be found from the stream function \(\psi\), which can be determined by integrating the velocity component equations \(\partial \psi / \partial z = u\) and \(-\partial \psi / \partial x = w\) when \(u\) and \(w\) are given by 
+                \(u = a\omega \frac{\cosh(k(z + H))}{\sinh(kH)} \cos(kx - \omega t)\) and \(w = a\omega \frac{\sinh(k(z + H))}{\sinh(kH)} \sin(kx - \omega t)\):
+
+                \[
+                \psi = \frac{a \omega}{k} \frac{\sinh(k(z + H))}{\sinh(kH)} \cos(kx - \omega t)
+                \]
+            </div>
+
+        <p>
+            To understand the streamline structure, consider a particular time \(t = 0\) when 
+
+            \[
+            \psi \propto \sinh[k(z + H)] \cos(kx) 
+            \]
+
+            \(\psi = 0\) at \(z = -H\), so that the bottom wall is a part of the \(\psi = 0\) streamline, 
+             \(\psi\) is also zero at \(kx = \pm \pi/2, \pm 3\pi/2, \dots\) for any \(z\)<br>
+              At \(t = 0\) and at these values of \(kx\), \(\eta\) from \(\eta(x,t) = a \cos[kx - \omega t]\) vanishes
+        </p>
+
+        <div class="image-container" style="text-align: left;">
+            <img src="Figures/Lecture2A_StreamlineSinusoidalSurfaceWavePropagating.png" alt="StreamlineSinusoidalSurfaceWavePropagating" style="max-width: 39%; height: auto; display: block; margin: auto;">
+            <p>The resulting streamline pattern is shown here for a sinusoidal surface wave propagating to the right, the <span class="sql">velocity is in the direction of propagation (and horizontal) at all depths below the crests, and opposite to the direction of propagation at all depths below troughs</span>.
+                Here the \( \psi = 0 \) streamline follows the bottom and jumps up to contact the surface where \( \eta = 0 \). The remaining streamlines start and end on the liquid surface with purely horizontal motion found in the \( +x \) direction below a wave crest and in \( -x \) direction below a wave trough
+
+            </p>
+        </div>
+
+        
+        <!-- Navigation Buttons -->
+        <a href="Lecture2ASlide32.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture2ASlide34.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

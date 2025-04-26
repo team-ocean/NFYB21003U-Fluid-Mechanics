@@ -22,23 +22,100 @@
     </script>
 
     <style>
-        /* Ensure all text and equations are left-aligned */
-        body {
-            text-align: left;
-            margin-left: 20px;  /* Add some left margin for better readability */
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
         }
 
-        .description {
-            text-align: left;
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
         }
-        p {
-            text-align: left;
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
         }
-        /* Force MathJax equations to be left-aligned */
-        .MathJax_Display {
-            text-align: left !important;
-            display: block !important;
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
         }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+        /* Center the table horizontally */
+        .slide table {
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        /* Left-align table text */
+        .slide table th,
+        .slide table td {
+        text-align: left;
+        }
+
+        /* Custom bullet list styled as flex container */
+    ul.custom {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
+    }
+    ul.custom li {
+      flex: 0 0 45%; /* roughly two items per row */
+      display: flex;
+      align-items: center;
+      gap: 10px; /* space between the text and image */
+      position: relative;
+      padding-left: 20px; /* extra padding for the bullet */
+    }
+    ul.custom li::before {
+      content: "■"; /* Unicode for small square bullet */
+      color: #7DCDF4;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Ensure images align properly */
+    ul.custom li img {
+      max-width: 49%;
+      height: auto;
+    }
+
+    .highlight {
+    background-color:#ddf1f3; 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    .highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
     </style>
 </head>
 <body>
@@ -63,7 +140,7 @@
             </div>
 
             <div class="description">
-                <p>To find the acceleration \( \mathbf{a} \) of a fluid particle at P, take the time derivative to find: </p>     
+                <p>Take the time derivative to find the acceleration \( \mathbf{a} \) of a fluid particle at P </p>     
                 \[
                 \mathbf{a} = \frac{d \mathbf{u}}{dt} = \frac{d}{dt} \left( \mathbf{U} + \mathbf{u}' + \boldsymbol{\Omega} \times \mathbf{x}' \right) = \frac{d \mathbf{U}}{dt} + \mathbf{a}' + 2 \boldsymbol{\Omega} \times \mathbf{u}' + \frac{d \boldsymbol{\Omega}}{dt} \times \mathbf{x}' + \boldsymbol{\Omega} \times (\boldsymbol{\Omega} \times \mathbf{x}') 
                 \]
@@ -74,7 +151,7 @@
                 \[
                 \mathbf{a} = \frac{d \mathbf{u}}{dt} = \frac{d \mathbf{U}}{dt} + \frac{d \mathbf{u}'}{dt} + \frac{d}{dt} \left( \boldsymbol{\Omega} \times \mathbf{x}' \right)
                 \]
-                Expanding each term,  
+                Expanding each term  
                 \[
                 \mathbf{a} = \frac{d \mathbf{U}}{dt} + \frac{d}{dt} ( u'_1 \mathbf{e}'_1 + u'_2 \mathbf{e}'_2 + u'_3 \mathbf{e}'_3 ) + \frac{d \boldsymbol{\Omega}}{dt} \times \mathbf{x}' + \boldsymbol{\Omega} \times \frac{d \mathbf{x}'}{dt}
                 \]
@@ -84,14 +161,14 @@
                 + \underbrace{u'_1 \frac{d \mathbf{e}'_1}{dt} + u'_2 \frac{d \mathbf{e}'_2}{dt} + u'_3 \frac{d \mathbf{e}'_3}{dt}}_{\text{Time derivatives of unit vectors}}
                 + \frac{d \boldsymbol{\Omega}}{dt} \times \mathbf{x}' + \boldsymbol{\Omega} \times (\mathbf{u}' + \boldsymbol{\Omega} \times \mathbf{x}')
                 \)
-                \(\because\) The time derivatives of the unit vectors can be rewritten in terms of a cross product,
+                \(\because\) The time derivatives of the unit vectors can be rewritten in terms of a cross product
                 \[
                 u'_1 \frac{d \mathbf{e}'_1}{dt} + u'_2 \frac{d \mathbf{e}'_2}{dt} + u'_3 \frac{d \mathbf{e}'_3}{dt} = \boldsymbol{\Omega} \times \mathbf{u}'
                 \]
-                \(\therefore\) Simplifies to:  
-                \(
-                \mathbf{a} = \frac{d \mathbf{u}}{dt} = \frac{d}{dt} \left( \mathbf{U} + \mathbf{u}' + \boldsymbol{\Omega} \times \mathbf{x}' \right) = \frac{d \mathbf{U}}{dt} + \mathbf{a}' + 2 \boldsymbol{\Omega} \times \mathbf{u}' + \frac{d \boldsymbol{\Omega}}{dt} \times \mathbf{x}' + \boldsymbol{\Omega} \times (\boldsymbol{\Omega} \times \mathbf{x}') 
-                \)
+                \(\therefore\)
+                \(\mathbf{a} = \frac{d\mathbf{U}}{dt} + \mathbf{a}' + \boldsymbol{\Omega} \times \mathbf{u}' + \frac{d\boldsymbol{\Omega}}{dt} \times \mathbf{x}' + \boldsymbol{\Omega} \times \mathbf{u}' + \boldsymbol{\Omega} \times (\boldsymbol{\Omega} \times \mathbf{x}')\)
+                <span class="highlight">\(
+                    \boxed{\quad  = \frac{d\mathbf{U}}{dt} + \mathbf{a}' + 2\boldsymbol{\Omega} \times \mathbf{u}' + \frac{d\boldsymbol{\Omega}}{dt} \times \mathbf{x}' + \boldsymbol{\Omega} \times (\boldsymbol{\Omega} \times \mathbf{x}')}\)</span>
             </p>
             
             

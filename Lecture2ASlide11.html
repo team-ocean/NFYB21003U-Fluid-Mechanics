@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Constant Surface Tension Boundary Condition</div>
+
+        <div class="slide">
+
+            <div class="description">
+                The thermodynamic basis for surface tension starts from consideration of the Helmholtz free energy (per unit mass) is \( f \) defined by
+
+                \[
+                f = e - T s
+                \]
+                \(e\) is the system’s <span class="sql">internal energy</span>, the internal energy (aka, thermal energy) \(e\) is a manifestation of the random molecular motion of the system’s constituents. Thermodynamic property \(s\) is known as entropy.
+                \(T\) represents the absolute temperature of the system, typically measured in Kelvin (K)
+            </div>
+
+            <div class="description">
+                For a reversible isothermal change, the work done on the system increases the free energy \( f \)
+
+                \[
+                df = de - T ds - s dT
+                \]
+
+                where the last term is zero for an isothermal change
+            </div>
+
+            <p>Then from Property Relations \(\boxed{
+                T ds = de + p\,dv, \quad \text{or} \quad T ds = dh - v\,dp \quad \text{(Gibbs relation)}}
+                \),
+
+                \[
+                df = -p dv = \text{the work done on the system}
+                \]
+                
+                these relations suggest that surface tension decreases with increasing temperature</p>
+            <p>For an interface of area \( A \), separating two fluids of densities \( \rho_1 \) and \( \rho_2 \) with volumes \( V_1 \) and \( V_2 \), and with a surface tension coefficient \( \sigma \) corresponding to free energy per unit area, the total (Helmholtz) free energy \( F \) of the system can be written as
+
+                \[
+                F = \rho_1 V_1 f_1 + \rho_2 V_2 f_2 + A \sigma
+                \]</p>
+
+
+
+
+
+        </div>
+        
+        <!-- Navigation Buttons -->
+        <a href="Lecture2ASlide10.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture2ASlide12.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

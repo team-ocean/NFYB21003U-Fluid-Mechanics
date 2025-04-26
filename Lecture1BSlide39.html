@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+<!-- Include MathJax with color extension enabled -->
+<script type="text/javascript" async 
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<!-- Configuration block to load color extension -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+            extensions: ["color.js", "cancel.js"]
+            
+        },
+        "HTML-CSS": {
+            scale: 90
+        }
+    });
+
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": { scale: 90 }  // Default is 100
+    });
+</script>
+
+      
+      
+    <style>
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 110%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 110%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Navier-Stokes Momentum Equation</div>
+
+        <div class="slide">
+
+    
+        <div class="description">
+            The momentum conservation equation for a Newtonian fluid is obtained by substituting \(\boxed{T_{ij} = -p\delta_{ij} + \tau_{ij} = -p\delta_{ij} + 2\mu \left(S_{ij} - \frac{1}{3}S_{mm}\delta_{ij} \right) + \mu_v S_{mm} \delta_{ij}}\) 
+            into Cauchy’s \(\boxed{\rho \frac{D u_j}{D t} = \rho g_j + \frac{\partial}{\partial x_i} \left( T_{ij} \right)}\) to obtain
+
+            \[
+            \rho \left( \frac{\partial u_j}{\partial t} + u_i \frac{\partial u_j}{\partial x_i} \right) = - \frac{\partial p}{\partial x_j} + \rho g_j +
+            \frac{\partial}{\partial x_i} \left[ \mu \left( \frac{\partial u_j}{\partial x_i} + \frac{\partial u_i}{\partial x_j} \right)
+            + \left( \mu_v - \frac{2}{3} \mu \right) \frac{\partial u_m}{\partial x_m} \delta_{ij} \right]
+            \]
+
+            where we have used \( (\partial p/\partial x_i)\delta_{ij} = \partial p/\partial x_j \), 
+            material derivative \(\frac{D F}{D t} \equiv \frac{\partial F}{\partial t} + \mathbf{u} \cdot \nabla F, \text{or} \frac{D F}{D t} \equiv \frac{\partial F}{\partial t} + u_i \frac{\partial F}{\partial x_i}\) with \( F = u_j \), and \(S_{ij} = \frac{1}{2} \left( \frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i} \right)\)
+            This is the <strong>Navier-Stokes momentum equation</strong>
+        </div>
+
+        <div class="description">
+            When temperature differences are small within the flow, \(\mu\) and \(\mu_v\) can be taken outside the spatial derivative operating on the contents of the [..] brackets in the Navier-Stokes momentum equation, which then reduces to
+
+            \[
+            \rho \frac{D u_j}{D t} = -\frac{\partial p}{\partial x_j} + \rho g_j + \mu \frac{\partial^2 u_j}{\partial x_i^2} + \left(\mu_v + \frac{1}{3} \mu\right) \frac{\partial}{\partial x_j} \frac{\partial u_m}{\partial x_m} \quad \text{(compressible)}
+            \]
+        </div>
+
+        <div class="description">
+            For incompressible fluids \(\boxed{\rho \frac{D u_j}{D t} = -\frac{\partial p}{\partial x_j} + \rho g_j + \mu \frac{\partial^2 u_j}{\partial x_i^2} + \left(\mu_v + \frac{1}{3} \mu\right) \frac{\partial}{\partial x_j} \frac{\partial u_m}{\partial x_m} \quad \text{(compressible)}}\) in vector notation reduces to
+
+            \[
+            \rho \frac{D \mathbf{u}}{D t} = -\nabla p + \rho \mathbf{g} + \mu \nabla^2 \mathbf{u} \quad \text{(incompressible)} 
+            \]
+        </div>
+        <div class="description">
+            The net viscous force per unit volume in incompressible flow, the last term on the right in this equation = \(\mu \left( \partial^2 u_j / \partial x_i^2 \right)\), can be obtained from the divergence of the strain rate tensor or from the curl of the vorticity
+
+            \[
+            \mu \frac{\partial^2 u_j}{\partial x_i^2} = 2\mu \frac{\partial S_{ij}}{\partial x_i} = \mu \frac{\partial}{\partial x_i} \left( \frac{\partial u_j}{\partial x_i} + \frac{\partial u_i}{\partial x_j} \right)
+            = -\mu \varepsilon_{jik} \frac{\partial \omega_k}{\partial x_i}, text{ or }
+
+            \mu \nabla^2 \mathbf{u} = -\mu \nabla \times \boldsymbol{\omega}
+            \]
+        </div>
+        <div class="description">
+            If viscous effects are negligible, which is commonly true in exterior flows away from solid boundaries, \(\boxed{\rho \frac{D u_j}{D t} = -\frac{\partial p}{\partial x_j} + \rho g_j + \mu \frac{\partial^2 u_j}{\partial x_i^2} + \left(\mu_v + \frac{1}{3} \mu\right) \frac{\partial}{\partial x_j} \frac{\partial u_m}{\partial x_m} \quad \text{(compressible)}}\)
+             further simplifies to the <span class="sql">Euler equation</span>
+
+            \[
+            \rho \frac{D \mathbf{u}}{D t} = -\nabla p + \rho \mathbf{g} 
+            \]
+        </div>
+
+                
+                
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture1BSlide38.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture1BOverview.html" class="nav-button right">&#9654;</a>
+    </div>
+
+
+</body>
+</html>

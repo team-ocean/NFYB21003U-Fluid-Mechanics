@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script>
+        window.MathJax = {
+          tex: {
+            packages: ['base', 'ams'] // loads AMS by default
+          }
+        };
+      </script>
+      <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            "HTML-CSS": { scale: 80 }  // Default is 100
+        });
+    </script>
+      
+      
+    <style>
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 110%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 110%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Apply Reynolds Transport Theorem to Conservation of Mass</div>
+
+        <div class="slide">
+        
+        <div class="description">
+            <p>
+                <span class="bullet">The second step is to choose the arbitrary control volume \( V^*(t) \) 
+                    to be instantaneously coincident with the material volume \( V(t) \) so that <span class="sql">at the moment 
+                    of interest</span> \( V(t) = V^*(t) \) and \( A(t) = A^*(t) \)</span>  
+            </p>
+        </div>
+
+        <p>
+            The \(\boxed{ \left( \frac{d}{dt} \right) \int \rho \, dV }\)-terms are not equal 
+            in \(\frac{d}{dt} \int_{V(t)} \rho(\mathbf{x}, t) \, dV = 0\) and \(
+                \frac{d}{dt} \int_{V^*(t)} \rho(\mathbf{x}, t) dV 
+                - \int_{V^*(t)} \frac{\partial \rho(\mathbf{x}, t)}{\partial t} \, dV 
+                - \int_{A^*(t)} \rho(\mathbf{x}, t) \mathbf{b} \cdot \mathbf{n} \, dA = 0\)<br>
+            However, the volume integration 
+            of \( \partial \rho / \partial t \) in 
+            \(\int_{V(t)} \frac{\partial \rho(\mathbf{x}, t)}{\partial t} \, dV + \int_{A(t)} \rho(\mathbf{x}, t) \, \mathbf{u}(\mathbf{x}, t) \cdot \mathbf{n} \, dA = 0\) 
+            is equal to that in \(
+                \frac{d}{dt} \int_{V^*(t)} \rho(\mathbf{x}, t) dV 
+                - \int_{V^*(t)} \frac{\partial \rho(\mathbf{x}, t)}{\partial t} \, dV 
+                - \int_{A^*(t)} \rho(\mathbf{x}, t) \mathbf{b} \cdot \mathbf{n} \, dA = 0\) and the surface integral 
+            of \( \rho \mathbf{u} \cdot \mathbf{n} \) over \( A(t) \) is equal to that over \( A^*(t) \):
+
+            \[
+            \int_{V^*(t)} \frac{\partial \rho(\mathbf{x}, t)}{\partial t} \, dV 
+            = \int_{V(t)} \frac{\partial \rho(\mathbf{x}, t)}{\partial t} \, dV 
+            = - \int_{A(t)} \rho(\mathbf{x}, t) \mathbf{u}(\mathbf{x}, t) \cdot \mathbf{n} \, dA 
+            = - \int_{A^*(t)} \rho(\mathbf{x}, t) \mathbf{u}(\mathbf{x}, t) \cdot \mathbf{n} \, dA
+            \]
+
+            The two ends allow the central volume-integral 
+            term in 
+            \(\boxed{
+                \frac{d}{dt} \int_{V^*(t)} \rho(\mathbf{x}, t) dV 
+                - \boxed{\int_{V^*(t)} \frac{\partial \rho(\mathbf{x}, t)}{\partial t} \, dV}
+                - \int_{A^*(t)} \rho(\mathbf{x}, t) \mathbf{b} \cdot \mathbf{n} \, dA = 0}
+                \)
+             to be replaced by a surface integral to find
+
+             <div class="description">
+
+            \[
+            \frac{d}{dt} \int_{V^*(t)} \rho(\mathbf{x}, t) \, dV 
+            + \int_{A^*(t)} \rho(\mathbf{x}, t) \left( \mathbf{u}(\mathbf{x}, t) - \mathbf{b} \right) \cdot \mathbf{n} \, dA = 0
+            \]
+            </div> 
+        </p>
+
+        <p>
+            \( \mathbf{u} \) and \( \mathbf{b} \) must both be observed in the same frame of reference. 
+            This is the general integral statement of conservation of mass for an arbitrarily moving control volume. 
+            It can be specialized to stationary, steadily moving, accelerating, or deforming control volumes by appropriate choice of \( \mathbf{b} \). 
+            When \( \mathbf{b} = \mathbf{u} \), the arbitrary control volume becomes a material volume 
+            and \(
+                \frac{d}{dt} \int_{V^*(t)} \rho(\mathbf{x}, t) \, dV 
+            + \int_{A^*(t)} \rho(\mathbf{x}, t) \left( \mathbf{u}(\mathbf{x}, t) - \mathbf{b} \right) \cdot \mathbf{n} \, dA = 0\) 
+            reduces to \(\frac{d}{dt} \int_{V(t)} \rho(\mathbf{x}, t) \, dV = 0\)
+        </p>
+
+
+
+        </div>        
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture1BSlide13.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture1BSlide15.html" class="nav-button right">&#9654;</a>
+    </div>
+
+
+</body>
+</html>

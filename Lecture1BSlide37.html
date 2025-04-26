@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+<!-- Include MathJax with color extension enabled -->
+<script type="text/javascript" async 
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<!-- Configuration block to load color extension -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+            extensions: ["color.js", "cancel.js"]
+            
+        },
+        "HTML-CSS": {
+            scale: 90
+        }
+    });
+
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": { scale: 90 }  // Default is 100
+    });
+</script>
+
+      
+      
+    <style>
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 110%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 110%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Constitutive Equation for a Newtonian Fluid</div>
+
+        <div class="slide">
+
+    
+        <div class="description">
+            Therefore take the average of the diagonal terms of \(\mathbf{T}\) and define a <span class="sql">mean pressure</span> (as opposed to thermodynamic pressure \( p \)) as
+            \[
+            \bar{p} \equiv -\tfrac{1}{3} T_{ii}
+            \]
+
+            Substitution into \(\boxed{p = -\tfrac{1}{3} T_{ii} + \left( \tfrac{2}{3} \mu + \lambda \right) \nabla \cdot \mathbf{u}}\) gives
+
+            \[
+            p - \bar{p} = \left( \tfrac{2}{3} \mu + \lambda \right) \nabla \cdot \mathbf{u}
+            \]
+        </div>
+
+        <p>For a completely incompressible fluid we can only define a mechanical or mean pressure, because there is no equation of state to determine a thermodynamic pressure
+            (<span class="sql">the absolute pressure in an incompressible fluid is indeterminate</span>, and only its gradients can be determined from the equations of motion).
+            The λ-term in the constitutive equation \(\boxed{T_{ij} = -p \delta_{ij} + 2\mu S_{ij} + \lambda S_{mm} \delta_{ij}}\) drops out when \( S_{mm} = \nabla \cdot \mathbf{u} = 0 \), and no consideration of \(\boxed{p - \bar{p} = \left( \tfrac{2}{3} \mu + \lambda \right) \nabla \cdot \mathbf{u}}\) is necessary. 
+            <span class="bullet">So, for <span class="sql">incompressible fluids</span>, 
+            the constitutive equation takes the simple form
+            \[
+            T_{ij} = -p\delta_{ij} + 2\mu S_{ij} \quad \text{(incompressible)}
+            \]
+            
+            where \( p \) can only be interpreted as the mean pressure experienced by a fluid particle.</span><span class="bullet">For a compressible fluid, on the other hand, a thermodynamic pressure can be defined, and it seems that \( p \) and \( \bar{p} \) can be different.</span></p>
+
+            <div class="description">
+                In fact, \(\boxed{p - \bar{p} = \left( \tfrac{2}{3} \mu + \lambda \right) \nabla \cdot \mathbf{u}}\) relates this difference to the rate of expansion through the proportionality constant \( \mu_v = \lambda + \frac{2}{3}\mu \), 
+                which is called the <span class="sql">coefficient of bulk viscosity</span>. 
+                It has an appreciable effect on sound absorption and shock-wave structure. It is generally found to be nonzero in polyatomic gases because of relaxation effects associated with molecular translation and rotation. 
+                However, the <span class="sql">Stokes assumption</span>
+
+                \[
+                \lambda + \frac{2}{3}\mu = 0
+                \]
+
+                is found to be accurate in many situations because either the fluid's \( \mu_v \) or the flow’s dilatation rate is small
+            </div>
+                
+                
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture1BSlide36.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture1BSlide38.html" class="nav-button right">&#9654;</a>
+    </div>
+
+
+</body>
+</html>

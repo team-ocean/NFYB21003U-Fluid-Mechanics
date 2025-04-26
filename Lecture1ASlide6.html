@@ -19,10 +19,7 @@
                 <p>Divergence of a Vector Field:</p>
                 <p>
                     \[
-                    \nabla \cdot \mathbf{F} = \begin{pmatrix} 
-                    \frac{\partial}{\partial x} \\ \frac{\partial}{\partial y} \\ \frac{\partial}{\partial z}
-                    \end{pmatrix} \cdot \begin{pmatrix} f \\ g \\ h \end{pmatrix} 
-                    = \frac{\partial f}{\partial x} + \frac{\partial g}{\partial y} + \frac{\partial h}{\partial z} 
+                    \text{div}\, \mathbf{u} = \frac{\partial u_1}{\partial x} + \frac{\partial u_2}{\partial y} + \frac{\partial u_3}{\partial z} = \left( \frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z} \right) \cdot (u_1, u_2, u_3) = \nabla \cdot \mathbf{u}
                     \]
                 </p>
             </div>
@@ -31,15 +28,11 @@
                 <p>Curl of a Vector Field:</p>
                 <p>
                     \[
-                    \nabla \times \mathbf{F} = \begin{pmatrix} 
-                    \frac{\partial}{\partial x} \\ \frac{\partial}{\partial y} \\ \frac{\partial}{\partial z}
-                    \end{pmatrix} \times \begin{pmatrix} f \\ g \\ h \end{pmatrix}
-                    = \begin{pmatrix} 
-                    \frac{\partial h}{\partial y} - \frac{\partial g}{\partial z} \\
-                    \frac{\partial f}{\partial z} - \frac{\partial h}{\partial x} \\
-                    \frac{\partial g}{\partial x} - \frac{\partial f}{\partial y}
-                    \end{pmatrix}
-                    \]
+                    \text{curl } \mathbf{u} = \left( \frac{\partial u_3}{\partial y} - \frac{\partial u_2}{\partial z}, \; \frac{\partial u_1}{\partial z} - \frac{\partial u_3}{\partial x}, \; \frac{\partial u_2}{\partial x} - \frac{\partial u_1}{\partial y} \right) =  \begin{vmatrix}
+                    \mathbf{e}_1 & \mathbf{e}_2 & \mathbf{e}_3 \\
+                    \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+                    u_1 & u_2 & u_3
+                    \end{vmatrix} = \nabla \times \mathbf{u}\] 
                 </p>
             </div>
 
@@ -64,6 +57,9 @@
                 <a href="https://mathinsight.org/divergence_curl_examples" target="_blank">
                     <code>https://mathinsight.org/divergence_curl_examples</code>
                 </a>
+                <p class="footnote">
+                    <sup>2</sup>P. C. Matthews, Vector Calculus, New York:Springer-Verlag, 1998. 
+                </p>
             </p>
         </div>
     </div>

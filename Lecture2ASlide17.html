@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+
+    
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Conservation of Energy Boundary Conditions</div>
+
+        <div class="slide">
+            <p>
+                When the control volume is used with \( \mathbf{b} = \mathbf{u}_s \) and the integral form of the energy conservation equation accounting for internal and kinetic energy, work done by body and surface forces, and heat flux across a boundary\(\boxed{\small
+                \frac{d}{dt} \int_{V^*(t)} \rho \left( e + \frac{1}{2} |\mathbf{u}|^2 \right) dV
+                + \int_{A^*(t)} \left( \rho e + \frac{\rho}{2} |\mathbf{u}|^2 \right) (\mathbf{u} - \mathbf{b}) \cdot \mathbf{n} \, dA
+                
+                = \int_{V^*(t)} \rho \mathbf{g} \cdot \mathbf{u} \, dV
+                + \int_{A^*(t)} \mathbf{f} \cdot \mathbf{u} \, dA
+                - \int_{A^*(t)} \mathbf{q} \cdot \mathbf{n} \, dA}
+                \) 
+            </p>
+
+            <div class="description">
+                the following energy-conservation boundary condition can be developed
+
+                \[
+                \dot{m}_s \left[ \left( h + \frac{1}{2} |\mathbf{u}|^2 \right)_2 - \left( h + \frac{1}{2} |\mathbf{u}|^2 \right)_1 \right]
+                = - (k \nabla T)_2 \cdot \mathbf{n} + (k \nabla T)_1 \cdot \mathbf{n}
+                \]
+                When \( \dot{m}_s = 0 \), the conductive heat flux must be continuous at the interface
+            </div>
+            <div class="description">
+                For a complete set of boundary conditions, the thermal equivalent of the no-slip condition
+
+                \[
+                T_1 = T_2 
+                \]
+
+                is needed on the interface, no temperature jump is permitted
+            </div>
+
+            <p>However, it is known to be violated in rarefied gases and is related to viscous slip in such flows
+
+            <div class="image-container" style="text-align: left;">
+                <img src="Figures/Lecture2A_VelocitySlipTemperatureJump.png" alt="VelocitySlipTemperatureJump" style="max-width: 59%; height: auto; display: block; margin: auto;">
+                <p>Velocity slip (\( U_s \)), slip length (\( L_s = \frac{U_s}{dU/dy} \)), and temperature jump (\( T_{\text{jump}} \)) in the presence of non-equilibrium gas–surface interactions in rarefied gas flows</p>
+            </div>
+
+            <div class="footnote-container">
+                <hr class="footnote-line">
+                <p class="footnote">
+                    <sup>1</sup> Hassan Akhlaghi, Ehsan Roohi and Stefan Stefanov. A Comprehensive Review on Micro- and Nano-Scale Gas Flow Effects: Slip-Jump Phenomena, Knudsen Paradox, Thermally-Driven Flows, and Knudsen Pumps. <i>Physics Reports</i>, vol. 997, 1 Jan. 2023, pp. 1–60.
+                </p>
+            </div>
+
+        
+        <!-- Navigation Buttons -->
+        <a href="Lecture2ASlide16.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture2ASlide18.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

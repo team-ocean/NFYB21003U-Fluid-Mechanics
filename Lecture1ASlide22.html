@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            "HTML-CSS": { scale: 80 }  // Default is 100
+        });
+    </script>
+    
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 110%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 110%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Fluid Rotation</div>
+
+        <div class="slide">
+        <div class="description">
+        <p>We can now compute the angular velocity of the particle about the \( z \) axis, \( \omega_z \), by combining all these results
+            \[
+            \omega_z = \lim_{\Delta t \to 0} \frac{1}{2} (\Delta \alpha - \Delta \beta) / \Delta t 
+            = \lim_{\Delta t \to 0} \frac{1}{2} \left( \frac{\Delta \eta}{\Delta x} - \frac{\Delta \xi}{\Delta y} \right) / \Delta t 
+            = \frac{1}{2} \lim_{\Delta t \to 0} \left( \frac{\partial v_y}{\partial x} \Delta t - \frac{\partial v_x}{\partial y} \Delta t \right) / \Delta t
+            \]  
+        </div>
+        <p>
+            \(
+            \omega_z = \frac{1}{2} \left( \frac{\partial v_y}{\partial x} - \frac{\partial v_x}{\partial y} \right)
+            \)
+        </p>
+
+        <p>
+            By considering the rotation of pairs of perpendicular line segments in the \( yz \) and \( xz \) planes, one can show similarly that  
+            \(
+            \omega_x = \frac{1}{2} \left( \frac{\partial v_z}{\partial y} - \frac{\partial v_y}{\partial z} \right), \quad 
+            \omega_y = \frac{1}{2} \left( \frac{\partial v_x}{\partial z} - \frac{\partial v_z}{\partial x} \right)
+            \)<br>
+
+            Then \( \vec{\omega} = \omega_x \hat{i} + \omega_y \hat{j} + \omega_z \hat{k} \quad \Rightarrow \)  
+            \(
+            \vec{\omega} = \frac{1}{2} \left[ 
+            \hat{i} \left( \frac{\partial v_z}{\partial y} - \frac{\partial v_y}{\partial z} \right) +
+            \hat{j} \left( \frac{\partial v_x}{\partial z} - \frac{\partial v_z}{\partial x} \right) +
+            \hat{k} \left( \frac{\partial v_y}{\partial x} - \frac{\partial v_x}{\partial y} \right)
+            \right]
+            \)<br>
+
+            We recognize the term in the square brackets as  
+            \(\boxed{
+            \text{curl } \vec{V} = \nabla \times \vec{V}}
+            \)
+
+
+        </p>
+
+
+        <div class="description">
+            <p> Then, in vector notation, we can write  
+                \(\quad
+                \vec{\omega} = \frac{1}{2} \nabla \times \vec{V}
+                \)</p>
+        </div>
+
+        <div class="description">
+            <p>It is worth noting here that we should not confuse rotation of a fluid particle with flow consisting of circular streamlines, or <span class="sql">vortex</span> flow. As we saw in the Example in class, in such a flow the particles <span class="sql">could</span> rotate as they move in a circular motion, but they do not have to!</p>
+        </div>
+
+
+        </div>        
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture1ASlide21.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture1ASlide23.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

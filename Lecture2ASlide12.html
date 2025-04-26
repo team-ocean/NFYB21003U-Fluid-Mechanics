@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Constant Surface Tension Boundary Condition</div>
+
+        <div class="slide">
+
+            <div class="description">
+                \[
+                F = \rho_1 V_1 f_1 + \rho_2 V_2 f_2 + A \sigma
+                \]
+            </div>
+
+            <ul class="custom-list">
+                <li>If \( \sigma > 0 \), the two media (fluids) are immiscible and \( A \) will reach a local minimum value at equilibrium</li>
+                <li>If \( \sigma < 0 \), corresponding to surface compression, the two fluids mix freely since the minimum free energy will occur when \( A \) has expanded to the point that the spacing between its folds reaches molecular dimensions and the two-fluid system has uniform composition</li>
+            </ul>
+            <div class="image-container" style="text-align: left;">
+                <img src="Figures/Lecture2A_CurvedSurfaceBC.png" alt="CurvedSurfaceBC" style="max-width: 49%; height: auto; display: block; margin: auto;">
+                <p>When \( \sigma > 0 \), minimum interface area is achieved by pressure forces that cause fluid elements to move. 
+                    These pressure forces are determined by \( \sigma \) and the local curvature of the interface, the pressure above a curved interface is higher than that below it by an increment \( \Delta p \), and the shape of the fluid interface is given by \( \eta(x,y,z) = z - h(x,y) = 0 \)</p>
+            </div>
+
+            <p>The origin of coordinates and the direction of the z-axis are chosen so that \( h, \partial h / \partial x, \) and \( \partial h / \partial y \) are all zero at \( \mathbf{x} = (0,0,0) \). Plus, the directions of the x- and y-axes are chosen so that the surface’s principal radii of curvature, \( R_1 \) and \( R_2 \) are found in the x–z and y–z planes. 
+                The surface’s shape is given by
+                \[
+                \eta(x,y,z) = z - \left( \frac{x^2}{2R_1} \right) - \left( \frac{y^2}{2R_2} \right) = 0
+                \]
+
+                A closed curve \( C \) is defined by the intersection of the curved surface and the plane \( z = \zeta \)</p>
+
+
+
+
+
+
+        </div>
+        
+        <!-- Navigation Buttons -->
+        <a href="Lecture2ASlide11.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture2ASlide13.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

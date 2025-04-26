@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equations of Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript">
+        window.MathJax = {
+            tex: {
+                displayMath: [['\\[', '\\]'], ['$$', '$$']]
+            },
+            chtml: {
+                displayAlign: "left"  // Force left alignment
+            }
+        };
+    </script>
+    <script type="text/javascript" async 
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
+
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+        /* Center the table horizontally */
+        .slide table {
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        /* Left-align table text */
+        .slide table th,
+        .slide table td {
+        text-align: left;
+        }
+
+        /* Custom bullet list styled as flex container */
+    ul.custom {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
+    }
+    ul.custom li {
+      flex: 0 0 45%; /* roughly two items per row */
+      display: flex;
+      align-items: center;
+      gap: 10px; /* space between the text and image */
+      position: relative;
+      padding-left: 20px; /* extra padding for the bullet */
+    }
+    ul.custom li::before {
+      content: "■"; /* Unicode for small square bullet */
+      color: #7DCDF4;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Ensure images align properly */
+    ul.custom li img {
+      max-width: 49%;
+      height: auto;
+    }
+
+    .highlight {
+    background-color:#ddf1f3; 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    .highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Noninertial Frame of Reference</div>
+
+        <div class="slide">
+            <div class="description">
+                \[
+                \mathbf{a} = \frac{d \mathbf{u}}{dt} = \frac{d}{dt} \left( \mathbf{U} + \mathbf{u}' + \boldsymbol{\Omega} \times \mathbf{x}' \right) = \frac{d \mathbf{U}}{dt} + \mathbf{a}' + 2 \boldsymbol{\Omega} \times \mathbf{u}' + \frac{d \boldsymbol{\Omega}}{dt} \times \mathbf{x}' + \boldsymbol{\Omega} \times (\boldsymbol{\Omega} \times \mathbf{x}') 
+                \]
+            </div>
+
+            <div class="description">
+                In fluid mechanics, the acceleration \(\mathbf{a}\) of fluid particles is denoted \(\frac{D\mathbf{u}}{Dt}\)
+                \[
+                \underbrace{\left( \frac{D\mathbf{u}}{Dt} \right)_{O123}}_{\text{Acceleration in inertial frame}} = 
+                \underbrace{\left( \frac{D'\mathbf{u}'}{Dt} \right)_{O'1'2'3'}}_{\text{Acceleration in noninertial frame}} + 
+                \underbrace{\frac{d\mathbf{U}}{dt}}_{\text{Acceleration of the noninertial frame}} + 
+                \underbrace{2\boldsymbol{\Omega} \times \mathbf{u}'}_{\text{Coriolis acceleration}} + \]\[
+                \underbrace{\frac{d\boldsymbol{\Omega}}{dt} \times \mathbf{x}'}_{\text{Apparent acceleration from angular acceleration}} + 
+                \underbrace{\boldsymbol{\Omega} \times (\boldsymbol{\Omega} \times \mathbf{x}')}_{\text{Centripetal acceleration}}
+                \]
+            </div>
+
+            <p>
+                Substituting \(\left( \frac{D\mathbf{u}}{Dt} \right)_{O123} = \left( \frac{D'\mathbf{u}'}{Dt} \right)_{O'1'2'3'} + \frac{d\mathbf{U}}{dt} + 2\boldsymbol{\Omega} \times \mathbf{u}' + \frac{d\boldsymbol{\Omega}}{dt} \times \mathbf{x}' + \boldsymbol{\Omega} \times (\boldsymbol{\Omega} \times \mathbf{x}')\) 
+                into \(\boxed{\rho \frac{D\mathbf{u}}{Dt} = -\nabla p + \rho \mathbf{g} + \mu \nabla^2 \mathbf{u} \quad \text{(incompressible)}}\) produces
+
+                \[
+                \rho \left( \frac{D'\mathbf{u}'}{Dt} \right)_{O'1'2'3'} = -\nabla' p + \rho \left[ \mathbf{g} - \frac{d\mathbf{U}}{dt} - 2\boldsymbol{\Omega} \times \mathbf{u}' - \frac{d\boldsymbol{\Omega}}{dt} \times \mathbf{x}' - \boldsymbol{\Omega} \times (\boldsymbol{\Omega} \times \mathbf{x}') \right] + \mu \nabla'^2 \mathbf{u}'
+                \]
+            </p>
+                <div class="image-container" style="text-align: left;">
+                    <p>
+                        The equation above makes it clear that the primary effect of a noninertial frame is the addition of extra body force terms that arise from the motion of the noninertial frame. 
+                        The terms \(\boxed{\mathbf{g} - \frac{d\mathbf{U}}{dt} - 2\boldsymbol{\Omega} \times \mathbf{u}' - \frac{d\boldsymbol{\Omega}}{dt} \times \mathbf{x}' - \boldsymbol{\Omega} \times (\boldsymbol{\Omega} \times \mathbf{x}')}\) reduce to \(\mathbf{g}\) alone when \(O'1'2'3'\) is an inertial frame \(\mathbf{U}\) = constant and \(\boldsymbol{\Omega} = 0\))
+                    </p>
+                    <img src="Figures/Lecture2B_O123Geometry.png" alt="O123Geometry" style="max-width: 30%; height: auto; display: block; margin: auto;">
+                </div>
+
+                
+            </p> 
+            
+        </div>
+
+        <!-- Left Arrow to go back to Slide x -->
+        <a href="Lecture2BSlide8.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide x -->
+        <a href="Lecture2BSlide10.html" class="nav-button right">&#9654;</a>
+    </div>
+</body> 
+</html>

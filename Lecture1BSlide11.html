@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script>
+        window.MathJax = {
+          tex: {
+            packages: ['base', 'ams'] // loads AMS by default
+          }
+        };
+      </script>
+      <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+      
+      
+    <style>
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 110%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 110%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Conservation of Mass</div>
+
+        <div class="slide">
+
+        <div class="description">
+            <p>
+                The equations representing conservation of mass in a flowing fluid are based on the principle that the mass of a specific collection of neighboring fluid particles is constant. The volume occupied by a specific collection of fluid particles is called a <span class="sql">material volume</span> \(V(t)\)
+            </p>
+        </div>
+
+        <div class="description">
+            <p>
+                Such a volume moves and deforms within a fluid flow so that it always contains the 
+                same mass elements; none enter the volume and none leave it. This implies that a 
+                material volume’s surface \( A(t) \), a material surface, 
+                must move at the local fluid velocity \( \mathbf{u} \) so that fluid particles 
+                inside \( V(t) \) remain inside and fluid particles outside \( V(t) \) remain outside
+            </p>
+        </div>
+
+        <div class="description">
+            <p>
+                Conservation of mass for a material volume in a flowing fluid, \( \rho \) is the fluid density:
+
+                \[
+                \frac{d}{dt} \int_{V(t)} \rho(\mathbf{x}, t) \, dV = 0
+                \]
+
+
+            </p>
+        </div>
+
+        <div class="image-container" style="text-align: left;">
+                <img src="Figures/Lecture1B_MaterialVolumeBalloon.png" alt="MaterialVolumeBalloon" style="max-width: 49%; height: auto; display: block; margin: auto;">
+                <p>The primary concept here is equivalent to an infinitely flexible, perfectly sealed thin-walled balloon containing fluid. The balloon’s contents play the role of the material volume \( V(t) \) with the balloon itself defining the material surface \( A(t) \). 
+                    Because the balloon is sealed, the total mass of fluid inside the balloon remains constant as the balloon moves, expands, contracts, or deforms</p>
+
+        </div>
+
+
+
+        </div>        
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture1BSlide10.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture1BSlide12.html" class="nav-button right">&#9654;</a>
+    </div>
+
+
+</body>
+</html>

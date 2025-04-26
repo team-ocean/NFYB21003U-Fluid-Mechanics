@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+
+    
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+        /* Center the table horizontally */
+        .slide table {
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        /* Left-align table text */
+        .slide table th,
+        .slide table td {
+        text-align: left;
+        }
+
+        /* Custom bullet list styled as flex container */
+    ul.custom {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
+    }
+    ul.custom li {
+      flex: 0 0 45%; /* roughly two items per row */
+      display: flex;
+      align-items: center;
+      gap: 10px; /* space between the text and image */
+      position: relative;
+      padding-left: 20px; /* extra padding for the bullet */
+    }
+    ul.custom li::before {
+      content: "■"; /* Unicode for small square bullet */
+      color: #7DCDF4;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Ensure images align properly */
+    ul.custom li img {
+      max-width: 49%;
+      height: auto;
+    }
+
+    .highlight {
+    background-color:rgba(221, 241, 243, 0.8); 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    .highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Equations of Motion in Spherical Coordinates</div>
+
+        <div class="slide">
+
+
+            <div class="image-container" style="text-align: left;">
+                <img src="Figures/Lecture2B_SphericalCoordinateSystem.png" alt="SphericalCoordinateSystem" style="max-width: 28%; height: auto; display: block; margin: auto;">
+                <p>
+                    The divergence of a vector \( \mathbf{B} = i B^\lambda + j B^\vartheta + k B^r \) is
+                    \[
+                    \nabla \cdot \mathbf{B} = \frac{1}{\cos \vartheta} \left[ \frac{1}{r} \frac{\partial B^\lambda}{\partial \lambda} + \frac{1}{r} \frac{\partial}{\partial \vartheta} (B^\vartheta \cos \vartheta) + \frac{\cos \vartheta}{r^2} \frac{\partial}{\partial r} (r^2 B^r) \right]
+                    \]
+                    The vector gradient of a scalar \( \phi \) is
+                    \[
+                    \nabla \phi = \frac{1}{r \cos \vartheta} i \frac{\partial \phi}{\partial \lambda} + \frac{1}{r} j \frac{\partial \phi}{\partial \vartheta} + k \frac{\partial \phi}{\partial r}
+                    \]
+                    The Laplacian of a scalar \( \phi \) is
+                    \[
+                    \nabla^2 \phi \equiv \nabla \cdot \nabla \phi = \frac{1}{r^2 \cos \vartheta} \left[ \frac{\partial}{\partial \lambda} \left( \frac{1}{\cos \vartheta} \frac{\partial \phi}{\partial \lambda} \right) + \frac{\partial}{\partial \vartheta} \left( \cos \vartheta \frac{\partial \phi}{\partial \vartheta} \right) + \cos \vartheta \frac{\partial}{\partial r} \left( r^2 \frac{\partial \phi}{\partial r} \right) \right]
+                    \]
+                </p>
+            </div>
+            <p>
+                The curl of a vector is
+                \[
+                \text{curl} \, \mathbf{B} = \nabla \times \mathbf{B} = \frac{1}{r^2 \cos \vartheta} 
+                \begin{vmatrix}
+                i r \cos \vartheta & j r & k \\
+                \frac{\partial}{\partial \lambda} & \frac{\partial}{\partial \vartheta} & \frac{\partial}{\partial r} \\
+                B^\lambda r \cos \vartheta & B^\vartheta r & B^r
+                \end{vmatrix}
+                \]
+                The vector Laplacian \( \nabla^2 \mathbf{B} \) (can be used for calculating viscous terms in the momentum equation) is 
+                \[
+                \nabla^2 \mathbf{B} = \nabla (\nabla \cdot \mathbf{B}) - \nabla \times (\nabla \times \mathbf{B})
+                \]
+                Only in Cartesian coordinates does this take the simple form
+                \[
+                \nabla^2 \mathbf{B} = \frac{\partial^2 \mathbf{B}}{\partial x^2} + \frac{\partial^2 \mathbf{B}}{\partial y^2} + \frac{\partial^2 \mathbf{B}}{\partial z^2}
+                \]
+            </p>
+
+
+            <div class="footnote-container">
+                <hr class="footnote-line">
+                    <p class="footnote">
+                        <sup>1</sup> Vallis, G.K. (2010) Atmospheric and Oceanic Fluid Dynamics. Cambridge University Press, Cambridge.
+                    </p>
+            </div>
+            
+        </div>
+
+        <!-- Left Arrow to go back to Slide x -->
+        <a href="Lecture2BSlide23.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide x -->
+        <a href="Lecture2BSlide25.html" class="nav-button right">&#9654;</a>
+    </div>
+</body> 
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+
+    
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            TeX: { extensions: ["cancel.js"] }
+        });
+    </script>
+
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+        /* Center the table horizontally */
+        .slide table {
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        /* Left-align table text */
+        .slide table th,
+        .slide table td {
+        text-align: left;
+        }
+
+        /* Custom bullet list styled as flex container */
+    ul.custom {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
+    }
+    ul.custom li {
+      flex: 0 0 45%; /* roughly two items per row */
+      display: flex;
+      align-items: center;
+      gap: 10px; /* space between the text and image */
+      position: relative;
+      padding-left: 20px; /* extra padding for the bullet */
+    }
+    ul.custom li::before {
+      content: "■"; /* Unicode for small square bullet */
+      color: #7DCDF4;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Ensure images align properly */
+    ul.custom li img {
+      max-width: 49%;
+      height: auto;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">An Example</div>
+
+        <div class="slide">
+            <div class="image-container" style="text-align: left;">
+                <img src="Figures/Lecture2A_CimbalaExampleOilWall.png" alt="CimbalaExampleOilWall" style="max-width: 27%; height: auto; display: block; margin: auto;">
+                <p><span class="sql">[Q] Consider steady, incompressible, parallel, laminar flow of a film of oil falling slowly down an infinite vertical wall. The oil film thickness is \(h\), and gravity acts in the negative \(z\)-direction. 
+                    There is no applied (forced) pressure driving the flow—the oil falls by gravity alone. Calculate the velocity and pressure fields in the oil film and sketch the normalized velocity profile. You may neglect changes in the hydrostatic pressure of the surrounding air</span><br>
+                    [Sol] The flow is assumed to occur along an infinite wall in a steady, parallel, incompressible Newtonian, and laminar system, with constant pressure, 2D velocity, and gravity downward<br>
+                     The boundary conditions are <span class="bullet"></span> There is no slip at the wall; at \(x = 0\), \(u = v = w = 0\) 
+                    <span class="bullet"></span> At the free surface \((x = h)\), there is negligible shear, which for a vertical free surface in this coordinate system means \(\partial w / \partial x = 0\) at \(x = h\)
+                    <br>
+                </div>
+        
+        <p>
+            \(\therefore\) Fully developed flow, incompressible continuity equation \(\cancel{\underbrace{\frac{\partial u}{\partial x}}_{\text{Parallel flow}}} + \cancel{\underbrace{\frac{\partial v}{\partial y}}_{\text{Two-dimensional}}} + \frac{\partial w}{\partial z} = 0 \quad \rightarrow \quad \frac{\partial w}{\partial z} = 0\)<br>
+            Result of continuity is \(w = w(x) \) only
+            \(\quad \because\) \( u = v = 0 \) everywhere, and gravity does not act in the \( x \)- or \( y \)-directions<br>
+            \(\therefore\) \(\rho \left(
+                \underbrace{\cancel{\frac{\partial w}{\partial t}}}_{\text{Steady flow}} +
+                \underbrace{\cancel{u \frac{\partial w}{\partial x}}}_{\text{Parallel flow}} +
+                \underbrace{\cancel{v \frac{\partial w}{\partial y}}}_{\text{Two-dimensional}} +
+                \underbrace{\cancel{w \frac{\partial w}{\partial z}}}_{\text{continuity}}
+                \right)
+                =
+                - \underbrace{\frac{\partial p}{\partial z}}_{\text{Constant pressure}} +
+                \underbrace{\rho g_z}_{-\rho g}
+                
+                + \mu \left(
+                \frac{d^2 w}{d x^2} +
+                \underbrace{\cancel{\frac{\partial^2 w}{\partial y^2}}}_{\text{Two-dimensional}} +
+                \underbrace{\cancel{\frac{\partial^2 w}{\partial z^2}}}_{\text{continuity}}
+                \right) \\
+                \quad \Rightarrow \quad
+                \boxed{\frac{d^2 w}{d x^2} = \frac{\rho g}{\mu}}\)
+                <div class="image-container" style="text-align: left;">
+                <img src="Figures/Lecture2A_OilVelocityCimbalaExample.png" alt="OilVelocityCimbalaExample" style="max-width: 31%; height: auto; display: block; margin: auto;">
+                <p>\(\because\) If \( u = u(x) \) only, change from PDE to ODE \( \frac{\partial u}{\partial x} \rightarrow \frac{d u}{d x}\)
+                    \(\therefore\) Solve the differential equations \(w = \frac{\rho g}{2\mu} x^2 + C_1 x + C_2\)<br>
+                    \(\therefore\) Apply boundary conditions, \(
+                       w = 0 + 0 + C_2 = 0 \Rightarrow C_2 = 0\) and \(\left( \frac{d w}{d x} \right)_{x = h} = \frac{\rho g}{\mu} h + C_1 = 0 \Rightarrow C_1 = -\frac{\rho g h}{\mu}\)<br>
+                   \(\therefore\) Velocity field \(w = \frac{\rho g}{2 \mu} x^2 - \frac{\rho g}{\mu} h x = \frac{\rho g x}{2 \mu} (x - 2h)\)<br>
+                   \(\because\) \( x < h \) in the film, \( w \) is negative everywhere as the flow is downward \(\therefore\) The pressure field is \(P = P_{\text{atm}}\) everywhere<br>
+                   \(\therefore\) Let \( x^* = x/h \) and \( w^* = w \mu / (\rho g h^2) \), normalized velocity profile \(w^* = \frac{x^*}{2} (x^* - 2)\)
+                </div>
+
+
+
+        </p>
+
+
+        <div class="footnote-container">
+            <hr class="footnote-line">
+                <p class="footnote">
+                    <sup>1</sup> Fluid Mechanics: Fundamentals and Applications Fourth Edition. Çengel and J. M. Cimbala, McGraw-Hill, New York (2018).
+                </p>
+        </div>
+
+        
+        <!-- Navigation Buttons -->
+        <a href="Lecture2ASlide21.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture2ASlide23.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

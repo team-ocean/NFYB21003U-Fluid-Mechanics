@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            "HTML-CSS": { scale: 80 }  // Default is 100
+        });
+    </script>
+    
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 110%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 110%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Linear Deformation</div>
+
+        <div class="slide">
+
+
+        <div class="description">
+            <p>During linear deformation, the shape of the fluid element, described by the angles at its vertices, remains unchanged, since all right angles continue to be right angles <img src="Figures/Lecture1A_LinearDeformation.png" 
+                alt="LinearDeformation" 
+                style="height: 9em; vertical-align: middle;">, the element will change length in the \( x \) direction only if \( \partial u / \partial x \) is other than zero. <br>
+                Similarly, a change in the \( y \) dimension requires a nonzero value of \( \partial v / \partial y \) and a change in the \( z \) dimension requires a nonzero value of \( \partial w / \partial z \). 
+                These quantities represent the components of longitudinal rates of strain in the \( x \), \( y \), and \( z \) directions, respectively</p>
+        </div>
+        <div class="description">
+            <p>Changes in length of the sides may produce changes in volume of the element. The rate of local instantaneous <span class="sql">volume dilation </span> is given by
+
+                \[
+                \text{volume dilation rate} = \frac{\partial v_x}{\partial x} + \frac{\partial v_y}{\partial y} + \frac{\partial v_z}{\partial z}
+                \]</p>
+        </div>
+        <div class="description">
+            <p>For incompressible flow, the rate of volume dilation is zero
+                \[
+                \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} = \nabla \cdot \vec{V} = 0
+                \]
+            </p>
+        </div>
+
+
+        </div>        
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture1ASlide25.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture1ASlide27.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            "HTML-CSS": { scale: 80 }  // Default is 100
+        });
+    </script>
+    
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 110%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 110%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Motion of a Fluid Particle (Kinematics)</div>
+
+        <div class="slide">
+
+        <div class="description">
+            <p>The following text should help wrap up different modes of fluid motion and deformation</p>
+            <ul>
+                <li><span class="sql">Translation:</span> This is controlled by the acceleration. Specially, for steady flow, the convective acceleration will play the main role. For each component of the acceleration (e.g. \(x\)-component) this is the dot product of the velocity field with the gradient, that acts on the same component of the velocity (\(x\)-component)</li>
+                <li><span class="sql">Rotation:</span> This measures the spinning motion of fluid particles in any flow, and is simply found by taking the curl of the velocity field</li>
+                <li><span class="sql">Dilation/Compression:</span> This measures how much a fluid element expands or shrinks due to sources or sinks in the flow, and is the divergence of the velocity field</li>
+                <li><span class="sql">Angular deformation:</span> This is a measure of shear-like deformations in the flow, and is found by summing the cross gradients of each component of the velocity field, i.e. in the \(x – y\) plane summing \( \partial_y v_x \) and \( \partial_x v_y \)</li>
+            </ul>
+        </div>
+
+        <div class="image-container" style="text-align: left;">
+            <img src="Figures/Lecture1A_TypesFluidMotion.png" alt="TypesFluidMotion" style="max-width: 59%; height: auto; display: block; margin: auto;">
+
+            <p>Pictorial representation of the components of fluid motion</p>
+            </div>
+
+
+
+        </div>        
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture1ASlide26.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture1ASlide28.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

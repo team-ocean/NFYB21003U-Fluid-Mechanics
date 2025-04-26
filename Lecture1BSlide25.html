@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script>
+        window.MathJax = {
+          tex: {
+            packages: ['base', 'ams'] // loads AMS by default
+          }
+        };
+      </script>
+      <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            "HTML-CSS": { scale: 80 }  // Default is 100
+        });
+    </script>
+      
+      
+    <style>
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 110%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 110%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Control Volume</div>
+
+        <div class="slide">
+
+        <div class="description">
+            Surface forces are not as simple to analyze since they consist of both <span class="sql">normal</span> and <span class="sql">tangential</span> components. 
+            Furthermore, while the physical force acting on a surface is independent of orientation of the coordinate axes, 
+            the <span class="sql">description</span> of the force in terms of its coordinate components changes with orientation. 
+            In addition, we are rarely fortunate enough to have each of the control surfaces aligned with one of the coordinate axes. 
+            When coordinate axes are rotated <img src="Figures/Lecture1B_aCoordinateControlSurface.png" 
+            alt="aCoordinateControlSurface" 
+            style="height: 15em; vertical-align: middle;"> to <img src="Figures/Lecture1B_bCoordinateControlSurface.png" 
+            alt="bCoordinateControlSurface" 
+            style="height: 15em; vertical-align: middle;">, the components of the surface force change, even though the force itself remains the same
+        </div>
+    
+        <div class="description">
+            While not desiring to delve too deeply into tensor algebra, we are forced to define a <span class="sql">second-order tensor</span> called the <span class="sql">stress tensor</span> \( \sigma_{ij} \) in order to adequately describe the surface stresses at a point in the flow.
+            Stress tensor in Cartesian coordinates:
+            \[
+            \sigma_{ij} =
+            \begin{pmatrix}
+            \sigma_{xx} & \sigma_{xy} & \sigma_{xz} \\
+            \sigma_{yx} & \sigma_{yy} & \sigma_{yz} \\
+            \sigma_{zx} & \sigma_{zy} & \sigma_{zz}
+            \end{pmatrix}
+            \]
+        </div>
+        <p>The diagonal components of the stress tensor, \( \sigma_{xx}, \sigma_{yy}, \) and \( \sigma_{zz} \), are called <span class="sql">normal stresses</span>; 
+            they are composed of pressure (which always acts inwardly normal) and viscous stresses. 
+            The off-diagonal components, \( \sigma_{xy}, \sigma_{zx} \), etc., are called <span class="sql">shear stresses</span>; since pressure can act only normal to a surface, shear stresses are composed entirely of viscous stresses.</p>
+
+
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>Fluid Mechanics: Fundamentals and Applications Fourth Edition. Çengel and J. M. Cimbala, McGraw-Hill, New York (2018). 
+            </p>
+        </div>
+       
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture1BSlide24.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture1BSlide26.html" class="nav-button right">&#9654;</a>
+    </div>
+
+
+</body>
+</html>

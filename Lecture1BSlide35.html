@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+<!-- Include MathJax with color extension enabled -->
+<script type="text/javascript" async 
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<!-- Configuration block to load color extension -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+            extensions: ["color.js", "cancel.js"]
+            
+        },
+        "HTML-CSS": {
+            scale: 90
+        }
+    });
+
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": { scale: 90 }  // Default is 100
+    });
+</script>
+
+      
+      
+    <style>
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 110%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 110%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Constitutive Equation for a Newtonian Fluid</div>
+
+        <div class="slide">
+
+    
+        <div class="description">
+            The fluid-dynamic contribution \( \tau_{ij} \) to the stress tensor is called the <span class="sql">deviatoric stress tensor</span>. 
+            For it to be invariant under Galilean transformations, it cannot depend on the absolute fluid velocity so it must depend on the velocity gradient tensor \( \partial u_i / \partial x_j \). 
+            However, by definition stresses only develop in fluid elements that change shape. Therefore, only the symmetric part of \( \partial u_i / \partial x_j \), \( S_{ij} \), should be considered in the fluid constitutive equation because the antisymmetric part of \( \partial u_i / \partial x_j \), \( R_{ij} \) 
+            corresponds to pure rotation of fluid elements. The most general linear relationship between \( \tau_{ij} \) and \( S_{ij} \) that produces \( \tau_{ij} = 0 \) when \( S_{ij} = 0 \) is
+
+            \[
+            \tau_{ij} = K_{ijmn} S_{mn}
+            \]
+
+            where \( K_{ijmn} \) is a fourth-order tensor having 81 components that may depend on the local thermodynamic state of the fluid. This equation allows <span class="sql">each</span> of the nine components of \( \tau_{ij} \) to be linearly related to <span class="sql">all</span> nine components of \( S_{ij} \).
+        </div>
+
+        <p>
+            However, this level of generality is unnecessary when the stress tensor is symmetric, and the fluid is isotropic.<br>
+            <img src="Figures/Lecture1B_IsotropicTensor.png" 
+            alt="IsotropicTensor" 
+            style="height: 11em; vertical-align: middle;">An isotropic tensor is one whose <span class="sql">components</span> are unchanged by rotation of the frame of reference. 
+            The trivial cases of this are the tensors of all orders whose components are all zero. All tensors of the zeroth order are isotropic and there are no first order isotropic tensors. 
+            We have already met the only isotropic second order tensor, namely, \( \delta_{ij} \), but it is of interest to prove that it is the only one.
+            In an isotropic fluid medium, the stress–strain rate relationship is independent of the orientation of the coordinate system. This is only possible if \( K_{ijmn} \) is an isotropic tensor. All fourth-order isotropic tensors must be of the form
+            \[
+            K_{ijmn} = \lambda \delta_{ij} \delta_{mn} + \mu \delta_{im} \delta_{jn} + \gamma \delta_{in} \delta_{jm}
+            \]
+            (see Aris, 1962, pp. 30–33 for the proof), where \( \lambda, \mu \), and \( \gamma \) are scalars that depend on the local thermodynamic state. In addition, \( \tau_{ij} \) is symmetric in \( i \) and \( j \), 
+            so \(\tau_{ij} = K_{ijmn} S_{mn}\) requires that \( K_{ijmn} \) also be symmetric in \( i \) and \( j \), too. 
+            <div class="description">
+            This requirement is consistent with \(\boxed{K_{ijmn} = \lambda \delta_{ij} \delta_{mn} + \mu \delta_{im} \delta_{jn} + \gamma \delta_{in} \delta_{jm}}\) only if
+
+            \[
+            \gamma = \mu
+            \]
+            </div>
+
+            Therefore, only two constants, \( \mu \) and \( \lambda \), of the original 81, remain after the imposition of symmetry and isotropy
+        </p>
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>R. Aris.
+                Vectors, Tensors, and the Basic Equations of Fluid Mechanics
+                Prentice-Hall, Englewood Cliffs, NJ (1962).
+                (The basic equations of motion and the various forms of the Reynolds transport theorem are derived and discussed.)
+            </p>
+            </div>
+
+
+
+                
+                
+                
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture1BSlide34.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture1BSlide36.html" class="nav-button right">&#9654;</a>
+    </div>
+
+
+</body>
+</html>

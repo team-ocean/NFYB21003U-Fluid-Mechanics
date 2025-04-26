@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+<!-- Include MathJax with color extension enabled -->
+<script type="text/javascript" async 
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<!-- Configuration block to load color extension -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+            extensions: ["color.js", "cancel.js"]
+            
+        },
+        "HTML-CSS": {
+            scale: 90
+        }
+    });
+
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": { scale: 80 }  // Default is 100
+    });
+</script>
+
+      
+      
+    <style>
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 110%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 110%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Constitutive Equation for a Newtonian Fluid</div>
+
+        <div class="slide">
+
+    
+        <div class="description">
+            The relationship between the stress and deformation in a continuum is called a <span class="sql">constitutive equation</span>, and a linear constitutive equation between stress \( T_{ij} \) and \( \partial u_i / \partial x_j \) is examined here. 
+            A fluid that follows the simplest possible linear constitutive equation is known as a <span class="sql">Newtonian</span> fluid
+        </div>
+
+        <div class="description">
+            In a fluid at rest, there are only normal components of stress on a surface, and the stress does not depend on the orientation of the surface; the stress is <span class="sql">isotropic</span>. 
+            The only second-order isotropic tensor is the Kronecker delta \( \delta_{ij} \), the <span class="sql">Kronecker delta</span> is defined as
+
+            \(\boxed{
+            \delta_{ij} = 
+            \begin{cases}
+            1 & \text{if } i = j \\
+            0 & \text{if } i \ne j
+            \end{cases} }
+            \)
+            The stress in a static fluid must be of the form
+            \(\boxed{
+            T_{ij} = -p \delta_{ij}}
+            \)
+        </div>
+
+        <p>\( p \) is the <span class="sql">thermodynamic pressure</span> related to \( \rho \) and \( T \) by an equation of state such as that for a perfect gas \( p = \rho R T \). The negative sign occurs because the normal components of \( \mathbf{T} \) are regarded as positive if they indicate tension rather than compression</p>
+
+        <div class="description">
+            A moving fluid develops additional stress components \( \tau_{ij} \) because of viscosity, and these stress components appear as both diagonal and off-diagonal components within \( \mathbf{T} \). 
+            A simple extension of \(\boxed{
+                T_{ij} = -p \delta_{ij}}
+                \) that captures this phenomenon and reduces to it when fluid motion ceases is
+
+            \[
+            T_{ij} = -p \delta_{ij} + \tau_{ij}
+            \]
+        </div>
+
+        <p>This decomposition of the stress into fluid-static (\( p \)) and fluid-dynamic (\( \tau_{ij} \)) contributions is approximate, 
+            because \( p \) is only well defined for equilibrium conditions. However, molecular densities, speeds, and collision rates are typically high enough, 
+            so that fluid particles reach local thermodynamic equilibrium conditions in nearly all fluid flows so that \( p \) in \(T_{ij} = -p \delta_{ij} + \tau_{ij}\) is still the thermodynamic pressure</p>
+
+
+                
+                
+                
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture1BSlide33.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture1BSlide35.html" class="nav-button right">&#9654;</a>
+    </div>
+
+
+</body>
+</html>

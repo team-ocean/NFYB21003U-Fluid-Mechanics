@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Constant Surface Tension Boundary Condition</div>
+
+        <div class="slide">
+
+            <div class="description">
+                Surface tension and interfacial tension arise because of the differences in attractive intermolecular forces at gas-liquid and liquid-liquid interfaces, respectively. For clarity, the following discussion emphasizes surface tension at gas-liquid interfaces; however, the results are equally applicable to interfacial tension at liquid-liquid interfaces
+            </div>
+
+            <div class="description">
+                as a gas-liquid interface is approached from the liquid side, the attractive forces are not felt equally because there are many fewer liquid-phase molecules near the interface. Thus there tends to be an unbalanced attraction toward the interior of the liquid on the molecules near the gas-liquid boundary. 
+                This unbalanced attraction leads to <span class="sql">surface tension</span> and a pressure increment across a curved gas-liquid interface that must be properly accounted for when conserving fluid momentum
+            </div>
+
+            <p><span class="bullet">Attractive forces between molecules at surface and in interior of a liquid for a plane liquid-gas interface<img src="Figures/Lecture2A_AttractiveForcesLiquidGas.png" 
+                alt="AttractiveForcesLiquidGas" 
+                style="height: 11em; vertical-align: middle;"></span><span class="bullet"></span>Static equilibrium of a liquid drop in a gas at line of contact with a horizontal solid surface<img src="Figures/Lecture2A_StaticEquilibriumLiquidGasSolid.png" 
+                alt="StaticEquilibriumLiquidGasSolid" 
+                style="height: 12em; vertical-align: middle;"><span class="bullet"></span>Translation from left to right of a liquid wedge interface<img src="Figures/Lecture2A_TranslationLiquidWedgeInterface.png" 
+                alt="TranslationLiquidWedgeInterface" 
+                style="height: 11em; vertical-align: middle;"><span class="bullet"></span>Liquid rise in an open capillary<img src="Figures/Lecture2A_LiquidRiseCapillary.png" 
+                alt="LiquidRiseCapillary" 
+                style="height: 13em; vertical-align: middle;">
+            </p>
+
+
+
+            <div class="footnote-container">
+                <hr class="footnote-line">
+                <p class="footnote">
+                    <sup>1</sup> Ronald F. Probstein. (1994). <i>Surface tension</i> (pp. 305-361). Physicochemical Hydrodynamics. John Wiley & Sons. 
+                    <a href="https://doi.org/10.1002/0471725137.ch10" target="_blank">
+                        <code>https://doi.org/10.1002/0471725137.ch10</code>
+                    </a>
+                </p>
+            </div>
+
+
+        </div>
+        
+        <!-- Navigation Buttons -->
+        <a href="Lecture2ASlide9.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture2ASlide11.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

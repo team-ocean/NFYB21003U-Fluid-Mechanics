@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+
+    <script>
+        window.MathJax = {
+          tex: {
+            packages: ['base']
+          }
+        };
+      </script>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                "HTML-CSS": { scale: 80 }  // Default is 100
+            });
+    </script>
+        
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+      
+      
+    <style>
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 110%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 110%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Gauss’ Theorem</div>
+
+        <div class="slide">
+
+
+        <div class="description">
+            <p>Let \( V \) be a volume bounded by a closed surface \( A \). Consider an infinitesimal surface element \( dA \) having outward unit normal \( \mathbf{n} \) with components \( n_i \), and let \( Q(\mathbf{x}) \) be a scalar, vector, or tensor field of any order. Gauss’ theorem states that:
+
+                \[
+                \iiint_V \frac{\partial Q}{\partial x_i} \, dV = \iint_A n_i Q \, dA
+                \]
+            </p>
+        </div>
+
+        <div class="image-container" style="text-align: left;">
+            <img src="Figures/Lecture1A_GausstheoremVolumeSurfaceArea.png" alt="GausstheoremVolumeSurfaceArea" style="max-width: 39%; height: auto; display: block; margin: auto;">
+            <p>Illustration of Gauss’ theorem for a volume \( V \) enclosed by surface area \( A \). A small volume element, \( dV \), and a small area element \( dA \) with outward normal \( \mathbf{n} \) are shown<br>
+                The most common form of Gauss’ theorem is when \( \mathbf{Q} \) is a vector, in which case the theorem is:
+
+                \[
+                \iiint_V \sum_{i=1}^{3} \frac{\partial Q_i}{\partial x_i} \, dV \equiv \iiint_V \frac{\partial Q_i}{\partial x_i} \, dV = \iint_A \sum_{i=1}^{3} n_i Q_i \, dA \equiv \iint_A n_i Q_i \, dA, \quad \text{or}
+                \]
+                
+                \[
+                \iiint_V \nabla \cdot \mathbf{Q} \, dV = \iint_A \mathbf{n} \cdot \mathbf{Q} \, dA,
+                \]
+                
+                which is commonly called the <span class="sql">divergence theorem</span>. The theorem states that the volume integral of the divergence of \( \mathbf{Q} \) is equal to the surface integral of the outflux of \( \mathbf{Q} \)</p>
+            </div>
+
+            <div class="description">
+                <p>Alternatively, \(\iiint_V \frac{\partial Q}{\partial x_i} \, dV = \iint_A n_i Q \, dA\) defines a generalized field derivative, denoted by \( \mathfrak{D} \), of \( \mathbf{Q} \) when considered in its limiting form for a vanishingly small volume
+
+                    \(\boxed{
+                    \mathfrak{D} \mathbf{Q} = \lim_{V \to 0} \frac{1}{V} \iint_A n_i Q \, dA}
+                    \)
+                    
+                    Interestingly, this form is readily specialized to the gradient, divergence, and curl of any scalar, vector, or tensor \( \mathbf{Q} \)
+                </p>
+            </div>
+
+            <div class="description">
+                <p>For a tensor of order one or higher, the divergence and curl are defined by including a dot (scalar) product or a cross (vector) product, respectively, under the integral
+
+                    \[
+                    \nabla \cdot \mathbf{Q} = \lim_{V \to 0} \frac{1}{V} \iint_A \mathbf{n} \cdot \mathbf{Q} \, dA, \quad \text{and} \quad \nabla \times \mathbf{Q} = \lim_{V \to 0} \frac{1}{V} \iint_A \mathbf{n} \times \mathbf{Q} \, dA
+                    \]
+                </p>
+            </div>
+
+
+        </div>        
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture1ASlide33.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture1ASlide35.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

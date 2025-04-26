@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+
+    
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+        /* Center the table horizontally */
+        .slide table {
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        /* Left-align table text */
+        .slide table th,
+        .slide table td {
+        text-align: left;
+        }
+
+        /* Custom bullet list styled as flex container */
+    ul.custom {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
+    }
+    ul.custom li {
+      flex: 0 0 45%; /* roughly two items per row */
+      display: flex;
+      align-items: center;
+      gap: 10px; /* space between the text and image */
+      position: relative;
+      padding-left: 20px; /* extra padding for the bullet */
+    }
+    ul.custom li::before {
+      content: "■"; /* Unicode for small square bullet */
+      color: #7DCDF4;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Ensure images align properly */
+    ul.custom li img {
+      max-width: 49%;
+      height: auto;
+    }
+
+    .highlight {
+    background-color:#ddf1f3; 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    .highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Approximations for Deep and Shallow Water</div>
+
+        <img src="Figures/Lecture2A_ThreeDepthLinearSurfaceWave.png" alt="ThreeDepthLinearSurfaceWave" style="max-width: 80%; height: auto; display: block; margin: auto;">
+        <p>
+            To determine the approximate form of particle orbits for shallow-water waves, substitute the following hyperbolic-function approximations into \(\boxed{\xi \equiv -a \frac{\cosh(k(z_0 + H))}{\sinh(kH)} \sin(kx_0 - \omega t), 
+            \zeta \equiv a \frac{\sinh(k(z_0 + H))}{\sinh(kH)} \cos(kx_0 - \omega t)}\):  
+            \[
+            \cosh(k(z + H)) \cong 1, \quad \sinh(k(z + H)) \cong k(z + H) \quad \text{and} \quad \sinh(kH) \cong kH
+            \]  
+            The particle excursions become
+            \[
+            \xi \cong -\frac{a}{kH} \sin(kx_0 - \omega t) \quad \text{and} \quad \zeta \cong a \left(1 + \frac{z}{H}\right) \cos(kx_0 - \omega t)
+            \]
+            These represent thin ellipses, with a depth-independent semi-major axis \( a/kH \) and a semi-minor axis \( a(1 + z/H) \) that linearly decreases to zero at the bottom wall<br>
+
+            <img src="Figures/Lecture2A_PythonThreeDepthLinearSurfaceWave.png" alt="PythonThreeDepthLinearSurfaceWave" style="max-width: 55%; height: auto; display: block; margin: auto;">
+
+            From \(u = a\omega \frac{\cosh(k(z + H))}{\sinh(kH)} \cos(kx - \omega t), 
+            w = a\omega \frac{\sinh(k(z + H))}{\sinh(kH)} \sin(kx - \omega t)\), the velocity field is 
+            \[
+            u = \frac{a\omega}{kH} \cos(kx - \omega t) \quad \text{and} \quad w = a\omega \left(1 + \frac{z}{H} \right) \sin(kx - \omega t)
+            \]  
+            which shows that the vertical component is much smaller than the horizontal component.
+
+            The pressure change from the undisturbed state is found from \(\boxed{p' = -\rho \frac{\partial \phi}{\partial t} = \rho \frac{a \omega^2}{k} \frac{\cosh(k(z + H))}{\sinh(kH)} \cos(kx - \omega t) 
+            = \rho g a \frac{\cosh(k(z + H))}{\cosh(kH)} \cos(kx - \omega t)}\) to be
+            \[
+            p' = \rho g a \cos(kx - \omega t) = \rho g \eta
+            \]  
+            where \(\eta(x,t) = a \cos[kx - \omega t]\) is the pressure change in terms of \( \eta \)<br>
+            This shows that the pressure change at any point is independent of depth, and equals the hydrostatic increase of pressure due to the surface elevation change \( \eta \)  
+            <span class="sql">The pressure field is therefore completely hydrostatic in shallow-water waves.</span> 
+                Vertical accelerations are negligible because of the small w-field. For this reason, shallow water waves are also called <span class="sql">hydrostatic waves</span>. Any worthwhile pressure sensor mounted on the bottom will sense these waves
+        </p>
+
+
+
+
+        
+        <!-- Navigation Buttons -->
+        <a href="Lecture2ASlide37.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture2ASlide39.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

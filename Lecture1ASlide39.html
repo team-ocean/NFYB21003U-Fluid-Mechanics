@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script>
+        window.MathJax = {
+          tex: {
+            packages: ['base', 'ams'] // loads AMS by default
+          }
+        };
+      </script>
+      <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+      
+      
+    <style>
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 110%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 110%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Leibnitz's Theorem</div>
+
+        <div class="slide">
+
+            
+
+        <div class="description">
+            <p>Leibniz's theorem states the time derivative of the integral of \( F(x,t) \) between \( x = a(t) \) and \( x = b(t) \) is
+
+                \[
+                \frac{d}{dt} \int_{x = a(t)}^{x = b(t)} F(x,t)\, dx = \int_{a}^{b} \frac{\partial F}{\partial t} \, dx + \frac{db}{dt} F(b,t) - \frac{da}{dt} F(a,t)
+                \]
+            </p>
+        </div>
+
+        <p><span class="sql">Example:</span> Find  
+            \(
+            \frac{d}{dt} \int_{x=0}^{x=ct} e^{-x^2} \, dx
+            \)
+            This integral cannot be solved in closed form and then differentiated. However, with Leibniz’s rule, the solution is easily found</p>
+
+        <p>
+            \(
+                \because a(t) = 0 , b(t) = ct, F(x,t) = e^{-x^2} \therefore \frac{da}{dt} = 0 , \frac{db}{dt} = c, \frac{\partial F}{\partial t} = 0
+            \)
+            \(
+                \therefore \frac{d}{dt} \int_0^{ct} e^{-x^2} \, dx = 0 + c \cdot e^{-b^2} - 0 = \boxed{c e^{-c^2 t^2}}    
+            \)
+        </p>
+        
+        <div class="description">
+            <p>The one-dimensional Leibniz theorem can be extended to three dimensions (volume and area integrals) as follows
+
+                \[
+                \frac{d}{dt} \int_{V(t)} F(\vec{x}, t) dV = \int_{V(t)} \frac{\partial F(\vec{x}, t)}{\partial t} dV + \oint_{A(t)} F(\vec{x}, t) \vec{u}_A \cdot d\vec{A}
+                \]
+            </p>
+        </div>
+
+
+        \[
+        \underbrace{\frac{d}{dt} \int_{V(t)} F(\vec{x}, t) \, dV}_{\text{Total rate of change of } F} 
+        = 
+        \underbrace{\int_{V(t)} \frac{\partial F(\vec{x}, t)}{\partial t} \, dV}_{\text{Rate of change of } F \text{ due to unsteadiness of } F \text{ itself}} 
+        + 
+        \underbrace{\oint_{A(t)} F(\vec{x}, t) \vec{u}_A \cdot d\vec{A}}_{\text{Rate of change of } F \text{ due to movement of the volume's boundary}}
+        \]
+        
+
+        <ul class="custom-list">
+            <li>\( V(t) \) is some arbitrary volume, which may be changing with time, but <span class="sql">not necessarily moving with the fluid</span></li>
+            <li>\( A(t) \) is the surface (area) enclosing volume \( V(t) \); \( A \) is also a function of time since <span class="sql">A moves with the volume</span></li>
+            <li>\( d\vec{A} \) is the outward normal vector of a little element of surface area on \( A \)</li>
+            <li>\( F(\vec{x}, t) \) is any fluid property (scalar, vector, or tensor of any order)</li>
+            <li><span class="sql">F is a function of space and time, independent of what the volume is doing</span> — it is a property of the fluid regardless of what we choose as volume \( V(t) \)</li>
+            <li>\( \vec{u}_A \) is the velocity vector defining the motion of surface \( A \)</li>
+            <li><span class="sql">This velocity is not necessarily the same as the velocity of the fluid itself</span>, but in general is a function of space and time in an Eulerian frame of reference</li>
+        </ul>
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>John M. Cimbala. ME 320 Fluid Flow. 
+            </p>
+        </div>
+
+
+        </div>        
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture1ASlide38.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide -->
+        <a href="Lecture1AOverview.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

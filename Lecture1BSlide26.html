@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script>
+        window.MathJax = {
+          tex: {
+            packages: ['base', 'ams'] // loads AMS by default
+          }
+        };
+      </script>
+      <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            "HTML-CSS": { scale: 80 }  // Default is 100
+        });
+    </script>
+      
+      
+    <style>
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 110%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 110%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Coordinate Transformations</div>
+
+        <div class="slide">
+
+        <p>
+            When the face is not parallel to one of the coordinate axes, mathematical laws for axes rotation and tensors can be used to calculate the normal and tangential components acting at the face. 
+            In addition, an alternate notation called <span class="sql">tensor notation</span> is convenient when working with tensors.
+        </p>
+
+        <div class="image-container" style="text-align: left;">
+            <img src="Figures/Lecture1B_RotationCartesianCoordinate.png" alt="RotationCartesianCoordinate" style="max-width: 49%; height: auto; display: block; margin: auto;">
+            <p>Consider a rotation of a two-dimensional Cartesian coordinate system \( x_1, x_2 \) through an angle \( \theta \) to give a new coordinate system \( x_1', x_2' \). The coordinates of a point \( P \) in the \( x_1, x_2 \) system are related to those in the \( x_1', x_2' \) system by the equations
+                \[
+                x_1' = x_1 \cos \theta + x_2 \sin \theta
+                \]
+                \[
+                x_2' = x_2 \cos \theta - x_1 \sin \theta
+                \]
+                
+                or in matrix form,
+                
+                \[
+                \begin{pmatrix}
+                x_1' \\
+                x_2'
+                \end{pmatrix}
+                =
+                \begin{pmatrix}
+                \cos \theta & \sin \theta \\
+                -\sin \theta & \cos \theta
+                \end{pmatrix}
+                \begin{pmatrix}
+                x_1 \\
+                x_2
+                \end{pmatrix}
+                \]</p>
+
+        </div>
+
+        <p>The \(2 \times 2\) matrix relating \((x_1', x_2')\) to \((x_1, x_2)\) is
+
+            \(
+            L = \begin{pmatrix}
+            \cos \theta & \sin \theta \\
+            -\sin \theta & \cos \theta
+            \end{pmatrix}
+            \)
+            
+            The matrix multiplication can be written in suffix notation
+            
+            \(\boxed{
+            x_1' = L_{11}x_1 + L_{12}x_2 = L_{1j}x_j, \quad
+            x_2' = L_{21}x_1 + L_{22}x_2 = L_{2j}x_j}
+            \)
+            
+            or generally
+            
+            \(\boxed{
+            x_i' = L_{ij}x_j}
+            \)
+            
+            Inverse rotation (through \(-\theta\))
+            
+            \(
+            L^{-1} = \begin{pmatrix}
+            \cos(-\theta) & \sin(-\theta) \\
+            -\sin(-\theta) & \cos(-\theta)
+            \end{pmatrix}
+            = \begin{pmatrix}
+            \cos \theta & -\sin \theta \\
+            \sin \theta & \cos \theta
+            \end{pmatrix},
+            \)
+            
+            which is the transpose of \(L\). Therefore
+            
+            \(
+            L_{ij}L_{kj} = \delta_{ik}
+            \)
+            A matrix with this property, that its inverse is equal to its transpose, is said to be <span class="sql">orthogonal</span>,
+            the inverse of the transformation can be written down simply by transposing the suffixes
+            
+            \(
+            x_i = L_{ji}x_j'
+            \)<br>
+
+            Another important property of the matrix \(L\) is that its determinant is
+
+            \(\boxed{
+            |L| = \cos^2 \theta + \sin^2 \theta = 1}
+            \)<br>
+
+            For \(\mathbf{x} = x_1 \mathbf{e}_1 + x_2 \mathbf{e}_2 + x_3 \mathbf{e}_3\), the \(i\) component is defined by
+
+            \(
+            x_i' = \mathbf{e}_i' \cdot \mathbf{x} = \mathbf{e}_i' \cdot \mathbf{e}_j x_j \Rightarrow \) \(L_{ij} = \mathbf{e}_i' \cdot \mathbf{e}_j
+            \)<br>
+
+            So \(L_{ij}\) = cosine of angle between \(\mathbf{e}_i'\) and \(\mathbf{e}_j\). Inverse matrix is transpose again \(L_{ji}\)<br>
+
+            Since \(LL^T = I\), orthogonality ensures \( |L|^2 = 1 \Rightarrow |L| = \pm 1 \)  
+            <span class="bullet"> \(+1\): rotation </span> 
+            <span class="bullet">  \(-1\): reflection</span><br>
+
+            Two further important properties of \(L\) follow
+            \(\boxed{
+            \frac{\partial x_i'}{\partial x_j} = L_{ij}, \quad \frac{\partial x_i}{\partial x_j'} = L_{ji}}
+            \)
+    
+
+
+
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>P. C. Matthews, Vector Calculus, New York:Springer-Verlag, 1998. 
+            </p>
+        </div>
+       
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture1BSlide25.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture1BSlide27.html" class="nav-button right">&#9654;</a>
+    </div>
+
+
+</body>
+</html>

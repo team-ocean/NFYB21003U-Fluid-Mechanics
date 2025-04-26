@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+
+    
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+        /* Center the table horizontally */
+        .slide table {
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        /* Left-align table text */
+        .slide table th,
+        .slide table td {
+        text-align: left;
+        }
+
+        /* Custom bullet list styled as flex container */
+    ul.custom {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
+    }
+    ul.custom li {
+      flex: 0 0 45%; /* roughly two items per row */
+      display: flex;
+      align-items: center;
+      gap: 10px; /* space between the text and image */
+      position: relative;
+      padding-left: 20px; /* extra padding for the bullet */
+    }
+    ul.custom li::before {
+      content: "■"; /* Unicode for small square bullet */
+      color: #7DCDF4;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Ensure images align properly */
+    ul.custom li img {
+      max-width: 49%;
+      height: auto;
+    }
+
+    .highlight {
+    background-color:#ddf1f3; 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    .highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Approximations for Deep and Shallow Water</div>
+
+        <div class="slide">
+
+
+            <div class="description">
+                Interesting simplifications are provided for deep water, \( H/\lambda \gg 1 \), and shallow water, \( H/\lambda \ll 1 \)
+            </div>
+
+            <div class="description">
+                Consider deep water first. The general expression for the phase speed is \(c = \frac{\omega}{k} = \sqrt{\frac{g}{k} \tanh(kH)} = \sqrt{\frac{g \lambda}{2\pi} \tanh\left(\frac{2\pi H}{\lambda}\right)}\), but \( \tanh(x) \rightarrow 1 \) for \( x \rightarrow \infty \). 
+                However, \( x \) need not be very large for this approximation to be valid. In fact, \( \tanh(x) = 0.96403 \) for \( x = 2.0 \), so it follows that (8.29) can be approximated with 2% accuracy by
+                \[
+                c = \sqrt{g/k} = \sqrt{g\lambda/2\pi}
+                \] for \( H > 0.32\lambda \) (corresponding to \( kH > 2.0 \))
+            </div>
+
+            <p>Surface waves are therefore classified as <span class="sql">deep-water waves</span> if the depth is more than one-third of the wavelength. Deep-water waves are dispersive since their phase speed depends on wavelength.</p>
+
+            <p>A common period of wind-generated surface gravity waves in the ocean is \( \sim 10 \) s, which via the dispersion relation \(c = \frac{\omega}{k} = \sqrt{\frac{g}{k} \tanh(kH)} = \sqrt{\frac{g \lambda}{2\pi} \tanh\left(\frac{2\pi H}{\lambda}\right)}\), corresponds to a wavelength of 150 m. 
+                <span class="highlight">The water depth on a typical continental shelf is \( \sim 100 \) m, and in the open ocean it is \( \sim 4 \) km. 
+                The dominant wind waves in the ocean, even over the continental shelf, act as deep-water waves and do not feel the effects of the ocean bottom until they arrive near a coastline.</span> 
+                This is not true of the very long wavelength gravity waves or tsunamis generated by tidal forces or seismic activity. Such waves may have wavelengths of hundreds of kilometers.<br>
+                In deep water, the semi-major and semi-minor axes of particle orbits produced by small-amplitude gravity waves are nearly equal to \( ae^{kz} \) since
+
+                \[
+                \frac{\cosh(k(z + H))}{\sinh(kH)} \approx \frac{\sinh(k(z + H))}{\sinh(kH)} \approx e^{kz}
+                \]
+                
+                for \( kH > 2.0 \), so the deep water wave-induced fluid particle motions are
+                
+                \[
+                \xi \equiv -ae^{kz_0} \sin(kx_0 - \omega t) \quad \text{and} \quad \zeta \equiv ae^{kz_0} \cos(kx_0 - \omega t)
+                \]
+                
+                These particle orbits are circles <img src="Figures/Lecture2A_DeepDepthLinearSurfaceWave.png" 
+                alt="DeepDepthLinearSurfaceWave" 
+                style="height: 9em; vertical-align: middle;"> At the surface, their radius is \( a \), the amplitude of the wave
+            
+            </p>
+
+
+
+        
+        <!-- Navigation Buttons -->
+        <a href="Lecture2ASlide35.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture2ASlide37.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

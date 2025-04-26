@@ -16,37 +16,57 @@
 
         <div class="slide">
             <div class="description">
-                <p><span class="sql">Vector Operators:</span> Both the divergence and curl are vector operators whose properties are revealed by viewing a vector field as the flow of a fluid or gas.</p>
+                <p>Both the divergence and curl are vector operators whose properties are revealed by viewing a vector field as the flow of a fluid or gas.
                 
-                <p><span class="sql">Intuitive Understanding:</span> The divergence of a vector field is relatively easy to understand. Imagine a fluid flowing with velocity field \( \mathbf{F} \), where the fluid appears to be expanding outward from the origin.</p>
-
-                <!-- Blue Box for Equation -->
-                <div class="blue-box">
-                    \[
-                    \nabla \cdot \mathbf{F} = \frac{\partial f}{\partial x} + \frac{\partial g}{\partial y} + \frac{\partial h}{\partial z}
-                    \]
+                Imagine a fluid flowing with velocity field \( \mathbf{u} \), where the fluid appears to be expanding outward from the origin<img src="Figures/Lecture1A_DivergenceDefinition.png" 
+                    alt="DivergenceDefinition" 
+                    style="height: 7em; vertical-align: middle;">
+                    The divergence of this vector field is positive, indicating expansion. Conversely, if the fluid compresses toward the origin, the divergence is negative</p>
                 </div>
 
-                <p><span class="sql">Interpretation:</span> The divergence of this vector field is positive, indicating expansion. Conversely, if the fluid compresses toward the origin, the divergence is negative.</p>
+                <div class="description">
+
                 
-                <p><span class="sql">Gradient Definition:</span> If \( f \) is a scalar function, its gradient is given by:</p>
-                <p style="text-align: center;">
-                    \[
-                    \nabla f = \begin{pmatrix} 
-                    \frac{\partial f}{\partial x} \\
-                    \frac{\partial f}{\partial y} \\
-                    \frac{\partial f}{\partial z}
-                    \end{pmatrix}
-                    \]
+                <p><span class="sql">Gradient Definition:</span> The gradient of a scalar field \( f \) can be written as grad \( f \), a special symbol for grad, \( \nabla \), is used, so grad \( f = \nabla f \)<img src="Figures/Lecture1A_GradientofF.png" 
+                    alt="GradientofF" 
+                    style="height: 8em; vertical-align: middle;">  
+
+                    The gradient of \( f \) can also be defined in a Cartesian coordinate system in terms of the partial derivatives of \( f \),
+                    
+                    \(\boxed{
+                    \nabla f = \frac{\partial f}{\partial x} \mathbf{e}_1 + \frac{\partial f}{\partial y} \mathbf{e}_2 + \frac{\partial f}{\partial z} \mathbf{e}_3}
+                    \)
                 </p>
 
-                <p><span class="sql">Laplacian Operator:</span> The divergence of a gradient is the Laplacian:</p>
-                <p style="text-align: center;">
+            </div>
+            <div class="description">
+                <p><span class="sql">Laplacian Operator:</span> Suppose that a scalar field \( \phi \) is twice differentiable. Then the gradient of \( \phi \) is a differentiable vector field \( \nabla \phi \), so we can take the divergence of \( \nabla \phi \) and obtain another scalar field. 
+                    This scalar field \( \nabla \cdot \nabla \phi \), is called the <span class="sql">Laplacian</span> of \( \phi \) and has its own symbol, \( \nabla^2 \phi \), so
+
                     \[
-                    \text{div}(\nabla f) = \nabla^2 f = \Delta f
+                    \nabla \cdot \nabla \phi = \nabla^2 \phi
+                    \]
+                    \[
+                    \nabla^2 \phi 
+                    = \frac{\partial}{\partial x} \left( \frac{\partial \phi}{\partial x} \right) + \frac{\partial}{\partial y} \left( \frac{\partial \phi}{\partial y} \right) + \frac{\partial}{\partial z} \left( \frac{\partial \phi}{\partial z} \right)
+                    = \frac{\partial^2 \phi}{\partial x^2} + \frac{\partial^2 \phi}{\partial y^2} + \frac{\partial^2 \phi}{\partial z^2}
+                    \]
+                    The Laplacian can also act on a vector quantity, in which case the result is a vector whose components are the Laplacians of the components of the original vector
+
+                    \[
+                    \nabla^2 \mathbf{u} = \left( \nabla^2 u_1, \nabla^2 u_2, \nabla^2 u_3 \right)
                     \]
                 </p>
             </div>
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+                <p class="footnote">
+                    <sup>1</sup>P. C. Matthews, Vector Calculus, New York:Springer-Verlag, 1998. 
+                </p>
+            </p>
+        </div>
         </div>
 
         <!-- Left Arrow to go back to Slide 2 -->

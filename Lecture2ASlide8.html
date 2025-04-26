@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        .description {
+            text-align: left;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Boundary Conditions</div>
+
+        <div class="slide">
+
+            <p>On a solid boundary or at the interface between two immiscible fluids, 
+                some of the necessary boundary conditions may be derived from the conservation laws by 
+                examining a small thin control volume that spans the interface</p>
+                <div class="image-container" style="text-align: left;">
+                    <img src="Figures/Lecture2A_InterfaceTwoMediaBoundaryConditions.png" alt="InterfaceTwoMediaBoundaryConditions" style="max-width: 49%; height: auto; display: block; margin: auto;">
+                </div>
+            <p>For a control volume as shown in the figure, the interface separating medium 2 (a fluid) from medium 1 (a solid or a fluid immiscible with fluid 2). 
+            This control volume moves with the interface's velocity \(\mathbf{u}_s\). When necessary, \(\mathbf{u}_s\) can be developed from a specification of the shape of the interface.</p>
+            <p>\(+\mathbf{n}\) and \(-\mathbf{n}\) are the unit normal vectors pointing into medium 2 and medium 1. The square surfaces of the control volume have area \(dA\), are locally parallel to the interface, and are separated from each other by a small distance \(l\). The two tangent vectors to the surface are \(\mathbf{t}'\) and \(\mathbf{t}''\), and are chosen so that \(\mathbf{t}' \times \mathbf{t}'' = \mathbf{n}\)</p>
+
+            <p>Application of the conservation laws to the rectangular volume \(l\,dA\) as \(l \to 0\), keeping the two square area elements in the two different media, produces five boundary conditions. 
+            As \(l \to 0\), all volume integrals \(\to 0\) and the surface integrals over the four rectangular side areas, which are proportional to \(l\), tend to zero unless there is interfacial (surface) tension</p>
+
+            <div class="image-container" style="text-align: left;">
+                <img src="Figures/Lecture2A_InterfacialPhenomenaFluid-fluidInterface.png" alt="InterfacialPhenomenaFluid-fluidInterface" style="max-width: 49%; height: auto; display: block; margin: auto;">
+                <p>The normal and tangential stress boundary conditions appropriate at a fluid–fluid interface characterized by an interfacial tension \(\sigma\)<br>
+                There is a surface \(S\) and bounding contour \(C\) on an interface between two fluids. Local unit vectors are \(\mathbf{n}\), \(\mathbf{m}\), and \(\mathbf{s}\)</p>
+            </div>
+
+            <div class="footnote-container">
+                <hr class="footnote-line">
+                <p class="footnote">
+                    <sup>1</sup> Prof. John W. M. Bush. MIT OpenCourseWare: 18.357 Interfacial Phenomena
+                </p>
+            </div>
+
+        </div>
+        
+        <!-- Navigation Buttons -->
+        <a href="Lecture2ASlide7.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture2ASlide9.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

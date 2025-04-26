@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script>
+        window.MathJax = {
+          tex: {
+            packages: ['base']
+          }
+        };
+      </script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+      
+      
+    <style>
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 110%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 110%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Gauss’ Theorem</div>
+
+        <div class="slide">
+
+        <p>
+            <span class="sql">Proof</span>
+        </p>
+        <div class="image-container" style="text-align: left;">
+            <img src="Figures/Lecture1A_TwoAdjacentVolumeElements.png" alt="TwoAdjacentVolumeElements" style="max-width: 39%; height: auto; display: block; margin: auto;">
+            <p>Now take the limit \( \delta V_i \rightarrow 0 \). The l.h.s. becomes the volume integral 
+                of \( \nabla \cdot \mathbf{u} \) over the volume \( V \); this is just the definition of 
+                the volume integral. To simplify the r.h.s. consider two adjacent volume elements \( \delta V_1 \) 
+                and \( \delta V_2 \)<br>
+            Since the normal vector to each surface points outward, the normal vectors to the two surfaces 
+            along their common surface point in opposite directions: \( \mathbf{n}_1 = -\mathbf{n}_2 \). 
+            Therefore the values of \( \mathbf{u} \cdot \mathbf{n} \) cancel along the common surface: 
+            \( \mathbf{u} \cdot \mathbf{n}_1 + \mathbf{u} \cdot \mathbf{n}_2 = 0 \) </p>
+            </div>
+
+        <p>
+            This means that all the contributions to the sum on the r.h.s. of <img src="Figures/Lecture1A_ContributionAllSubvolumes.png" 
+            alt="ContributionAllSubvolumes" 
+            style="height: 2.5em; vertical-align: middle;">
+             from the interior of the region \( V \) cancel out, leaving only the surface integral over the exterior surface \( S \).<br>
+             So in the limit \( \delta V_i \rightarrow 0 \), <img src="Figures/Lecture1A_ContributionAllSubvolumes.png" 
+             alt="ContributionAllSubvolumes" 
+             style="height: 2.5em; vertical-align: middle;"> becomes
+             <img src="Figures/Lecture1A_DivergenceTheorem.png" alt="DivergenceTheorem" style="max-width: 29%; height: auto; display: block; margin: auto;">
+        </p>
+
+
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>P. C. Matthews, Vector Calculus, New York:Springer-Verlag, 1998. 
+            </p>
+        </div>
+
+        </div>        
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture1ASlide32.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture1ASlide34.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

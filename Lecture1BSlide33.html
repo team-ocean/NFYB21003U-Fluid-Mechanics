@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+<!-- Include MathJax with color extension enabled -->
+<script type="text/javascript" async 
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<!-- Configuration block to load color extension -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+            extensions: ["color.js", "cancel.js"]
+            
+        },
+        "HTML-CSS": {
+            scale: 90
+        }
+    });
+
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": { scale: 70 }  // Default is 100
+    });
+</script>
+
+      
+      
+    <style>
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 110%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 110%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Constitutive Equation for a Newtonian Fluid</div>
+
+        <div class="slide">
+            <p>For the stress tensor \(\mathbf{T}\), the first index of \( T_{ij} \) indicates the direction of the normal to the surface on which the stress is considered, and the second index indicates the direction in which the stress acts. 
+                The diagonal elements \( T_{11}, T_{22}, \) and \( T_{33} \) of the stress matrix are the normal stresses, and the off-diagonal elements are the tangential or shear stresses
+                </p>
+            <div class="image-container" style="text-align: left;">
+                <img src="Figures/Lecture1B_TensorCubeTetrahedra.png" alt="TensorCubeTetrahedra" style="max-width: 66%; height: auto; display: block; margin: auto;">
+                <p>The figure shows the directions of <span class="sql">positive</span> stresses on the various faces of small cubical and tetrahedral fluid elements. 
+                     Denoting the cubical volume by \( dV = dx_1 dx_2 dx_3 \) and considering the torque produced on it by the various stresses components, it can be shown that the stress tensor is symmetric
+                    \[
+                    T_{ij} = T_{ji}
+                    \]</p>
+            
+            </div>
+    
+        <div class="description">
+            By considering the element’s rotational dynamics in the limit \( dV \rightarrow 0 \), the stress tensor has only six independent components. 
+        However, this symmetry is violated if there are body-force couples proportional to the mass of the fluid element (such as those exerted by an electric field on polarized fluid molecules). 
+        Antisymmetric stresses must be included in such circumstances
+        </div>
+        
+        <div class="image-container" style="text-align: left;">
+            <img src="Figures/Lecture1B_KunduExercise4.36.png" alt="KunduExercise4.36" style="max-width: 39%; height: auto; display: block; margin: auto;">
+            <p><span class="sql">[Q]
+                Prove that the stress tensor is symmetric by considering first-order changes in surface forces on a vanishingly small cube in rotational equilibrium. Work with rotation about the number 3 coordinate axis to show \( T_{12} = T_{21} \). Cyclic permutation of the indices will suffice for showing the symmetry of the other two shear stresses</span><br>
+                [Pf] Rotational equilibrium about an axis through the cube's center parallel to the \(x_3\) axis requires
+
+                \(
+                + \left[ T_{12} + \frac{\partial T_{12}}{\partial x_1} \frac{dx_1}{2} \right] \left( dx_2 dx_3 \right) \frac{dx_1}{2} 
+                + \left[ T_{12} - \frac{\partial T_{12}}{\partial x_1} \frac{dx_1}{2} \right] \left( dx_2 dx_3 \right) \frac{dx_1}{2} \\
+
+                - \left[ T_{21} + \frac{\partial T_{21}}{\partial x_2} \frac{dx_2}{2} \right] \left( dx_1 dx_3 \right) \frac{dx_2}{2} 
+                - \left[ T_{21} - \frac{\partial T_{21}}{\partial x_2} \frac{dx_2}{2} \right] \left( dx_1 dx_3 \right) \frac{dx_2}{2} 
+                + \text{higher order terms} \\
+                = 
+
+                \frac{\rho}{12} dx_1 dx_2 dx_3 \left\{ (dx_1)^2 + (dx_2)^2 \right\} \frac{d\Omega}{dt}
+                \)<br>
+                \( \Omega \) is the rotation rate, the first 4 terms are written as triple products (surface stress)(surface area)(moment arm). The final term is the product of the moment of inertia about the \(x_3\)-axis and the rotational acceleration</p>
+            </div>
+
+            <p>
+                Canceling terms and dividing by \(dV\) produces
+
+                \(\boxed{
+                T_{12} - T_{21} = \frac{\rho}{12} \left\{ (dx_1)^2 + (dx_2)^2 \right\} \frac{d\Omega}{dt}}
+                \)
+                
+                Taking \( dx_1, dx_2 \to 0 \), produces \( \tau_{12} = \tau_{21} \). Cyclic permutation of the indices can be used to show the equality of the other two shear stresses: \( T_{23} = T_{32} \), and \( T_{31} = T_{13} \)
+                </p>
+
+                <!-- Footnote Section -->
+                <div class="footnote-container">
+                    <hr class="footnote-line">
+                    <p class="footnote">
+                        <sup>1</sup>\(
+                        \underbrace{\left(
+                        T_{12} (dx_2 dx_3) \tfrac{dx_1}{2}
+                        + \cancel{ \tfrac{\partial T_{12}}{\partial x_1} \tfrac{dx_1}{2} (dx_2 dx_3) \tfrac{dx_1}{2} }
+                        + T_{12} (dx_2 dx_3) \tfrac{dx_1}{2}
+                        - \cancel{ \tfrac{\partial T_{12}}{\partial x_1} \tfrac{dx_1}{2} (dx_2 dx_3) \tfrac{dx_1}{2} }
+                        \right)}_{\text{Faces normal to } x_1}
+                        -
+                        \underbrace{\left(
+                        T_{21} (dx_1 dx_3) \tfrac{dx_2}{2}
+                        + \cancel{ \tfrac{\partial T_{21}}{\partial x_2} \tfrac{dx_2}{2} (dx_1 dx_3) \tfrac{dx_2}{2} }
+                        + T_{21} (dx_1 dx_3) \tfrac{dx_2}{2}
+                        - \cancel{ \tfrac{\partial T_{21}}{\partial x_2} \tfrac{dx_2}{2} (dx_1 dx_3) \tfrac{dx_2}{2} }
+                        \right)}_{\text{Faces normal to } x_2}
+                        = T_{12} dx_1 dx_2 dx_3 - T_{21} dx_1 dx_2 dx_3 = (T_{12} - T_{21}) dx_1 dx_2 dx_3
+                        \)
+                    </p>
+                </div>
+                
+                
+                
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture1BSlide32.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture1BSlide34.html" class="nav-button right">&#9654;</a>
+    </div>
+
+
+</body>
+</html>

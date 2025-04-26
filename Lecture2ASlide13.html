@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Constant Surface Tension Boundary Condition</div>
+
+        <div class="slide">
+
+            <div class="description">
+                The goal here is to determine how the pressure increment \( \Delta p \) depends on \( R_1 \) and \( R_2 \) when pressure and surface tension forces are balanced as the area enclosed by \( C \) approaches zero
+            </div>
+
+            <p>
+                Determine the net pressure force \( \mathbf{F}_p \) on the surface \( A \) bounded by \( C \). The unit normal \( \mathbf{n} \) to the surface \( \eta \) is
+                \(
+                \mathbf{n} = \frac{\nabla \eta}{|\nabla \eta|} = \frac{(-x/R_1, -y/R_2, 1)}{\sqrt{(x/R_1)^2 + (y/R_2)^2 + 1}}
+                \)<br>
+                and the area element is
+                \(
+                dA = \sqrt{1 + (\partial \eta/\partial x)^2 + (\partial \eta/\partial y)^2} \, dx \, dy 
+                = \sqrt{1 + (x/R_1)^2 + (y/R_2)^2} \, dx \, dy
+                \)<br>
+                \(\therefore \mathbf{F}_p = - \iint_A \Delta p \, \mathbf{n} \, dA 
+                = -\Delta p \int_{-\sqrt{2R_1 \zeta}}^{+\sqrt{2R_1 \zeta}} 
+                \left[
+                \int_{-\sqrt{2R_2 \zeta - x^2 R_2/R_1}}^{+\sqrt{2R_2 \zeta - x^2 R_2/R_1}} 
+                \left( \frac{-x/R_1, -y/R_2, 1}{1} \right) dy
+                \right] dx\)<br>
+                The minus sign appears here because greater pressure above the surface (positive \( \Delta p \)) must lead to a downward force and the vertical component of \( \mathbf{n} \) is positive. The x- and y-components of \( \mathbf{F}_p \) are zero because of the symmetry of the situation (odd integrand with even limits)<br><br>
+
+                The remaining double integration for the z-component of \( \mathbf{F}_p \) produces \((\mathbf{F}_p)_z = \mathbf{e}_z \cdot \mathbf{F}_p = -\pi \Delta p \sqrt{2 R_1 \zeta} \sqrt{2 R_2 \zeta}\)<br>
+
+                \(\because\) The net surface tension force \( \mathbf{F}_{st} \) on bounding curve \( C \) can be determined from the integral
+                \(
+                \mathbf{F}_{st} = \sigma \oint_C \mathbf{t} \times \mathbf{n} \, ds
+                \), \( ds = dx \sqrt{1 + (dy/dx)^2} \) is an arc length element of \( C \), and \( \mathbf{t} \) is the unit tangent to \( C \)<br>
+
+                \(\therefore\) \(\mathbf{t} = \frac{-(1, dy/dx, 0)}{\sqrt{1+(dy/dx)^2}} = \frac{(-y/R_2, x/R_1, 0)}{\sqrt{(y/R_2)^2 + (x/R_1)^2}}\) <br>
+
+                \( dy/dx \) is found by differentiating the equation for \( C \), \( \zeta = \left( x^2/2R_1 \right) - \left( y^2/2R_2 \right) \), with \( \zeta \) regarded as constant<br>
+
+                \(\because\) \( \mathbf{t} \times \mathbf{n} \) \(\therefore\) the surface tension force acts perpendicular to \( \mathbf{t} \) and tangent to the curved interface<br>
+
+                \(\therefore\) Integrand in \(\boxed{
+                    \mathbf{F}_{st} = \sigma \oint_C \mathbf{t} \times \mathbf{n} \, ds}
+                    \) is \(
+                \mathbf{t} \times \mathbf{n} \, ds = \frac{(R_2/y) dx}{\sqrt{(x/R_1)^2 + (y/R_2)^2}} \left( \frac{x}{R_1}, \frac{y}{R_2}, \frac{x^2}{R_1^2} + \frac{y^2}{R_2^2} \right)
+                \cong \frac{R_2}{y} \left( \frac{x}{R_1}, \frac{y}{R_2}, \frac{x^2}{R_1^2} + \frac{y^2}{R_2^2} \right) dx
+                \),
+                the approximate equality holds when \( x/R_1 \) and \( y/R_2 \ll 1 \) and the area enclosed by \( C \) approaches zero<br>
+                \(\because\) Symmetry of the integration path will cause the \( x \)- and \( y \)-components of \( \mathbf{F}_{st} \) to be zero<br>
+                \(\therefore\) \((\mathbf{F}_{st})_z = \mathbf{e}_z \cdot \mathbf{F}_{st} = 4\sigma \int_0^{\sqrt{2R_1 \zeta}} \frac{R_2}{\sqrt{2R_2 \zeta - (R_2/R_1) x^2}} \left[ 2\zeta + \frac{x^2}{R_1} \left( \frac{1}{R_1} - \frac{1}{R_2} \right) \right] dx\)
+                where \( y \) has been eliminated from the integrand using the equation for \( C \), and the factor of four appears because the integral shown only covers one-quarter of the path defined by \( C \)
+
+
+
+            </p>
+
+
+        </div>
+        
+        <!-- Navigation Buttons -->
+        <a href="Lecture2ASlide12.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture2ASlide14.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

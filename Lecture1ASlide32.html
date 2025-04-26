@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script>
+        window.MathJax = {
+          tex: {
+            packages: ['base']
+          }
+        };
+      </script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+      
+      
+    <style>
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 110%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 110%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Gauss’ Theorem</div>
+
+        <div class="slide">
+
+        <div class="description">
+            <p>
+                Let \( \mathbf{u} \) be a continuously differentiable vector field, defined in a volume \( V \). 
+                Let \( S \) be the closed surface forming the boundary of \( V \) and let \( \mathbf{n} \) be the unit outward normal to \( S \). Then the Gauss’ theorem (divergence theorem) states that
+
+                <img src="Figures/Lecture1A_DivergenceTheorem.png" alt="DivergenceTheorem" style="max-width: 29%; height: auto; display: block; margin: auto;">
+            </p>
+        </div>
+
+        <div class="description">
+            <p>Roughly speaking, the divergence theorem states that the 
+                total amount of expansion of \( \mathbf{u} \) within the volume \( V \) is equal to the flux of \( \mathbf{u} \) out of the surface \( S \)
+            </p>
+        </div>
+
+        <p>
+            <span class="sql">Proof</span>
+        </p>
+        <div class="image-container" style="text-align: left;">
+            <img src="Figures/Lecture1A_SmallSubvolumesDivergenceTheorem.png" alt="SmallSubvolumesDivergenceTheorem" style="max-width: 39%; height: auto; display: block; margin: auto;">
+            <p>The volume \( V \) is divided into a large number of small subvolumes \( \delta V_i \) with surfaces \( \delta S_i \). 
+                The proof of the divergence theorem then follows naturally from the physical definition of 
+                the divergence in terms of a surface integral <img src="Figures/Lecture1A_DivergenceVectorField.png" 
+                alt="DivergenceVectorField" 
+                style="height: 2.5em; vertical-align: middle;"><br>
+                Within each of the subvolumes, \( \nabla \cdot \mathbf{u} \) is defined by <img src="Figures/Lecture1A_DivergenceNablaDotu.png" 
+                alt="DivergenceNablaDotu" 
+                style="height: 2.5em; vertical-align: middle;"> where the approximation becomes exact in the limit \( \delta V_i \to 0 \)</p>
+            </div>
+
+        <p>Now multiply both sides of <img src="Figures/Lecture1A_DivergenceNablaDotu.png" 
+            alt="DivergenceNablaDotu" 
+            style="height: 2.5em; vertical-align: middle;"> by \( \delta V_i \) and add the contributions 
+            from all the subvolumes: <img src="Figures/Lecture1A_ContributionAllSubvolumes.png" 
+            alt="ContributionAllSubvolumes" 
+            style="height: 2.5em; vertical-align: middle;">
+        </p>
+
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>P. C. Matthews, Vector Calculus, New York:Springer-Verlag, 1998. 
+            </p>
+        </div>
+
+        </div>        
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture1ASlide31.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture1ASlide33.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

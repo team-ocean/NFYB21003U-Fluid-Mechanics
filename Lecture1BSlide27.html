@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script>
+        window.MathJax = {
+          tex: {
+            packages: ['base', 'ams'] // loads AMS by default
+          }
+        };
+      </script>
+      <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            "HTML-CSS": { scale: 80 }  // Default is 100
+        });
+    </script>
+      
+      
+    <style>
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 110%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 110%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Control Volume</div>
+
+        <div class="slide">
+    
+        <div class="description">
+            The dot product of a second-order tensor and a vector yields a second vector; this operation is often called the <span class="sql">contracted product</span> or the <span class="sql">inner product</span> of a tensor and a vector. <br>
+            In our case, it turns out that the inner product of the stress tensor \(\sigma_{ij}\) and the unit outward normal vector \(\vec{n}\) of a differential surface element <img src="Figures/Lecture1B_StressTensorFaces.png" 
+            alt="StressTensorFaces" 
+            style="height: 13em; vertical-align: middle;">yields a vector whose magnitude is the force per unit area acting on the surface element and whose direction is the direction of the surface force itself
+        </div>
+        <div class="description">
+            Surface force acting on a differential surface element
+            \(
+            d\vec{F}_{\text{surface}} = \sigma_{ij} \vec{n} \, dA 
+            \)
+        </div>
+        <div class="description">
+            Total surface force acting on control surface
+            \(
+            \sum \vec{F}_{\text{surface}} = \int_{\text{CS}} \sigma_{ij} \vec{n} \, dA
+            \)
+        </div>
+        <div class="description">
+            \(\boxed{\sum \vec{F}_{\text{body}} = \int_{\text{CV}} \rho \vec{g} \, dV = m_{\text{CV}} \vec{g}}\) and \(\boxed{\sum \vec{F}_{\text{surface}} = \int_{\text{CS}} \sigma_{ij} \vec{n} \, dA}\) into \( \boxed{\sum \vec{F} = \sum \vec{F}_{\text{body}} + \sum \vec{F}_{\text{surface}}}\)
+            \[
+            \sum \vec{F} = \sum \vec{F}_{\text{body}} + \sum \vec{F}_{\text{surface}} = \int_{\text{CV}} \rho \vec{g} \, dV + \int_{\text{CS}} \sigma_{ij} \vec{n} \, dA
+            \]
+        </div>
+
+        \[
+        \underbrace{\sum \vec{F}}_{\text{total force}} =
+        \underbrace{\sum \vec{F}_{\text{gravity}}}_{\text{body force}} +
+        \underbrace{\sum \vec{F}_{\text{pressure}} + \sum \vec{F}_{\text{viscous}} + \sum \vec{F}_{\text{other}}}_{\text{surface forces}} 
+        \]
+
+
+
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>Fluid Mechanics: Fundamentals and Applications Fourth Edition. Çengel and J. M. Cimbala, McGraw-Hill, New York (2018). 
+            </p>
+        </div>
+       
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture1BSlide26.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture1BSlide28.html" class="nav-button right">&#9654;</a>
+    </div>
+
+
+</body>
+</html>

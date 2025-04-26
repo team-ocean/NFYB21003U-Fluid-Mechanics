@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script>
+        window.MathJax = {
+          tex: {
+            packages: ['base', 'ams'] // loads AMS by default
+          }
+        };
+      </script>
+      <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            "HTML-CSS": { scale: 80 }  // Default is 100
+        });
+    </script>
+      
+      
+    <style>
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 110%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 110%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Newton’s Second Law</div>
+
+        <div class="slide">
+
+        <div class="description">
+        <p>For a rigid body of mass \( m \), Newton’s second law is expressed as
+
+            \[
+            \vec{F} = m \vec{a} = m \frac{d\vec{V}}{dt} = \frac{d(m\vec{V})}{dt}
+            \]
+            
+            where \( \vec{F} \) is the net force acting on the body and \( \vec{a} \) is the acceleration of the body under the influence of \( \vec{F} \)</p>
+        </div>
+
+        <p>The product of the mass and the velocity of a body is called 
+        the <span class="sql">linear momentum</span> or just 
+        the <span class="sql">momentum</span> of the body. The momentum of a rigid body of 
+        mass \( m \) moving with velocity \( \vec{V} \) is \( m\vec{V} \)<img src="Figures/Lecture1B_LinearMomentum.png" 
+        alt="LinearMomentum" 
+        style="height: 10em; vertical-align: middle;">,
+        then Newton’s second law can also be stated 
+        as <span class="sql">the rate of change of the momentum of a body is equal to the net force acting on the body</span><br>
+        \[
+        \underbrace{\vec{F}}_{\text{Net force}} = m \vec{a} = m \, \frac{d\vec{V}}{dt} = \underbrace{\frac{d(m\vec{V})}{dt}}_{\text{Rate of change of momentum}}
+        \]
+        This statement is more in line with Newton’s original statement of the second law, 
+        and it is more appropriate for use in fluid mechanics when studying the forces generated 
+        as a result of velocity changes of fluid streams <br>
+        Therefore, in fluid mechanics, Newton’s second law is usually 
+        referred to as the <span class="sql">linear momentum equation</span></p>
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>Fluid Mechanics: Fundamentals and Applications Fourth Edition. Çengel and J. M. Cimbala, McGraw-Hill, New York (2018). 
+            </p>
+        </div>
+       
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture1BSlide21.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture1BSlide23.html" class="nav-button right">&#9654;</a>
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script>
+        window.MathJax = {
+          tex: {
+            packages: ['base', 'ams'] // loads AMS by default
+          }
+        };
+      </script>
+      <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            "HTML-CSS": { scale: 80 }  // Default is 100
+        });
+    </script>
+      
+      
+    <style>
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+        .image-container img {
+            max-width: 110%;
+            height: auto;
+        }
+        .image-text {
+            max-width: 110%;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Stream Functions</div>
+
+        <div class="slide">
+
+        <div class="description">
+        For axisymmetric three-dimensional flow in cylindrical polar coordinates <img src="Figures/Lecture1B_CylindricalPolarCoordinates.png" 
+        alt="CylindricalPolarCoordinates.png" 
+        style="height: 8em; vertical-align: middle;">, 
+        all the streamlines lie in \( \varphi = \text{constant} \) planes that contain the \( z \)-axis so \( \chi = -\varphi \) is one of the stream functions. 
+        This produces \( \nabla \chi = -R^{-1} \mathbf{e}_\varphi \) and \( \rho \mathbf{u} = \rho (u_R, u_z) = -R^{-1} \mathbf{e}_\varphi \times \nabla \psi \), or
+
+            \[
+            \rho u_R = -R^{-1} \left( \frac{\partial \psi}{\partial z} \right), \quad \rho u_z = R^{-1} \left( \frac{\partial \psi}{\partial R} \right)
+            \]
+        </div>
+
+        <div class="description">
+            <p>If the density is constant, mass conservation reduces to \( \nabla \cdot \mathbf{u} = 0 \) (steady or not) and the entire preceding discussion follows for \( \mathbf{u} \) rather than \( \rho \mathbf{u} \) with the interpretation of stream function values in terms of volumetric flux rather than mass flux</p>
+        </div>
+
+       
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture1BSlide20.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture1BSlide22.html" class="nav-button right">&#9654;</a>
+    </div>
+
+
+</body>
+</html>
