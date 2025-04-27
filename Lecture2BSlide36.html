@@ -112,51 +112,37 @@
 </head>
 <body>
     <div class="container">
-        <div class="title">Coriolis Acceleration and the Rossby Number</div>
+        <div class="title">Dispersion of Internal Waves in a Stratified Fluid</div>
 
         <div class="slide">
 
-            <div class="description">
-            \(\epsilon = \frac{U}{2\Omega L}\) was small for large-scale flows. It is now apparent that for large-scale flows the applied forces produce primarily a <span class="sql">Coriolis acceleration</span>. 
-            The acceleration must be in the direction of the resultant of the force, so that the relative velocity required to produce the Coriolis acceleration must be directed <span class="sql">to the right of the applied force</span>              
-            </div>
+            <p>
+                The dispersion relationship \(\omega = \frac{kN}{\sqrt{k^2 + m^2}} = \frac{kN}{K}\) for linear internal waves with constant buoyancy frequency contains a few surprises that challenge our intuitions and violate the intuition acquired by observing surface or interface waves,
+                involving the phase and group velocity vectors \(\mathbf{c}\) and \(\mathbf{c}_g\). In multiple dimensions, these are defined by
+                \[\mathbf{c} = \left(\frac{\omega}{K}\right) \mathbf{e}_K \text{ and } \mathbf{c}_g = e_x \left(\frac{\partial \omega}{\partial k}\right) + e_y \left(\frac{\partial \omega}{\partial l}\right) + e_z \left(\frac{\partial \omega}{\partial m}\right)\]
 
-            <div class="image-container" style="text-align: left;">
-                <img src="Figures/Lecture2B_TwoAccelerationsCoriolis.png" alt="TwoAccelerationsCoriolis" style="max-width: 50%; height: auto; display: block; margin: auto;">
-                <p>
-                The Coriolis acceleration becomes dominant for large-scale flows, not because the Coriolis acceleration becomes large, but because the relative accelerations become so feeble when the scale of the motion is large.
-                When the time scale of the <span class="sql">motion</span> exceeds the rotation period, the Coriolis acceleration exceeds the relative acceleration in importance
-                </p>
-            </div>
+                where \(\mathbf{e}_K = \mathbf{K}/K\). For interface waves, \(\mathbf{c}\) and \(\mathbf{c}_g\) are in the same direction (though their magnitudes may differ).  
 
-            <p>The rotational frequency of the Earth is given by
-                <span class="highlightkumon">\(\Omega = \frac{2\pi}{86400} \approx 7.27 \times 10^{-5} \text{s}^{-1}\)</span>,
-                the length of the day is 86400 seconds</p>
-            <p><span class="highlightkumon">\(
-                2\Omega \times \mathbf{u} \cong (-2\Omega v \sin \theta, \, 2\Omega u \sin \theta, \, -2\Omega u \cos \theta)
-                
-                = (-fv, \, fu, \, -2\Omega u \cos \theta), \quad \text{where} \quad f = 2\Omega \sin \theta
-                \)</span></p>
+                For internal waves, using \(\omega = \frac{kN}{\sqrt{k^2 + m^2}} = \frac{kN}{K}\), \(\mathbf{c} = \left(\frac{\omega}{K}\right) \mathbf{e}_K \text{ and } \mathbf{c}_g = e_x \left(\frac{\partial \omega}{\partial k}\right) + e_y \left(\frac{\partial \omega}{\partial l}\right) + e_z \left(\frac{\partial \omega}{\partial m}\right)\)
+                \[\Rightarrow \mathbf{c} = \frac{\omega}{K^2}(k\mathbf{e}_x + m\mathbf{e}_z) \text{ and } \mathbf{c}_g = \frac{Nm}{K^3}(m\mathbf{e}_x - k\mathbf{e}_z)\]
+                Taking the dot product \[\Rightarrow \mathbf{c}_g \cdot \mathbf{c} = 0\]
+                Thus, the <span class="sql">phase and group velocity vectors are perpendicular</span>. 
 
-            <p>The gyroscopic tendency of fluid elements to move at right angles to the applied force is in fact responsible for the unique character of geophysical fluid dynamics</p>
+                <span class="highlight">\(\mathbf{c} = \frac{\omega}{K^2}(k\mathbf{e}_x + m\mathbf{e}_z) \text{ and } \mathbf{c}_g = \frac{Nm}{K^3}(m\mathbf{e}_x - k\mathbf{e}_z)\)</span> place the horizontal components of \(\mathbf{c}\) and \(\mathbf{c}_g\) in the same direction, but their vertical components are equal and opposite.  
+                Thus, \(\mathbf{c}\) and \(\mathbf{c}_g\) form two sides of a right triangle whose hypotenuse is horizontal.  
+                Consequently, the phase velocity has an upward component when the group velocity has a downward component, and vice versa. 
+                Equations <span class="highlight">\(\mathbf{K} \cdot \mathbf{u} = 0\)</span> and <span class="highlight">\(\mathbf{c}_g \cdot \mathbf{c} = 0\)</span> are consistent because \(\mathbf{c}\) and \(\mathbf{K}\) are parallel, and \(\mathbf{c}_g\) and \(\mathbf{u}\) are parallel. 
+                It shows that the phase lines are propagating toward the left and upward, whereas the wave group is propagating to the right and downward.  
+                Wave crests constantly appear at one edge of the group and vanish at the other
+                <img src="Figures/Lecture2B_PhaseandGroupPropagation.png" alt="PhaseandGroupPropagation" style="max-width: 69%; height: auto; display: block; margin: auto;">
+            </p>
 
-
-        
-
-            <div class="footnote-container">
-                <hr class="footnote-line">
-                    <p class="footnote">
-                        <sup>1</sup> Pedlosky, J. (1982). Geophysical Fluid Dynamics. Springer study edition. Springer, Berlin, Heidelberg.
-                    </p>
-            </div>
-            
-        </div>
 
         <!-- Left Arrow to go back to Slide x -->
-        <a href="Lecture2BSlide21.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture2BSlide35.html" class="nav-button left">&#9664;</a>
 
         <!-- Right Arrow to go to Slide x -->
-        <a href="Lecture2BSlide23.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture2BSlide37.html" class="nav-button right">&#9654;</a>
     </div>
 </body> 
 </html>

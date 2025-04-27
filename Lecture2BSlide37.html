@@ -112,51 +112,36 @@
 </head>
 <body>
     <div class="container">
-        <div class="title">Coriolis Acceleration and the Rossby Number</div>
+        <div class="title">Dispersion of Internal Waves in a Stratified Fluid</div>
 
         <div class="slide">
 
-            <div class="description">
-            \(\epsilon = \frac{U}{2\Omega L}\) was small for large-scale flows. It is now apparent that for large-scale flows the applied forces produce primarily a <span class="sql">Coriolis acceleration</span>. 
-            The acceleration must be in the direction of the resultant of the force, so that the relative velocity required to produce the Coriolis acceleration must be directed <span class="sql">to the right of the applied force</span>              
-            </div>
+            <p>
+                The group velocity here has the usual significance of being the velocity of propagation of energy of a certain sinusoidal component.
+                Suppose a source is oscillating at frequency \(\omega\), then its energy will be transmitted outward only along four beams oriented at an angle \(\theta\) with the vertical
+                <span class="highlight">\(
+                \cos\theta = \frac{\omega}{N}
+                \)</span>
+                This has been verified in the laboratory laboratory experiment, a vertically oscillating cylinder was used with frequency \(\omega < N\). The light and dark radial lines represent contours of constant \( \rho' \) and are therefore constant phase lines.  
+                The schematic diagram below the photograph shows the directions of \( \mathbf{c} \) and \( \mathbf{c}_g \) for the four beams. 
+                The lines of constant density, made visible optically, showed that energy radiated along beams that became more vertical as \(\omega\) increased, consistent with
+                <span class="highlight">\(
+                \cos\theta = \frac{\omega}{N}
+                \)</span>
+                <img src="Figures/Lecture2B_WaveBeamExperiment.png" alt="WaveBeamExperiment" style="max-width: 99%; height: auto; display: block; margin: auto;">
+                These results assumed that \(N\) is depth-independent. For \(N\) vs. depth for the deep ocean, where \(N < 0.01\) almost everywhere, but \(N\) is largest between \(\sim 200\,\text{m}\) and \(\sim 2\,\text{km}\), these
+                results are considered <span class="sql">locally valid</span> if \(N\) varies slowly over the vertical wavelength \(2\pi/m\).
+                This is the so-called <span class="sql">WKB approximation</span> for internal waves (where slow variation of \(N(z)\) is included)
+                <img src="Figures/Lecture2B_VerticalDistributionTemperatureDensityBoyancy.png" alt="VerticalDistributionTemperatureDensityBoyancy" style="max-width: 59%; height: auto; display: block; margin: auto;">
 
-            <div class="image-container" style="text-align: left;">
-                <img src="Figures/Lecture2B_TwoAccelerationsCoriolis.png" alt="TwoAccelerationsCoriolis" style="max-width: 50%; height: auto; display: block; margin: auto;">
-                <p>
-                The Coriolis acceleration becomes dominant for large-scale flows, not because the Coriolis acceleration becomes large, but because the relative accelerations become so feeble when the scale of the motion is large.
-                When the time scale of the <span class="sql">motion</span> exceeds the rotation period, the Coriolis acceleration exceeds the relative acceleration in importance
-                </p>
-            </div>
+            </p>
 
-            <p>The rotational frequency of the Earth is given by
-                <span class="highlightkumon">\(\Omega = \frac{2\pi}{86400} \approx 7.27 \times 10^{-5} \text{s}^{-1}\)</span>,
-                the length of the day is 86400 seconds</p>
-            <p><span class="highlightkumon">\(
-                2\Omega \times \mathbf{u} \cong (-2\Omega v \sin \theta, \, 2\Omega u \sin \theta, \, -2\Omega u \cos \theta)
-                
-                = (-fv, \, fu, \, -2\Omega u \cos \theta), \quad \text{where} \quad f = 2\Omega \sin \theta
-                \)</span></p>
-
-            <p>The gyroscopic tendency of fluid elements to move at right angles to the applied force is in fact responsible for the unique character of geophysical fluid dynamics</p>
-
-
-        
-
-            <div class="footnote-container">
-                <hr class="footnote-line">
-                    <p class="footnote">
-                        <sup>1</sup> Pedlosky, J. (1982). Geophysical Fluid Dynamics. Springer study edition. Springer, Berlin, Heidelberg.
-                    </p>
-            </div>
-            
-        </div>
 
         <!-- Left Arrow to go back to Slide x -->
-        <a href="Lecture2BSlide21.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture2BSlide36.html" class="nav-button left">&#9664;</a>
 
         <!-- Right Arrow to go to Slide x -->
-        <a href="Lecture2BSlide23.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture2BSlide38.html" class="nav-button right">&#9654;</a>
     </div>
 </body> 
 </html>

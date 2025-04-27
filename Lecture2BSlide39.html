@@ -112,51 +112,45 @@
 </head>
 <body>
     <div class="container">
-        <div class="title">Coriolis Acceleration and the Rossby Number</div>
+        <div class="title">Normal Modes in a Continuously Stratified Layer</div>
 
         <div class="slide">
-
             <div class="description">
-            \(\epsilon = \frac{U}{2\Omega L}\) was small for large-scale flows. It is now apparent that for large-scale flows the applied forces produce primarily a <span class="sql">Coriolis acceleration</span>. 
-            The acceleration must be in the direction of the resultant of the force, so that the relative velocity required to produce the Coriolis acceleration must be directed <span class="sql">to the right of the applied force</span>              
+                \[
+                \frac{Du}{Dt} - fv = -\frac{1}{\rho_0} \frac{\partial p'}{\partial x} + \nu_H \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right) + \nu_V \left( \frac{\partial^2 u}{\partial z^2} \right)\\
+                \frac{Dv}{Dt} + fu = -\frac{1}{\rho_0} \frac{\partial p'}{\partial y} + \nu_H \left( \frac{\partial^2 v}{\partial x^2} + \frac{\partial^2 v}{\partial y^2} \right) + \nu_V \left( \frac{\partial^2 v}{\partial z^2} \right)\\
+                \frac{Dw}{Dt} = -\frac{1}{\rho_0} \frac{\partial p'}{\partial z} - g \rho' + \nu_H \left( \frac{\partial^2 w}{\partial x^2} + \frac{\partial^2 w}{\partial y^2} \right) + \nu_V \left( \frac{\partial^2 w}{\partial z^2} \right)\]
+                These are the equations for primarily horizontal fluid motion within a thin layer on a locally-flat rotating Earth
             </div>
+                <div class="description">
+                    Consider a continuously stratified medium and assume that the horizontal scale of motion is much larger than the vertical scale. 
+                    The pressure distribution is therefore hydrostatic, and the linearized equations of motion are the incompressible flow continuity equation \( \nabla \cdot \mathbf{u} = 0 \)
 
-            <div class="image-container" style="text-align: left;">
-                <img src="Figures/Lecture2B_TwoAccelerationsCoriolis.png" alt="TwoAccelerationsCoriolis" style="max-width: 50%; height: auto; display: block; margin: auto;">
-                <p>
-                The Coriolis acceleration becomes dominant for large-scale flows, not because the Coriolis acceleration becomes large, but because the relative accelerations become so feeble when the scale of the motion is large.
-                When the time scale of the <span class="sql">motion</span> exceeds the rotation period, the Coriolis acceleration exceeds the relative acceleration in importance
-                </p>
-            </div>
+                    \[
+                    \frac{\partial u}{\partial t} - fv = -\frac{1}{\rho_0} \frac{\partial p'}{\partial x},
+                    \quad
+                    \frac{\partial v}{\partial t} + fu = -\frac{1}{\rho_0} \frac{\partial p'}{\partial y},
+                    \quad
+                    0 = -\frac{\partial p'}{\partial z} - g \rho'
+                    \]
+                    
+                    and the linearized density equation \(\frac{D\rho}{Dt} \equiv \frac{\partial \rho}{\partial t} + \mathbf{u} \cdot \nabla \rho = 0
+                    \):
+                    
+                    \[
+                    \frac{\partial \rho'}{\partial t} - \rho_0 \frac{N^2}{g} w = 0
+                    \]
+                    
+                    where \( p' \) and \( \rho' \) represent <span class="sql">perturbations</span> of pressure and density from the state of rest
+                </div>
+            </p>
 
-            <p>The rotational frequency of the Earth is given by
-                <span class="highlightkumon">\(\Omega = \frac{2\pi}{86400} \approx 7.27 \times 10^{-5} \text{s}^{-1}\)</span>,
-                the length of the day is 86400 seconds</p>
-            <p><span class="highlightkumon">\(
-                2\Omega \times \mathbf{u} \cong (-2\Omega v \sin \theta, \, 2\Omega u \sin \theta, \, -2\Omega u \cos \theta)
-                
-                = (-fv, \, fu, \, -2\Omega u \cos \theta), \quad \text{where} \quad f = 2\Omega \sin \theta
-                \)</span></p>
-
-            <p>The gyroscopic tendency of fluid elements to move at right angles to the applied force is in fact responsible for the unique character of geophysical fluid dynamics</p>
-
-
-        
-
-            <div class="footnote-container">
-                <hr class="footnote-line">
-                    <p class="footnote">
-                        <sup>1</sup> Pedlosky, J. (1982). Geophysical Fluid Dynamics. Springer study edition. Springer, Berlin, Heidelberg.
-                    </p>
-            </div>
-            
-        </div>
 
         <!-- Left Arrow to go back to Slide x -->
-        <a href="Lecture2BSlide21.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture2BSlide38.html" class="nav-button left">&#9664;</a>
 
         <!-- Right Arrow to go to Slide x -->
-        <a href="Lecture2BSlide23.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture2BOverview.html" class="nav-button right">&#9654;</a>
     </div>
 </body> 
 </html>
