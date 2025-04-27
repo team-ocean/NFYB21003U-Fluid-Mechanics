@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+
+    
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+        /* Center the table horizontally */
+        .slide table {
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        /* Left-align table text */
+        .slide table th,
+        .slide table td {
+        text-align: left;
+        }
+
+        /* Custom bullet list styled as flex container */
+    ul.custom {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
+    }
+    ul.custom li {
+      flex: 0 0 45%; /* roughly two items per row */
+      display: flex;
+      align-items: center;
+      gap: 10px; /* space between the text and image */
+      position: relative;
+      padding-left: 20px; /* extra padding for the bullet */
+    }
+    ul.custom li::before {
+      content: "■"; /* Unicode for small square bullet */
+      color: #7DCDF4;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Ensure images align properly */
+    ul.custom li img {
+      max-width: 49%;
+      height: auto;
+    }
+
+    .highlight {
+    background-color:rgba(221, 241, 243, 0.8); 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    .highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Equations of Motion in Spherical Coordinates</div>
+
+        <div class="slide">
+        <p>
+            <span class="highlightkumon">Momentum equation</span><br>
+            The inviscid momentum equation is
+            \(\boxed{
+            \frac{D \mathbf{v}}{Dt} + 2 \boldsymbol{\Omega} \times \mathbf{v} = -\frac{1}{\rho} \nabla p - \nabla \Phi}
+            \)
+            where \( \Phi \) is the geopotential.
+            In spherical coordinates, accounting for the changing directions of coordinate axes, the component expansion of the inviscid momentum equation is
+            \[
+            \frac{D \mathbf{v}}{Dt} = \frac{D u}{Dt} \mathbf{i} + \frac{D v}{Dt} \mathbf{j} + \frac{D w}{Dt} \mathbf{k} + u \frac{D \mathbf{i}}{Dt} + v \frac{D \mathbf{j}}{Dt} + w \frac{D \mathbf{k}}{Dt} \text{ or } = \frac{D u}{Dt} \mathbf{i} + \frac{D v}{Dt} \mathbf{j} + \frac{D w}{Dt} \mathbf{k} + \boldsymbol{\Omega}_{\text{flow}} \times \mathbf{v}
+            \]
+            
+            Using rate of change of unit vectors and the expressions for \( \boldsymbol{\Omega}_{\text{flow}} \) from the total rotation rate of a vector that moves with the flow \(\boldsymbol{\Omega}_{\text{flow}} = -\mathbf{i} \frac{v}{r} + \mathbf{j} \frac{u}{r} + \mathbf{k} \frac{u \tan \vartheta}{r}\), we find
+            \[
+            \frac{D \mathbf{v}}{Dt} = \mathbf{i} \left( \frac{D u}{Dt} - \frac{u w \tan \vartheta}{r} + \frac{u w}{r} \right) + \mathbf{j} \left( \frac{D v}{Dt} + \frac{u^2 \tan \vartheta}{r} + \frac{v w}{r} \right) + \mathbf{k} \left( \frac{D w}{Dt} - \frac{u^2 + v^2}{r} \right)
+            \]
+            <span class="highlightkumon">Coriolis Term Expansion</span><br>
+            Using the vector cross product definition, the Coriolis term is
+            \[
+            2 \boldsymbol{\Omega} \times \mathbf{v} = 
+            \begin{vmatrix}
+            \mathbf{i} & \mathbf{j} & \mathbf{k} \\
+            0 & 2 \Omega \cos \vartheta & 2 \Omega \sin \vartheta \\
+            u & v & w
+            \end{vmatrix}
+            = \mathbf{i} (2 \Omega w \cos \vartheta - 2 \Omega v \sin \vartheta) + \mathbf{j} (2 \Omega u \sin \vartheta) - \mathbf{k} (2 \Omega u \cos \vartheta)
+            \]
+            <span class="highlightkumon">Final expanded momentum equations</span>
+            Substituting \(\frac{D \mathbf{v}}{Dt} \) and the Coriolis term into \(\frac{D \mathbf{v}}{Dt} + 2 \boldsymbol{\Omega} \times \mathbf{v} = -\frac{1}{\rho} \nabla p - \nabla \Phi\), 
+            and using the gradient operator given by \(\nabla \phi = \mathbf{i} \, \frac{1}{r \cos \vartheta} \frac{\partial \phi}{\partial \lambda} + \mathbf{j} \, \frac{1}{r} \frac{\partial \phi}{\partial \vartheta} + \mathbf{k} \, \frac{\partial \phi}{\partial r}\)(the vector gradient of a scalar), the momentum equations become
+            \[
+            \frac{D u}{Dt} - \left(2\Omega + \frac{u}{r \cos \vartheta} \right) (v \sin \vartheta - w \cos \vartheta) = -\frac{1}{\rho r \cos \vartheta} \frac{\partial p}{\partial \lambda}
+            \]
+
+            \[
+            \frac{D v}{Dt} + \frac{w v}{r} + \left(2 \Omega + \frac{u}{r \cos \vartheta} \right) u \sin \vartheta = -\frac{1}{\rho r} \frac{\partial p}{\partial \vartheta}
+            \]
+
+            \[
+            \frac{D w}{Dt} - \frac{u^2 + v^2}{r} - 2\Omega u \cos \vartheta = -\frac{1}{\rho} \frac{\partial p}{\partial r} - g
+            \]
+            The terms involving \( \Omega \) are <span class="highlight">Coriolis terms</span>, and the terms involving \( 1/r \) are called <span class="highlight">metric terms</span>
+        </p>
+
+
+            <div class="footnote-container">
+                <hr class="footnote-line">
+                    <p class="footnote">
+                        <sup>1</sup> Vallis, G.K. (2010) Atmospheric and Oceanic Fluid Dynamics. Cambridge University Press, Cambridge.
+                    
+            </div>
+            
+        </div>
+
+        <!-- Left Arrow to go back to Slide x -->
+        <a href="Lecture2BSlide25.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide x -->
+        <a href="Lecture2BSlide27.html" class="nav-button right">&#9654;</a>
+    </div>
+</body> 
+</html>

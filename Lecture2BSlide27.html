@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+
+    
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+        /* Center the table horizontally */
+        .slide table {
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        /* Left-align table text */
+        .slide table th,
+        .slide table td {
+        text-align: left;
+        }
+
+        /* Custom bullet list styled as flex container */
+    ul.custom {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
+    }
+    ul.custom li {
+      flex: 0 0 45%; /* roughly two items per row */
+      display: flex;
+      align-items: center;
+      gap: 10px; /* space between the text and image */
+      position: relative;
+      padding-left: 20px; /* extra padding for the bullet */
+    }
+    ul.custom li::before {
+      content: "■"; /* Unicode for small square bullet */
+      color: #7DCDF4;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Ensure images align properly */
+    ul.custom li img {
+      max-width: 49%;
+      height: auto;
+    }
+
+    .highlight {
+    background-color:rgba(221, 241, 243, 0.8); 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    .highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Wave Fundamentals</div>
+
+        <div class="slide">
+
+            <div class="description">
+                There is no definition of a wave that is simple and general enough to be useful, but in a rough way we can think of a wave as
+                <span class="sql">A moving signal, typically moving at a rate distinct from the motion of the medium</span>
+            </div>
+
+            <div class="description">
+                In a fluid whose signal could be, for example, an acoustic pressure pulse, the surface elevation of the ocean in a gravity wave, the rippling of the 500 mb surface in the troposphere due to a cyclone wave,
+                or the distortion of deep isopycnals in the thermocline due to internal gravity waves, the wave moves faster and further than the individual fluid elements.  
+                Thus, usually, if<ul>
+                <li>\( u \) = characteristic velocity of the fluid element in the wave
+                <li>\( c \) = signal speed of the wave</li>
+                then
+                \[
+                \frac{u}{c} \ll 1
+                \]
+            </div>
+        </ul>
+        <p>
+        <ul class="custom-list">
+        <p>For simple systems and for small amplitude waves, we often find solutions to the equations of motion in the form of a <span class="sql">plane wave</span>. 
+        This usually requires the medium to be, at least locally on the scale of the wave, homogeneous.
+        If \( \phi(\vec{x}, t) \) is a field variable such as pressure
+        
+        \[
+        \phi(\vec{x}, t) = \phi(x_i, t) = \text{Re} \left( A e^{i(\vec{K} \cdot \vec{x} - \omega t)} \right)
+        \]
+        
+        <li> \( A \) = the wave amplitude (complex, including a constant phase factor)</li>
+        <li> \( \vec{K} \) = the wave vector</li>
+        <li> \( \omega \) = the wave frequency</li>
+        <li>Re = implies taking the real part of the expression</li>
+        </ul>
+        </p>
+
+            <div class="footnote-container">
+                <hr class="footnote-line">
+                    <p class="footnote">
+                        <sup>1</sup> Pedlosky, Joseph. (2003). Waves in the Ocean and Atmosphere: Introduction to Wave Dynamics. Springer-Verlag, Heidelberg and New York.
+                    </p>
+            </div>
+            
+        </div>
+
+        <!-- Left Arrow to go back to Slide x -->
+        <a href="Lecture2BSlide26.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide x -->
+        <a href="Lecture2BSlide28.html" class="nav-button right">&#9654;</a>
+    </div>
+</body> 
+</html>

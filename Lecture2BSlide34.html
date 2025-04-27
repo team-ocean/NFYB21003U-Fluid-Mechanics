@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+
+    
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+        /* Center the table horizontally */
+        .slide table {
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        /* Left-align table text */
+        .slide table th,
+        .slide table td {
+        text-align: left;
+        }
+
+        /* Custom bullet list styled as flex container */
+    ul.custom {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
+    }
+    ul.custom li {
+      flex: 0 0 45%; /* roughly two items per row */
+      display: flex;
+      align-items: center;
+      gap: 10px; /* space between the text and image */
+      position: relative;
+      padding-left: 20px; /* extra padding for the bullet */
+    }
+    ul.custom li::before {
+      content: "■"; /* Unicode for small square bullet */
+      color: #7DCDF4;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Ensure images align properly */
+    ul.custom li img {
+      max-width: 49%;
+      height: auto;
+    }
+
+    .highlight {
+    background-color:rgba(221, 241, 243, 0.8); 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    .highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Internal Waves in a Stratified Fluid</div>
+
+        <div class="slide">
+
+            <div class="description">
+                \(\boxed{\frac{\partial^2}{\partial t^2} \left( \frac{\partial^2 w}{\partial z^2} \right) = -\nabla_H^2 \left( \frac{\partial^2 w}{\partial t^2} + N^2 w \right) \text{ or } \frac{\partial^2}{\partial t^2} \left( \nabla^2 w \right) + N^2 \nabla_H^2 w = 0}\) is 
+                fundamentally different from that of interface waves because there is no obvious direction of propagation. For interface waves constrained to follow a horizontal surface with the \(x\)-axis chosen along the direction of wave propagation, 
+                a dispersion relation \(\omega(k)\) was obtained that is independent of the wave direction. Furthermore, wave crests and wave groups propagate in the same direction
+            </div>
+
+            <div class="description">
+                The fluid is <span class="sql">continuously</span> stratified and internal waves might propagate in any direction and at any angle to the vertical. 
+                In such a case the <span class="sql">direction</span> of the wave number vector \( \mathbf{K} = (k, l, m) \) becomes important and the dispersion relationship is <span class="sql">anisotropic</span> and depends on the wave number components
+                \[
+                \omega = \omega(k, l, m) = \omega(\mathbf{K})
+                \]
+            </div>
+            <p>The propagation of internal waves is a baroclinic process, in which the surfaces of constant pressure do not coincide with the surfaces of constant density
+            <img src="Figures/Lecture2B_BarotropicBaroclinicMode.png" alt="BarotropicBaroclinicMode" style="max-width: 100%; height: auto; display: block; margin: auto;">
+            To reveal the structure of the situation described by \(\boxed{\frac{\partial^2}{\partial t^2} \left( \frac{\partial^2 w}{\partial z^2} \right) = -\nabla_H^2 \left( \frac{\partial^2 w}{\partial t^2} + N^2 w \right) \text{ or } \frac{\partial^2}{\partial t^2} \left( \nabla^2 w \right) + N^2 \nabla_H^2 w = 0}\) 
+            and \(\boxed{\omega = \omega(k, l, m) = \omega(\mathbf{K})}\), consider the complex version of \(\eta = a \cos\left( kx + ly + mz - \omega t \right) = a \cos\left( \mathbf{K} \cdot \mathbf{x} - \omega t \right)\) with wave number vector \(\mathbf{K} = (k, l, m)\) for the vertical velocity
+            in a fluid medium having a constant buoyancy frequency
+            \[
+            w = w_0 e^{i(kx + ly + mz - \omega t)} = w_0 e^{i(\mathbf{K} \cdot \mathbf{x} - \omega t)}
+            \]
+            Substituting it into \(\boxed{\frac{\partial^2}{\partial t^2} \left( \frac{\partial^2 w}{\partial z^2} \right) = -\nabla_H^2 \left( \frac{\partial^2 w}{\partial t^2} + N^2 w \right) \text{ or } \frac{\partial^2}{\partial t^2} \left( \nabla^2 w \right) + N^2 \nabla_H^2 w = 0}\)  with constant \(N\) leads to the dispersion relation
+            \[
+            \omega^2 = \frac{k^2 + l^2}{k^2 + l^2 + m^2} N^2
+            \]
+        </div>
+
+        <!-- Left Arrow to go back to Slide x -->
+        <a href="Lecture2BSlide33.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide x -->
+        <a href="Lecture2BSlide35.html" class="nav-button right">&#9654;</a>
+    </div>
+</body> 
+</html>
