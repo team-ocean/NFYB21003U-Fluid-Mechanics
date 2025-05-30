@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equations of Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        .custom-list { list-style: none; padding-left: 20px; }
+        .custom-list li { position: relative; padding-left: 20px; text-align: left; }
+        .custom-list li::before { content: "■"; color: #7DCDF4; font-size: 14px; position: absolute; left: 0; top: 2px; }
+        .image-container { display: flex; align-items: center; justify-content: center; text-align: left; }
+        .image-container img { max-width: 100%; height: auto; }
+        .image-text { max-width: 100%; padding-left: 20px; font-size: 16px; }
+        .blue-box { text-align: center; font-size: 14px; }
+
+        /* Proper alignment for the equation table */
+        .equation-container {
+            display: flex;
+            justify-content: flex-start;  /* Aligns everything to the left */
+            align-items: flex-start;
+            width: 100%;
+        }
+        .equation-column {
+            width: 55%;
+            text-align: left;
+            padding-right: 10px; /* Add spacing to prevent overlap */
+            vertical-align: top;
+        }
+        .footnote-container {
+            margin-top: 20px;
+            font-size: 12px;
+            text-align: left;
+        }
+        .footnote-line {
+            border: 0;
+            height: 1px;
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Vorticity</div>
+        <div class="slide">
+            <div class="image-container" style="text-align: left;">
+                <p>The fluid element is generally moving in three-dimensional space, and its angular velocity is a vector \( \boldsymbol{\omega} \) that is oriented in some general direction</p>  
+                <img src="Figures/Lecture3A_AngularVelocity.png" alt="AngularVelocity" style="max-width: 30%; height: auto; display: block; margin: auto;">      
+            </div>
+            <div class="description">
+                The resulting angular velocity of the fluid element in three-dimensional space is
+                \[
+                \boldsymbol{\omega} = \omega_x \mathbf{i} + \omega_y \mathbf{j} + \omega_z \mathbf{k}
+                \]
+                
+                \[\boxed{
+                \boldsymbol{\omega} = \frac{1}{2} \left[
+                \left( \frac{\partial w}{\partial y} - \frac{\partial v}{\partial z} \right) \mathbf{i}
+                + \left( \frac{\partial u}{\partial z} - \frac{\partial w}{\partial x} \right) \mathbf{j}
+                + \left( \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} \right) \mathbf{k}
+                \right]}
+                \]
+                It expresses the angular velocity of the fluid element in terms of derivatives of the velocity field
+            </div>
+
+            <div class="description">
+                Denote vorticity by the vector \( \boldsymbol{\xi} \):
+                \[
+                \boldsymbol{\xi} \equiv 2 \boldsymbol{\omega}
+                \]
+
+                \[
+                \boldsymbol{\xi} = 
+                \left( \frac{\partial w}{\partial y} - \frac{\partial v}{\partial z} \right) \mathbf{i}
+                + \left( \frac{\partial u}{\partial z} - \frac{\partial w}{\partial x} \right) \mathbf{j}
+                + \left( \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} \right) \mathbf{k}
+                \]
+
+                Recall \(\boxed{\nabla \times \mathbf{u} = 
+                \begin{vmatrix}
+                \mathbf{i} & \mathbf{j} & \mathbf{k} \\
+                \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+                u_x & u_y & u_z
+                \end{vmatrix}
+                = \mathbf{i} \left( \frac{\partial u_z}{\partial y} - \frac{\partial u_y}{\partial z} \right)
+                + \mathbf{j} \left( \frac{\partial u_x}{\partial z} - \frac{\partial u_z}{\partial x} \right)
+                + \mathbf{k} \left( \frac{\partial u_y}{\partial x} - \frac{\partial u_x}{\partial y} \right)}\) for \( \nabla \times \mathbf{u} \) in Cartesian coordinates. Since \( u \), \( v \), and \( w \) denote the \( x \)-, \( y \)-, and \( z \)-components of velocity
+
+                \[
+                \boldsymbol{\xi} = \nabla \times \mathbf{u}
+                \]
+            </div>
+
+            <div class="footnote-container">
+                <hr class="footnote-line">
+                    <p class="footnote">
+                        <sup>1</sup> Anderson, John. (2017). Fundamentals of Aerodynamics, 6th ed. (6). New York: McGraw Hill Education.
+                    </p>
+            </div>
+
+        </div>
+
+        <a href="Lecture3ASlide7.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture3ASlide9.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+
+    
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+        /* Center the table horizontally */
+        .slide table {
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        /* Left-align table text */
+        .slide table th,
+        .slide table td {
+        text-align: left;
+        }
+
+        /* Custom bullet list styled as flex container */
+    ul.custom {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
+    }
+    ul.custom li {
+      flex: 0 0 45%; /* roughly two items per row */
+      display: flex;
+      align-items: center;
+      gap: 10px; /* space between the text and image */
+      position: relative;
+      padding-left: 20px; /* extra padding for the bullet */
+    }
+    ul.custom li::before {
+      content: "■"; /* Unicode for small square bullet */
+      color: #7DCDF4;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Ensure images align properly */
+    ul.custom li img {
+      max-width: 49%;
+      height: auto;
+    }
+
+    .highlight {
+    background-color:rgba(221, 241, 243, 0.8); 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    .highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Vorticity</div>
+        <div class="slide">
+
+            <div class="description">
+                The vorticity of the fluid as observed from an inertial, nonrotating frame is called the <span class="sql">absolute vorticity</span>, \(\boldsymbol{\omega}_a\), and it is simply defined as the curl of the velocity observed in the nonrotating frame,
+                \[
+                \boldsymbol{\omega}_a = \nabla \times \left\{ \mathbf{u} + \boldsymbol{\Omega} \times \mathbf{r} \right\} = \boldsymbol{\omega} + 2\boldsymbol{\Omega}
+                \]
+                where \(\boldsymbol{\omega}\) is the <span class="sql">relative vorticity</span>, the curl of the relative velocity
+            </div>
+
+            <div class="description">
+                The absolute vorticity of each fluid element is the sum of the <span class="sql">planetary vorticity</span>
+                \(2\boldsymbol{\Omega}\) and the relative vorticity \(\boldsymbol{\omega}\).
+                The component of the planetary vorticity normal to the Earth's surface is the <span class="sql">Coriolis parameter</span>:
+                \[
+                f = 2\Omega \sin \theta
+                \]
+                where \(\theta\) is the latitude of the fluid element
+            </div>
+
+            <p>
+                The corresponding estimate of the vertical component of the relative vorticity is given by the characteristic value of the velocity tangent to the Earth's surface (the horizontal velocity) divided by \(L\)
+
+                \[
+                \omega_n = \mathcal{O}\left( \frac{U}{L} \right) 
+                \]
+
+                whose ratio to \(f\) is
+
+                \[
+                \frac{\omega_n}{f} = \frac{U}{fL} = \frac{U}{2\Omega L \sin \theta} = \frac{\varepsilon}{\sin \theta} \equiv R_0
+                \]
+
+                where \(R_0\) is defined as the <span class="sql">local Rossby number</span>. In regions excluding the equator, 
+                \(\sin \theta\) is \(\mathcal{O}(1)\), so that low-Rossby-number flows have the property 
+                that their <span class="sql">relative vorticity is small compared to the planetary vorticity</span>. 
+                One immediate consequence of this fact is that large-scale flows are hardly ever 
+                free of vorticity, and their vorticity is primarily the planetary vorticity
+                <span class="bullet"></span>When \(R_0 \ll 1\), the flow is largely governed by Earth's rotation (planetary effects dominate)
+                <span class="bullet"></span>When \(R_0 \sim 1\), both planetary and relative vorticity are comparable
+                <span class="bullet"></span>When \(R_0 \gg 1\), planetary rotation can be neglected (e.g., small-scale turbulence)
+            </p>
+
+
+        
+        </p>
+
+            <div class="footnote-container">
+                <hr class="footnote-line">
+                    <p class="footnote">
+                        <sup>1</sup> Pedlosky, J. (1982). Geophysical Fluid Dynamics. Springer study edition. Springer, Berlin, Heidelberg.
+                    </p>
+            </div>
+
+        </div>
+
+        <a href="Lecture3ASlide10.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture3ASlide12.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>
