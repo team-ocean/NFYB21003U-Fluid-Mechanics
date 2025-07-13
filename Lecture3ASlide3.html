@@ -50,7 +50,7 @@
                 <div class="description">
                     <p><span class="sql">Vorticity</span>, \( \mathbf{\omega} \), is defined to be the curl of velocity and so is given by
                     \begin{equation}
-                        \mathbf{\omega} \equiv \nabla \times \mathbf{v}
+                        \mathbf{\omega} \equiv \nabla \times \mathbf{u}
                     \end{equation}
                 </div> 
 
@@ -58,7 +58,7 @@
         <div class="description">
             <p><span class="sql">Circulation</span>, \( C \) (or \( \Gamma \)), is defined to be the integral of velocity around a closed fluid loop and so is given by
             \begin{equation}
-                C \equiv \oint \mathbf{v} \cdot d\mathbf{r} = \int_S \mathbf{\omega} \cdot d\mathbf{S}
+                C \equiv \oint \mathbf{u} \cdot d\mathbf{r} = \int_S \mathbf{\omega} \cdot d\mathbf{S}
             \end{equation}
         </div>
         <p>where the second expression uses Stokes’ theorem and \( S \) is any surface bounded by the loop. The circulation around the path is equal to the integral of the normal component of vorticity over <span class="sql">any</span> surface bounded by that path. The circulation is not a field like vorticity and velocity; rather, we think of the circulation around a particular material line of finite length, and so its value generally depends on the path chosen</p>
@@ -66,7 +66,7 @@
         <div class="description">
         If \( \delta S \) is an infinitesimal surface element whose normal points in the direction of the unit vector \( \hat{\mathbf{n}} \)
         \begin{equation}
-            \hat{\mathbf{n}} \cdot (\nabla \times \mathbf{v}) = \frac{1}{\delta S} \oint_{\delta r} \mathbf{v} \cdot d\mathbf{r}
+            \hat{\mathbf{n}} \cdot (\nabla \times \mathbf{u}) = \frac{1}{\delta S} \oint_{\delta r} \mathbf{u} \cdot d\mathbf{r}
         \end{equation}
         </div>
         <p>where the line integral is around the infinitesimal area. Thus at a point the component of vorticity in the direction of \( \mathbf{n} \) is proportional to the circulation around the surrounding infinitesimal fluid element, divided by the elemental area bounded by the path of the integral</p>
