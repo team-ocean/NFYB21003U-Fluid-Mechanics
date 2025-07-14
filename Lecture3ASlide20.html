@@ -120,35 +120,45 @@
 \frac{D\Gamma}{Dt} = 0
 \]
             </div>
-
-<p>Kelvin’s theorem can be proved by time differentiating the definition of the circulation \(\Gamma \equiv \oint_C \mathbf{u} \cdot d\mathbf{s} = \int_A \boldsymbol{\omega} \cdot \mathbf{n} \, dA\):
-<div class="image-container" style="text-align: left;">
-<img src="Figures/Lecture3A_CirculationDefinition.png" alt="CirculationDefinition" style="max-width: 29%; height: auto; display: block; margin: auto;">      
-<p>\[\frac{D\Gamma}{Dt} = \frac{D}{Dt} \oint_C u_i \, dx_i = \oint_C \frac{Du_i}{Dt} \, dx_i + \oint_C u_i \frac{D}{Dt} (dx_i)\]
-where \(dx_i\) are the components of the vector arc length element \(d\mathbf{x}\) of \(C\)</p>  
-</div>
-<p>The first term on the right side may be rewritten:
-
+            <div class="description">
 $$
 \oint_C \frac{Du_i}{Dt} \, dx_i = \oint_C \left( -\frac{1}{\rho} \frac{\partial p}{\partial x_i} + g_i + \frac{1}{\rho} \frac{\partial \tau_{ij}}{\partial x_j} \right) dx_i = -\frac{1}{\rho} \oint_C dp - \oint_C d\Phi + \oint_C \left( \frac{1}{\rho} \frac{\partial \tau_{ij}}{\partial x_j} \right) dx_i
 $$
+            </div>
 
-where the replacements \((\partial p / \partial x_i) dx_i = dp\) and \((\partial \Phi / \partial x_i) dx_i = d\Phi\) have been made, and \(\Phi\) is the body force potential of <span class="sql">conservative body forces</span>.<br>
-Body forces may be conservative or nonconservative. <span class="sql">conservative body forces</span> are those that can be expressed as the gradient of a potential function
-<span class="highlight">
+<p>For a barotropic fluid <img src="Figures/Lecture3A_VorticityGenerationBarotropic.png" 
+        alt="VorticityGenerationBarotropic" 
+        style="height: 13em; vertical-align: middle;">, the first term on the right side of the equation above is zero because \(C\) is a closed contour, and \(\rho\) and \(p\) are single valued at each point in space. Similarly, the second integral on the right side is zero since \(\Phi\) is also single valued at each point in space.
+            <div class="description">
+\[\frac{D\Gamma}{Dt} = \frac{D}{Dt} \oint_C u_i \, dx_i = \oint_C \frac{Du_i}{Dt} \, dx_i + \oint_C u_i \frac{D}{Dt} (dx_i)\]
+            </div>
+            <p>
+Now consider the second term on the right side resulting from time differentiating the definition of the circulation. The velocity at point \(\mathbf{x} + d\mathbf{x}\) on \(C\) is:
+
 \(\boxed{
-\mathbf{g} = - \nabla \Phi \quad \text{or} \quad g_j = -\frac{\partial \Phi}{\partial x_j}}
-\)</span>
+\mathbf{u} + d\mathbf{u} = \frac{D}{Dt} (\mathbf{x} + d\mathbf{x}) = \frac{D\mathbf{x}}{Dt} + \frac{D}{Dt} (d\mathbf{x}), \quad \text{so} \quad d\mathbf{u}_i = \frac{D}{Dt} (dx_i)}
+\)<br>
 
-where \(\Phi\) is called the <span class="sql">force potential</span>; it has units of energy per unit mass.</p>
+Thus, the last term then becomes:
 
+\(\boxed{
+\oint_C u_i \frac{D}{Dt} (dx_i) = \oint_C u_i \, du_i = \oint_C d \left( \frac{1}{2} u_i^2 \right) = 0}
+\)<br>
 
+where the final equality again follows because \(C\) is a closed contour and \(\mathbf{u}\) is a single-valued vector function, the expression obtained by time differentiating the definition of the circulation simplifies to:
 
+$$
+\frac{D\Gamma}{Dt} = \oint_C \left( \frac{1}{\rho} \frac{\partial \tau_{ij}}{\partial x_j} \right) dx_i
+$$
+
+and Kelvin’s theorem <span class="highlight">\(\frac{D\Gamma}{Dt} = 0\)</span> is proved when the fluid is inviscid (\(\mu = \mu_v = 0\)) or when the integrated viscous force \((\partial \tau_{ij} / \partial x_j)\) is zero around the contour \(C\). This latter condition can occur when \(C\) lies entirely in irrotational fluid.</p>
+
+</p>
 
         </div>
 
-        <a href="Lecture3ASlide18.html" class="nav-button left">&#9664;</a>
-        <a href="Lecture3ASlide20.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture3ASlide19.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture3ASlide21.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>

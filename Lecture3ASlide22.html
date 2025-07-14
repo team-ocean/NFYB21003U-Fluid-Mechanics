@@ -115,40 +115,26 @@
     <div class="container">
         <div class="title">Kelvin's Circulation Theorem</div>
         <div class="slide">
-            <div class="description">
-\[
-\frac{D\Gamma}{Dt} = 0
-\]
-            </div>
+<p>Kelvin’s theorem implies that irrotational flow will remain irrotational if the following four restrictions are satisfied:</p>
 
-<p>Kelvin’s theorem can be proved by time differentiating the definition of the circulation \(\Gamma \equiv \oint_C \mathbf{u} \cdot d\mathbf{s} = \int_A \boldsymbol{\omega} \cdot \mathbf{n} \, dA\):
-<div class="image-container" style="text-align: left;">
-<img src="Figures/Lecture3A_CirculationDefinition.png" alt="CirculationDefinition" style="max-width: 29%; height: auto; display: block; margin: auto;">      
-<p>\[\frac{D\Gamma}{Dt} = \frac{D}{Dt} \oint_C u_i \, dx_i = \oint_C \frac{Du_i}{Dt} \, dx_i + \oint_C u_i \frac{D}{Dt} (dx_i)\]
-where \(dx_i\) are the components of the vector arc length element \(d\mathbf{x}\) of \(C\)</p>  
-</div>
-<p>The first term on the right side may be rewritten:
-
-$$
-\oint_C \frac{Du_i}{Dt} \, dx_i = \oint_C \left( -\frac{1}{\rho} \frac{\partial p}{\partial x_i} + g_i + \frac{1}{\rho} \frac{\partial \tau_{ij}}{\partial x_j} \right) dx_i = -\frac{1}{\rho} \oint_C dp - \oint_C d\Phi + \oint_C \left( \frac{1}{\rho} \frac{\partial \tau_{ij}}{\partial x_j} \right) dx_i
-$$
-
-where the replacements \((\partial p / \partial x_i) dx_i = dp\) and \((\partial \Phi / \partial x_i) dx_i = d\Phi\) have been made, and \(\Phi\) is the body force potential of <span class="sql">conservative body forces</span>.<br>
-Body forces may be conservative or nonconservative. <span class="sql">conservative body forces</span> are those that can be expressed as the gradient of a potential function
-<span class="highlight">
-\(\boxed{
-\mathbf{g} = - \nabla \Phi \quad \text{or} \quad g_j = -\frac{\partial \Phi}{\partial x_j}}
-\)</span>
-
-where \(\Phi\) is called the <span class="sql">force potential</span>; it has units of energy per unit mass.</p>
-
-
-
-
+                <ul class="custom-list">
+                    <li><span class="highlight">There are no net viscous forces along C</span>. If C moves into regions where there are net viscous forces such as within a boundary layer that forms on a solid surface, then the circulation changes. The presence of viscous effects causes <span class="sql">diffusion</span> of vorticity into or out of a fluid circuit and consequently changes the circulation.</li>
+                    <li><span class="highlight">The body forces are conservative</span>. Conservative body forces such as gravity act through the center of mass of a fluid particle and therefore do not generate torques that cause fluid particle rotation.</li>
+                    <li><span class="highlight">The fluid density must depend on pressure only (<span class="sql">barotropic</span> flow)</span>. A flow will be barotropic if the fluid is homogenous and one of the two independent thermodynamic variables is constant. Isentropic, isothermal, and constant density conditions lead to barotropic flow. 
+                        Flows that are not barotropic are called <span class="sql">baroclinic</span>. Here fluid density depends on the pressure and the temperature, composition, salinity, and/or concentration of dissolved constituents.
+                    <div class="image-container" style="text-align: left;">
+    <img src="Figures/Lecture3A_VorticityGenerationBaroclinicBarotropic.png" alt="VorticityGenerationBaroclinicBarotropic" style="max-width: 59%; height: auto; display: block; margin: auto;">      
+<p>Consider fluid elements in barotropic and baroclinic flows. <br><br>
+    For the <span class="highlightkumon">barotropic</span> element, lines of constant \(p\) are parallel to lines of constant \(\rho\), which implies that the resultant pressure forces pass through the center of mass of the element. <br><br>
+    For the <span class="highlightkumon">baroclinic</span> element, the lines of constant \(p\) and \(\rho\) are not parallel. The net pressure force does not pass through the center of mass, and the resulting torque changes the vorticity and circulation.</p>  
+                </div></li>
+                        
+                    <li><span class="highlight">The frame of reference must be an inertial frame</span>. As described in fluid motion in a noninertial frame of reference, the conservation of momentum equation includes extra terms when the frame of reference rotates and accelerates, and these extra terms were not considered in the short proof given above.</li>
+                </ul>
         </div>
 
-        <a href="Lecture3ASlide18.html" class="nav-button left">&#9664;</a>
-        <a href="Lecture3ASlide20.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture3ASlide21.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture3ASlide23.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>

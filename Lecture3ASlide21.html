@@ -115,40 +115,60 @@
     <div class="container">
         <div class="title">Kelvin's Circulation Theorem</div>
         <div class="slide">
-            <div class="description">
-\[
-\frac{D\Gamma}{Dt} = 0
-\]
-            </div>
+            <p>
+There are three ways to create or destroy vorticity in a flow: <span class="highlight">nonconservative body forces</span>, <span class="highlight">a nonbarotropic pressure-density relationship</span>, and <span class="highlight">nonzero net viscous torques</span>.
+</p>
 
-<p>Kelvin’s theorem can be proved by time differentiating the definition of the circulation \(\Gamma \equiv \oint_C \mathbf{u} \cdot d\mathbf{s} = \int_A \boldsymbol{\omega} \cdot \mathbf{n} \, dA\):
-<div class="image-container" style="text-align: left;">
-<img src="Figures/Lecture3A_CirculationDefinition.png" alt="CirculationDefinition" style="max-width: 29%; height: auto; display: block; margin: auto;">      
-<p>\[\frac{D\Gamma}{Dt} = \frac{D}{Dt} \oint_C u_i \, dx_i = \oint_C \frac{Du_i}{Dt} \, dx_i + \oint_C u_i \frac{D}{Dt} (dx_i)\]
-where \(dx_i\) are the components of the vector arc length element \(d\mathbf{x}\) of \(C\)</p>  
+<p>
+<span class="bullet"></span> Nonconservative body forces:
+the Coriolis acceleration is a nonconservative body force that occurs in rotating frames of reference, and it, together with vortex stretching, can generate a drain or <span class="sql">bathtub</span> vortex when a fully quiescent water tank on the earth’s surface is drained<br>
+<div style="display: flex; align-items: center; gap: 5em;">
+  <img src="Figures/Lecture3A_BathtubVortexAqua.png" 
+       alt="BathtubVortexAqua" 
+       style="height: 12em;">
+  <img src="Figures/Lecture3A_BathtubVortexLab.png" 
+       alt="BathtubVortexLab" 
+       style="height: 12em;">
+  <img src="Figures/Lecture3A_BathtubVortexGIF.gif" 
+       alt="BathtubVortexGIF" 
+       style="height: 12em;">
 </div>
-<p>The first term on the right side may be rewritten:
+<p>
+<span class="bullet"></span> Nonbarotropic pressure-density relationship:
+nonbarotropic effects can lead to vorticity generation when a vertical barrier is removed between two side-by-side initially motionless fluids having different densities in the same container and subject to a gravitational field. The two fluids will tumble as the heavier one slumps to the container’s bottom and the lighter one surges to the container’s top
+<img src="Figures/Lecture3A_DifferDensityContainer.png" 
+        alt="DifferDensityContainer" 
+        style="height: 8em; vertical-align: middle;"><br>
 
-$$
-\oint_C \frac{Du_i}{Dt} \, dx_i = \oint_C \left( -\frac{1}{\rho} \frac{\partial p}{\partial x_i} + g_i + \frac{1}{\rho} \frac{\partial \tau_{ij}}{\partial x_j} \right) dx_i = -\frac{1}{\rho} \oint_C dp - \oint_C d\Phi + \oint_C \left( \frac{1}{\rho} \frac{\partial \tau_{ij}}{\partial x_j} \right) dx_i
-$$
+<span class="bullet"></span> Nonzero net viscous torques:
+nonzero net viscous torques create vorticity. The conditions for vorticity creation via viscous torques often occur at solid boundaries where the no-slip condition is maintained. A short distance above a solid boundary, the velocity parallel to the boundary may be nearly uniform. The resulting shear-flow velocity profile that links the surface with the above-surface uniform flow commonly leads to a net viscous torque and vorticity creation
+<img src="Figures/Lecture3A_DeformationShearFlow.png" 
+        alt="DeformationShearFlow" 
+        style="height: 9em; vertical-align: middle;"><br>
+</p>
 
-where the replacements \((\partial p / \partial x_i) dx_i = dp\) and \((\partial \Phi / \partial x_i) dx_i = d\Phi\) have been made, and \(\Phi\) is the body force potential of <span class="sql">conservative body forces</span>.<br>
-Body forces may be conservative or nonconservative. <span class="sql">conservative body forces</span> are those that can be expressed as the gradient of a potential function
-<span class="highlight">
-\(\boxed{
-\mathbf{g} = - \nabla \Phi \quad \text{or} \quad g_j = -\frac{\partial \Phi}{\partial x_j}}
-\)</span>
-
-where \(\Phi\) is called the <span class="sql">force potential</span>; it has units of energy per unit mass.</p>
-
-
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>Bath tub vortex. EPFL. 
+                <a href="https://www.epfl.ch/labs/lfmi/projects/accomplished-projects/bath-hub-vortex/" target="_blank">
+                    <code>https://www.epfl.ch/labs/lfmi/projects/accomplished-projects/bath-hub-vortex/</code>
+                </a>
+            </p>
+            <p class="footnote">
+                <sup>2</sup>Flow Illustrator. 
+                <a href="http://www.flowillustrator.com/fluid-dynamics/case-studies/bathtub-vortex.php" target="_blank">
+                    <code>http://www.flowillustrator.com/fluid-dynamics/case-studies/bathtub-vortex.php</code>
+                </a>
+            </p>
+        </div>
 
 
         </div>
 
-        <a href="Lecture3ASlide18.html" class="nav-button left">&#9664;</a>
-        <a href="Lecture3ASlide20.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture3ASlide20.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture3ASlide22.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
