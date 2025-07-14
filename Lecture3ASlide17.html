@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+
+    
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+        /* Center the table horizontally */
+        .slide table {
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        /* Left-align table text */
+        .slide table th,
+        .slide table td {
+        text-align: left;
+        }
+
+        /* Custom bullet list styled as flex container */
+    ul.custom {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
+    }
+    ul.custom li {
+      flex: 0 0 45%; /* roughly two items per row */
+      display: flex;
+      align-items: center;
+      gap: 10px; /* space between the text and image */
+      position: relative;
+      padding-left: 20px; /* extra padding for the bullet */
+    }
+    ul.custom li::before {
+      content: "■"; /* Unicode for small square bullet */
+      color: #7DCDF4;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Ensure images align properly */
+    ul.custom li img {
+      max-width: 49%;
+      height: auto;
+    }
+
+    .highlight {
+    background-color:rgba(221, 241, 243, 0.8); 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    .highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Bernoulli's Equation</div>
+        <div class="slide">
+
+            <div class="description">
+$$
+\rho_0 H = \rho_0 \frac{u^2}{2} + p + \rho_0 gz = \text{const.}
+$$
+\[
+H 
+= 
+\underbrace{\frac{u^2}{2}}_{\text{kinetic energy per unit mass}} 
++ 
+\underbrace{\frac{p}{\rho_0}}_{\text{pressure potential energy per unit mass}} 
++ 
+\underbrace{gz}_{\text{gravitational potential energy per unit mass}} 
+= \text{const.}
+\]
+These three forms of energy together make up the mechanical energy of the fluid, hence the Bernoulli equation is the equation expressing the conservation of mechanical energy in a fluid
+            </div>
+
+<p>
+From the derivation process, we can see that <span class="highlightkumon">the conditions for applying the Bernoulli equation include along a streamline, steady, inviscid, and incompressible flow</span>. The first three are conditions required by the Euler equation, and the last one is a condition introduced during integration.
+                <ul class="custom-list">
+                    <li>The Bernoulli equation can only be applied along a streamline. Because in steady flow, the mechanical energy of a fluid element is conserved along the same streamline during the flow, but the mechanical energy on different streamlines can be different, since the mechanical energy of different fluid elements can be different.</li>
+                    <li>The Bernoulli equation can only be used for steady flow. When the flow is unsteady, the mechanical energy of a fluid element along the same streamline is also not conserved. Because when the flow is unsteady, external forces can do work on the fluid element over time, increasing its energy. Therefore, if the flow is unsteady, the mechanical energy of the fluid element is not conserved.</li>
+                    <li>The Bernoulli equation can only be used for inviscid flow. This is relatively easy to understand, because when there is viscosity, fluid elements must do internal friction work, and in motion with friction, mechanical energy is not conserved; mechanical energy continuously converts into internal energy.</li>
+                    <li>The Bernoulli equation can only be applied to incompressible flows. When a gas is compressed, not only do its pressure and density increase, but its temperature also rises. Even in inviscid adiabatic compression, part of the mechanical energy is converted into internal energy, so the mechanical energy of the gas is not conserved. 
+                        Unlike the effect of viscosity, this conversion of mechanical energy to internal energy due to compression is reversible, and the internal energy can be converted back into mechanical energy through expansion.</li>
+                </ul>  
+</p>
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                The Bernoulli equation can also be derived from the Euler equation.
+                The one-dimensional steady-flow Euler equation along the z-axis can be written as \(w \frac{dV}{dz} = \vec{f}_{b,z} - \frac{1}{\rho}\frac{dp}{dz}\). 
+                When the body force is only gravity, and the positive z-axis is taken as upward, replacing w with U, the above equation becomes \(\frac{dp}{\rho} + gdz + UdU = 0\).
+                When the flow is incompressible, it is relatively easy to integrate the above to obtain \(\frac{p}{\rho} + gz + \frac{U^2}{2} = \text{const.}\).
+            </p>
+        </div>
+
+
+        </div>
+
+        <a href="Lecture3ASlide16.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture3ASlide18.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>
