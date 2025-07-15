@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+
+    
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+        /* Center the table horizontally */
+        .slide table {
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        /* Left-align table text */
+        .slide table th,
+        .slide table td {
+        text-align: left;
+        }
+
+        /* Custom bullet list styled as flex container */
+    ul.custom {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
+    }
+    ul.custom li {
+      flex: 0 0 45%; /* roughly two items per row */
+      display: flex;
+      align-items: center;
+      gap: 10px; /* space between the text and image */
+      position: relative;
+      padding-left: 20px; /* extra padding for the bullet */
+    }
+    ul.custom li::before {
+      content: "■"; /* Unicode for small square bullet */
+      color: #7DCDF4;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Ensure images align properly */
+    ul.custom li img {
+      max-width: 49%;
+      height: auto;
+    }
+
+    .highlight {
+    background-color:rgba(221, 241, 243, 0.8); 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    .highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Biot-Savart's Law for Velocity</div>
+        <div class="slide">
+            <p>For variety of applications in aero- and hydrodynamics, the flow induced by a concentrated distribution of vorticity (a vortex) with arbitrary orientation must be calculated.
+                Here we consider the simple case of incompressible flow where \(\nabla \cdot \mathbf{u} = 0\)
+            </p>
+            <div class="description">
+                Taking the curl of the vorticity produces
+\[
+\nabla \times \boldsymbol{\omega} = \nabla \times (\nabla \times \mathbf{u}) = \nabla (\nabla \cdot \mathbf{u}) - \nabla^2 \mathbf{u} = - \nabla^2 \mathbf{u}
+\] where the second equality follows from an identity of vector calculus \(\nabla \times (\nabla \times \mathbf{u}) = \nabla (\nabla \cdot \mathbf{u}) - \nabla^2 \mathbf{u}\)
+            </div>
+            <div class="description">
+            The two ends of this extended equality form a Poisson equation, and its solution is the vorticity-induced portion of the fluid velocity
+\[
+\mathbf{u}(\mathbf{x}, t) = -\frac{1}{4\pi} \int_{V'} \frac{1}{|\mathbf{x} - \mathbf{x}'|} \left( \nabla' \times \boldsymbol{\omega}(\mathbf{x}', t) \right) d^3 x'
+\]
+where \(V'\) encloses the vorticity of interest and \(\nabla'\) operates on the \(\mathbf{x}'\) coordinates
+            </div>
+            <div class="description">
+            Rewriting the integrand
+
+$$
+\frac{1}{|\mathbf{x} - \mathbf{x}'|} \left( \nabla' \times \boldsymbol{\omega}(\mathbf{x}', t) \right) 
+= \nabla' \times \left( \frac{\boldsymbol{\omega}(\mathbf{x}', t)}{|\mathbf{x} - \mathbf{x}'|} \right) 
+- \nabla'\left( \frac{1}{|\mathbf{x} - \mathbf{x}'|} \right) \times \boldsymbol{\omega}(\mathbf{x}', t)
+$$
+
+$$
+= \nabla' \times \left( \frac{\boldsymbol{\omega}(\mathbf{x}', t)}{|\mathbf{x} - \mathbf{x}'|} \right) 
++ \left( \frac{\mathbf{x} - \mathbf{x}'}{|\mathbf{x} - \mathbf{x}'|^3} \right) \times \boldsymbol{\omega}(\mathbf{x}', t)
+$$
+
+to obtain
+
+$$
+\mathbf{u}(\mathbf{x}, t) = -\frac{1}{4\pi} \int_{V'} \nabla' \times \left( \frac{\boldsymbol{\omega}(\mathbf{x}', t)}{|\mathbf{x} - \mathbf{x}'|} \right) d^3 x' 
++ \frac{1}{4\pi} \int_{V'} \frac{\boldsymbol{\omega}(\mathbf{x}', t) \times (\mathbf{x} - \mathbf{x}')}{|\mathbf{x} - \mathbf{x}'|^3} d^3 x'
+$$
+
+        </div>
+
+        <a href="Lecture3ASlide26.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture3ASlide28.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>
