@@ -115,37 +115,39 @@
     <div class="container">
         <div class="title">Potential Flows</div>
         <div class="slide">
-            <p>From the Kelvin circulation theorem, one can deduce an importance property. The field where the vorticity is zero \(\nabla \times \mathbf{u} = 0\) (curl \(\mathbf{u} = 0\)) is termed <span class="sql">irrotational</span>. </p>
+            <p>If we introduce a function \(\Phi'\) by
+\(
+\Phi' = \Phi - \int^t f(t')\,dt'\), we obtain</p>
             <div class="description">
-                Any vector field \(\mathbf{u}(\mathbf{x})\) whose curl vanishes in a simply-connected domain \(D\) is represented in terms of a potential function \(\Phi(\mathbf{x})\) as
 \[
-\mathbf{u} = \nabla \Phi = \left( \frac{\partial \Phi}{\partial x}, \frac{\partial \Phi}{\partial y}, \frac{\partial \Phi}{\partial z} \right) = (\partial_x \Phi, \, \partial_y \Phi, \, \partial_z \Phi) 
-\]
-            </div>
-        <p>In this sense, an irrotational flow is also called a <span class="sql">potential flow</span>. The scalar function \(\Phi(\mathbf{x})\) is called the <span class="sql">velocity potential</span>. The flow in which the vorticity is not zero is said to be <span class="sql">rotational</span>.</p>
-            <div class="description">
-                For a potential flow, setting \(\boldsymbol{\omega} = 0\) in the equation of motion \(\frac{\partial \mathbf{u}}{\partial t} + (\nabla \times \mathbf{u}) \times \mathbf{u} = -\nabla \left(\frac{|\mathbf{u}|^2}{2} + h + \chi \right)\), we have
-\[
-\partial_t \mathbf{u} + \nabla \left( \frac{|\mathbf{u}|^2}{2} + h + \chi \right) = 0
+\nabla \Phi' = \nabla \Phi = \mathbf{u}, \quad \partial_t \Phi' = \partial_t \Phi - f(t)
 \]
             </div>
             <div class="description">
-                We can integrate this Euler’s equation of motion. Substituting the expression \(\mathbf{u} = \nabla \Phi = \left( \frac{\partial \Phi}{\partial x}, \frac{\partial \Phi}{\partial y}, \frac{\partial \Phi}{\partial z} \right) \) 
-                for \(\mathbf{u}\) and writing \(u = |\mathbf{u}|\)
-
-$$
-\nabla \left( \frac{\partial \Phi}{\partial t} + \frac{u^2}{2} + h + \chi \right) = 0
-$$
+Then, \(\partial_t \Phi + \frac{1}{2} u^2 + h + \chi = f(t)\) reduces to
+\[
+\partial_t \Phi' + \frac{1}{2}u^2 + h + \chi = \text{const.}
+\]
+This is called the <span class="sql">integral of the motion</span>, where
+\[
+u^2 = (\partial_x \Phi)^2 + (\partial_y \Phi)^2 + (\partial_z \Phi)^2
+\]
             </div>
             <div class="description">
-This means that the expression in \((\,)\) is a function of time \(t\) only
-
-$$
-\partial_t \Phi + \frac{1}{2} u^2 + h + \chi = f(t)
-$$
-
-where \(f(t)\) is an arbitrary function of time
+In the above integral, the function \(\Phi\) is used instead of \(\Phi'\)
+\[
+\partial_t \Phi + \frac{1}{2}u^2 + h + \chi = \text{const.} 
+\]
             </div>
+            <p>When the flow is steady, the first term \(\partial_t \Phi\) vanishes. Then we obtain the same expression as <span class="highlight">Bernoulli’s equation \(H := \frac{u^2}{2} + h + \chi = \text{const.}\)</span>
+            However, in the present potential flow, the constant on the right holds at all points (not restricted to a single stream-line)</p>
+            <div class="description">
+If the gravitational potential is written as \(\chi = gz\), the integral of motion for a fluid of uniform density \(\rho_0\) is given as
+\[
+\partial_t \Phi + \frac{1}{2}u^2 + \left(\frac{p}{\rho_0}\right) + gz = \text{const.} 
+\]
+            </div>
+<p>When the velocity potential \(\Phi\) is known, this equation gives the pressure \(p\) since \(u^2\) is also known from \(\boxed{u^2 = (\partial_x \Phi)^2 + (\partial_y \Phi)^2 + (\partial_z \Phi)^2}\).</p>
 
 
             <div class="footnote-container">
@@ -157,8 +159,8 @@ where \(f(t)\) is an arbitrary function of time
 
         </div>
 
-        <a href="Lecture3ASlide23.html" class="nav-button left">&#9664;</a>
-        <a href="Lecture3ASlide25.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture3ASlide24.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture3ASlide26.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
