@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+
+    
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+        /* Center the table horizontally */
+        .slide table {
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        /* Left-align table text */
+        .slide table th,
+        .slide table td {
+        text-align: left;
+        }
+
+        /* Custom bullet list styled as flex container */
+    ul.custom {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
+    }
+    ul.custom li {
+      flex: 0 0 45%; /* roughly two items per row */
+      display: flex;
+      align-items: center;
+      gap: 10px; /* space between the text and image */
+      position: relative;
+      padding-left: 20px; /* extra padding for the bullet */
+    }
+    ul.custom li::before {
+      content: "■"; /* Unicode for small square bullet */
+      color: #7DCDF4;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Ensure images align properly */
+    ul.custom li img {
+      max-width: 49%;
+      height: auto;
+    }
+
+    .highlight {
+    background-color:rgba(221, 241, 243, 0.8); 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    .highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Vorticity Equation in a Rotating Frame of Reference</div>
+        <div class="slide">
+
+            <div class="description">
+\[\frac{D \boldsymbol{\omega}}{D t} 
+= \underbrace{\bigl(\overbrace{\boldsymbol{\omega}}^{\text{vorticity}} + \overbrace{2\boldsymbol{\Omega}}^{\text{planetary vorticity}}\bigr)}_{\text{absolute vorticity}} \cdot \nabla \mathbf{u} 
++ \underbrace{\frac{1}{\rho^2} \nabla \rho \times \nabla p}_{\text{baroclinicity}} 
++ \underbrace{\nu \nabla^2 \boldsymbol{\omega}}_{\text{rate of change of } \boldsymbol{\omega} \text{ due to viscous diffusion}}\]
+            </div>
+<div class="image-container" style="text-align: left;">
+<img src="Figures/Lecture3A_VorticityVectorCoordinate.png" alt="VorticityVectorCoordinate" style="max-width: 39%; height: auto; display: block; margin: auto;">      
+<p>To understand the vortex-stretching term, consider the natural coordinate system where \(s\) is the arc length along a vortex line, \(n\) points away from the center of vortex-line curvature, and \(m\) lies along the second normal to \(s\). The vortex stretching term becomes:
+\[
+(\boldsymbol{\omega} \cdot \nabla) \mathbf{u} = \left[ \boldsymbol{\omega} \cdot \left( \mathbf{e}_s \frac{\partial}{\partial s} + \mathbf{e}_n \frac{\partial}{\partial n} + \mathbf{e}_m \frac{\partial}{\partial m} \right) \right] \mathbf{u} = \omega \frac{\partial \mathbf{u}}{\partial s}
+\]</p>  
+</div>
+<p>By definition, \(\boldsymbol{\omega} \cdot \mathbf{e}_n = \boldsymbol{\omega} \cdot \mathbf{e}_m = 0\), and \(\boldsymbol{\omega} \cdot \mathbf{e}_s = \omega = |\boldsymbol{\omega}|\)
+    <span class="bullet"></span>\(\partial u_s/\partial s\) represents the increase of \(u_s\) along the vortex line s, that is, the stretching of a vortex line
+    <span class="bullet"></span>\(\partial u_n/\partial s\) and \(\partial u_m/\partial s\) represent the change of the normal velocity components along \(s\), therefore the rate of turning or tilting of vortex lines about the \(m\) and \(n\) axes.
+</p>
+            <div class="description">
+\[\frac{D \omega_s}{D t} = \omega \frac{\partial u_s}{\partial s}, \quad 
+\frac{D \omega_n}{D t} = \omega \frac{\partial u_n}{\partial s}, \quad \text{and} \quad 
+\frac{D \omega_m}{D t} = \omega \frac{\partial u_m}{\partial s}\]
+Vortex stretching plays an especially crucial role in the dynamics of turbulent and geophysical flows
+            </div>
+<div class="image-container" style="text-align: left;">
+<p>To better understand how rotation of the frame of reference influences vorticity, consider \(\boldsymbol{\Omega} = \Omega \mathbf{e}_z\) so that \(2(\boldsymbol{\Omega} \cdot \nabla) \mathbf{u} = 2\Omega(\partial u/\partial z)\):
+    \[\frac{D \omega_x}{D t} = 2\Omega \frac{\partial u_x}{\partial z}, \quad 
+\frac{D \omega_y}{D t} = 2\Omega \frac{\partial u_y}{\partial z}, \quad \text{and} \quad 
+\frac{D \omega_z}{D t} = 2\Omega \frac{\partial u_z}{\partial z}\]
+</p>  
+<img src="Figures/Lecture3A_VorticityRotatingStrechting.png" alt="VorticityRotatingStrechting" style="max-width: 39%; height: auto; display: block; margin: auto;">      
+</div>
+<p>Stretching of fluid lines in the \(z\) direction increases \(\omega_z\), whereas a tilting of vertical lines changes the relative vorticity along the \(x\) and \(y\) directions. 
+   Merely stretching or turning of vertical <span class="sql">material lines</span> is required for this mechanism to operate, in contrast to \((\boldsymbol{\omega} \cdot \nabla) \mathbf{u}\) where a stretching or turning of <span class="sql">vortex lines</span> is needed. 
+   Because vertical material lines contain the planetary vorticity \(2\Omega e_z\). Thus, a vertically stretching fluid column tends to acquire positive \(\omega_z\), and a vertically shrinking fluid column tends to acquire negative \(\omega_z\)</p>
+
+
+
+            
+        <a href="Lecture3ASlide30.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture3ASlide32.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

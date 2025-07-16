@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+
+    
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+        /* Center the table horizontally */
+        .slide table {
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        /* Left-align table text */
+        .slide table th,
+        .slide table td {
+        text-align: left;
+        }
+
+        /* Custom bullet list styled as flex container */
+    ul.custom {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
+    }
+    ul.custom li {
+      flex: 0 0 45%; /* roughly two items per row */
+      display: flex;
+      align-items: center;
+      gap: 10px; /* space between the text and image */
+      position: relative;
+      padding-left: 20px; /* extra padding for the bullet */
+    }
+    ul.custom li::before {
+      content: "■"; /* Unicode for small square bullet */
+      color: #7DCDF4;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Ensure images align properly */
+    ul.custom li img {
+      max-width: 49%;
+      height: auto;
+    }
+
+    .highlight {
+    background-color:rgba(221, 241, 243, 0.8); 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    .highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Vorticity Equation in a Rotating Frame of Reference</div>
+        <div class="slide">
+
+            <div class="description">
+\begin{aligned}
+ - \epsilon_{nqi} \epsilon_{ijk} \frac{\partial}{\partial x_q} \left[ u_j (\omega_k + 2\Omega_k) \right] &= - \left( \delta_{nj}\delta_{qk} - \delta_{nk}\delta_{qj} \right) \frac{\partial}{\partial x_q} \left[ u_j (\omega_k + 2\Omega_k) \right] \\
+&= - \frac{\partial}{\partial x_k} \left[ u_n (\omega_k + 2\Omega_k) \right] + \frac{\partial}{\partial x_j} \left[ u_j (\omega_n + 2\Omega_n) \right] \\
+&= - (\omega_k + 2\Omega_k) \frac{\partial u_n}{\partial x_k} + 0 + 0 + u_j \frac{\partial}{\partial x_j} (\omega_n + 2\Omega_n) \\
+&= - (\omega_j + 2\Omega_j) \frac{\partial u_n}{\partial x_j} + u_j \frac{\partial \omega_n}{\partial x_j} + 0
+\end{aligned}
+            </div>
+            <p>\(- \epsilon_{nqi} \frac{\partial}{\partial x_q} \left( \frac{1}{\rho} \frac{\partial p}{\partial x_i} \right) = 0 + \underbrace{\frac{1}{\rho^2} \epsilon_{nqi} \frac{\partial \rho}{\partial x_q} \frac{\partial p}{\partial x_i}}_{\text{the curl of the pressure gradient is zero}}\)<br>
+                \(- \nu \epsilon_{nqi} \epsilon_{ijk} \frac{\partial^2 u_k}{\partial x_q \partial x_j} 
+= - \nu \underbrace{(\delta_{nj}\delta_{qk} - \delta_{nk}\delta_{qj})}_{\epsilon_{nqi} \epsilon_{ijk}} \frac{\partial^2 u_k}{\partial x_q \partial x_j} 
+= - \nu \underbrace{\frac{\partial^2 u_q}{\partial x_q \partial x_n}}_{=0} + \nu \frac{\partial^2 u_n}{\partial x_j^2} 
+= \nu \frac{\partial^2 \omega_n}{\partial x_j^2}\)<br>
+\(\therefore \frac{\partial \omega_n}{\partial t} 
+= (\omega_j + 2\Omega_j) \frac{\partial u_n}{\partial x_j} 
+- u_j \frac{\partial \omega_n}{\partial x_j} 
++ \frac{1}{\rho^2} \epsilon_{nqi} \frac{\partial \rho}{\partial x_q} \frac{\partial p}{\partial x_i} 
++ \nu \frac{\partial^2 \omega_n}{\partial x_j^2}\)<br>
+\(\because \frac{D F}{D t} \equiv \frac{\partial F}{\partial t} + \mathbf{u} \cdot \nabla F \text{ or } \frac{D F}{D t} \equiv \frac{\partial F}{\partial t} + u_i \frac{\partial F}{\partial x_i}\)<br>
+\(\therefore \boxed{
+\frac{D \omega_n}{D t} = (\omega_j + 2\Omega_j) \frac{\partial u_n}{\partial x_j} + \frac{\epsilon_{nqi}}{\rho^2} \frac{\partial \rho}{\partial x_q} \frac{\partial p}{\partial x_i} + \nu \frac{\partial^2 \omega_n}{\partial x_j^2} \text{ or } 
+\frac{D \boldsymbol{\omega}}{D t} = (\boldsymbol{\omega} + 2\boldsymbol{\Omega}) \cdot \nabla \mathbf{u} + \frac{1}{\rho^2} \nabla \rho \times \nabla p + \nu \nabla^2 \boldsymbol{\omega}}\)
+
+</p>
+
+        <a href="Lecture3ASlide29.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture3ASlide31.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>
