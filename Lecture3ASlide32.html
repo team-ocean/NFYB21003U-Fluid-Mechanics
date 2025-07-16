@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+
+    
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+        /* Center the table horizontally */
+        .slide table {
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        /* Left-align table text */
+        .slide table th,
+        .slide table td {
+        text-align: left;
+        }
+
+        /* Custom bullet list styled as flex container */
+    ul.custom {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
+    }
+    ul.custom li {
+      flex: 0 0 45%; /* roughly two items per row */
+      display: flex;
+      align-items: center;
+      gap: 10px; /* space between the text and image */
+      position: relative;
+      padding-left: 20px; /* extra padding for the bullet */
+    }
+    ul.custom li::before {
+      content: "■"; /* Unicode for small square bullet */
+      color: #7DCDF4;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Ensure images align properly */
+    ul.custom li img {
+      max-width: 49%;
+      height: auto;
+    }
+
+    .highlight {
+    background-color:rgba(221, 241, 243, 0.8); 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    .highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Vorticity Equation in a Rotating Frame of Reference</div>
+        <div class="slide">
+            <p>Large-scale geophysical flows are almost always influenced by vorticity, and the change of \(\omega\) due to the presence of planetary vorticity \(2\Omega\) is a central feature of geophysical fluid dynamics.</p>
+            <div class="description">
+                Kelvin’s circulation theorem for inviscid flow in a rotating frame of reference is modified to
+\[\frac{D \overbrace{\Gamma_a}^{\text{circulation due to absolute vorticity}}}{D t} = 0\]
+\[
+\Gamma_a \equiv \int_A \underbrace{\bigl(\overbrace{\boldsymbol{\omega}}^{\text{vorticity}} + \overbrace{2\boldsymbol{\Omega}}^{\text{planetary vorticity}}\bigr)}_{\text{absolute vorticity}} \cdot \mathbf{n} \, dA 
+= \underbrace{\Gamma}_{\text{original circulation}} + 2 \int_A \underbrace{\boldsymbol{\Omega} \cdot \mathbf{n}}_{\text{planetary vorticity intersected by } A} \, dA\]
+            </div>
+<div class="image-container" style="text-align: left;">
+<img src="Figures/Lecture3A_CirculationTheoremInSurface.png" alt="CirculationTheoremInSurface" style="max-width: 59%; height: auto; display: block; margin: auto;">      
+<p>If the flow is baroclinic, Kelvin’s theorem is not conserved:
+\(
+\frac{d \Gamma_a}{dt} = \oint_C \frac{1}{\rho^2} \nabla \rho \times \nabla p \cdot d\mathbf{l}
+\)<br>
+Using Stokes’ theorem:\(
+\begin{aligned}
+&\oint_C \mathbf{u} \cdot d\mathbf{l} = \iint_A \nabla \times \mathbf{u} \cdot \mathbf{n} \, dA \\
+\qquad &\qquad \qquad \Downarrow \\
+&\frac{d}{dt} \iint_A \boldsymbol{\omega}_a \cdot \mathbf{n} \, dA = \iint_A \frac{\nabla \rho \times \nabla p}{\rho^2} \cdot \mathbf{n} \, dA
+\end{aligned}
+\)</p>  
+</div>
+
+<div class="image-container" style="text-align: left;">
+<p>Consider a tiny circuit \(C\) which is sufficiently small
+\[\frac{d}{dt}(\boldsymbol{\omega}_a \cdot \mathbf{n} \, \delta A) = 0
+\] in the surface of constant \(\lambda\), \(\delta A\) is the small surface element enclosed by \(C\), and \(\boldsymbol{\omega}_a\) is the mean value of \(\boldsymbol{\omega}_a\) over the differential surface</p>  
+<img src="Figures/Lecture3A_CirculationTheoremTwoSurface.png" alt="CirculationTheoremTwoSurface" style="max-width: 59%; height: auto; display: block; margin: auto;">      
+</div>
+
+            <div class="footnote-container">
+                <hr class="footnote-line">
+                    <p class="footnote">
+                        <sup>1</sup> Pedlosky, J. (1982). Geophysical Fluid Dynamics. Springer study edition. Springer, Berlin, Heidelberg.
+                    </p>
+            </div>
+
+            
+        <a href="Lecture3ASlide31.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture3ASlide33.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>
