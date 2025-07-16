@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include MathJax for LaTeX Rendering -->
+<!-- Include MathJax with color extension enabled -->
+<script type="text/javascript" async 
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<!-- Configuration block to load color extension -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+            extensions: ["color.js"]
+        },
+        "HTML-CSS": {
+            scale: 77
+        }
+    });
+</script>
+
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+        /* Center the table horizontally */
+        .slide table {
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        /* Left-align table text */
+        .slide table th,
+        .slide table td {
+        text-align: left;
+        }
+
+        /* Custom bullet list styled as flex container */
+    ul.custom {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
+    }
+    ul.custom li {
+      flex: 0 0 45%; /* roughly two items per row */
+      display: flex;
+      align-items: center;
+      gap: 10px; /* space between the text and image */
+      position: relative;
+      padding-left: 20px; /* extra padding for the bullet */
+    }
+    ul.custom li::before {
+      content: "■"; /* Unicode for small square bullet */
+      color: #7DCDF4;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Ensure images align properly */
+    ul.custom li img {
+      max-width: 49%;
+      height: auto;
+    }
+
+    .highlight {
+    background-color:rgba(221, 241, 243, 0.8); 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    .highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Potential Vorticity</div>
+        <div class="slide">
+            <p>Kelvin's theorem is more powerful, but it is an integral theorem dealing with a scalar and requires a knowledge of the detailed evolution of material
+                surfaces in the fluid. Moreover, it is valid only in the absence of baroclinic effects, which substantiallt restricts its application.
+            </p>
+            <div class="description">
+Since \(\boldsymbol{\Omega}\) is a constant vector, the vorticity equation can be written as
+\[\frac{d\boldsymbol{\omega}_a}{dt} = \boldsymbol{\omega}_a \cdot \nabla \mathbf{u} - \boldsymbol{\omega}_a \nabla \cdot \mathbf{u}  + \frac{\nabla \rho \times \nabla p}{\rho^2} + \nabla \times \frac{\mathbf{F}}{\rho}\]
+            </div>
+
+            <div class="description">
+Continuity equation for compressible flow
+\[\nabla \cdot \mathbf{u} = -\frac{1}{\rho} \frac{d\rho}{dt}\]
+            </div>
+
+            <div class="description">
+Eliminating divergence using continuity
+\[\frac{d}{dt} \left( \frac{\boldsymbol{\omega}_a}{\rho} \right) 
+ = \left( \frac{\boldsymbol{\omega}_a}{\rho} \cdot \nabla \right) \mathbf{u} 
+ + \nabla \rho \times \frac{\nabla p}{\rho^3} 
+ + \left( \nabla \times \frac{\mathbf{F}}{\rho} \right) \frac{1}{\rho}\]
+            </div>
+
+            <div class="description">
+Consider some scalar fluid property λ which satisfies an equation of the form
+\[\frac{d\lambda}{dt} = \Psi ,\quad \frac{\boldsymbol{\omega}_a}{\rho} \cdot \frac{d}{dt} \nabla \lambda 
+ = \left( \frac{\boldsymbol{\omega}_a}{\rho} \cdot \nabla \right) \frac{d\lambda}{dt} 
+ - \left[ \left( \frac{\boldsymbol{\omega}_a}{\rho} \cdot \nabla \mathbf{u} \right) \cdot \nabla \lambda \right]\]
+            </div>
+
+            <div class="description">
+            If the dot product of \(\nabla \lambda\) is taken
+\[\nabla \lambda \cdot \frac{d}{dt} \left( \frac{\boldsymbol{\omega}_a}{\rho} \right) 
+ = \left[ \left( \frac{\boldsymbol{\omega}_a}{\rho} \cdot \nabla \right) \mathbf{u} \right] \cdot \nabla \lambda 
+ + \nabla \lambda \cdot \left( \nabla \rho \times \frac{\nabla p}{\rho^3} \right) 
+ + \frac{\nabla \lambda}{\rho} \cdot \left( \nabla \times \frac{\mathbf{F}}{\rho} \right)\]
+            </div>
+
+            <div class="description">
+\[\frac{d}{dt} \left( \frac{\boldsymbol{\omega}_a}{\rho} \cdot \nabla \lambda \right) 
+ = \frac{\boldsymbol{\omega}_a}{\rho} \cdot \nabla \Psi 
+ + \nabla \lambda \cdot \left[ \nabla \rho \times \frac{\nabla p}{\rho^3} \right] 
+ + \frac{\nabla \lambda}{\rho} \cdot \left( \nabla \times \frac{\mathbf{F}}{\rho} \right)\]
+            </div>
+
+            <div class="footnote-container">
+                <hr class="footnote-line">
+                    <p class="footnote">
+                        <sup>1</sup> Pedlosky, J. (1982). Geophysical Fluid Dynamics. Springer study edition. Springer, Berlin, Heidelberg.
+                    </p>
+            </div>
+
+            
+        <a href="Lecture3ASlide32.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture3ASlide34.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>
