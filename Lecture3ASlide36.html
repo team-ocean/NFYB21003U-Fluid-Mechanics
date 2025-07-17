@@ -6,34 +6,22 @@
     <link rel="icon" href="favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
     <!-- Include MathJax for LaTeX Rendering -->
-    <script type="text/javascript" async 
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
-    </script>
+<!-- Include MathJax with color extension enabled -->
+<script type="text/javascript" async 
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<!-- Configuration block to load color extension -->
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         TeX: {
-            extensions: ["AMSmath.js", "AMSsymbols.js", "cancel.js"]
+            extensions: ["color.js",  "cancel.js"]
+        },
+        "HTML-CSS": {
+            scale: 80
         }
     });
 </script>
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    TeX: {
-      extensions: ["AMSmath.js", "AMSsymbols.js", "cancel.js"],
-      Macros: {
-        xRightarrow: ["\\mathrel{\\overset{\\text{#1}}{\\Longrightarrow\\!\\!\\!\\!\\!\\!\\!\\!\\!\\!\\!\\!}}", 1]
-      }
-    }
-  });
-</script>
-
-
-  <!-- Load MathJax -->
-  <script type="text/javascript" async 
-    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML">
-  </script>
-</head>
-
 
     <style>
         /* Custom Bullet Points */
@@ -130,8 +118,6 @@
     padding: 2px 4px;
     border-radius: 3px;
     }
-
-
     </style>
 </head>
 <body>
@@ -204,13 +190,17 @@ The condition of incompressibility
 \boxed{ \frac{\partial \eta}{\partial t} + H \left( \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} \right) = 0 }
 \end{align*}
 \]
-
+<p>These are <span class="highlight">shallow-water equations</span> govern the motion of a layer of fluid in which the horizontal scale is much larger than the depth of the layer. These equations are used for studying various types of gravity waves.</p>
 
 
             <div class="footnote-container">
                 <hr class="footnote-line">
                     <p class="footnote">
-                        <sup>1</sup> Pedlosky, J. (1982). Geophysical Fluid Dynamics. Springer study edition. Springer, Berlin, Heidelberg.
+                          \(
+  \frac{\partial p}{\partial z} = -\rho g
+  \quad \underset{\text{integrate from } z \text{ to } \eta}{\Longrightarrow} \quad
+  p(x,y,z,t) = \rho g \underbrace{[\eta(x,y,t) - z]}_{\text{height above point}} 
+\)
                     </p>
             </div>
 

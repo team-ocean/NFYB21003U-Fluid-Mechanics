@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+
+    
+<script>
+  window.MathJax = {
+    tex: {
+      packages: {'[+]': ['ams']},  // add ams package
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    },
+    loader: {load: ['[tex]/ams']}
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+        /* Center the table horizontally */
+        .slide table {
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        /* Left-align table text */
+        .slide table th,
+        .slide table td {
+        text-align: left;
+        }
+
+        /* Custom bullet list styled as flex container */
+    ul.custom {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
+    }
+    ul.custom li {
+      flex: 0 0 45%; /* roughly two items per row */
+      display: flex;
+      align-items: center;
+      gap: 10px; /* space between the text and image */
+      position: relative;
+      padding-left: 20px; /* extra padding for the bullet */
+    }
+    ul.custom li::before {
+      content: "■"; /* Unicode for small square bullet */
+      color: #7DCDF4;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Ensure images align properly */
+    ul.custom li img {
+      max-width: 49%;
+      height: auto;
+    }
+
+    .highlight {
+    background-color:rgba(221, 241, 243, 0.8); 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    .highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+
+.image-container {
+    margin-bottom: 0px; /* or even 0 if you want no space */
+}
+
+.image-container p {
+    margin-bottom: 0px; /* reduce space under paragraphs */
+}
+
+.image-container img {
+    margin-top: 0px; /* reduce space above images */
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Potential Vorticity Conservation: Shallow-Water Theory</div>
+        <div class="slide">
+<p>In a Cartesian frame, the components of relative vorticity are<br>
+<span class="highlight">
+\(
+\omega_x = \frac{\partial w}{\partial y} - \frac{\partial v}{\partial z}
+\)<br>
+\(
+\omega_y = \frac{\partial u}{\partial z} - \frac{\partial w}{\partial x}
+\)<br>
+\(
+\omega_z = \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}
+\)</span>
+</p>
+
+<p>
+Assuming \(u\) and \(v\) are independent of \(z\), and using aspect ratio \(\delta = \frac{H}{L}\)<br><span class="highlight">
+\(
+\omega_x = \frac{\partial w}{\partial y} = \mathcal{O} \left( \frac{W}{L} \right) = \mathcal{O} \left( \delta \frac{U}{L} \right)
+\)<br>
+
+\(
+\omega_y = -\frac{\partial w}{\partial x} = \mathcal{O} \left( \frac{W}{L} \right) = \mathcal{O} \left( \delta \frac{U}{L} \right)
+\)<br>
+
+\(
+\omega_z = \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} = \mathcal{O} \left( \frac{U}{L} \right)
+\)<br></span>
+So that the horizontal components of relative vorticity are \(\mathcal{O}(\delta)\) smaller than the vertical component of vorticity
+</p>
+
+
+<p>
+Define the vertical vorticity \(\zeta \equiv \omega_z\), and taking the curl of the momentum equations<br> <span class="highlightkumon">
+\(
+\frac{d\zeta}{dt} 
+= \frac{\partial \zeta}{\partial t} + u \frac{\partial \zeta}{\partial x} + v \frac{\partial \zeta}{\partial y} 
+= -(\zeta + f)\left( \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} \right)
+\)<br>
+with the definition
+\(
+\zeta \equiv \omega_z = \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}
+\)</span>
+</p>
+<div class="image-container" style="text-align: left;">
+<img src="Figures/Lecture3A_ShallowWaterLayerRotating.png" alt="ShallowWaterLayerRotating" style="max-width: 79%; height: auto; display: block; margin: auto;">      
+</div>
+
+
+            <div class="footnote-container">
+                <hr class="footnote-line">
+                    <p class="footnote">
+                        <sup>1</sup> Pedlosky, J. (1982). Geophysical Fluid Dynamics. Springer study edition. Springer, Berlin, Heidelberg.
+                    </p>
+            </div>
+
+            
+        <a href="Lecture3ASlide36.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture3ASlide38.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>
