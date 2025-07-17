@@ -61,9 +61,22 @@
             text-decoration: none;
             font-style: normal; /* Ensures code text is not italic */
         }
-
-
     </style>
+<script>
+function scaleContainer() {
+  const container = document.querySelector('.container');
+  const padding = 0; // optional padding margin
+  const viewportHeight = window.innerHeight - padding;
+  const containerHeight = container.offsetHeight;
+  // Compute the scale ratio
+  const scale = Math.min(1, viewportHeight / containerHeight);
+  container.style.transform = `scale(${scale})`;
+}
+// Run on load
+window.addEventListener('load', scaleContainer);
+// Run on resize
+window.addEventListener('resize', scaleContainer);
+</script>
 </head>
 <body>
     <div class="container">
