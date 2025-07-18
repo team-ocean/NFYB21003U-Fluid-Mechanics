@@ -148,41 +148,37 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Rossby Radius of Deformation</div>
-
+        <div class="title">Internal Kelvin Waves</div>
 <div class="description">
-\[
-\Lambda \equiv \frac{c}{f} = \sqrt{\frac{gH}{f^2}}
-\]
+Analogous to the surface or “external” Kelvin waves discussed in the preceding paragraphs, 
+<span class='sql'>internal Kelvin waves</span> at the interface between two fluids of different densities can also exist
 </div>
-<p>
-If a point in a large water tank is rapidly tilted and some water spills out, it will generate outward motion and waves. In a sufficiently large body of water—such as the rotating ocean on Earth—after some outward motion, the Coriolis force turns the water’s motion by 90°, <span class='sql'>preventing it from continuing to move outward</span>. 
-The condition under which this situation typically occurs defines the Rossby radius of deformation. It balances the acceleration due to pressure gradient and gravity against the Coriolis acceleration (i.e., the Coriolis “force”) on Earth’s rotating surface.
-</p>
-<p>Put simply, the Rossby radius of deformation acts like a boundary limit: the width of a disturbance cannot exceed this characteristic scale.
-    This concept helps explain "why the width of coastal Kelvin waves increases near the equator", because the Coriolis parameter \(f\) becomes smaller near the equator. Since the Rossby radius is inversely proportional to \(f\), it increases as one moves equatorward.
-</p>
+
 <div class="image-container" style="text-align: left;">
-<img src="Figures/Lecture3B_RossbyDeformationRadius.png" alt="RossbyDeformationRadius" style="max-width: 100%; height: auto; display: block; margin: auto;">      
+<img src="Figures/Lecture3B_InternalKelvinWave.png" alt="InternalKelvinWave" style="max-width: 100%; height: auto; display: block; margin: auto;">  
+<p>If the lower layer is very deep, then the speed of propagation is 
+\(c = [g'H]^{1/2}\)
+where \(H\) is the thickness of the upper layer and \(g' = g(\rho_2 - \rho_1)/\rho_2\) is the <span class='highlightkumon'>reduced gravity</span>. <br>
+For a continuously stratified medium of depth \(H\) and buoyancy frequency \(N\), internal Kelvin waves can propagate at any of the normal mode speeds <img src="Figures/Lecture3B_EigenvalueMode.png" 
+        alt="EigenvalueMode" 
+        style="height: 11em; vertical-align: middle;"> given by
+\(\boxed{\tan\left( \frac{NH}{c_n} \right) = 0 \Rightarrow c_n = \frac{NH}{n\pi} \quad \text{for} \quad n = 1, 2, 3, \dots}\)</p>    
 </div>
 
-            <div class="footnote-container">
-                <hr class="footnote-line">
-                    <p class="footnote">
-                        <sup>1</sup> Chelton, D. B., R. A. deSzoeke, M. G. Schlax, K. El Naggar, and N. Siwertz, 1998: Geographical Variability of the First Baroclinic Rossby Radius of Deformation. J. Phys. Oceanogr., 28, 433–460, 
-                    <a href="https://doi.org/10.1175/1520-0485(1998)028<0433:GVOTFB>2.0.CO;2" target="_blank">
-                    <code>https://doi.org/10.1175/1520-0485(1998)028<0433:GVOTFB>2.0.CO;2</code>
-                    </p>
-            <p class="footnote">
-                <sup>2</sup>Trammell, Harold et al. (2016). Vortices in Saturn's Northern Hemisphere (2008-2015) Observed by Cassini ISS: Vortices in Saturn's NH from Cassini ISS. Journal of Geophysical Research: Planets. 121. 10.1002/2016JE005122. 
+<p>The decay scale for <span class='sql'>internal</span> Kelvin waves is again
+\(\boxed{\Lambda = c/f}\),
+but it is called the <span class='sql'>internal Rossby radius of deformation</span>. 
+The value of \(\Lambda\) for internal Kelvin waves is much smaller than the external Rossby radius of deformation. <br>
+<span class='bullet'></span>For \(n = 1\), a typical value in the ocean is
+\(\Lambda = NH/\pi f \sim 50 \, \text{km}\) <span class='bullet'></span>
+a typical atmospheric value is much larger, being of order
+\(\Lambda \sim 1000 \, \text{km}\)</p>
 
-            </p>
-            </div>
 
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture3BSlide10.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture3BSlide12.html" class="nav-button left">&#9664;</a>
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture3BSlide12.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture3BSlide14.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
