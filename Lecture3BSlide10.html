@@ -115,6 +115,7 @@
     border-radius: 3px;
     }
 
+
 .image-container {
     margin-bottom: 0px; /* or even 0 if you want no space */
 }
@@ -147,72 +148,38 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Kelvin Wave</div>
+        <div class="title">Rossby Radius of Deformation</div>
+
 <div class="description">
 \[
-\begin{aligned}
-&\underbrace{\frac{\partial \eta}{\partial t} + H \frac{\partial u}{\partial x} 
-\quad \xrightarrow[\text{Assume } \eta = \hat{\eta}(y) e^{i(kx - \omega t)}]{\partial_t \to -i\omega,\; \partial_x \to ik} \quad 
--i\omega \hat{\eta} + ikH \hat{u} = 0}_{\text{Contributes to dispersion relation between } \omega \text{ and } k} \\
-&\underbrace{\frac{\partial u}{\partial t} = -g \frac{\partial \eta}{\partial x} 
-\quad \xrightarrow[\text{Assume } u = \hat{u}(y) e^{i(kx - \omega t)}]{\partial_t \to -i\omega,\; \partial_x \to ik} \quad 
--i\omega \hat{u} = -ikg \hat{\eta}}_{\text{Contributes to dispersion relation between } \omega \text{ and } k} \\
-&\underbrace{fu = -g \frac{\partial \eta}{\partial y} 
-\quad \xrightarrow[\text{Use } u, \eta = \hat{u}(y), \hat{\eta}(y) e^{i(kx - \omega t)}]{\partial_y \text{ acts only on } \hat{\eta}(y)} \quad 
-f \hat{u} = -g \frac{d\hat{\eta}}{dy}}_{\text{Determines transverse dependence}}
-\end{aligned}
+\eta = \eta_0 e^{-fy/c} \cos\left(k(x - ct)\right) \quad \text{and} \quad 
+u = \eta_0 \sqrt{g/H} e^{-fy/c} \cos\left(k(x - ct)\right)
 \]
 </div>
-<p>
-\(
-\hat{u} = \frac{-ikg \hat{\eta}}{-i\omega} = \frac{\cancel{-} \cancel{i} k g \hat{\eta}}{\cancel{-} \cancel{i} \omega} = \frac{k g \hat{\eta}}{\omega} \quad \text{(from } -i\omega \hat{u} = -ikg \hat{\eta} \text{)},
-\quad
-\hat{u} = -\frac{g}{f} \frac{d\hat{\eta}}{dy} \quad \text{(from } f\hat{u} = -g \frac{d\hat{\eta}}{dy} \text{)}\)
-<br>
-\(
-\Rightarrow \quad \frac{k g \hat{\eta}}{\omega} = -\frac{g}{f} \frac{d\hat{\eta}}{dy}
-\quad \Rightarrow \quad \frac{d\hat{\eta}}{dy} + \frac{f k}{\omega} \hat{\eta} = 0
-\quad \Rightarrow \quad \boxed{\frac{d\hat{\eta}}{dy} \pm \left( \frac{f}{c} \right) \hat{\eta} = 0}
-\quad \text{with } c = \sqrt{gH},\ \omega = \pm k c
-\)
-\[
-\begin{aligned}
-&\frac{d\hat{\eta}}{dy} \pm \left( \frac{f}{c} \right) \hat{\eta} = 0
-\quad \Rightarrow \quad
-\hat{\eta}(y) = 
-\underbrace{\eta_0}_{\substack{\text{amplitude at the coast} \\ (y = 0)}}
-\cdot 
-\underbrace{e^{-fy/c}}_{\substack{\text{decays away} \\ \text{from the coast}}}
-\\
 
-&\eta(x,y,t) = 
-\Re\left\{ \hat{\eta}(y) e^{i(kx - \omega t)} \right\}
-= 
+<p>The transverse decay scale of the Kelvin wave is the characteristic length over which the wave’s 
+    amplitude decays <span class='highlightkumon'>away from the coast</span> in the <span class='highlightkumon'>meridional (north-south)</span> direction.
+This decay arises from the exponential factor in the Kelvin wave solution, 
+ the \(e^{-fy/c}\) implies that the amplitude of the wave decreases with distance \(y\) from the coast. 
+ The transverse decay scale is the e-folding length, meaning the transverse decay scale of the Kelvin wave is the distance \(\Lambda\) over which the amplitude decays by a factor of \(1/e\) <br>
+From the dispersion relation for a non-rotating gravity wave
+\[
+c = \sqrt{gH}
+\]
+\[
 \boxed{
-\overbrace{
-\eta_0 e^{-fy/c}
-}^{\substack{\text{amplitude and} \\ \text{decay}}}
-\cdot 
-\underbrace{\cos\left(k(x - ct)\right)}_{\substack{\text{sea surface slope} \\ \text{(oscillates in }x\text{ and }t)}}
+\Lambda = \frac{c}{f} = \frac{\sqrt{gH}}{f} = \sqrt{\frac{gH}{f^2}}
 }
-\\
-&u(x,y,t) = 
-\Re\left\{ \hat{u}(y) e^{i(kx - \omega t)} \right\} 
-= 
-\boxed{
-\overbrace{
-\eta_0 \sqrt{g/H}
-}^{\substack{\text{from } \partial \eta/\partial t \\ \text{and continuity}}}
-\cdot 
-e^{-fy/c}
-\cdot 
-\underbrace{\cos\left(k(x - ct)\right)}_{\text{velocity field}}
-}\end{aligned}
-\]</p>
+\]
+which is called the (external) <span class='highlight'><span class='sql'>Rossby radius of deformation</span></span><br>
+For an ocean depth of \(H = 5 \, \text{km}\), and a mid-latitude value of
+\(f = 10^{-4} \, \text{s}^{-1}\), \(c \approx 220 \, \text{m/s}\) so $\Lambda = c/f = 2200 \, \text{km}$
+</p>
+
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture3BSlide8.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture3BSlide9.html" class="nav-button left">&#9664;</a>
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture3BSlide10.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture3BSlide11.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
