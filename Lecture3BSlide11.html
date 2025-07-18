@@ -4,23 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="favicon.png" type="image/x-icon">
-    <title>Equations of Motion</title>
     <link rel="stylesheet" href="styles.css">
-    <script>
-        window.MathJax = {
-          tex: {
-            inlineMath: [['$', '$'], ['\\(', '\\)']],  // Allow inline math with $...$ and \( ... \)
-            displayMath: [['$$', '$$'], ['\\[', '\\]']] // Allow display math with $$...$$ and \[ ... \]
-          },
-          svg: {
-            fontCache: 'global'
-          }
-        };
-        </script>
-        <script type="text/javascript" async
-            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-        </script>
-        
+
+    
+<script>
+  window.MathJax = {
+    tex: {
+      packages: {'[+]': ['ams']},  // add ams package
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    },
+    loader: {load: ['[tex]/ams']}
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 
     <style>
         /* Custom Bullet Points */
@@ -130,6 +127,7 @@
 .image-container img {
     margin-top: 0px; /* reduce space above images */
 }
+
     </style>
 <script>
 function scaleContainer() {
@@ -137,69 +135,55 @@ function scaleContainer() {
   const padding = 0; // optional padding margin
   const viewportHeight = window.innerHeight - padding;
   const containerHeight = container.offsetHeight;
-
   // Compute the scale ratio
   const scale = Math.min(1, viewportHeight / containerHeight);
-
   container.style.transform = `scale(${scale})`;
 }
-
 // Run on load
 window.addEventListener('load', scaleContainer);
 // Run on resize
 window.addEventListener('resize', scaleContainer);
 </script>
+
 </head>
 <body>
     <div class="container">
-        <div class="title">Kelvin Wave</div>
-        
-        <!-- Image Replacement for Equations and Explanation -->
-        <div class="image-container" style="text-align: center;">
-            <img src="Figures/Lecture3B_TwoTransverseSectionsWave.png" alt="TwoTransverseSectionsWave" style="max-width: 100%; height: 100%;">
-            <div class="image-text">
-                <p>Free-surface distribution in a Kelvin gravity wave propagating into the plane of the paper (the x-direction) within a channel aligned with x-direction. The wave crests and troughs are enhanced on the right side of the channel.</p>
-            </div>
-        </div>
+        <div class="title">Rossby Radius of Deformation</div>
 
-        <div class="slide">
-            <div class="description">
-                Two transverse sections of the wave, one through a  crest (left panel) and the other through a trough (right panel). The wave is propagating  
-                into the plane of the paper so that the fluid velocity under the crest is into the plane of  
-                the paper and that under the trough is out of the plane of the paper. The constraints of  
-                the sidewalls require that \( v = 0 \) at the walls, and we are exploring the possibility of a wave  
-                motion in which \( v \) is zero everywhere.
-            </div>
+<div class="description">
+\[
+\Lambda \equiv \frac{c}{f} = \sqrt{\frac{gH}{f^2}}
+\]
+</div>
+<p>
+If a point in a large water tank is rapidly tilted and some water spills out, it will generate outward motion and waves. In a sufficiently large body of water—such as the rotating ocean on Earth—after some outward motion, the Coriolis force turns the water’s motion by 90°, <span class='sql'>preventing it from continuing to move outward</span>. 
+The condition under which this situation typically occurs defines the Rossby radius of deformation. It balances the acceleration due to pressure gradient and gravity against the Coriolis acceleration (i.e., the Coriolis “force”) on Earth’s rotating surface.
+</p>
 
+<p>Put simply, the Rossby radius of deformation acts like a boundary limit: the width of a disturbance cannot exceed this characteristic scale.
+    This concept helps explain "why the width of coastal Kelvin waves increases near the equator", because the Coriolis parameter \(f\) becomes smaller near the equator. Since the Rossby radius is inversely proportional to \(f\), it increases as one moves equatorward.
+</p>
+<div class="image-container" style="text-align: left;">
+<img src="Figures/Lecture3B_RossbyDeformationRadius.png" alt="RossbyDeformationRadius" style="max-width: 100%; height: auto; display: block; margin: auto;">      
+</div>
 
-            <div class="description">
-                The linearized momentum equation along the y-direction:
-                \[
-                \frac{\partial v}{\partial t} + f u = -g \frac{\partial \eta}{\partial y}
-                \]
-                requires that \( fu \) can only be geostrophically balanced by a  
-                transverse slope of the sea surface across the channel:
-                
-                \[
-                fu = -g \frac{\partial \eta}{\partial y}
-                \]
-            </div>
-        </div>
-
-
-        <div class="footnote-container">
-            <hr class="footnote-line">
+            <div class="footnote-container">
+                <hr class="footnote-line">
+                    <p class="footnote">
+                        <sup>1</sup> Chelton, D. B., R. A. deSzoeke, M. G. Schlax, K. El Naggar, and N. Siwertz, 1998: Geographical Variability of the First Baroclinic Rossby Radius of Deformation. J. Phys. Oceanogr., 28, 433–460, 
+                    <a href="https://doi.org/10.1175/1520-0485(1998)028<0433:GVOTFB>2.0.CO;2" target="_blank">
+                    <code>https://doi.org/10.1175/1520-0485(1998)028<0433:GVOTFB>2.0.CO;2</code>
+                    </p>
             <p class="footnote">
-                <sup>1</sup>Transverse waves are characterised by the fact that the displacement caused by them is perpendicular to the direction of their movement.
-            </p>
-        </div>
+                <sup>2</sup>Trammell, Harold et al. (2016). Vortices in Saturn's Northern Hemisphere (2008-2015) Observed by Cassini ISS: Vortices in Saturn's NH from Cassini ISS. Journal of Geophysical Research: Planets. 121. 10.1002/2016JE005122. 
 
+            </p>
+            </div>
 
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture3BSlide2.html" class="nav-button left">&#9664;</a>
-
+        <a href="Lecture3BSlide10.html" class="nav-button left">&#9664;</a>
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture3BSlide4.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture3BSlide12.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
