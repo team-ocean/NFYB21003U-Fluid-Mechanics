@@ -150,50 +150,16 @@ window.addEventListener('resize', scaleContainer);
     <div class="container">
         <div class="title">Potential Vorticity Conservation in Shallow-Water Theory</div>
 <div class="description">
-\[\frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} - fv = -g \frac{\partial \eta}{\partial x}\]
-\[\frac{\partial v}{\partial t} + u \frac{\partial v}{\partial x} + v \frac{\partial v}{\partial y} + fu = -g \frac{\partial \eta}{\partial y}\]
+
 </div>
-<p>
-Step 1: Differentiate the zonal momentum equation with respect to \(y\)
-\[\frac{\partial}{\partial y} \left( \textcolor{#7DCDF4}{\frac{\partial u}{\partial t}} \right)
-+ \frac{\partial}{\partial y} \left( \textcolor{#7DCDF4}{u \frac{\partial u}{\partial x}} \right)
-+ \frac{\partial}{\partial y} \left( \textcolor{#7DCDF4}{v \frac{\partial u}{\partial y}} \right)
-- \frac{\partial}{\partial y} \left( \textcolor{#7DCDF4}{f v} \right)
-= -g \frac{\partial^2 \eta}{\partial x \partial y}\]
-Step 2: Differentiate the meridional momentum equation with respect to \(x\)
-\[\frac{\partial}{\partial x} \left( \textcolor{#a3b899}{\frac{\partial v}{\partial t}} \right)
-+ \frac{\partial}{\partial x} \left( \textcolor{#a3b899}{u \frac{\partial v}{\partial x}} \right)
-+ \frac{\partial}{\partial x} \left( \textcolor{#a3b899}{v \frac{\partial v}{\partial y}} \right)
-+ \frac{\partial}{\partial x} \left( \textcolor{#a3b899}{f u} \right)
-= -g \frac{\partial^2 \eta}{\partial x \partial y}\]
-Step 3: Subtract the meridional \(x\)-derivative from the zonal \(y\)-derivative, subtracting these eliminates the pressure gradient terms
-\[
-\left( \frac{\partial}{\partial y} \textcolor{#7DCDF4}{\frac{\partial u}{\partial t}} - \frac{\partial}{\partial x} \textcolor{#a3b899}{\frac{\partial v}{\partial t}} \right)
-+ \left( \frac{\partial}{\partial y} \textcolor{#7DCDF4}{u \frac{\partial u}{\partial x}} - \frac{\partial}{\partial x} \textcolor{#a3b899}{u \frac{\partial v}{\partial x}} \right)
-+ \left( \frac{\partial}{\partial y} \textcolor{#7DCDF4}{v \frac{\partial u}{\partial y}} - \frac{\partial}{\partial x} \textcolor{#a3b899}{v \frac{\partial v}{\partial y}} \right)
-- \left( \frac{\partial}{\partial y} \textcolor{#7DCDF4}{f v} + \frac{\partial}{\partial x} \textcolor{#a3b899}{f u} \right)
-= 0
-\]
-Step 4: Group into vorticity form by the defination of relative vorticity \(
-\boxed{\zeta = \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}}\)<br>
-Group the term as time derivative of vorticity \(\boxed{\frac{\partial}{\partial t} \left( \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} \right)
-}\), nonlinear advection of vorticity \(\boxed{\frac{\partial}{\partial x} \left( u \frac{\partial v}{\partial x} + v \frac{\partial v}{\partial y} \right)
-- \frac{\partial}{\partial y} \left( u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} \right)}\) and coriolis terms (using \(f = f_0 + \beta y\)) \(\boxed{f_0 \left( \frac{\partial v}{\partial x} + \frac{\partial u}{\partial y} \right) + \beta v}\)<br>
-Final Result: Vorticity Equation
-\[\frac{\partial}{\partial t} \left( \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} \right)
-+ \frac{\partial}{\partial x} \left( u \frac{\partial v}{\partial x} + v \frac{\partial v}{\partial y} \right)
-- \frac{\partial}{\partial y} \left( u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} \right)
-+ f_0 \left( \frac{\partial v}{\partial x} + \frac{\partial u}{\partial y} \right)
-+ \beta v = 0\]
-</p>
 
 
 
 
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture3BSlide15.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture3BSlide16.html" class="nav-button left">&#9664;</a>
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture3BSlide17.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture3BSlide18.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
