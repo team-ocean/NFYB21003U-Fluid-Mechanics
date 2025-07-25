@@ -150,78 +150,23 @@ window.addEventListener('resize', scaleContainer);
     <div class="container">
         <div class="title">Potential Vorticity Conservation in Shallow-Water Theory</div>
 <div class="description">
-Vorticity Equation
-\[\frac{\partial}{\partial t} \left( \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} \right)
-+ \frac{\partial}{\partial x} \left( u \frac{\partial v}{\partial x} + v \frac{\partial v}{\partial y} \right)
-- \frac{\partial}{\partial y} \left( u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} \right)
-+ f_0 \left( \frac{\partial v}{\partial x} + \frac{\partial u}{\partial y} \right)
-+ \beta v = 0\]
+In the approximate compact form that \(\beta y \ll f_0\) has been assumed
+\[\frac{D}{Dt} \left( 
+\underbrace{
+\frac{\zeta + \overbrace{f_0 + \beta y}^{\text{planetary vorticity } f}}{h}
+}_{\text{potential vorticity}}
+\right) = 0\]
+The ratio \((\zeta + f)/h\) is called the <span class='sql'>potential vorticity</span> in shallow-water theory, and the equation above shows that the <span class='sql'>potential vorticity is conserved along the horizontal trajectory of a fluid particle</span>, an important principle in geophysical fluid dynamics
 </div>
-<div class="description">
-Following the customary β-plane approximation, \(f\) has been treated as constant (and replaced by an average value \(f_0\)) <span class='sql'>except</span> when \(df/dy\) appears
-\[
-\zeta = \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}
-\]
-as the vertical component of <span class='sql'>relative vorticity</span>, the vorticity measured relative to the rotating earth
-</div>
-\[
-\underbrace{
-    \underbrace{u \frac{\partial \zeta}{\partial x}}_{\text{advection by } u}
-    +
-    \underbrace{v \frac{\partial \zeta}{\partial y}}_{\text{advection by } v}
-}_{\text{material derivative of } \zeta}
-+
-\underbrace{
-    \left( \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} \right) \zeta
-}_{\text{divergent stretching of } \zeta}
-\]
-\[
-\underbrace{
-\frac{\partial \zeta}{\partial t} + u \frac{\partial \zeta}{\partial x} + v \frac{\partial \zeta}{\partial y}
-}_{= \frac{D \zeta}{D t}} 
-+ (\zeta + f_0)\left( \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} \right) + \beta v = 0
-\text{ or } 
-\frac{D \zeta}{Dt} + (\zeta + f_0)\left( \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} \right) + \beta v = 0
-\]
 
-For this section, \(D/Dt\) is the derivative following only the horizontal motion of the layer \(\frac{D}{Dt} = \frac{\partial}{\partial t} + u \frac{\partial}{\partial x} + v \frac{\partial}{\partial y}\)
-\[
-\frac{D\zeta}{Dt}
-+ (\zeta + f_0)
-\underbrace{
-\cancel{
-\left( \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} \right)
-}
-}_{\text{from continuity: } \frac{D h}{Dt} + h \left( \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} \right) = 0 \Rightarrow \frac{D\zeta}{Dt}
-+ (\zeta + f_0)
-\left( -\frac{1}{h} \frac{D h}{D t} \right)
-+ \beta v = 0}
-+ \beta v = 0 
-\]
-\[
-\Rightarrow
-\frac{D\zeta}{Dt}
-= \underbrace{
-\left( \frac{\zeta + f_0}{h} \right) \frac{D h}{D t}
-}_{\text{divergence replaced using continuity}}
-- \beta v
-\text{ or }
-\underbrace{
-\frac{D(\zeta + f)}{Dt}
-}_{\substack{f = f_0 + \beta y \\
-\frac{Df}{Dt} = \frac{\partial f}{\partial t} + u \frac{\partial f}{\partial x} + v \frac{\partial f}{\partial y}
-= 0 + 0 + \beta v
-}}
-=
-\left( \frac{\zeta + f}{h} \right) \frac{D h}{Dt} \Rightarrow \frac{D}{Dt} \left( \frac{\zeta + f}{h} \right) = 0
-\]
+
 
 
 
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture3BSlide16.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture3BSlide17.html" class="nav-button left">&#9664;</a>
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture3BSlide18.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture3BSlide19.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
