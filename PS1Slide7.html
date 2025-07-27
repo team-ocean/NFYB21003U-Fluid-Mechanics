@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <title>Equations of Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],  // Allow inline math with $...$ and \( ... \)
+            displayMath: [['$$', '$$'], ['\\[', '\\]']] // Allow display math with $$...$$ and \[ ... \]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+        </script>
+        <script type="text/javascript" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        
+    <style>
+        .custom-list { list-style: none; padding-left: 20px; }
+        .custom-list li { position: relative; padding-left: 20px; text-align: left; }
+        .custom-list li::before { content: "■"; color: #7DCDF4; font-size: 14px; position: absolute; left: 0; top: 2px; }
+        .image-container { display: flex; align-items: center; justify-content: center; text-align: left; }
+        .image-container img { max-width: 100%; height: auto; }
+        .image-text { max-width: 100%; padding-left: 10px; font-size: 16px; }
+        /* Ensure all text and equations are left-aligned */
+        body {
+            text-align: left;
+            margin-left: 20px;  /* Add some left margin for better readability */
+        }
+
+        .description {
+            text-align: left;
+        }
+        p {
+            text-align: left;
+        }
+        /* Force MathJax equations to be left-aligned */
+        .MathJax_Display {
+            text-align: left !important;
+            display: block !important;
+        }
+        /* Proper alignment for the equation table */
+
+        .footnote-container {
+            margin-top: 20px;
+            font-size: 12px;
+            text-align: left;
+        }
+        .footnote-line {
+            border: 0;
+            height: 1px;
+            background: #000;
+        }
+
+        .footnote a code, .footnote code {
+            font-family: monospace;
+            color: #1e1e1e;
+            text-decoration: none;
+            font-style: normal; /* Ensures code text is not italic */
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Problem 6: Properties of Fluids</div>
+
+        <div class="slide">     
+            <p>(1) Almost every aircraft, even the smallest ones, require pitot probes and static ports to determine the plane’s airspeed, altitude, vertical speed and relative wind speed. Is this a Lagrangian or an Eulerian measurement? Explain.</p>
+            <p>(2) A <span class='sql'>stagnation point</span> is defined as <span class='sql'> a point in the flow field where the velocity is zero.</span>
+                A steady, incompressible, two-dimensional velocity field is given by
+\[
+\vec{V} = (u, v) = (0.5 + 0.8x)\,\vec{i} + (1.5 - 0.8y)\,\vec{j}
+\]
+where the \(x\)- and \(y\)-coordinates are in meters and the magnitude of velocity is in m/s.
+Determine if there are any stagnation point(s) in this flow field and, if so, sketch velocity vectors at several locations in the domain with the stagnation point(s) using appropriate software.</p>
+            <p>(3) An airplane is flying at an altitude of 10500 m. Determine the gage pressure at the stagnation point on the nose of the plane if the speed of the plane is 450 km/h. How would you solve this problem if the speed were 1050 km/h? Explain.</p>
+            <p>(4) Consider a velocity field where the radial and tangential components of velocity are \(V_r = 0\) and \(V_\theta = cr\), respectively, where \(c\) is a constant.
+Obtain the equations of the streamlines.</p>
+
+
+
+</p>
+
+        </div>
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <p class="footnote"><sup>2</sup> One exception is the Northrop B-2 Spirit heavy bomber. The B-2 carries no external or protruding pitot tubes (which would affect the aircraft’s radar cross section and reduce its stealth); to measure airspeed, the aircraft uses static ports set flush into the skin.</p>
+            </p>
+        </div>
+        <!-- Navigation Arrows -->
+        <a href="PS1Slide6.html" class="nav-button left">&#9664;</a>
+        <a href="PS1Overview.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>
