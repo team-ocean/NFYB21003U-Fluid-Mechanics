@@ -67,6 +67,24 @@
 
 
     </style>
+<script>
+function scaleContainer() {
+  const container = document.querySelector('.container');
+  const padding = 0; // optional padding margin
+  const viewportHeight = window.innerHeight - padding;
+  const containerHeight = container.offsetHeight;
+
+  // Compute the scale ratio
+  const scale = Math.min(1, viewportHeight / containerHeight);
+
+  container.style.transform = `scale(${scale})`;
+}
+
+// Run on load
+window.addEventListener('load', scaleContainer);
+// Run on resize
+window.addEventListener('resize', scaleContainer);
+</script>
 </head>
 <body>
     <div class="container">
@@ -82,7 +100,7 @@
 where the \(x\)- and \(y\)-coordinates are in meters and the magnitude of velocity is in m/s.
 Determine if there are any stagnation point(s) in this flow field and, if so, sketch velocity vectors at several locations in the domain with the stagnation point(s) using appropriate software.</p>
             <p>(3) An airplane is flying at an altitude of 10500 m. Determine the gage pressure at the stagnation point on the nose of the plane if the speed of the plane is 450 km/h. How would you solve this problem if the speed were 1050 km/h? Explain.</p>
-            <p>(4) Consider a velocity field where the radial and tangential components of velocity are \(V_r = 0\) and \(V_\theta = cr\), respectively, where \(c\) is a constant.
+            <p>(4) Consider a velocity field where the radial and tangential components of velocity are \(V_r = 0\) and \(V_\theta = cr\) respectively, where \(c\) is a constant.
 Obtain the equations of the streamlines.</p>
 
 
