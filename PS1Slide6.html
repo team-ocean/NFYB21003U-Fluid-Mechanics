@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <title>Equations of Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],  // Allow inline math with $...$ and \( ... \)
+            displayMath: [['$$', '$$'], ['\\[', '\\]']] // Allow display math with $$...$$ and \[ ... \]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+        </script>
+        <script type="text/javascript" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        
+    <style>
+        .custom-list { list-style: none; padding-left: 20px; }
+        .custom-list li { position: relative; padding-left: 20px; text-align: left; }
+        .custom-list li::before { content: "■"; color: #7DCDF4; font-size: 14px; position: absolute; left: 0; top: 2px; }
+        .image-container { display: flex; align-items: center; justify-content: center; text-align: left; }
+        .image-container img { max-width: 100%; height: auto; }
+        .image-text { max-width: 100%; padding-left: 10px; font-size: 16px; }
+        /* Ensure all text and equations are left-aligned */
+        body {
+            text-align: left;
+            margin-left: 20px;  /* Add some left margin for better readability */
+        }
+
+        .description {
+            text-align: left;
+        }
+        p {
+            text-align: left;
+        }
+        /* Force MathJax equations to be left-aligned */
+        .MathJax_Display {
+            text-align: left !important;
+            display: block !important;
+        }
+        /* Proper alignment for the equation table */
+
+        .footnote-container {
+            margin-top: 20px;
+            font-size: 12px;
+            text-align: left;
+        }
+        .footnote-line {
+            border: 0;
+            height: 1px;
+            background: #000;
+        }
+        .footnote {
+            font-style: italic;
+        }
+        .footnote a code, .footnote code {
+            font-family: monospace;
+            color: #1e1e1e;
+            text-decoration: none;
+            font-style: normal; /* Ensures code text is not italic */
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Problem 5: Grad, Div and Curl</div>
+
+        <div class="slide">     
+            <p>(1) Show that
+\[
+\nabla \times (\nabla^2 \vec{u}) = \nabla^2 (\nabla \times \vec{u})
+\]</p>
+<p>(2) If \(\vec{u}\) is irrotational, express the surface integral
+\[
+\iint_S \vec{u} \times \nabla f \cdot \vec{n} \, dS
+\]
+as a line integral.</p>
+<p>(3) Consider a fluid with density \(\rho(\vec{r}, t)\) flowing with velocity \(\vec{u}(\vec{r}, t)\). Let \(V\) be an arbitrary volume fixed in space, with surface \(S\) and outward normal \(\vec{n}\)
+<div class="image-container" style="text-align: left;">
+    <img src="Figures/PS1_Question5.png" alt="Question2" style="max-width: 29%; height: auto; display: block; margin: auto;">  
+</div>
+<p>
+The total mass of the fluid contained in \(V\) is 
+<span style="display:inline-block; width: 5em; height: 5em; border: 1px solid #1e1e1e; vertical-align: middle;"></span> \(\quad\)
+The rate of mass enters \(V\) is <span style="display:inline-block; width: 5em; height: 5em; border: 1px solid #1e1e1e; vertical-align: middle;"></span><br>
+The law for conservation of mass of a fluid is <span style="display:inline-block; width: 5em; height: 5em; border: 1px solid #1e1e1e; vertical-align: middle;"></span> <br>
+If the density of the fluid is independent of time and space, then the equation simplifies to <span style="display:inline-block; width: 5em; height: 5em; border: 1px solid #1e1e1e; vertical-align: middle;"></span>
+</p>
+
+        </div>
+
+        <!-- Navigation Arrows -->
+        <a href="PS1Slide5.html" class="nav-button left">&#9664;</a>
+        <a href="PS1Slide7.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>

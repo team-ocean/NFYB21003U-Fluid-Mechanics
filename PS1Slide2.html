@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <title>Equations of Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],  // Allow inline math with $...$ and \( ... \)
+            displayMath: [['$$', '$$'], ['\\[', '\\]']] // Allow display math with $$...$$ and \[ ... \]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+        </script>
+        <script type="text/javascript" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        
+    <style>
+        .custom-list { list-style: none; padding-left: 20px; }
+        .custom-list li { position: relative; padding-left: 20px; text-align: left; }
+        .custom-list li::before { content: "■"; color: #7DCDF4; font-size: 14px; position: absolute; left: 0; top: 2px; }
+        .image-container { display: flex; align-items: center; justify-content: center; text-align: left; }
+        .image-container img { max-width: 100%; height: auto; }
+        .image-text { max-width: 100%; padding-left: 10px; font-size: 16px; }
+        /* Ensure all text and equations are left-aligned */
+        body {
+            text-align: left;
+            margin-left: 20px;  /* Add some left margin for better readability */
+        }
+
+        .description {
+            text-align: left;
+        }
+        p {
+            text-align: left;
+        }
+        /* Force MathJax equations to be left-aligned */
+        .MathJax_Display {
+            text-align: left !important;
+            display: block !important;
+        }
+        /* Proper alignment for the equation table */
+
+        .footnote-container {
+            margin-top: 20px;
+            font-size: 12px;
+            text-align: left;
+        }
+        .footnote-line {
+            border: 0;
+            height: 1px;
+            background: #000;
+        }
+        .footnote {
+            font-style: italic;
+        }
+        .footnote a code, .footnote code {
+            font-family: monospace;
+            color: #1e1e1e;
+            text-decoration: none;
+            font-style: normal; /* Ensures code text is not italic */
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Problem 1: Velocity Field with Streamlines and Pathlines in Two-Dimensional Flow</div>
+
+        <div class="slide">      
+<p>(1) Describe in your own words the differences between streamlines, streaklines, and
+pathlines.</p>
+<p>A velocity field is given by \[\mathbf{V} = A x \hat{i} - A y \hat{j}\]
+     the units of velocity are m/s, \(x\) and \(y\) are given in meters, and \(A = 0.3\) \(s^{-1}\).</p>
+<p>(2) Obtain an equation for the streamlines in the \(xy\) plane. </p>
+<p>(3) Plot the streamline passing through the point \((x_0, y_0) = (2,8)\) using appropriate software</p>
+<p>(4) Determine the velocity of a particle at the point (2,8)</p>
+<p>(5) If the particle passing through the point \((x_0, y_0)\) is marked at time \(t = 0\), determine the location of the particle at time \(t = 6\) s.</p>
+<p>(6) What is the velocity of this particle at time \(t = 6\) s?</p>
+<p>(7) Show that the equation of the particle path (the pathline) for this flow is the same as the equation of the streamline.</p>
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+        <!-- Navigation Arrows -->
+        <a href="PS1Slide1.html" class="nav-button left">&#9664;</a>
+        <a href="PS1Slide3.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>
