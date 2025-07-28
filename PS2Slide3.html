@@ -57,9 +57,6 @@
             height: 1px;
             background: #000;
         }
-        .footnote {
-            font-style: italic;
-        }
         .footnote a code, .footnote code {
             font-family: monospace;
             color: #1e1e1e;
@@ -90,18 +87,14 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Problem 2: Fluid Deformation and Deformation Rates for Flow in a Corner</div>
+        <div class="title">Problem 2: The Shallow Water Model</div>
 
         <div class="slide">      
-            <p>The velocity field in problem one \[\mathbf{V} = A x \hat{i} - A y \hat{j}\] represents flow in a "corner", where \(A = 0.3\) s\(^{-1}\) and the coordinates are measured in meters. 
-                A square is marked in the fluid as shown at \(t = 0\).</p>
-            <div class="image-container" style="text-align: left;">
-    <img src="Figures/PS1_Question2.png" alt="Question2" style="max-width: 39%; height: auto; display: block; margin: auto;">  
-</div>
-<p>(1) Evaluate the new positions of the four corner points when point \(a\) has moved to \(x = 2\) m after \(\tau\) seconds</p>
-<p>(2) Evaluate the rates of linear deformation in the \(x\) and \(y\) directions.</p>
-<p>(3) Compare area \(a'b'c'd'\) at \(t = \tau\) with area \(abcd\) at \(t = 0\).</p>
-<p>(4) Is the flow irrotational, and is the volume of the fluid conserved?</p>
+<p>(1) Formulate a hypothesis: what phase speed do you expect for a Kelvin wave? Why?</p>
+<p>(2) Simulate a Kelvin wave using the model provided. You can either find the phase speed using a Hovmöller diagram, or track one of the peaks of the waves in the 3-dimensional numerical output of the simulation.</p>
+<p>(3) Report the phase speed you found supported by relevant figures. Did the phase speed meet your expectation? Why/why not?</p>
+
+
         </div>
 
         <!-- Footnote Section -->
@@ -110,11 +103,13 @@ window.addEventListener('resize', scaleContainer);
             <p class="footnote">
                 <p class="footnote"><sup>1</sup> This problem set contains 6 problems, and your final score will be based on the 4 problems on which you earned the highest scores.
             </p>
+            <p class="footnote">
+                <p class="footnote"><sup>2</sup> You will be provided with the Jupyter Notebook code which you can use to simulate surface gravity waves.
+            </p>
         </div>
-
         <!-- Navigation Arrows -->
-        <a href="PS1Slide2.html" class="nav-button left">&#9664;</a>
-        <a href="PS1Slide4.html" class="nav-button right">&#9654;</a>
+        <a href="PS2Slide2.html" class="nav-button left">&#9664;</a>
+        <a href="PS2Slide4.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
