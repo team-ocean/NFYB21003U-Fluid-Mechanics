@@ -57,9 +57,6 @@
             height: 1px;
             background: #000;
         }
-        .footnote {
-            font-style: italic;
-        }
         .footnote a code, .footnote code {
             font-family: monospace;
             color: #1e1e1e;
@@ -90,18 +87,32 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Problem 2: Fluid Deformation and Deformation Rates for Flow in a Corner</div>
+        <div class="title">Problem 1: Interface Waves</div>
 
         <div class="slide">      
-            <p>The velocity field in problem one \[\mathbf{V} = A x \hat{i} - A y \hat{j}\] represents flow in a "corner", where \(A = 0.3\) s\(^{-1}\) and the coordinates are measured in meters. 
-                A square is marked in the fluid as shown at \(t = 0\).</p>
-            <div class="image-container" style="text-align: left;">
-    <img src="Figures/PS1_Question2.png" alt="Question2" style="max-width: 39%; height: auto; display: block; margin: auto;">  
+<p>(1) Solve problem 8.22 in <i>Fluid Mechanics</i> (Kundu, Cohen and Dowling, 2016).</p>
+<p>
+A simple model of oceanic internal waves involves two ideal incompressible fluids (\(\rho_2 > \rho_1\)) trapped between two horizontal surfaces at \(z = h_1\) and \(z = -h_2\), and having an average interface location of \(z = 0\). For traveling waves on the interface, assume that the interface deflection from \(z = 0\) is 
+\[
+\xi = \xi_0 \operatorname{Re} \left\{ \exp \left( i(\omega t - kx) \right) \right\}
+\]
+The phase speed of the waves is \(c = \omega/k\).
+<div class="image-container" style="text-align: left;">
+<img src="Figures/PS2_Kundu8-22.png" alt="Kundu8-22" style="max-width: 49%; height: auto; display: block; margin: auto;">  
 </div>
-<p>(1) Evaluate the new positions of the four corner points when point \(a\) has moved to \(x = 2\) m after \(\tau\) seconds</p>
-<p>(2) Evaluate the rates of linear deformation in the \(x\) and \(y\) directions.</p>
-<p>(3) Compare area \(a'b'c'd'\) at \(t = \tau\) with area \(abcd\) at \(t = 0\).</p>
-<p>(4) Is the flow irrotational, and is the volume of the fluid conserved?</p>
+<p>
+(a) Show that the dispersion relationship is 
+\[
+\omega^2 = \frac{gk(\rho_2 - \rho_1)}{\rho_2 \coth(kh_2) + \rho_1 \coth(kh_1)}
+\]
+where \(g\) is the acceleration of gravity.
+</p>
+<p>(b) Determine the limiting form of \(c\) for short (i.e., unconfined) waves, \(kh_1\) and \(kh_2 \to \infty\).</p>
+<p>(c) Determine the limiting form of \(c\) for long (i.e., confined) waves, \(kh_1\) and \(kh_2 \to 0\).</p>
+<p>(d) At fixed wavelength \(\lambda\) (or fixed \(k = 2\pi/\lambda\)), do confined waves go faster or slower than unconfined waves?</p>
+<p>(e) At a fixed frequency, what happens to the wavelength and phase speed as \(\rho_2 - \rho_1 \to 0\)?</p>
+<p>(f) What happens if \(\rho_2 < \rho_1\)?</p>
+<p>(2) How could the general solution from 8.22 be modified to give us the phase speed of shallow water gravity waves?</p>
         </div>
 
         <!-- Footnote Section -->
@@ -111,10 +122,9 @@ window.addEventListener('resize', scaleContainer);
                 <p class="footnote"><sup>1</sup> This problem set contains 6 problems, and your final score will be based on the 4 problems on which you earned the highest scores.
             </p>
         </div>
-
         <!-- Navigation Arrows -->
-        <a href="PS1Slide2.html" class="nav-button left">&#9664;</a>
-        <a href="PS1Slide4.html" class="nav-button right">&#9654;</a>
+        <a href="PS2Slide1.html" class="nav-button left">&#9664;</a>
+        <a href="PS2Slide3.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
