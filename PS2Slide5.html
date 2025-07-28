@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <title>Equations of Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],  // Allow inline math with $...$ and \( ... \)
+            displayMath: [['$$', '$$'], ['\\[', '\\]']] // Allow display math with $$...$$ and \[ ... \]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+        </script>
+        <script type="text/javascript" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        
+    <style>
+        .custom-list { list-style: none; padding-left: 20px; }
+        .custom-list li { position: relative; padding-left: 20px; text-align: left; }
+        .custom-list li::before { content: "■"; color: #7DCDF4; font-size: 14px; position: absolute; left: 0; top: 2px; }
+        .image-container { display: flex; align-items: center; justify-content: center; text-align: left; }
+        .image-container img { max-width: 100%; height: auto; }
+        .image-text { max-width: 100%; padding-left: 10px; font-size: 16px; }
+        /* Ensure all text and equations are left-aligned */
+        body {
+            text-align: left;
+            margin-left: 20px;  /* Add some left margin for better readability */
+        }
+
+        .description {
+            text-align: left;
+        }
+        p {
+            text-align: left;
+        }
+        /* Force MathJax equations to be left-aligned */
+        .MathJax_Display {
+            text-align: left !important;
+            display: block !important;
+        }
+        /* Proper alignment for the equation table */
+
+        .footnote-container {
+            margin-top: 20px;
+            font-size: 12px;
+            text-align: left;
+        }
+        .footnote-line {
+            border: 0;
+            height: 1px;
+            background: #000;
+        }
+        .footnote a code, .footnote code {
+            font-family: monospace;
+            color: #1e1e1e;
+            text-decoration: none;
+            font-style: normal; /* Ensures code text is not italic */
+        }
+
+
+    </style>
+    <script>
+function scaleContainer() {
+  const container = document.querySelector('.container');
+  const padding = 0; // optional padding margin
+  const viewportHeight = window.innerHeight - padding;
+  const containerHeight = container.offsetHeight;
+
+  // Compute the scale ratio
+  const scale = Math.min(1, viewportHeight / containerHeight);
+
+  container.style.transform = `scale(${scale})`;
+}
+
+// Run on load
+window.addEventListener('load', scaleContainer);
+// Run on resize
+window.addEventListener('resize', scaleContainer);
+</script>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Problem 4: Wave Packet and Group Velocity</div>
+
+        <div class="slide">    
+<p>Suppose that we have a linear system of waves characterized by a dispersion relation \(\omega = \omega(k)\) 
+    for the frequency \(\omega\) and wavenumber \(k\), and that there is a traveling wave solution of the form
+\[
+\zeta(x, t) = A e^{i(kx - \omega t)}
+\]
+
+In view of the assumed linearity of the wave system, a general solution is represented in the form of the following integral (a Fourier representation):
+\[
+\zeta(x, t) = \int_{-\infty}^{\infty} A(k) e^{i(kx - \omega t)} \, dk
+\]
+
+Consider a wavemaker which oscillates at a single frequency \(\omega_0\). 
+Its amplitude first increased from zero to a maximum and then returned to zero again, 
+slowly with a time scale much larger than the oscillation period \(2\pi / \omega_0\). 
+By this wave excitation, it is found that most of the wave energy is concentrated on a narrow band of 
+wavenumbers around \(k_0\). Hence, the dispersion relation is approximated by the following linear relation:
+\[
+\omega(k) = \omega_0 + c_g (k - k_0), \quad \omega_0 = \omega(k_0), \quad c_g = d\omega/dk
+\]
+(The amplitude \(A(k)\) is regarded as zero for such \(k\)-values in which the above linear relation loses its validity.)</p>
+
+<p>(1) Show that the resulting wave would be given by the following form of a <span class='sql'>wave packet</span>, with \(\xi = x - c_g t\):
+\[
+\zeta(x, t) = F(\xi) e^{i(k_0 x - \omega_0 t)}
+\]
+In addition, write down the Fourier representation of the amplitude function \(F(\xi)\).
+The function \(F(\xi)\) is an envelope moving with the group velocity \(c_g\) and enclosing carrier waves \(e^{i(k_0 x - \omega_0 t)}\) within it</p>
+<p>(2) When the Fourier amplitude is given by \(A(k) = A_0 \exp[-a(k - k_0)^2]\), which is a Gaussian function centered around \(k_0\), derive an explicit expression for the wave packet.</p>
+
+
+<div class="image-container" style="text-align: left;">
+<img src="Figures/PS2_WavePacketGroupVelocity.png" alt="WavePacketGroupVelocity" style="max-width: 49%; height: auto; display: block; margin: auto;">  
+</div>
+
+        </div>
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <p class="footnote"><sup>1</sup> This problem set contains 6 problems, and your final score will be based on the 4 problems on which you earned the highest scores.
+            </p>
+        </div>
+        <!-- Navigation Arrows -->
+        <a href="PS2Slide4.html" class="nav-button left">&#9664;</a>
+        <a href="PS2Slide6.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>
