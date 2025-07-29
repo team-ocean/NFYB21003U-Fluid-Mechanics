@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="favicon.png" type="image/x-icon">
-    <title>Equations of Motion</title>
+    <title>2D Incompressible Navier-Stokes</title>
     <link rel="stylesheet" href="styles.css">
     <script>
         window.MathJax = {
@@ -63,8 +63,16 @@
             text-decoration: none;
             font-style: normal; /* Ensures code text is not italic */
         }
-
-
+        code {
+  font-family: 'Courier New', Courier, monospace;
+  color: #1e1e1e;
+  background-color: #ddf1f3;
+  font-size: 0.95em;
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  border: 1px solid #d6ebff;
+  white-space: nowrap;
+}
     </style>
     <script>
 function scaleContainer() {
@@ -87,21 +95,31 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Problem 1: Velocity Field with Streamlines and Pathlines in Two-Dimensional Flow</div>
+        <div class="title">Problem 6: Python Implementation of the 2D Incompressible Navier–Stokes Equations</div>
 
-        <div class="slide">      
-<p>(1) Describe in your own words the differences between streamlines, streaklines, and
-pathlines.</p>
-<p>A velocity field is given by \[\mathbf{V} = A x \hat{i} - A y \hat{j}\]
-     the units of velocity are m/s, \(x\) and \(y\) are given in meters, and \(A = 0.3\) \(s^{-1}\).</p>
-<p>(2) Obtain an equation for the streamlines in the \(xy\) plane. </p>
-<p>(3) Plot the streamline passing through the point \((x_0, y_0) = (2,8)\) using appropriate software</p>
-<p>(4) Determine the velocity of a particle at the point (2,8)</p>
-<p>(5) If the particle passing through the point \((x_0, y_0)\) is marked at time \(t = 0\), determine the location of the particle at time \(t = 6\) s.</p>
-<p>(6) What is the velocity of this particle at time \(t = 6\) s?</p>
-<p>(7) Show that the equation of the particle path (the pathline) for this flow is the same as the equation of the streamline.</p>
+        <div class="slide">    
+<p>In this problem, we will examine a numerical solution to the two-dimensional 
+    incompressible Navier–Stokes equations using the 
+    pressure correction method (also known as the projection method) with finite difference discretization in Python.
+    The scenario corresponds to a square lid-driven cavity, where the fluid is set into motion by 
+    the top wall moving horizontally at constant speed. 
+    The solution consists of iteratively solving for the pressure and velocity fields 
+    while enforcing the incompressibility condition.
+</p>
+    <p>
+    (1) Implement the function <code>build_up_b(b, rho, dt, u, v, dx, dy)</code> to compute the source term <code>b</code> used in the Poisson pressure equation
+    \[\nabla^2 p = b\] 
+    This term is derived from the divergence of the momentum equations and ensures that the final velocity field satisfies the incompressibility condition \(\nabla \cdot \vec{u} = 0\).
+    </p>
 
-        </div>
+    <p>(2) Complete the <code>pressure_poisson(p, dx, dy, b)</code> function to iteratively solve the Poisson equation \(\nabla^2 p = b\) using second-order finite differences with Neumann boundary conditions on the vertical and bottom walls, a Dirichlet condition \(p = 0\) on the top wall, and at least <code>nit = 50</code> iterations per step.
+
+    <p>(3) Complete the <code>cavity_flow</code> function to advance the velocity fields <code>u</code> and <code>v</code> through time using convection, diffusion, and pressure gradient terms (with temporary arrays <code>un</code> and <code>vn</code>), enforce no-slip boundary conditions including the moving lid (<code>u = 1</code> at the top wall), and visualize the final velocity field with a quiver plot and the pressure field with a contour plot.</p>
+</p>
+
+
+
+
 
         <!-- Footnote Section -->
         <div class="footnote-container">
@@ -111,8 +129,8 @@ pathlines.</p>
             </p>
         </div>
         <!-- Navigation Arrows -->
-        <a href="PS1Slide1.html" class="nav-button left">&#9664;</a>
-        <a href="PS1Slide3.html" class="nav-button right">&#9654;</a>
+        <a href="PS2Slide6.html" class="nav-button left">&#9664;</a>
+        <a href="PS1Overview.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
