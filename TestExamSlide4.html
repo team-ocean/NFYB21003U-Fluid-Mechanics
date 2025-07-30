@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <title>Test Exam</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],  // Allow inline math with $...$ and \( ... \)
+            displayMath: [['$$', '$$'], ['\\[', '\\]']] // Allow display math with $$...$$ and \[ ... \]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+        </script>
+        <script type="text/javascript" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        
+    <style>
+        .custom-list { list-style: none; padding-left: 20px; }
+        .custom-list li { position: relative; padding-left: 20px; text-align: left; }
+        .custom-list li::before { content: "■"; color: #7DCDF4; font-size: 14px; position: absolute; left: 0; top: 2px; }
+        .image-container { display: flex; align-items: center; justify-content: center; text-align: left; }
+        .image-container img { max-width: 100%; height: auto; }
+        .image-text { max-width: 100%; padding-left: 10px; font-size: 16px; }
+        /* Ensure all text and equations are left-aligned */
+        body {
+            text-align: left;
+            margin-left: 20px;  /* Add some left margin for better readability */
+        }
+
+        .description {
+            text-align: left;
+        }
+        p {
+            text-align: left;
+        }
+        /* Force MathJax equations to be left-aligned */
+        .MathJax_Display {
+            text-align: left !important;
+            display: block !important;
+        }
+        /* Proper alignment for the equation table */
+
+        .footnote-container {
+            margin-top: 20px;
+            font-size: 12px;
+            text-align: left;
+        }
+        .footnote-line {
+            border: 0;
+            height: 1px;
+            background: #000;
+        }
+        .footnote a code, .footnote code {
+            font-family: monospace;
+            color: #1e1e1e;
+            text-decoration: none;
+            font-style: normal; /* Ensures code text is not italic */
+        }
+
+
+    </style>
+    <script>
+function scaleContainer() {
+  const container = document.querySelector('.container');
+  const padding = 0; // optional padding margin
+  const viewportHeight = window.innerHeight - padding;
+  const containerHeight = container.offsetHeight;
+
+  // Compute the scale ratio
+  const scale = Math.min(1, viewportHeight / containerHeight);
+
+  container.style.transform = `scale(${scale})`;
+}
+
+// Run on load
+window.addEventListener('load', scaleContainer);
+// Run on resize
+window.addEventListener('resize', scaleContainer);
+</script>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Problem 1</div>
+
+        <div class="slide">      
+<div style="display: flex; justify-content: space-between;">
+  <p style="margin: 0;">(1) Define what is meant by dynamical similarity and the Reynolds number.</p>
+  <span>[3]</span>
+</div>
+<br>
+
+<p style="margin: 0;">
+  (2) Starting with the Navier-Stokes equation with constant density and ignoring the gravitational acceleration,
+  show that two fluid flows require the same Reynolds number in order to be dynamically similar.
+  <span style="float: right;">[5]</span>
+</p>
+<br>
+
+<p style="margin: 0;">
+  (3) Suppose that the power to drive a propeller of an airplane depends on diameter of the propeller $d$, free-stream velocity $U$, angular velocity $\omega$, speed of sound $c$, density of fluid $\rho$, and fluid's dynamic viscosity $\mu$. Find the dimensionless groups. In your opinion, which of these are the most important and should be duplicated in model testing?
+  <span style="float: right;">[7]</span>
+</p>
+<br>
+
+<p style="margin: 0;">
+  (4) Sketch the evolution of an initially rectangular fluid element, $|x| \leq 1, |y| \leq 1 \ (t=0)$, in a deformation flow, $u = ax, \ v = -ay$, where $a$ is a constant, and derive a formula for the evolution of the aspect ratio of the fluid element.
+  <span style="float: right;">[5]</span>
+</p>
+<br>
+
+<p style="margin: 0;">
+  (5) A viscous fluid of uniform density and uniform kinematic viscosity flows steadily in the $x$-direction along a tube of circular cross-section with radius $a$. It is subject to a constant pressure gradient $G$ in the $x$-direction. The flow speed $u$ depends only on $r$, the distance from the axis of the tube. Given that the $x$-component of $\nabla^2 \mathbf{u}$ in these circumstances is
+    \[
+    \frac{1}{r} \frac{d}{dr} \left( r \frac{du}{dr} \right)
+    \]
+    show that
+    \[
+    u(r) = A \left( a^2 - r^2 \right)
+    \]
+    and find $A$ in terms of $G, \rho$ and $\mu$. Find also the mass of fluid crossing the surface $x=0$ in unit time.
+  <span style="float: right;">[5]</span>
+</p>
+<br>
+
+
+        </div>
+
+        <!-- Navigation Arrows -->
+        <a href="TestExamSlide3.html" class="nav-button left">&#9664;</a>
+        <a href="TestExamSlide5.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>
