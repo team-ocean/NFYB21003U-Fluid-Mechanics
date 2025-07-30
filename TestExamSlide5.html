@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <title>Test Exam</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],  // Allow inline math with $...$ and \( ... \)
+            displayMath: [['$$', '$$'], ['\\[', '\\]']] // Allow display math with $$...$$ and \[ ... \]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+        </script>
+        <script type="text/javascript" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        
+    <style>
+        .custom-list { list-style: none; padding-left: 20px; }
+        .custom-list li { position: relative; padding-left: 20px; text-align: left; }
+        .custom-list li::before { content: "■"; color: #7DCDF4; font-size: 14px; position: absolute; left: 0; top: 2px; }
+        .image-container { display: flex; align-items: center; justify-content: center; text-align: left; }
+        .image-container img { max-width: 100%; height: auto; }
+        .image-text { max-width: 100%; padding-left: 10px; font-size: 16px; }
+        /* Ensure all text and equations are left-aligned */
+        body {
+            text-align: left;
+            margin-left: 20px;  /* Add some left margin for better readability */
+        }
+
+        .description {
+            text-align: left;
+        }
+        p {
+            text-align: left;
+        }
+        /* Force MathJax equations to be left-aligned */
+        .MathJax_Display {
+            text-align: left !important;
+            display: block !important;
+        }
+        /* Proper alignment for the equation table */
+
+        .footnote-container {
+            margin-top: 20px;
+            font-size: 12px;
+            text-align: left;
+        }
+        .footnote-line {
+            border: 0;
+            height: 1px;
+            background: #000;
+        }
+        .footnote a code, .footnote code {
+            font-family: monospace;
+            color: #1e1e1e;
+            text-decoration: none;
+            font-style: normal; /* Ensures code text is not italic */
+        }
+
+
+    </style>
+    <script>
+function scaleContainer() {
+  const container = document.querySelector('.container');
+  const padding = 0; // optional padding margin
+  const viewportHeight = window.innerHeight - padding;
+  const containerHeight = container.offsetHeight;
+
+  // Compute the scale ratio
+  const scale = Math.min(1, viewportHeight / containerHeight);
+
+  container.style.transform = `scale(${scale})`;
+}
+
+// Run on load
+window.addEventListener('load', scaleContainer);
+// Run on resize
+window.addEventListener('resize', scaleContainer);
+</script>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Problem 2</div>
+
+        <div class="slide">      
+
+<div class="image-container" style="text-align: left;">
+    <p>(1) A thin layer of viscous fluid of thickness \(h(\theta)\) (shown shaded, 
+    and with exaggerated thickness, in the diagram) covers the outer surface of an infinitely 
+    long cylinder whose circumference rotates at a speed $U$ about a horizontal axis through 
+    the centre of the cylinder, in the presence of a gravitational acceleration \(g\). 
+    Show that under the lubrication approximation, the fluid velocity satisfies the equation
+    \[
+    \nu \frac{\partial^2 u}{\partial z^2} = g \cos(\theta)
+\]</p>
+<img src="Figures/TestExam_Problem2.png" alt="Problem2" style="max-width: 29%; height: auto; display: block; margin: auto;">  
+</div>
+
+  <p style="margin: 0;">
+    where \(z\) is the distance from the surface of the cylinder in the normal direction, 
+    \(u(\theta, z)\) is the velocity of the fluid in the \(\theta\) direction, and \(\nu\) is the kinematic viscosity. 
+    [hint: think in terms of velocity components parallel and normal to the film. 
+    You do not need N-S equations in cylindrical coordinates for this problem.]
+</p>
+  <span style="float: right;">[7]</span>
+</div>
+<br>
+
+<p style="margin: 0;">
+  (2) Write down the boundary conditions at \(z=0\) and \(z=h(\theta)\) and show that
+    \[
+    u(\theta, z) = U + \left( \frac{z^2}{2} - zh \right) \frac{g}{\nu} \cos(\theta) 
+    \]  
+  <span style="float: right;">[3]</span>
+</p>
+<br>
+
+<p style="margin: 0;">
+  (3) Obtain an expression for the volume flux
+    \[
+    Q(\theta) = \int_0^{h(\theta)} u \, dz
+    \]
+    across any section (with \(\theta = \text{constant}\)). Hence show that
+    \[
+    \frac{1}{H^2} - \frac{1}{H^3} = \alpha \cos(\theta),
+    \]
+    where
+    \[
+    H(\theta) = Uh(\theta)/Q, \qquad \alpha = \frac{gQ^2}{3\nu U^3}.
+    \]
+    Explain why \(Q\) is constant.
+  <span style="float: right;">[7]</span>
+</p>
+<br>
+
+<p style="margin: 0;">
+  (4) Find a perturbative solution for \(h(\theta)\) assuming \(\alpha \ll 1\), 
+  to first order in \(\alpha\). [hint: try a solution of the form \(H = A_0 + A_1[\alpha]\).
+  <span style="float: right;">[3]</span>
+</p>
+<br>
+
+<p style="margin: 0;">
+  (5) Show that a solution \(H(\theta)\) can exist for all values of \(\theta\) only if \(\alpha \leq 4/27\). [hint: it is easier to find the answer graphically]}. Show that the maximum film thickness the system can stably accommodate is
+    \(
+    h_{\text{max}} = \frac{3Q}{2H}
+    \)
+    Explain the physical mechanism behind this phenomenon.
+  <span style="float: right;">[5]</span>
+</p>
+<br>
+
+
+
+        <!-- Navigation Arrows -->
+        <a href="TestExamSlide4.html" class="nav-button left">&#9664;</a>
+        <a href="TestExamSlide6.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>
