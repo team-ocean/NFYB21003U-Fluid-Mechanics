@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="favicon.png" type="image/x-icon">
-    <title>Test Exam</title>
+    <title>Lift on a Wing</title>
     <link rel="stylesheet" href="styles.css">
     <script>
         window.MathJax = {
@@ -57,6 +57,7 @@
             height: 1px;
             background: #000;
         }
+
         .footnote a code, .footnote code {
             font-family: monospace;
             color: #1e1e1e;
@@ -66,51 +67,29 @@
 
 
     </style>
-    <script>
-function scaleContainer() {
-  const container = document.querySelector('.container');
-  const padding = 0; // optional padding margin
-  const viewportHeight = window.innerHeight - padding;
-  const containerHeight = container.offsetHeight;
-
-  // Compute the scale ratio
-  const scale = Math.min(1, viewportHeight / containerHeight);
-
-  container.style.transform = `scale(${scale})`;
-}
-
-// Run on load
-window.addEventListener('load', scaleContainer);
-// Run on resize
-window.addEventListener('resize', scaleContainer);
-</script>
 </head>
 <body>
     <div class="container">
-        <div class="title">Problem 4</div>
+        <div class="title">Problem 4: Pressure in a Soap Bubble</div>
 
-        <div class="slide">      
-<p>We applied the NSe to understand various forms of waves, among them the surface gravity wave, the internal gravity wave and the Rossby wave (both without boundaries), and the Kelvin wave.
+        <div class="slide">     
+        <p></p>
+
+<p>(1) Some aeronautical engineers are designing an airplane and wish to predict the lift produced by their new wing design. 
+    The chord length \(L_c\) of the wing is 1.12 m, and its <span class='sql'>planform area</span> \(A\) (area viewed from the top when the wing is at zero angle of attack) is 10.7 m². The prototype is to fly at \(V = 52.0 \, \text{m/s}\) close to the ground where \(T = 25^\circ \text{C}\). They build a one-tenth scale model of the wing to test in a pressurized wind tunnel. The wind tunnel can be pressurized to a maximum of 5 atm. At what speed and pressure should they run the wind tunnel in order to achieve dynamic similarity?
 </p>
 
-<p style="margin: 0;">
-  (1) Which of these is your favourite wave, and what is it that you like about it (i.e., what distinguishes it from the others)?
-  <span style="float: right;">[10]</span>
-</p>
-<br>
-
-<p style="margin: 0;">
-  (2) Derive its dispersion relation, starting from the NSe and the continuity equation. State clearly the steps you take to simplify these equations, and how you apply the boundary conditions (if any).
-  <span style="float: right;">[15]</span>
-</p>
-<br>
-
+<div class="image-container" style="text-align: left;">
+    <p>Lift \(F_L\) on a wing of chord length \(L_c\) at angle of attack \(\alpha\) in a flow of free-stream speed \(V\) with density \(\rho\), viscosity \(\mu\), and speed of sound \(c\). <br><br>
+        The angle of attack \(\alpha\) is measured relative to the free-stream flow direction.</p>
+<img src="Figures/PS3_LiftWingChord.png" alt="LiftWingChord" style="max-width: 49%; height: auto; display: block; margin: auto;">  
+</div>
 
         </div>
 
         <!-- Navigation Arrows -->
-        <a href="TestExamSlide6.html" class="nav-button left">&#9664;</a>
-        <a href="TestExamOverview.html" class="nav-button right">&#9654;</a>
+        <a href="PS3Slide3.html" class="nav-button left">&#9664;</a>
+        <a href="PS3Slide5.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>

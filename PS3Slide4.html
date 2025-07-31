@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="favicon.png" type="image/x-icon">
-    <title>Equations of Motion</title>
+    <title>Lift on a Wing</title>
     <link rel="stylesheet" href="styles.css">
     <script>
         window.MathJax = {
@@ -70,27 +70,34 @@
 </head>
 <body>
     <div class="container">
-        <div class="title">Problem 6: Properties of Fluids</div>
+        <div class="title">Problem 3: Lift on a Wing</div>
 
         <div class="slide">     
-            <p>(1) The dimensionless <span class='sql'>Mach number</span> is defined as
+            <p>The dimensionless <span class='sql'>Mach number</span> is defined as
 \[
 \text{Ma} = \frac{V}{c} = \frac{\text{Speed of flow}}{\text{Speed of sound}}
 \]
 
 where $c$ is the <span class='sql'>speed of sound</span>, whose value is 346 m/s in air at room temperature at sea level. 
 A flow is called <span class='sql'>sonic</span> when Ma = 1, <span class='sql'>subsonic</span> when Ma < 1, <span class='sql'>supersonic</span> when Ma > 1, 
-and <span class='sql'>hypersonic</span> when Ma ≫ 1.</p>
-
-
-
+and <span class='sql'>hypersonic</span> when Ma ≫ 1.
 </p>
+
+<p>(1) Some aeronautical engineers are designing an airplane and wish to predict the lift produced by their new wing design. 
+    The chord length \(L_c\) of the wing is 1.12 m, and its <span class='sql'>planform area</span> \(A\) (area viewed from the top when the wing is at zero angle of attack) is 10.7 m². The prototype is to fly at \(V = 52.0 \, \text{m/s}\) close to the ground where \(T = 25^\circ \text{C}\). They build a one-tenth scale model of the wing to test in a pressurized wind tunnel. The wind tunnel can be pressurized to a maximum of 5 atm. At what speed and pressure should they run the wind tunnel in order to achieve dynamic similarity?
+</p>
+
+<div class="image-container" style="text-align: left;">
+    <p>Lift \(F_L\) on a wing of chord length \(L_c\) at angle of attack \(\alpha\) in a flow of free-stream speed \(V\) with density \(\rho\), viscosity \(\mu\), and speed of sound \(c\). <br><br>
+        The angle of attack \(\alpha\) is measured relative to the free-stream flow direction.</p>
+<img src="Figures/PS3_LiftWingChord.png" alt="LiftWingChord" style="max-width: 49%; height: auto; display: block; margin: auto;">  
+</div>
 
         </div>
 
         <!-- Navigation Arrows -->
-        <a href="PS3Slide5.html" class="nav-button left">&#9664;</a>
-        <a href="PS3Dlide7.html" class="nav-button right">&#9654;</a>
+        <a href="PS3Slide3.html" class="nav-button left">&#9664;</a>
+        <a href="PS3Slide5.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
