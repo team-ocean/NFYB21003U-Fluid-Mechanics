@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <title>Lift on a Wing</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],  // Allow inline math with $...$ and \( ... \)
+            displayMath: [['$$', '$$'], ['\\[', '\\]']] // Allow display math with $$...$$ and \[ ... \]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+        </script>
+        <script type="text/javascript" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        
+    <style>
+        .custom-list { list-style: none; padding-left: 20px; }
+        .custom-list li { position: relative; padding-left: 20px; text-align: left; }
+        .custom-list li::before { content: "■"; color: #7DCDF4; font-size: 14px; position: absolute; left: 0; top: 2px; }
+        .image-container { display: flex; align-items: center; justify-content: center; text-align: left; }
+        .image-container img { max-width: 100%; height: auto; }
+        .image-text { max-width: 100%; padding-left: 10px; font-size: 16px; }
+        /* Ensure all text and equations are left-aligned */
+        body {
+            text-align: left;
+            margin-left: 20px;  /* Add some left margin for better readability */
+        }
+
+        .description {
+            text-align: left;
+        }
+        p {
+            text-align: left;
+        }
+        /* Force MathJax equations to be left-aligned */
+        .MathJax_Display {
+            text-align: left !important;
+            display: block !important;
+        }
+        /* Proper alignment for the equation table */
+
+        .footnote-container {
+            margin-top: 20px;
+            font-size: 12px;
+            text-align: left;
+        }
+        .footnote-line {
+            border: 0;
+            height: 1px;
+            background: #000;
+        }
+
+        .footnote a code, .footnote code {
+            font-family: monospace;
+            color: #1e1e1e;
+            text-decoration: none;
+            font-style: normal; /* Ensures code text is not italic */
+        }
+        code {
+  font-family: 'Courier New', Courier, monospace;
+  color: #1e1e1e;
+  background-color: #ddf1f3;
+  font-size: 0.95em;
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  border: 1px solid #d6ebff;
+  white-space: nowrap;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Problem 5: Arakawa-C Grid</div>
+
+        <div class="slide">     
+        <p>The basic algorithm employed for stepping forward the momentum equations is based on retaining non-divergence of the flow at all times. This is most naturally done if the components of flow are staggered in space in the form of an Arakawa C grid.</p>
+            <div class="image-container" style="text-align: left;">
+                <img src="Figures/PS3_ArakawaCScheme.png" alt="ArakawaCScheme" style="max-width: 27%; height: auto; display: block; margin: auto;">
+                <img src="Figures/PS3_ArakawaCShallowWater.png" alt="ArakawaCShallowWater" style="max-width: 27%; height: auto; display: block; margin: auto;">
+            </div>
+<p>(1) Create a 2D scalar field on a square grid (e.g., a Gaussian bump). Write a function to compute the Laplacian using central finite differences. 
+    Use a uniform 100×100 grid over \([-1,1]\), apply second-order centered differences for \(\frac{\partial^2}{\partial x^2}\) and \(\frac{\partial^2}{\partial y^2}\), and visualize both the input field and the computed Laplacian.
+    You can use <code>matplotlib.pyplot.contourf</code> or <code>imshow</code> to plot both the scalar field and its Laplacian side by side.
+</p>
+
+
+<p>(2) Initialize a 2D velocity field representing a shear or vortex flow. 
+    Write a function to compute the vorticity field using finite differences, and plot the result with a colormap.
+    Use <code>vorticity = ∂v/∂x - ∂u/∂y</code>, implement centered differences for spatial derivatives, and plot the vorticity field using <code>imshow</code> or <code>contourf</code> with labeled axes and colorbar.
+</p>
+
+<p>(3) Initialize a passive tracer field and advect it in a constant 2D velocity field (e.g., \(u = 1, v = 0\)). 
+    Use an explicit time-stepping scheme and finite differences, then create an animation to visualize the tracer's evolution.
+    Implement the advection equation \(\frac{\partial q}{\partial t} + u \frac{\partial q}{\partial x} + v \frac{\partial q}{\partial y} = 0\) using either upwind or central differencing, apply periodic boundaries manually, and plot the tracer field using <code>matplotlib.animation.FuncAnimation</code>.
+</p>
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <p class="footnote"><sup>1</sup> This problem set contains 6 problems, and your final score will be based on the 4 problems on which you earned the highest scores.
+            </p>
+            <p class="footnote">
+                <p class="footnote"><sup>2</sup> A. Arakawa and V. Lamb. Computational design of the basic dynamical processes of the ucla general circulation model. <i>Meth. Comput. Phys.</i>, 17:174–267, 1977.
+            </p>
+        </div>
+
+
+        </div>
+
+        <!-- Navigation Arrows -->
+        <a href="PS3Slide5.html" class="nav-button left">&#9664;</a>
+        <a href="PS3Slide7.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>
