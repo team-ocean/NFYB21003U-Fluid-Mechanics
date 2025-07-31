@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <title>Lift on a Wing</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],  // Allow inline math with $...$ and \( ... \)
+            displayMath: [['$$', '$$'], ['\\[', '\\]']] // Allow display math with $$...$$ and \[ ... \]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+        </script>
+        <script type="text/javascript" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        
+    <style>
+        .custom-list { list-style: none; padding-left: 20px; }
+        .custom-list li { position: relative; padding-left: 20px; text-align: left; }
+        .custom-list li::before { content: "■"; color: #7DCDF4; font-size: 14px; position: absolute; left: 0; top: 2px; }
+        .image-container { display: flex; align-items: center; justify-content: center; text-align: left; }
+        .image-container img { max-width: 100%; height: auto; }
+        .image-text { max-width: 100%; padding-left: 10px; font-size: 16px; }
+        /* Ensure all text and equations are left-aligned */
+        body {
+            text-align: left;
+            margin-left: 20px;  /* Add some left margin for better readability */
+        }
+
+        .description {
+            text-align: left;
+        }
+        p {
+            text-align: left;
+        }
+        /* Force MathJax equations to be left-aligned */
+        .MathJax_Display {
+            text-align: left !important;
+            display: block !important;
+        }
+        /* Proper alignment for the equation table */
+
+        .footnote-container {
+            margin-top: 20px;
+            font-size: 12px;
+            text-align: left;
+        }
+        .footnote-line {
+            border: 0;
+            height: 1px;
+            background: #000;
+        }
+
+        .footnote a code, .footnote code {
+            font-family: monospace;
+            color: #1e1e1e;
+            text-decoration: none;
+            font-style: normal; /* Ensures code text is not italic */
+        }
+        code {
+  font-family: 'Courier New', Courier, monospace;
+  color: #1e1e1e;
+  background-color: #ddf1f3;
+  font-size: 0.95em;
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  border: 1px solid #d6ebff;
+  white-space: nowrap;
+}
+    </style>
+    <script>
+function scaleContainer() {
+  const container = document.querySelector('.container');
+  const padding = 0; // optional padding margin
+  const viewportHeight = window.innerHeight - padding;
+  const containerHeight = container.offsetHeight;
+
+  // Compute the scale ratio
+  const scale = Math.min(1, viewportHeight / containerHeight);
+
+  container.style.transform = `scale(${scale})`;
+}
+
+// Run on load
+window.addEventListener('load', scaleContainer);
+// Run on resize
+window.addEventListener('resize', scaleContainer);
+</script>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Problem 6: Grid Generation and Boundary Conditions</div>
+
+        <div class="slide">     
+        <p>A <span class="sql">structured grid</span> consists of planar cells with four edges (2D) or volumetric cells with six faces (3D). 
+Although the cells may be distorted from rectangular, each cell is numbered according to indices \((i, j, k)\) that do not necessarily correspond to coordinates \(x, y\) and \(z\). <br><br>
+An <span class="sql">unstructured grid</span> consists of cells of various shapes, but typically triangles or quadrilaterals (2D) and tetrahedrons or hexahedrons (3D) are used.
+Unlike the structured grid, one cannot uniquely identify cells in the unstructured grid by indices \(i\) and \(j\); instead, cells are numbered in some other fashion internally in the CFD code.</p>
+<div class="image-container" style="text-align: left;">
+    <img src="Figures/PS3_GridGenerations.png" alt="GridGenerations" style="max-width: 89%; height: auto; display: block; margin: auto;">
+</div>
+<p>(1) A CFD code is used to solve a two-dimensional (x
+and y), incompressible, laminar flow without free surfaces. 
+The fluid is Newtonian. Appropriate boundary conditions are 
+used. List the variables (unknowns) in the problem, and list 
+the corresponding equations to be solved by the computer.
+</p>
+
+<p>(2) For the two-dimensional computational domain <img src="Figures/PS3_2DComputationalDomain.png" 
+            alt="2DComputationalDomain.png" 
+            style="height: 6em; vertical-align: middle;">, with the given node distribution, sketch a 
+simple structured grid using four-sided cells and sketch a 
+simple unstructured polyhedral grid using at least one of 
+each: 3-sided, 4-sided, and 5-sided cells. Try to avoid large 
+skewness. Compare the cell count for each case and discuss 
+your results.
+</p>
+
+<p>(3) What is the standard method to test for adequate 
+grid resolution when using CFD?
+</p>
+
+<p>(4) List all the boundary conditions discussed in the lectures that may be applied to 
+the right edge of the two-dimensional computational domain 
+sketched in <img src="Figures/PS3_BCEdges.png" 
+            alt="BCEdges.png" 
+            style="height: 9em; vertical-align: middle;">. Why can’t the other boundary 
+conditions be applied to this edge?</p>
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <p class="footnote"><sup>1</sup> This problem set contains 6 problems, and your final score will be based on the 4 problems on which you earned the highest scores.
+            </p>
+            <p class="footnote">
+                <p class="footnote"><sup>2</sup> Fluid Mechanics: Fundamentals and Applications Fourth Edition. Çengel and J. M. Cimbala, McGraw-Hill, New York (2018).
+            </p>
+        </div>
+
+
+        </div>
+
+        <!-- Navigation Arrows -->
+        <a href="PS3Slide6.html" class="nav-button left">&#9664;</a>
+        <a href="PS3Overview.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>
