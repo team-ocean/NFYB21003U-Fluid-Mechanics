@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <title>Equations of Motion</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],  // Allow inline math with $...$ and \( ... \)
+            displayMath: [['$$', '$$'], ['\\[', '\\]']] // Allow display math with $$...$$ and \[ ... \]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+        </script>
+        <script type="text/javascript" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        
+    <style>
+        .custom-list { list-style: none; padding-left: 20px; }
+        .custom-list li { position: relative; padding-left: 20px; text-align: left; }
+        .custom-list li::before { content: "■"; color: #7DCDF4; font-size: 14px; position: absolute; left: 0; top: 2px; }
+        .image-container { display: flex; align-items: center; justify-content: center; text-align: left; }
+        .image-container img { max-width: 100%; height: auto; }
+        .image-text { max-width: 100%; padding-left: 10px; font-size: 16px; }
+        /* Ensure all text and equations are left-aligned */
+        body {
+            text-align: left;
+            margin-left: 20px;  /* Add some left margin for better readability */
+        }
+
+        .description {
+            text-align: left;
+        }
+        p {
+            text-align: left;
+        }
+        /* Force MathJax equations to be left-aligned */
+        .MathJax_Display {
+            text-align: left !important;
+            display: block !important;
+        }
+        /* Proper alignment for the equation table */
+
+        .footnote-container {
+            margin-top: 20px;
+            font-size: 12px;
+            text-align: left;
+        }
+        .footnote-line {
+            border: 0;
+            height: 1px;
+            background: #000;
+        }
+        .footnote a code, .footnote code {
+            font-family: monospace;
+            color: #1e1e1e;
+            text-decoration: none;
+            font-style: normal; /* Ensures code text is not italic */
+        }
+
+
+    </style>
+    <script>
+function scaleContainer() {
+  const container = document.querySelector('.container');
+  const padding = 0; // optional padding margin
+  const viewportHeight = window.innerHeight - padding;
+  const containerHeight = container.offsetHeight;
+
+  // Compute the scale ratio
+  const scale = Math.min(1, viewportHeight / containerHeight);
+
+  container.style.transform = `scale(${scale})`;
+}
+
+// Run on load
+window.addEventListener('load', scaleContainer);
+// Run on resize
+window.addEventListener('resize', scaleContainer);
+</script>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Problem 5: Rayleigh–Taylor instability</div>
+
+        <div class="slide"> 
+            <p>Suppose that a heavy fluid of constant density \(\rho_1\) is placed above a light fluid of another constant density \(\rho_2\), 
+                and separated by a surface S in a vertically downward gravitational field of acceleration \(g\). 
+                In the unperturbed state, the surface S was a horizontal plane located at \(y = 0\) 
+                (with the \(y\) axis taken vertically upward) and the fluid was at rest, and the density was
+\[
+\rho_1 \quad \text{for } y > 0; \qquad \rho_2(<\rho_1) \quad \text{for } y < 0
+\]
+
+Suppose that the surface S is deformed in the form
+\[
+y = \zeta(x,t)
+\]
+Both above and below S, the flow is assumed to be irrotational and the velocity potential \(\phi\) is expressed as
+\[
+\phi = \phi_1(x,y,t) \quad \text{for } y > \zeta; \qquad \phi_2(x,y,t) \quad \text{for } y < \zeta
+\]</p>
+<p>(1) Derive linear perturbation equations for small perturbations \(\zeta\), \(\phi_1\), and \(\phi_2\) from the dynamic boundary condition and kinematic boundary condition.</p>   
+<p>(2) Expressing the perturbations in the following forms with a growth rate \(\sigma\) and a wavenumber \(k\),
+\[
+\zeta = Ae^{\sigma t} e^{ikx}, \qquad \phi_i = B_i e^{\sigma t} e^{ikx - ky}, \qquad (i = 1, 2)
+\]
+derive an equation to determine the growth rate \(\sigma\), where \(A, B_1, B_2\) are constants. State whether the basic state is stable or unstable.</p>
+<p>(3) Apply the above analysis to the case where a lighter fluid is placed above a heavy fluid, and derive a conclusion that there exists an interfacial wave (the <span class="sql">internal gravity wave</span>). State what is the frequency.</p>
+        </div>
+<div class="image-container" style="text-align: left;">
+    <img src="Figures/PS4_RayleighTaylorWave.png" alt="RayleighTaylorWav" style="max-width: 89%; height: auto; display: block; margin: auto;">
+</div>
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <p class="footnote"><sup>1</sup> This problem set contains 6 problems, and your final score will be based on the 4 problems on which you earned the highest scores.
+            </p>
+        </div>
+        <!-- Navigation Arrows -->
+        <a href="PS4Slide5.html" class="nav-button left">&#9664;</a>
+        <a href="PS4Slide7.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>
