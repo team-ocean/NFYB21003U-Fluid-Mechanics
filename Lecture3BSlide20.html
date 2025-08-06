@@ -148,28 +148,43 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Potential Vorticity Conservation in Shallow-Water Theory</div>
+        <div class="title">Internal Waves</div>
 <div class="description">
-In the approximate compact form that \(\beta y \ll f_0\) has been assumed
-\[\frac{D}{Dt} \left( 
-\underbrace{
-\frac{\zeta + \overbrace{f_0 + \beta y}^{\text{planetary vorticity } f}}{h}
-}_{\text{potential vorticity}}
-\right) = 0\]
-The ratio \((\zeta + f)/h\) is called the <span class='sql'>potential vorticity</span> in shallow-water theory, and the equation above shows that the <span class='sql'>potential vorticity is conserved along the horizontal trajectory of a fluid particle</span>, an important principle in geophysical fluid dynamics
+Internal gravity waves unaffected by the Coriolis acceleration are not isotropic; the direction of propagation with respect to the vertical determines their frequency.
+Their frequency satisfies the inequality \(\omega \leq N\), where \(\omega\) is the wave (angular) frequency, $N$ is the buoyancy frequency. 
+Their phase-velocity vector \(\mathbf{c}\) and the group-velocity vector $\mathbf{c}_g$ 
+are perpendicular and have oppositely directed vertical components
 </div>
+
+<div class="image-container" style="text-align: left;">
+<img src="Figures/Lecture3B_InternalWaveGeometric.png" alt="InternalWaveGeometric" style="max-width: 39%; height: auto; display: block; margin: auto;">  
 <p>
-In the ocean, outside regions of strong current vorticity such as coastal boundaries, 
-the magnitude of \(\zeta\) is much smaller than that of \(f\). 
-In such a case \(\zeta + f\) has the sign of \(f\). 
-The principle of conservation of potential vorticity means that an increase in \(h\) must 
-make \(\zeta + f\) <span class='bullet'></span>more positive in the northern hemisphere and <span class='bullet'></span>more negative in the southern hemisphere.
-</p>
+The dispersion relation for internal gravity waves and can be written as
+\[
+\omega = N \cos \theta
+\]
+where $\theta = \tan^{-1}(m/k)$ is the angle between the phase velocity vector \(\mathbf{c}\) (and therefore \(\mathbf{c}\)) and the horizontal direction.
+The frequency of an internal wave in a stratified fluid depends only on the <span class='sql'>direction</span> of the wave number 
+vector and not on its magnitude. 
+The wave frequency lies in the range $0 < \omega < N$, and this indicates that <span class='sql'>$N$ is the maximum possible frequency of internal waves in a stratified fluid.</span>
+</p> 
+</div>
+
+<div class="image-container" style="text-align: left;">
+<p>
+Orientation of phase and group velocity for internal waves. The vertical components of the phase and group velocities are equal and opposite.
+</p> 
+<img src="Figures/Lecture3B_InternalWaveOrientationVelocity.png" alt="InternalWaveOrientationVelocity" style="max-width: 39%; height: auto; display: block; margin: auto;">  
+</div>
+
+<p>Internal waves are ubiquitous in the atmosphere and the ocean. 
+In the lower atmosphere turbulent motions dominate, so that internal wave activity represents a minor component of the motion. In contrast, the stratosphere contains a great deal of internal wave activity, and very little convective motion, because of its stable density distribution. Internal waves generally propagate upward from the lower atmosphere, where they are generated. 
+
 
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture3BSlide17.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture3BSlide19.html" class="nav-button left">&#9664;</a>
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture3BSlide19.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture3BSlide21.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
