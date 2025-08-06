@@ -149,27 +149,42 @@ window.addEventListener('resize', scaleContainer);
 <body>
     <div class="container">
         <div class="title">Potential Vorticity Conservation in Shallow-Water Theory</div>
-<div class="description">
-In the approximate compact form that \(\beta y \ll f_0\) has been assumed
-\[\frac{D}{Dt} \left( 
-\underbrace{
-\frac{\zeta + \overbrace{f_0 + \beta y}^{\text{planetary vorticity } f}}{h}
-}_{\text{potential vorticity}}
-\right) = 0\]
-The ratio \((\zeta + f)/h\) is called the <span class='sql'>potential vorticity</span> in shallow-water theory, and the equation above shows that the <span class='sql'>potential vorticity is conserved along the horizontal trajectory of a fluid particle</span>, an important principle in geophysical fluid dynamics
-</div>
+
+<div class="image-container" style="text-align: left;">
+<img src="Figures/Lecture3B_EastwardVorticity.png" alt="EastwardVorticity" style="max-width: 39%; height: auto; display: block; margin: auto;">  
 <p>
-In the ocean, outside regions of strong current vorticity such as coastal boundaries, 
-the magnitude of \(\zeta\) is much smaller than that of \(f\). 
-In such a case \(\zeta + f\) has the sign of \(f\). 
-The principle of conservation of potential vorticity means that an increase in \(h\) must 
-make \(\zeta + f\) <span class='bullet'></span>more positive in the northern hemisphere and <span class='bullet'></span>more negative in the southern hemisphere.
-</p>
+Consider eastward flow at uniform speed \(U\) over a step change in depth (at \(x = 0\)) running north–south, 
+across which the layer thickness changes discontinuously from \(h_0\) to \(h_1\). 
+The flow upstream of the step has no relative vorticity. 
+To conserve the ratio $(\zeta + f)/h$, the flow must suddenly acquire negative (clockwise) relative vorticity due to the sudden decrease in layer thickness. 
+The relative vorticity of a fluid element just after passing the step can be found from
+\[
+\frac{f}{h_0} = \frac{(\zeta + f)}{h_1} \Rightarrow
+\zeta = \frac{f(h_1 - h_0)}{h_0} < 0
+\]
+
+where \(f\) is evaluated at the upstream latitude of the streamline
+</p> 
+</div>
+
+<div class="image-container" style="text-align: left;">
+<p>
+A westward one feels the <span class='sql'>upstream</span> influence of the step so that it 
+acquires a counterclockwise curvature <span class='sql'>before</span> it encounters the step. 
+The positive vorticity is balanced by a reduction in \(f\), 
+which is consistent with conservation of potential vorticity.
+At the location of the step the vorticity decreases suddenly. 
+Finally, far downstream of the step the fluid particle is again moving westward at its original latitude. 
+The westward flow over a topographic step is <span class='sql'>not</span> oscillatory.
+</p> 
+<img src="Figures/Lecture3B_WestwardVorticity.png" alt="WestwardVorticity" style="max-width: 42%; height: auto; display: block; margin: auto;">  
+
+</div>
 
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture3BSlide17.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture3BSlide18.html" class="nav-button left">&#9664;</a>
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture3BSlide19.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture3BSlide20.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
