@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+
+    
+<script>
+  window.MathJax = {
+    tex: {
+      packages: {'[+]': ['ams']},  // add ams package
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    },
+    loader: {load: ['[tex]/ams']}
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+        /* Center the table horizontally */
+        .slide table {
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        /* Left-align table text */
+        .slide table th,
+        .slide table td {
+        text-align: left;
+        }
+
+        /* Custom bullet list styled as flex container */
+    ul.custom {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
+    }
+    ul.custom li {
+      flex: 0 0 45%; /* roughly two items per row */
+      display: flex;
+      align-items: center;
+      gap: 10px; /* space between the text and image */
+      position: relative;
+      padding-left: 20px; /* extra padding for the bullet */
+    }
+    ul.custom li::before {
+      content: "■"; /* Unicode for small square bullet */
+      color: #7DCDF4;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Ensure images align properly */
+    ul.custom li img {
+      max-width: 49%;
+      height: auto;
+    }
+
+    .highlight {
+    background-color:rgba(221, 241, 243, 0.8); 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    .highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+
+.image-container {
+    margin-bottom: 0px; /* or even 0 if you want no space */
+}
+
+.image-container p {
+    margin-bottom: 0px; /* reduce space under paragraphs */
+}
+
+.image-container img {
+    margin-top: 0px; /* reduce space above images */
+}
+
+    </style>
+<script>
+function scaleContainer() {
+  const container = document.querySelector('.container');
+  const padding = 0; // optional padding margin
+  const viewportHeight = window.innerHeight - padding;
+  const containerHeight = container.offsetHeight;
+  // Compute the scale ratio
+  const scale = Math.min(1, viewportHeight / containerHeight);
+  container.style.transform = `scale(${scale})`;
+}
+// Run on load
+window.addEventListener('load', scaleContainer);
+// Run on resize
+window.addEventListener('resize', scaleContainer);
+</script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="title">Internal Waves</div>
+<div class="description">
+Sometimes the internal waves break and generate smaller-scale turbulence in a somewhat similar manner to bubble and foam generation by breaking surface waves.
+</div>
+<p>The primary internal wave mechanisms leading to ocean mixing.
+Tides flow over many forms of topography, from abyssal hills to tall, steep ridges, generating both high-mode and low-mode internal waves. Time-varying winds cause near-inertial oscillations in the mixed layer, radiating high-mode and low-mode internal waves. Lee waves are generated when deep currents impinge on topographic features. Time-varying surface currents can also generate internal waves. Both high and low modes propagate, undergo wave–wave interactions and scatter off topographic features, eventually leading to dissipation. Low modes generated in the open ocean can also propagate and dissipate on continental slopes and shelves.
+</p>
+<div class="image-container" style="text-align: left;">
+<img src="Figures/Lecture3B_InternalWaveDrivenMixing.png" alt="InternalWaveDrivenMixing" style="max-width: 69%; height: auto; display: block; margin: auto;">  
+</div>
+
+<div class="footnote-container">
+    <hr class="footnote-line">
+<p class="footnote">
+<sup>1</sup>Whalen, C.B., de Lavergne, C., Naveira Garabato, A.C. et al. Internal wave-driven mixing: governing processes and consequences for climate. <i>Nat Rev Earth Environ</i> 1, 606–621 (2020). https://doi.org/10.1038/s43017-020-0097-z 
+</p>
+<p class="footnote">
+<sup>2</sup>MacKinnon, J. A. et al. Climate process team on internal wave-driven ocean mixing. <i>Bull. Am. Meteorol. Soc.</i> 98, 2429–2454 (2017) © American Meteorological Society. 
+</p>
+
+</div>
+
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture3BSlide20.html" class="nav-button left">&#9664;</a>
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture3BSlide22.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>
