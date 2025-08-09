@@ -148,90 +148,47 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Internal Waves</div>
-<div class="description">
-For the vertical velocity component \(w\) of internal waves includes Coriolis terms
-\[
-\frac{\partial^2}{\partial t^2} \nabla^2 w + N^2 \nabla_H^2 w + f^2 \frac{\partial^2 w}{\partial z^2} = 0
-\]
+        <div class="title">Discussion of the Dispersion Relation</div>
 
-where \(\nabla_H^2 \equiv \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} = \nabla^2 - \frac{\partial^2}{\partial z^2}\)
+<div class="image-container" style="text-align: left;">
+<p>A plot of the dispersion relation \[\omega^2 - f^2 = \frac{k^2}{m^2} \left( N^2 - \omega^2 \right)\]
+     showing $\omega$ as a function of $k$ for various values of $m$. All curves pass through the point $\omega = f$, which represents inertial oscillations. Typically, $N \gg f$ in most of the atmosphere and the ocean</p> 
+<img src="Figures/Lecture3B_DispersionInternalWave.png" alt="DispersionInternalWave" style="max-width: 79%; height: auto; display: block; margin: auto;"> 
 </div>
-<p>
-\[
-\begin{array}{rl}
-\left\{
-\begin{array}{l}
-\displaystyle \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} = 0 \quad \text{(I)} \\[8pt]
-\displaystyle \frac{\partial u}{\partial t} - fv = -\frac{1}{\rho_0} \frac{\partial p'}{\partial x}, \quad
-\frac{\partial v}{\partial t} + fu = -\frac{1}{\rho_0} \frac{\partial p'}{\partial y} \quad \text{(II)} \\[8pt]
-\displaystyle \frac{\partial p'}{\partial z} = \rho_0 \frac{N^2}{g} w \quad \text{(III)} \\[8pt]
-\displaystyle \frac{\partial w}{\partial t} = -\frac{1}{\rho_0} \frac{\partial p'}{\partial z} - \frac{g \rho'}{\rho_0} \quad \text{(IV)}
-\end{array}
-\right.
-&
-\begin{array}{l}
-\text{Apply } \partial / \partial t \text{ to (II-1)} \\[4pt]
-\text{Multiply (II-2) by } f \\[4pt]
-\text{Add results} \\[8pt]
-\text{Then:} \\[4pt]
-\left( \frac{\partial^2}{\partial t^2} + f^2 \right) u = -\frac{1}{\rho_0} \left( \frac{\partial^2 p'}{\partial t \partial x} + f \frac{\partial p'}{\partial y} \right) \quad \text{(V)} \\[10pt]
-\text{Repeat with } -f \text{ and } \partial/\partial t \\[4pt]
-\left( \frac{\partial^2}{\partial t^2} + f^2 \right) v = -\frac{1}{\rho_0} \left( \frac{\partial^2 p'}{\partial t \partial y} - f \frac{\partial p'}{\partial x} \right) \quad \text{(VI)}
-\end{array}
-\end{array}
-\]
-</p>
-<p>
-Apply $\partial / \partial x$ to (V), $\partial / \partial y$ to (VI), and add:
+
+<ul class="custom-list">
+    <li><span class='sql'>High-frequency regime ($\omega \sim N$, but $\omega \le N$)</span>:
+In this range $f^2$ is negligible in comparison with $\omega^2$ in the denominator of the dispersion relation, which reduces to
 
 $$
-\left( \frac{\partial^2}{\partial t^2} + f^2 \right) \left( \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} \right)
-\overset{\text{(I)}}{=} \left( \frac{\partial^2}{\partial t^2} + f^2 \right) \left( -\frac{\partial w}{\partial z} \right) \tag{VII}
+m^2 \cong \frac{k^2}{\omega^2} \left( N^2 - \omega^2 \right) 
+\quad\text{or}\quad 
+\omega^2 \cong \frac{N^2 k^2}{m^2 + k^2}.
 $$
 
+Using $\tan \theta = m/k$, this gives $\omega = N \cos \theta$. Thus high-frequency internal waves are the same as the non-rotating internal waves</li>
+    <li><span class='sql'>Low-frequency regime ($\omega \sim f$, but $\omega \ge f$)</span>:
+In this range $\omega^2$ can be neglected in comparison to $N^2$ in the dispersion relation, which becomes
 $$
-\text{RHS} = -\frac{1}{\rho_0} \left( \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} \right) \frac{\partial p'}{\partial t}
-= -\frac{1}{\rho_0} \nabla_H^2 \frac{\partial p'}{\partial t} \Rightarrow \left( \frac{\partial^2}{\partial t^2} + f^2 \right) \frac{\partial w}{\partial z} = \frac{1}{\rho_0} \nabla_H^2 \frac{\partial p'}{\partial t} \tag{VIII}
+m^2 \cong \frac{k^2 N^2}{\omega^2 - f^2}
+\quad\text{or}\quad
+\omega^2 \cong f^2 + \frac{k^2 N^2}{m^2}.
 $$
+The low-frequency limit is obtained by making the hydrostatic assumption that neglecting $\partial w / \partial t$ in the vertical equation of motion</li>
+    <li><span class='sql'>Mid-frequency regime ($f \ll \omega \ll N$)</span>:
+In this range the dispersion relation with $l = 0$ simplifies to
+$$
+m^2 \cong k^2 N^2 / \omega^2
+$$
+so that <span class='sql'>both</span> the hydrostatic and the non-rotating assumptions are applicable</li>
+</ul>
 
-Take $\partial / \partial t$ of (IV) and substitute (III) into the result:
-
-$$
-\frac{\partial^2 w}{\partial t^2}
-= -\frac{1}{\rho_0} \frac{\partial^2 p'}{\partial t \partial z}
-- \frac{g}{\rho_0} \frac{\partial \rho'}{\partial t}
-\overset{\text{(III)}}{=}
--\frac{1}{\rho_0} \frac{\partial^2 p'}{\partial t \partial z} - N^2 w 
-\Rightarrow
-\left( \frac{\partial^2}{\partial t^2} + N^2 \right) w = \frac{1}{\rho_0} \frac{\partial^2 p'}{\partial t \partial z} \tag{IX}
-$$
-
-Apply $\partial / \partial z$ to (VIII), and $\nabla_H^2$ to (IX), then add:
-
-$$
-\left( \frac{\partial^2}{\partial t^2} + f^2 \right) \frac{\partial^2 w}{\partial z^2}
-+ \nabla_H^2 \left( \frac{\partial^2 w}{\partial t^2} + N^2 w \right)
-= \frac{1}{\rho_0} \nabla_H^2 \frac{\partial^2 p'}{\partial t \partial z}
-+ \frac{1}{\rho_0} \nabla_H^2 \frac{\partial^2 p'}{\partial t \partial z}
-= 0 
-$$
-$$
-\because \nabla^2 = \nabla_H^2 + \frac{\partial^2}{\partial z^2}
-\quad \therefore
-\boxed{
-\nabla^2 \frac{\partial^2 w}{\partial t^2}
-+ f^2 \frac{\partial^2 w}{\partial z^2}
-+ N^2 \nabla_H^2 w = 0 
-}
-$$
-</p>
 
 
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture3BSlide22.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture3BSlide25.html" class="nav-button left">&#9664;</a>
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture3BSlide24.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture3BSlide27.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
