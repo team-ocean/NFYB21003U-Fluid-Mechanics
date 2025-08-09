@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
-    
 <script>
   window.MathJax = {
     tex: {
@@ -17,7 +16,6 @@
   };
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
-
     <style>
         /* Custom Bullet Points */
         .custom-list {
@@ -147,30 +145,47 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Rossby Wave</div>
+        <div class="title">Quasi-Geostrophic Vorticity Equation</div>
 <div class="description">
-In the ocean, however, their wavelengths are only about 100 km. Rossby-wave frequencies obey the inequality $\omega \ll f$. Because of this slowness, the time derivative terms are an order of magnitude smaller than the Coriolis acceleration and the pressure gradients in the horizontal equations of motion. 
-Such <span class='sql'>nearly</span> geostrophic flows are called <span class='sql'>quasi-geostrophic motions</span>.
+Inserting the approximate geostrophic expressions for velocity components
+$$
+u \ \cong\ -\frac{g}{f_0} \frac{\partial \eta}{\partial y}
+\quad \text{and} \quad 
+v \ \cong\ \frac{g}{f_0} \frac{\partial \eta}{\partial x}
+$$
 </div>
-
-<div class="image-container" style="text-align: left;">
-<img src="Figures/Lecture3B_OceanForestRossby.png" alt="OceanForestRossby" style="max-width: 99%; height: auto; display: block; margin: auto;"> 
+<div class="description">
+From these the vertical vorticity is found as
+$$
+\zeta \ =\ \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} 
+= \frac{g}{f_0} \left( \frac{\partial^2 \eta}{\partial x^2} + \frac{\partial^2 \eta}{\partial y^2} \right)
+$$
 </div>
-
-<div class="footnote-container">
-    <hr class="footnote-line">
-<p class="footnote">
-    <sup>1</sup>Lee, Martin E. and Chelton, Dudley, 1952- (1998). Inferenced oceanic Kelvin/Russby wave influence on North American West Coast precipitation. 
+<div class="description">
+The linearized potential vorticity equation \(\boxed{H\,\frac{\partial\zeta}{\partial t}+H\,\beta v-f_0\,\frac{\partial\eta}{\partial t}=0}\) becomes
+$$
+\frac{gH}{f_0} \ \frac{\partial}{\partial t} 
+\left( \frac{\partial^2 \eta}{\partial x^2} + \frac{\partial^2 \eta}{\partial y^2} \right)
++ \frac{\beta g H}{f_0} \ \frac{\partial \eta}{\partial x}
+- f_0 \ \frac{\partial \eta}{\partial t} = 0
+$$
+</div>
+<div class="description">
+$$
+\mathrel{\overset{c^2 = gH}{\Rightarrow}}\;\frac{\partial}{\partial t} 
+\left( \frac{\partial^2 \eta}{\partial x^2} + \frac{\partial^2 \eta}{\partial y^2} - \frac{f_0^2}{c^2} \eta \right)
++ \beta \ \frac{\partial \eta}{\partial x} = 0
+$$
+which is the quasi-geostrophic form of the linearized vorticity equation for flow fields that span a significant range of latitude
+</div>
+<p>
+The ratio $c/f_0$ is recognized as the <span class="highlight">Rossby radius</span>. The geostrophic relations for the velocity can be used everywhere except in the horizontal divergence term in the vorticity equation.
 </p>
-</div>
-
-
-
 
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture3BSlide29.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture3BSlide32.html" class="nav-button left">&#9664;</a>
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture3BSlide31.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture3BSlide34.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
