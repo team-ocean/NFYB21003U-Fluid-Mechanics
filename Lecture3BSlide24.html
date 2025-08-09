@@ -148,22 +148,34 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Discussion of the Dispersion Relation</div>
+        <div class="title">Internal Waves</div>
 <div class="description">
-The dispersion relation \(\boxed{m^2(z) \equiv \frac{(k^2 + l^2)(N^2(z) - \omega^2)}{\omega^2 - f^2}}\) with $l = 0$ can be written
+Assume a complex exponential traveling-wave solution of the form
 $$
-\omega^2 - f^2 = \frac{k^2}{m^2} \left( N^2 - \omega^2 \right)
-$$
-Introducing $\tan \theta = m / k$ <img src="Figures/Lecture3B_Tangent.png" 
-                alt="Tangent" 
-                style="height: 7em; vertical-align: middle;">
-$$
-\omega^2 = f^2 \sin^2 \theta + N^2 \cos^2 \theta
+(u, v, w) = (\hat{u}(z), \hat{v}(z), \hat{w}(z)) \exp \left\{ i(kx + ly - \omega t) \right\}
 $$
 </div>
-<p>$\omega$ is a function of the angle made by the wave number with the horizontal and is not a function of the magnitude of \(\mathbf{K}\). 
-    For $f = 0$, the aforementioned expression reduces to $\omega = N \cos \theta$</p>
-
+<div class="description">
+Substitution of \(\boxed{(u, v, w) = (\hat{u}(z), \hat{v}(z), \hat{w}(z)) \exp \left\{ i(kx + ly - \omega t) \right\}
+}\) into \(\boxed{\frac{\partial^2}{\partial t^2} \nabla^2 w + N^2 \nabla_H^2 w + f^2 \frac{\partial^2 w}{\partial z^2} = 0
+}\) leads to an ordinary differential equation
+$$
+(-i\omega)^2 \left[ (ik)^2 + (il)^2 + \frac{d^2}{dz^2} \right] \hat{w}
++ N^2 \left[ (ik)^2 + (il)^2 \right] \hat{w} + f^2 \frac{d^2 \hat{w}}{dz^2} = 0
+$$
+</div>
+<div class="description">
+Simplified to
+$$
+\frac{d^2 \hat{w}}{dz^2} + m^2(z) \hat{w} = 0 \quad \text{where} \quad
+m^2(z) \equiv \frac{(k^2 + l^2)(N^2(z) - \omega^2)}{\omega^2 - f^2}
+$$
+</div>
+<ul class="custom-list">
+    <li>For $m^2 < 0$, the solutions must be exponentially decaying (evanescent) with increasing depth, signifying that the resulting wave motion is surface-trapped and corresponds to a surface wave propagating horizontally</li>
+    <li>For $m^2 > 0$, the solutions are trigonometric in $z$ and correspond to internal waves propagating vertically as well as horizontally</li>
+    <li>From \(m^2(z) \equiv \frac{(k^2 + l^2)(N^2(z) - \omega^2)}{\omega^2 - f^2}\), internal waves are only possible in the frequency range lies between $f < \omega < N$, provided that $N > f$, which is typically the case in both the atmosphere and the ocean</li>
+</ul>
 
 
 

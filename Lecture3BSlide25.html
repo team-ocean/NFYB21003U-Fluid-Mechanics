@@ -148,90 +148,27 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Internal Waves</div>
+        <div class="title">Discussion of the Dispersion Relation</div>
 <div class="description">
-For the vertical velocity component \(w\) of internal waves includes Coriolis terms
-\[
-\frac{\partial^2}{\partial t^2} \nabla^2 w + N^2 \nabla_H^2 w + f^2 \frac{\partial^2 w}{\partial z^2} = 0
-\]
-
-where \(\nabla_H^2 \equiv \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} = \nabla^2 - \frac{\partial^2}{\partial z^2}\)
+The dispersion relation \(\boxed{m^2(z) \equiv \frac{(k^2 + l^2)(N^2(z) - \omega^2)}{\omega^2 - f^2}}\) with $l = 0$ can be written
+$$
+\omega^2 - f^2 = \frac{k^2}{m^2} \left( N^2 - \omega^2 \right)
+$$
+Introducing $\tan \theta = m / k$ <img src="Figures/Lecture3B_Tangent.png" 
+                alt="Tangent" 
+                style="height: 7em; vertical-align: middle;">
+$$
+\omega^2 = f^2 \sin^2 \theta + N^2 \cos^2 \theta
+$$
 </div>
-<p>
-\[
-\begin{array}{rl}
-\left\{
-\begin{array}{l}
-\displaystyle \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} = 0 \quad \text{(I)} \\[8pt]
-\displaystyle \frac{\partial u}{\partial t} - fv = -\frac{1}{\rho_0} \frac{\partial p'}{\partial x}, \quad
-\frac{\partial v}{\partial t} + fu = -\frac{1}{\rho_0} \frac{\partial p'}{\partial y} \quad \text{(II)} \\[8pt]
-\displaystyle \frac{\partial p'}{\partial z} = \rho_0 \frac{N^2}{g} w \quad \text{(III)} \\[8pt]
-\displaystyle \frac{\partial w}{\partial t} = -\frac{1}{\rho_0} \frac{\partial p'}{\partial z} - \frac{g \rho'}{\rho_0} \quad \text{(IV)}
-\end{array}
-\right.
-&
-\begin{array}{l}
-\text{Apply } \partial / \partial t \text{ to (II-1)} \\[4pt]
-\text{Multiply (II-2) by } f \\[4pt]
-\text{Add results} \\[8pt]
-\text{Then:} \\[4pt]
-\left( \frac{\partial^2}{\partial t^2} + f^2 \right) u = -\frac{1}{\rho_0} \left( \frac{\partial^2 p'}{\partial t \partial x} + f \frac{\partial p'}{\partial y} \right) \quad \text{(V)} \\[10pt]
-\text{Repeat with } -f \text{ and } \partial/\partial t \\[4pt]
-\left( \frac{\partial^2}{\partial t^2} + f^2 \right) v = -\frac{1}{\rho_0} \left( \frac{\partial^2 p'}{\partial t \partial y} - f \frac{\partial p'}{\partial x} \right) \quad \text{(VI)}
-\end{array}
-\end{array}
-\]
-</p>
-<p>
-Apply $\partial / \partial x$ to (V), $\partial / \partial y$ to (VI), and add:
-
-$$
-\left( \frac{\partial^2}{\partial t^2} + f^2 \right) \left( \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} \right)
-\overset{\text{(I)}}{=} \left( \frac{\partial^2}{\partial t^2} + f^2 \right) \left( -\frac{\partial w}{\partial z} \right) \tag{VII}
-$$
-
-$$
-\text{RHS} = -\frac{1}{\rho_0} \left( \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} \right) \frac{\partial p'}{\partial t}
-= -\frac{1}{\rho_0} \nabla_H^2 \frac{\partial p'}{\partial t} \Rightarrow \left( \frac{\partial^2}{\partial t^2} + f^2 \right) \frac{\partial w}{\partial z} = \frac{1}{\rho_0} \nabla_H^2 \frac{\partial p'}{\partial t} \tag{VIII}
-$$
-
-Take $\partial / \partial t$ of (IV) and substitute (III) into the result:
-
-$$
-\frac{\partial^2 w}{\partial t^2}
-= -\frac{1}{\rho_0} \frac{\partial^2 p'}{\partial t \partial z}
-- \frac{g}{\rho_0} \frac{\partial \rho'}{\partial t}
-\overset{\text{(III)}}{=}
--\frac{1}{\rho_0} \frac{\partial^2 p'}{\partial t \partial z} - N^2 w 
-\Rightarrow
-\left( \frac{\partial^2}{\partial t^2} + N^2 \right) w = \frac{1}{\rho_0} \frac{\partial^2 p'}{\partial t \partial z} \tag{IX}
-$$
-
-Apply $\partial / \partial z$ to (VIII), and $\nabla_H^2$ to (IX), then add:
-
-$$
-\left( \frac{\partial^2}{\partial t^2} + f^2 \right) \frac{\partial^2 w}{\partial z^2}
-+ \nabla_H^2 \left( \frac{\partial^2 w}{\partial t^2} + N^2 w \right)
-= \frac{1}{\rho_0} \nabla_H^2 \frac{\partial^2 p'}{\partial t \partial z}
-+ \frac{1}{\rho_0} \nabla_H^2 \frac{\partial^2 p'}{\partial t \partial z}
-= 0 
-$$
-$$
-\because \nabla^2 = \nabla_H^2 + \frac{\partial^2}{\partial z^2}
-\quad \therefore
-\boxed{
-\nabla^2 \frac{\partial^2 w}{\partial t^2}
-+ f^2 \frac{\partial^2 w}{\partial z^2}
-+ N^2 \nabla_H^2 w = 0 
-}
-$$
-</p>
+<p>$\omega$ is a function of the angle made by the wave number with the horizontal and is not a function of the magnitude of \(\mathbf{K}\). 
+    For $f = 0$, the aforementioned expression reduces to $\omega = N \cos \theta$</p>
 
 
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture3BSlide22.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture3BSlide24.html" class="nav-button left">&#9664;</a>
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture3BSlide24.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture3BSlide26.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
