@@ -147,24 +147,25 @@ window.addEventListener('resize', scaleContainer);
     <div class="container">
         <div class="title">Dispersion Relation for Rossby Waves</div>
 <div class="description">
-The eastward phase speed is
+Frequently, Rossby waves are superposed on a strong eastward mean current, such as the atmospheric jet stream. If $U$ is the speed of this eastward current, then the observed eastward phase speed is
 $$
-c_x = \frac{\omega}{k} = -\frac{\beta}{k^2 + l^2 + f_0^2 / c^2}
+c_x = U - \frac{\beta}{k^2 + l^2 + f_0^2 / c^2}
 $$
-The negative sign shows that the <span class='sql'>phase propagation is always westward</span>
+Stationary Rossby waves can therefore form when the eastward current cancels the westward phase speed, giving $c_x = 0$
 </div>
 <p>
-The phase speed reaches a maximum when $k^2 + l^2 \to 0$, corresponding to very large wavelengths represented by the region near the origin of 
-<img src="Figures/Lecture3B_RossbyDispersionCircleOrigin.png" 
-                alt="RossbyDispersionCircleOrigin" 
-                style="height: 13em; vertical-align: middle;">. 
-In this region the waves are nearly non-dispersive and have an eastward phase speed $c_x \cong -\beta c^2 / f_0^2$. 
-With $\beta = 2 \times 10^{-11}\ \text{m}^{-1} \text{s}^{-1}$, a typical baroclinic value of $c \sim 2\ \text{m/s}$, and a mid-latitude value of $f_0 \sim 10^{-4}\ \text{s}^{-1}$, this gives $c_x \sim 10^{-2}\ \text{m/s}$.
-<span class="bullet"></span>At these slow speeds the Rossby waves would take years to cross the width of the ocean at mid-latitudes. 
-<span class="highlightkumon">Rossby waves in the ocean are therefore more important at lower latitudes, where they propagate faster.</span><br>
-However, the dispersion relation \(\boxed{\omega = -\frac{\beta k}{k^2 + l^2 + f_0^2/c^2}}\) is not valid within a latitude band of $3^\circ$ from the equator for which the assumption of a near geostrophic balance breaks down.<br>
-<span class="bullet"></span>In the atmosphere $c$ is much larger, and consequently the Rossby waves propagate faster. A typical large atmospheric disturbance can propagate as a Rossby wave at a speed of several meters per second.
+This is how stationary waves are formed downstream of the topographic step in <img src="Figures/Lecture3B_EastwardVorticity.png" 
+                alt="EastwardVorticity" 
+                style="height: 11em; vertical-align: middle;">
 </p>
+$$
+c_x = U - \frac{\beta}{\,k^2 + \underbrace{l^2}_{\text{assume } l = 0} 
++ \underbrace{\cancel{\dfrac{f_0^2}{c^2}}}_{\text{negligible for barotropic flow}}}
+\ \rightarrow\ 
+\underbrace{U = \frac{\beta}{k^2}}_{\substack{\text{stationary Rossby waves,}\\\text{the eastward current cancels}\\\text{the westward phase speed,} \\c_x = 0}}\ \rightarrow\ 
+\underbrace{\lambda = 2\pi\left(\frac{U}{\beta}\right)^{1/2}}_{\text{wavelength}}
+$$
+
 
 
         <!-- Left Arrow to go back to Slide  -->
