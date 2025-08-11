@@ -9,6 +9,21 @@
     <script type="text/javascript" async 
         src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
+    <script>
+function scaleContainer() {
+  const container = document.querySelector('.container');
+  const padding = 0; // optional padding margin
+  const viewportHeight = window.innerHeight - padding;
+  const containerHeight = container.offsetHeight;
+  // Compute the scale ratio
+  const scale = Math.min(1, viewportHeight / containerHeight);
+  container.style.transform = `scale(${scale})`;
+}
+// Run on load
+window.addEventListener('load', scaleContainer);
+// Run on resize
+window.addEventListener('resize', scaleContainer);
+</script>
 </head>
 <body>
     <div class="container">
@@ -42,10 +57,10 @@
 
 
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture4ASlide5.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture4ASlide6.html" class="nav-button left">&#9664;</a>
 
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture4ASlide7.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture4ASlide8.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
