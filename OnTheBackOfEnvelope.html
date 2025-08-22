@@ -1,1 +1,400 @@
-<script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ddf1f3&w=a&t=n&d=OPKQOGhHo-7gCMldcljdv8lVxlAlOY6UExXXPy46lfI&co=ffffff&cmo=4b8ddf&cmn=7dcdf4&ct=808080'></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vintage Cookbook — Two-Page Spread</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=EB+Garamond:wght@400;600&family=Special+Elite&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#000;
+    --paper:#fff;
+    --line:1.5px;               /* slightly thinner lines */
+    --gap:0vmin;              /* space between the two pages */
+    --page-w: min(45vw, 680px); /* set by JS to fit viewport */
+
+    /* Responsive margins that scale with page size */
+    --frame-inset: 6.5%;           /* outer frame inset from page edge */
+    --frame-outline: calc(var(--line) * 1.5);  /* thinner outer outline */
+    --frame-offset: 3.5%;
+
+    --inner-inset: 12%;            /* content inset inside the frame */
+    --content-inset-top: 7%;
+    --content-inset-side: 6%;
+    --content-inset-bottom: 7%;
+
+    /* inner decorative border inside the frame */
+    --inner-frame-gap: 2.2%;
+  }
+
+  *{box-sizing:border-box}
+  html,body{
+    height:100%;
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    overflow:hidden;           /* prevent scrolling */
+  }
+  body{
+    display:grid;              /* center the spread */
+    place-items:center;
+    padding:0;
+  }
+
+  /* ===== Spread container (book-like) ===== */
+  .spread{
+    display:flex; gap:var(--gap); align-items:center; justify-content:center;
+    width:auto; height:auto;   /* no transforms; true size determined by .page width */
+  }
+
+  /* A4 pages shown side by side */
+  .page{
+    flex:0 0 auto;
+    width:var(--page-w);       /* controlled to fit viewport ratio */
+    aspect-ratio:210 / 297;    /* A4 */
+    background:var(--paper);
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 10px 24px rgba(0,0,0,.16);
+  }
+
+  /* shared double frame (responsive to page size) */
+  .frame{
+    position:absolute;
+    inset:var(--frame-inset);
+    border:var(--line) solid var(--ink);              /* main frame line (thinner) */
+    outline:var(--frame-outline) solid var(--ink);    /* outer frame line (thinner) */
+    outline-offset:var(--frame-offset);
+  }
+  .frame::before{
+    content:"";
+    position:absolute;
+    inset:var(--inner-frame-gap);
+    border:var(--line) solid var(--ink);
+    pointer-events:none;
+  }
+
+  .corner{
+    position:absolute;
+    width:1.4rem; height:1.4rem;
+    border:var(--line) solid var(--ink); background:var(--paper);
+  }
+  .corner.tl{top:calc(-0.6 * var(--frame-offset)); left:calc(-0.6 * var(--frame-offset))}
+  .corner.tr{top:calc(-0.6 * var(--frame-offset)); right:calc(-0.6 * var(--frame-offset))}
+  .corner.bl{bottom:calc(-0.6 * var(--frame-offset)); left:calc(-0.6 * var(--frame-offset))}
+  .corner.br{bottom:calc(-0.6 * var(--frame-offset)); right:calc(-0.6 * var(--frame-offset))}
+
+  /* keep content inside frame; percentage-based so it scales with page */
+  .inner{
+    position:absolute;
+    inset:var(--inner-inset);
+    display:flex; flex-direction:column; align-items:center; text-align:center;
+  }
+
+  /* ===== Left page: COVER ===== */
+  .cover{font-family:"EB Garamond", Garamond, "Times New Roman", serif; letter-spacing:.01em;}
+  .cover::before{
+    content:""; position:absolute; inset:0;
+    background:
+      repeating-linear-gradient(45deg, rgba(0,0,0,.05) 0 2px, transparent 2px 18px),
+      repeating-linear-gradient(-45deg, rgba(0,0,0,.05) 0 2px, transparent 2px 18px);
+    pointer-events:none;
+  }
+  .author{
+    font-family:"Cinzel", serif; font-weight:700; letter-spacing:.18em;
+    font-size:clamp(10px, 1.6vmin, 18px); margin:0 0 2.2vmin;
+  }
+  .smallcap{
+    font-family:"Cinzel", serif; font-weight:700; text-transform:uppercase;
+    letter-spacing:.45em; font-size:clamp(10px, 1.5vmin, 18px); margin-bottom:.4vmin;
+  }
+  .title{ margin:0; line-height:1.02; text-transform:uppercase; font-family:"Cinzel", serif;}
+  .title .vintage{font-weight:900; font-size:clamp(22px, 5.8vmin, 64px); letter-spacing:.06em}
+  .title .church{font-weight:900; font-size:clamp(20px, 5.2vmin, 58px); letter-spacing:.06em}
+  .title .cookbook{font-weight:700; font-size:clamp(12px, 2.4vmin, 26px); letter-spacing:.34em; margin-top:.8vmin}
+
+  .divider{display:flex;align-items:center;gap:1rem;margin:1.6vmin 0 1.4vmin;width:100%;}
+  .divider::before,.divider::after{content:"";flex:1;height:0;border-top:var(--line) solid var(--ink);}
+  .diamond{width:.7rem;height:.7rem;transform:rotate(45deg);border:var(--line) solid var(--ink);background:var(--paper);}
+
+  .subtitle{
+    font-weight:600; letter-spacing:.28em; text-transform:uppercase;
+    font-size:clamp(10px, 1.6vmin, 18px); margin:0 0 2vmin;
+  }
+  .pot{
+    margin-top:auto; width:56%; aspect-ratio:3/2; border:var(--line) dashed var(--ink);
+    display:grid; place-items:center; font-family:"Cinzel", serif; text-transform:uppercase;
+    letter-spacing:.2em; font-size:clamp(9px, 1.4vmin, 16px);
+    background:
+      radial-gradient(circle at 50% 10%, rgba(0,0,0,.06), transparent 45%),
+      radial-gradient(circle at 50% 90%, rgba(0,0,0,.06), transparent 45%);
+  }
+.flourish {
+  margin-top: 1.1rem;
+  position: relative;
+  width: 56%;   /* match .pot width */
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flourish::before,
+.flourish::after {
+  content: "";
+  flex: 1;
+  border-top: var(--line) solid var(--ink);
+  opacity: 0.9;         /* slightly aged look */
+}
+
+.flourish::before { margin-right: 0.8rem; }
+.flourish::after  { margin-left:  0.8rem; }
+
+.flourish .star {
+  font-family: "Cinzel", serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  position: relative;
+  top: -0.05rem;
+  background: var(--paper); /* keeps the lines from touching the star */
+  padding: 0 0.2rem;
+}
+
+  /* ===== Right page: CONTENT (typewriter) ===== */
+  .content{font-family:"Special Elite", monospace;}
+  .content-inner{
+    position:absolute;
+    inset:var(--content-inset-top) var(--content-inset-side) var(--content-inset-bottom);
+    display:block; text-align:left;
+  }
+  .content h2{
+    font-size:clamp(16px, 3.0vmin, 34px);
+    text-align:center; letter-spacing:.08em; margin:0 0 .4vmin;
+  }
+  .underline{
+    width:clamp(90px, 22vmin, 220px); height:0; border-top:var(--line) solid var(--ink);
+    margin:.6vmin auto 1.4vmin;
+  }
+  .content p{
+    font-size:clamp(11px, 1.8vmin, 18px);
+    line-height:1.55; margin:.2vmin 0 .8vmin;
+    overflow-wrap:anywhere;
+  }
+  .content b{font-weight:700}
+
+  @media (max-width: 920px){
+    .page{width:var(--page-w);}
+  }
+
+  @media print{
+    body{background:var(--paper); padding:0}
+    .spread{gap:0; display:block}
+    .page{width:210mm; height:297mm; box-shadow:none; page-break-after:always;}
+    .frame{inset:18mm}
+    .inner{inset:32mm}
+    .content-inner{inset:auto; padding:0}
+  }
+  /* Dark cover style */
+.page.cover {
+  background: var(--ink);   /* black background */
+  color: var(--paper);      /* default text white */
+}
+
+.page.cover .frame,
+.page.cover .frame::before,
+.page.cover .corner,
+.page.cover .divider::before,
+.page.cover .divider::after,
+.page.cover .diamond,
+.page.cover .pot,
+.page.cover .flourish::before,
+.page.cover .flourish::after {
+  border-color: var(--paper);   /* lines/borders in white */
+}
+
+.page.cover .diamond,
+.page.cover .pot,
+.page.cover .corner {
+  background: var(--ink);   /* keep background black inside shapes */
+}
+
+.page.cover .flourish .star {
+  color: var(--paper);      /* star white */
+  background: var(--ink);   /* black block behind it */
+}
+/* Dark cover style */
+.page.cover {
+  background: var(--ink);   /* black background */
+  color: var(--paper);      /* default text white */
+}
+
+.page.cover .frame,
+.page.cover .frame::before,
+.page.cover .corner,
+.page.cover .divider::before,
+.page.cover .divider::after,
+.page.cover .diamond,
+.page.cover .pot,
+.page.cover .flourish::before,
+.page.cover .flourish::after {
+  border-color: var(--paper);   /* lines/borders in white */
+}
+
+.page.cover .diamond,
+.page.cover .pot,
+.page.cover .corner {
+  background: var(--ink);   /* keep background black inside shapes */
+}
+
+.page.cover .flourish .star {
+  color: var(--paper);      /* star white */
+  background: var(--ink);   /* black block behind it */
+}
+
+</style>
+</head>
+<body>
+
+  <div class="spread" aria-label="Two-page book spread">
+    <!-- LEFT: COVER -->
+    <section class="page cover" aria-label="Cover page (left)">
+      <div class="frame" aria-hidden="true">
+        <span class="corner tl"></span><span class="corner tr"></span>
+        <span class="corner bl"></span><span class="corner br"></span>
+      </div>
+
+      <div class="inner">
+        <div class="author">TeamOcean</div>
+        <div class="smallcap">THE</div>
+
+        <h1 class="title" aria-label="The Vintage Church Cookbook">
+          <div class="vintage">BORNÖ</div>
+          <div class="church">STATION</div>
+          <div class="cookbook">COOKBOOK</div>
+        </h1>
+
+        <div class="divider" aria-hidden="true"><span class="diamond"></span></div>
+        <p class="subtitle">Recipes From Participants</p>
+
+        <div class="pot">Pot Image Placeholder</div>
+        <div class="flourish" aria-hidden="true">
+          <span class="star">⚝</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- RIGHT: CONTENT -->
+    <section class="page content" aria-label="Secrets of Good Cooking (right)">
+      <div class="frame" aria-hidden="true">
+        <span class="corner tl"></span><span class="corner tr"></span>
+        <span class="corner bl"></span><span class="corner br"></span>
+      </div>
+
+      <div class="content-inner">
+        <h2>Food <br>Glorious&nbsp;Food!</h2>
+        <div class="underline" aria-hidden="true"></div>
+
+        <p>The addition of one or two teaspoons of Royal Baking Powder to pie crust and other plain pastry will add wonderfully to its qualities, making it very light and fluffy.</p>
+
+        <p>A teaspoon of Royal Baking Powder added to a dish of <b>mashed or creamed potatoes</b> greatly improves its appearance.</p>
+
+        <p><b>Royal Baking Powder</b> may be added with great advantage to <b>bread pudding, poultry dressing</b> and other preparations in which broken bread or bread crumbs are used.</p>
+
+        <p>A little Royal Baking Powder added to <b>stuffed or devilled crabs</b> furnishes a fluffy lightness particularly appetizing.</p>
+
+        <p><b>Omelettes</b> are improved by the addition of a small amount, a teaspoon or less, of Royal Baking Powder.</p>
+
+        <p>An excellent <b>rice pudding</b> may be made <b>without eggs</b> by combining a cup of milk, one-half cup cooked rice, one and one-half tablespoons cornstarch, and one and one-half teaspoons Royal Baking Powder, one-half cup raisins, one-half cup sugar and one-half teaspoon vanilla. Bake in a moderate oven about one-half hour.</p>
+
+        <p>Royal Baking Powder is also used to advantage in making the <b>batter</b> when <b>chicken, chops, fritters, etc.</b> are fried in deep fat.</p>
+
+        <p><b>White and boiled icings</b> are improved in texture and flavor by the addition of a teaspoon of Royal Baking Powder. The icings are made more fluffy and decorative effects are more easily accomplished.</p>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Fit two A4 pages + gap into the viewport (no global transforms).
+    function fitPagesToViewport() {
+      const spread = document.querySelector('.spread');
+      if (!spread) return;
+
+      const style = getComputedStyle(spread);
+      const gapPx = parseFloat(style.gap) || 0;
+
+      // A4 aspect ratio (H/W)
+      const a4HtoW = 297 / 210;
+
+      // Limit by height and width
+      const maxByHeight = window.innerHeight / a4HtoW;
+      const maxByWidth  = (window.innerWidth - gapPx) / 2;
+
+      // Page width is the limiting dimension
+      const pageW = Math.max(0, Math.min(maxByHeight, maxByWidth));
+
+      document.documentElement.style.setProperty('--page-w', pageW + 'px');
+
+      // After sizing, scale inner content to fit and center.
+      scaleContentToFit();
+    }
+
+    // Scale and center an absolutely positioned inner box so its content
+    // fits within its box with a generous safety margin.
+    function scaleAndCenter(el) {
+      if (!el) return;
+
+      // Reset any previous transform
+      el.style.transform = 'none';
+      el.style.transformOrigin = 'top left';
+
+      // Deflate available area slightly to avoid touching borders
+      const availW = Math.max(0, el.clientWidth  - 1); // minus 1px guard
+      const availH = Math.max(0, el.clientHeight - 1);
+
+      // Natural content size (may overflow)
+      const contentW = el.scrollWidth;
+      const contentH = el.scrollHeight;
+
+      // Safety margin to keep text comfortably inside (6%)
+      const margin = 0.08;
+
+      const scaleW = (availW * (1 - margin)) / contentW;
+      const scaleH = (availH * (1 - margin)) / contentH;
+
+      const scale = Math.min(1, scaleW, scaleH);
+
+      // Center the scaled content; round to whole pixels to avoid sub-pixel bleed
+      const scaledW = contentW * scale;
+      const scaledH = contentH * scale;
+
+      const dx = Math.max(0, Math.round((availW - scaledW) / 2));
+      const dy = Math.max(0, Math.round((availH - scaledH) / 2));
+
+      el.style.transform = `translate(${dx}px, ${dy}px) scale(${scale})`;
+    }
+
+    function scaleContentToFit() {
+      const leftInner  = document.querySelector('.page.cover .inner');
+      const rightInner = document.querySelector('.page.content .content-inner');
+
+      scaleAndCenter(leftInner);
+      scaleAndCenter(rightInner);
+    }
+
+    // Refit when fonts finish loading to avoid mis-measurements
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => { fitPagesToViewport(); });
+    } else {
+      window.addEventListener('load', fitPagesToViewport);
+    }
+
+    window.addEventListener('resize', fitPagesToViewport, { passive: true });
+  </script>
+
+</body>
+</html>
