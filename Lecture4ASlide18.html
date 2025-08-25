@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+<script>
+  window.MathJax = {
+    tex: {
+      packages: {'[+]': ['ams']},  // add ams package
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    },
+    loader: {load: ['[tex]/ams']}
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+        /* Center the table horizontally */
+        .slide table {
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        /* Left-align table text */
+        .slide table th,
+        .slide table td {
+        text-align: left;
+        }
+
+        /* Custom bullet list styled as flex container */
+    ul.custom {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
+    }
+    ul.custom li {
+      flex: 0 0 45%; /* roughly two items per row */
+      display: flex;
+      align-items: center;
+      gap: 10px; /* space between the text and image */
+      position: relative;
+      padding-left: 20px; /* extra padding for the bullet */
+    }
+    ul.custom li::before {
+      content: "■"; /* Unicode for small square bullet */
+      color: #7DCDF4;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Ensure images align properly */
+    ul.custom li img {
+      max-width: 49%;
+      height: auto;
+    }
+
+    .highlight {
+    background-color:rgba(221, 241, 243, 0.8); 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    .highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+
+.image-container {
+    margin-bottom: 0px; /* or even 0 if you want no space */
+}
+
+.image-container p {
+    margin-bottom: 0px; /* reduce space under paragraphs */
+}
+
+.image-container img {
+    margin-top: 0px; /* reduce space above images */
+}
+
+    </style>
+<script>
+function scaleContainer() {
+  const container = document.querySelector('.container');
+  const padding = 0; // optional padding margin
+  const viewportHeight = window.innerHeight - padding;
+  const containerHeight = container.offsetHeight;
+  // Compute the scale ratio
+  const scale = Math.min(1, viewportHeight / containerHeight);
+  container.style.transform = `scale(${scale})`;
+}
+// Run on load
+window.addEventListener('load', scaleContainer);
+// Run on resize
+window.addEventListener('resize', scaleContainer);
+</script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="title">Grid Generation and Grid Independence</div>
+
+<div class="description">
+Situations arise in which a structured grid is preferred (e.g., the CFD code requires structured grids, boundary layer zones need high resolution, or the simulation is pushing the limits of available computer memory). 
+Generation of a structured grid is straightforward for geometries with straight edges. 
+All we need to do is divide the computational domain into four-sided (2-D) or six-sided (3-D) <span class='sql'>blocks</span> or <span class='sql'>zones</span>. 
+Inside each block, we generate a structured grid. Such an analysis is called <span class='sql'>multiblock</span> analysis. 
+For more complicated geometries with curved surfaces, we need to determine how the computational domain can be divided into individual blocks that may or may not have flat edges (2-D) or faces (3-D)
+</div>
+
+<div class="description">
+Some CFD codes accept only <span class='sql'>elementary blocks</span>, namely, <span class='sql'>blocks whose edges or faces cannot be split</span>. Multiblock grids are <span class='sql'>necessary</span> for structured grids of complex geometry
+</div>
+
+<div class="description">
+<div class="image-container" style="text-align: left;">
+<p>A <span class='sql'>hybrid grid</span> is one that combines regions or blocks of structured and unstructured grids. 
+For example, you can mate a structured grid 
+block close to a wall with an unstructured grid block outside of the region of influence of the boundary layer.
+<br><br>
+A hybrid grid is often used to enable high resolution near a wall without requiring high resolution away from the wall
+</p>  
+<img src="Figures/Lecture4A_HybridGrid.png" alt="HybridGrid" style="max-width: 29%; height: auto; display: block; margin: auto;">      
+</div>
+</div>
+
+<div class="image-container" style="text-align: left;">
+<img src="Figures/Lecture4A_3DCell.png" alt="3DCell" style="max-width: 29%; height: auto; display: block; margin: auto;">      
+<p>If a four-sided 2-D face with structured cells is swept in the third dimension, a fully structured 3-D mesh is produced, consisting of <span class='sql'>hexahedral</span> cells (n = 6 faces per cell). 
+    When a 2-D face with unstructured triangular cells is swept in the third direction, the 3-D mesh can consist of <span class='sql'>prism</span> cells (n = 5 faces per cell) or <span class='sql'>tetrahedral</span> cells (n = 4 faces per cell—like a pyramid).<br><br>
+The most recent enhancement in grid generation is the use of <span class='sql'>polyhedral meshes</span>, such a mesh consists of cells of many faces, called polyhedral cells.
+<br><br>
+<span class='highlight'>Time spent generating a good grid is time well spent</span>, since the CFD results will be more reliable and may converge more rapidly. 
+A high-quality grid is critical to an accurate CFD solution; a poorly resolved or low-quality grid may even lead to an incorrect solution. 
+It is important for users of CFD to test if their solution is <span class='sql'>grid independent</span>. The standard method to test for grid independence is to increase the resolution (by a factor of 2 in all directions if feasible) and repeat the simulation.
+</p>
+</div>
+
+
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>Fluid Mechanics: Fundamentals and Applications Fourth Edition. Çengel and J. M. Cimbala, McGraw-Hill, New York (2018)
+            </p>
+        </div>
+
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture4ASlide17.html" class="nav-button left">&#9664;</a>
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture4ASlide19.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>
