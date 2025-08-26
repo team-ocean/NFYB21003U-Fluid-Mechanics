@@ -145,34 +145,40 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Finite Difference Approximation</div>
+        <div class="title">Finite Volume Approximation</div>
+
 <div class="description">
-The Finite Difference Method is the oldest method for numerical solution of PDE's, believed to have been introduced by Euler in the 18th century. It is also the easiest method to use for simple geometries. 
-The starting point is the conservation equation in differential form. The solution domain is covered by a grid. At each grid point, the differential equation is approximated by replacing the partial derivatives by approximations in terms of the nodal values of the functions.
-The resut is one algebraic equation per grid node
+The <span class='sql'>Finite Volume</span> method is essentially a three-dimensional application of the finite difference method. It uses the the integral form of the conservation equations as its starting point. The solution domain is subdivided into a 
+finite number of contiguous <span class='sql'>control volumes</span>, and the conservation eqiatopms are applied to each control volume. 
+At the centroid of each control volume lies a computational node at which the variable values are to be calculated
 </div>
 
 <div class="description">
-We solve $$
-\frac{\partial f}{\partial t} 
-+ U \frac{\partial f}{\partial x} 
-= D \frac{\partial^2 f}{\partial x^2}
-$$ numerically on the discrete grid
+The Finite Volume method can accommodate any type of grid, so it is suitable for complex geometries. The grid defines only the control volume boundaries and need not be related to a coordinate system.
+The methid is conservative by construction, so long as surface integrals (which represent convection and diffusion fluxes) are the same for the control volumes sharing the boundary
+</div>
+
 <div class="image-container" style="text-align: left;">
-<p>Here the spatial dimension (horizontal axis) is discretized by grid points labeled $j = 1 \ldots N$ that are assumed to be evenly spaced and separated by $\Delta x$. If the coordinate of point $j$ is $x_j$, then the coordinates of point $j+1$ is $x_j + \Delta x$, and so on. Time is indicated by the vertical axis and $f$ at the current time $t$ is denoted by superscript $n$, and the next one, at time $t + \Delta t$, is denoted by $n+1$</p>
-<img src="Figures/Lecture4A_GridFiniteDifferenceApproximation.png" alt="GridFiniteDifferenceApproximation" style="max-width: 39%; height: auto; display: block; margin: auto;">      
+<p>
+The control volumes are of width $\Delta x$ and the boundaries (the dashed lines) are located half way between the nodes, at $x_{i \pm 1/2}$. If we approximate the integral by $\Delta x f_j$ and use the same one-sided approximation for the time derivative as we used for the finite difference approach, then the conservation law becomes
+$$
+\frac{f_j^{n+1} - f_j^n}{\Delta t} = \frac{1}{\Delta x}(F_{\text{in}} - F_{\text{out}})
+$$
+</p>
+<img src="Figures/Lecture4A_FiniteVolumeDiscretization.png" alt="FiniteVolumeDiscretization" style="max-width: 39%; height: auto; display: block; margin: auto;">      
 </div>
-</div>
+<p>Evaluating the fluxes at the current time step and identifying $F_{\text{out}} = F_{j+1/2}^n$ and $F_{\text{in}} = F_{j-1/2}^n$
+$$
+\frac{f_j^{n+1} - f_j^n}{\Delta t} = \frac{F_{j+1/2}^n - F_{j-1/2}^n}{\Delta x}
+$$
+To compute the fluxes, approximate $f$ at the $j+1/2$ boundary as the average of the average value of $f$ in the $j$ and the $j+1$ control volume and the first derivative of $f$ as the difference between $f_{j+1}$ and $f_j$, divided by $\Delta x$
+$$
+F_{j+1/2} = \frac{U}{2}(f_{j+1} + f_j) - D\left(\frac{f_{j+1} - f_j}{\Delta x}\right)
+$$ 
+</p>
 
-<div class="description">
-At grid point $j$ at time $n$
-$$
-\left.\frac{\partial f}{\partial t}\right)_{j}^{n}
-+ U \left.\frac{\partial f}{\partial x}\right)_{j}^{n}
-= D \left.\frac{\partial^{2} f}{\partial x^{2}}\right)_{j}^{n}
-$$
-To approximate the derivatives based on the discrete values of $f$ that are available to us we use a Taylor series
-</div>
+
+
         <!-- Footnote Section -->
         <div class="footnote-container">
             <hr class="footnote-line">
@@ -182,9 +188,9 @@ To approximate the derivatives based on the discrete values of $f$ that are avai
         </div>
 
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture4ASlide19.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture4ASlide25.html" class="nav-button left">&#9664;</a>
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture4ASlide21.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture4ASlide27.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
