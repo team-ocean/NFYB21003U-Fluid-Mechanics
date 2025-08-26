@@ -147,35 +147,27 @@ window.addEventListener('resize', scaleContainer);
     <div class="container">
         <div class="title">Finite Volume Approximation</div>
 
-<div class="description">
-The <span class='sql'>Finite Volume</span> method is essentially a three-dimensional application of the finite difference method. It uses the the integral form of the conservation equations as its starting point. The solution domain is subdivided into a 
-finite number of contiguous <span class='sql'>control volumes</span>, and the conservation eqiatopms are applied to each control volume. 
-At the centroid of each control volume lies a computational node at which the variable values are to be calculated
-</div>
-
-<div class="description">
-The Finite Volume method can accommodate any type of grid, so it is suitable for complex geometries. The grid defines only the control volume boundaries and need not be related to a coordinate system.
-The methid is conservative by construction, so long as surface integrals (which represent convection and diffusion fluxes) are the same for the control volumes sharing the boundary
-</div>
+<ul class="custom-list">
+<li>The usual approach is to define control volumes by a suitable grid and assign the computational node to the control volume center</li>
+<li>However, one could as well (for structured grids) define the nodal locations first and construct control volumes around them, so that control volume faces lie midway between nodes</li>
+</ul>
 
 <div class="image-container" style="text-align: left;">
-<p>
-The control volumes are of width $\Delta x$ and the boundaries (the dashed lines) are located half way between the nodes, at $x_{i \pm 1/2}$. If we approximate the integral by $\Delta x f_j$ and use the same one-sided approximation for the time derivative as we used for the finite difference approach, then the conservation law becomes
-$$
-\frac{f_j^{n+1} - f_j^n}{\Delta t} = \frac{1}{\Delta x}(F_{\text{in}} - F_{\text{out}})
-$$
-</p>
-<img src="Figures/Lecture4A_FiniteVolumeDiscretization.png" alt="FiniteVolumeDiscretization" style="max-width: 39%; height: auto; display: block; margin: auto;">      
+<img src="Figures/Lecture4A_FiniteVolumeGrids.png" alt="FiniteVolumeGrids" style="max-width: 45%; height: auto; display: block; margin: auto;">    
+<p><span class="bullet"></span>The advantage of the first approach is that the nodal value represents the mean over the control volume volume to higher accuracy (second order) than in the second approach, because the node is located at the centroid of the control volume.<br>
+<span class="bullet"></span>The advantage of the second approach is that central difference scheme approximations of derivatives at control volume faces are more accurate when the face is midway between two nodes.</p>  
 </div>
-<p>Evaluating the fluxes at the current time step and identifying $F_{\text{out}} = F_{j+1/2}^n$ and $F_{\text{in}} = F_{j-1/2}^n$
-$$
-\frac{f_j^{n+1} - f_j^n}{\Delta t} = \frac{F_{j+1/2}^n - F_{j-1/2}^n}{\Delta x}
-$$
-To compute the fluxes, approximate $f$ at the $j+1/2$ boundary as the average of the average value of $f$ in the $j$ and the $j+1$ control volume and the first derivative of $f$ as the difference between $f_{j+1}$ and $f_j$, divided by $\Delta x$
-$$
-F_{j+1/2} = \frac{U}{2}(f_{j+1} + f_j) - D\left(\frac{f_{j+1} - f_j}{\Delta x}\right)
-$$ 
-</p>
+
+        <div class="image-container" style="display: flex; justify-content: center; gap: 20px; margin-top: 10px;">
+            <div class="image-box" style="width: 49%; text-align: center;">
+                <img src="Figures/Lecture4A_ControlVolumeCartesian.png" alt="ControlVolumeCartesian" style="max-width: 100%; height: auto; border: none;">
+                <p class="caption" style="font-size: 12px;">A typical control volume and the notation used for a Cartesian 2D grid</p>
+            </div>
+            <div class="image-box" style="width: 49%; text-align: center;">
+                <img src="Figures/Lecture4A_ControlVolumeCartesian3D.png" alt="ControlVolumeCartesian3D" style="max-width: 100%; height: auto; border: none;">
+                <p class="caption" style="font-size: 12px;">A typical control volume and the notation used for a Cartesian 3D grid</p>
+            </div>
+        </div>
 
 
         <!-- Footnote Section -->
@@ -187,9 +179,9 @@ $$
         </div>
 
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture4ASlide25.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture4ASlide26.html" class="nav-button left">&#9664;</a>
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture4ASlide27.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture4ASlide28.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
