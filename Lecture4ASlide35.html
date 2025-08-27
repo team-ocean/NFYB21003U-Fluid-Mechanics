@@ -156,9 +156,56 @@ window.addEventListener('resize', scaleContainer);
         <div class="title">Finite Element Method</div>
 
 <div class="description">
-
+The Finite Element method is similar to the Finite Volume method in many ways. The domain is broken
+into a set of discrete volumes or finite elements that are generally unstructured
+<ul class="custom-list">
+<li>In 2D, they are usually triangles or quadrilaterals</li>
+<li>In 3D tetrahedra or hexahedra are most often used</li>
+</ul>
+</div>
+<div class="description">
+The distinguishing feature of Finite Element methoda is that the equations
+are multiplied by a <span class='sql'>weight function</span> before they are integrated over the entire domain.
+In the simplest Finite Element method, the solution is approximated by a linear shape function
+within each element in a way that guarantees continuity of the solution across element
+boundaries. Such a function can be constructed from its values at the corners of the
+elements. The weight function is usually of the same form
+</div>
+<div class="description">
+This approximation is then substituted into the weighted integral of the conservation law and the equations to be solved are derived by requiring the derivative of the
+integral with respect to each nodal value to be zero; this corresponds to selecting the
+best solution within the set of allowed functions (the one with minimum residual).
+The result is a set of non-linear algebraic equations
+</div>
+<div class="description">
+An important advantage of finite element methods is the ability to deal with
+arbitrary geometries
+<ul class="custom-list">
+<li>There is an extensive literature devoted to the construction of
+grids for finite element methods</li>
+<li>The grids are easily refined; each element is simply
+subdivided</li>
+<li>Finite element methods are relatively easy to analyze mathematically
+and can be shown to have optimality properties for certain types of equations</li>
+</ul>
 </div>
 
+<div class="description">
+A hybrid method called <span class='sql'>control-volume-based finite element method</span> (CVFEM)
+should also be mentioned. In it, shape functions are used to describe the variation
+of the variables over an element. Control volumes are formed around each node by
+joining the centroids of the elements. The conservation equations in integral form
+are applied to these CVs in the same way as in the finite volume method. The fluxes
+through CV boundaries and the source terms are calculated element-wise
+</div>
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>Ferziger, Joel & Perić, Milovan & Street, Robert. (2020). Computational Methods for Fluid Dynamics. 10.1007/978-3-319-99693-6.
+            </p>
+        </div>
 
         <!-- Left Arrow to go back to Slide  -->
         <a href="Lecture4ASlide34.html" class="nav-button left">&#9664;</a>
