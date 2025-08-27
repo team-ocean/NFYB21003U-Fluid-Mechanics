@@ -145,66 +145,39 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">The Courant–Friedrichs–Lewy (CFL) Condition</div>
+        <div class="title">The Courant-Friedrichs-Lewy (CFL) Condition</div>
 <div class="description">
-If the conservation equation is rewritten in a form which resembles the ordinary differential equation, any method of time integration can be used
+In 2D, the physical meaning of the Courant number is the ratio of the distance traveled by the fluid during one time step to the grid spacing
 $$
-\frac{\partial (\rho \phi)}{\partial t}
-= - \nabla \cdot (\rho \phi \mathbf{v})
-+ \nabla \cdot \big( \Gamma \nabla \phi \big)
-+ q_{\phi}
-= f\big(t, \phi(t)\big)
+Co \;=\; \frac{\text{Fluid distance}}{\text{Cell distance}} 
+\;=\; \frac{U\,\Delta t}{\Delta x}
 $$
-In order to study properties of the explicit Euler and other simple schemes, we consider the 1D version of the conservation equation with constant velocity, constant fluid properties, and no source terms
-$$
-\frac{\partial \phi}{\partial t}
-= -u \frac{\partial \phi}{\partial x}
-+ \frac{\Gamma}{\rho} \frac{\partial^2 \phi}{\partial x^2}
-$$
-It assumes that the important balance is
-between advection and streamwise diffusion, a balance that rarely occurs in real
-flows. For this reason, one must be careful about extending what is learned from
-this equation to the Navier–Stokes equations
 </div>
 
-<p>First assume that the spatial derivatives are approximated using central difference scheme and that the grid is uniform in the $x$-direction. In this case the same algebraic equation results from both Finite Difference and Finite Volume discretizations. The new variable value $\phi_i^{n+1}$ is:
-$$
-\phi_i^{n+1}
-= \phi_i^n + \left[ -u \frac{\phi_{i+1}^n - \phi_{i-1}^n}{2 \Delta x}
-+ \frac{\Gamma}{\rho} \frac{\phi_{i+1}^n + \phi_{i-1}^n - 2 \phi_i^n}{(\Delta x)^2} \right] \Delta t
-\Rightarrow
-\phi_i^{n+1}
-= (1 - 2d)\,\phi_i^n + \left(d - \tfrac{c}{2}\right)\phi_{i+1}^n
-+ \left(d + \tfrac{c}{2}\right)\phi_{i-1}^n 
-$$
-where we introduced the dimensionless parameters
-$$
-\overbrace{d \;=\; \underbrace{\frac{\Gamma\,\Delta t}{\rho(\Delta x)^2}}_{\text{time required for a disturbance to diffuse over }\Delta x}}^{\substack{\text{ratio of }\Delta t\text{ to}\\\text{characteristic diffusion time}}}
-\quad
-\overbrace{c \;=\; \underbrace{\frac{u\,\Delta t}{\Delta x}}_{\text{time required for a disturbance to convect over }\Delta x}}^{\substack{\text{ratio of }\Delta t\text{ to}\\\text{characteristic convection time}}}
-$$
-<span class="highlight">The ratio (\(c\)) is called the <span class='sql'>Courant number</span> and is one
-of the key parameters in computational fluid dynamics.</span> <span class="highlightkumon">This number is often called the CFL number, where CFL stands for the initials of R. Courant, K.
-Friedrichs and H. Lewy, who first defined it in their paper from 1928.</span>
+<div class="image-container" style="text-align: left;">
+<img src="Figures/Lecture4A_CorantNumber.png" alt="CorantNumber" style="max-width: 69%; height: auto; display: block; margin: auto;">      
+<p>When the Courant number $Co = 0.3$, it can be interpreted that during one time step the fluid travels a distance equal to 30% of the grid spacing.
+    When $Co = 1.1$, the fluid travels a distance exceeding the grid spacing by 10% within one time step.</p>
+</div>
+<p>When the time step, flow velocity, or grid spacing changes, the Courant number will also change. Therefore, the Courant number can be simply understood as a ratio that indicates the distance a fluid travels within a grid cell during a given time step.
+<span class="highlightkumon">The meaning of the CFL condition is that the physical domain of dependence of the numerical scheme must be covered by the numerical domain of dependence. This is also why under explicit schemes the CFL number must be less than 1.</span>
 </p>
 
-
-        <!-- Footnote Section -->
-        <div class="footnote-container">
-            <hr class="footnote-line">
-            <p class="footnote">
-                <sup>1</sup>Ferziger, Joel & Perić, Milovan & Street, Robert. (2020). Computational Methods for Fluid Dynamics. 10.1007/978-3-319-99693-6.
-            </p>
-            <p class="footnote">
-                <sup>2</sup>Courant, R., Friedrichs, K., & Lewy, H. (1928). Über die partiellen Differenzengleichungen der
-mathematischen Physik.<i>Mathematische Annalen</i>, 100, 32–74.
-            </p>
-        </div>
+<div class="image-container" style="text-align: left;">
+<p>In 3D grids, there are tetrahedral, hexahedral, and polyhedral meshes of various complexities. We therefore require a more general definition of the Courant number so that it can be applied to complex 3D grids</p>
+<img src="Figures/Lecture4A_Corant3D.png" alt="Corant3D" style="max-width: 39%; height: auto; display: block; margin: auto;">      
+</div>
+<p>It is necessary to find a method that is applicable to all types of grid cells in order to define the grid length $\Delta x$ and velocity $U$. These two quantities can then be used as the denominator and numerator in the Courant number formula.
+    In CFD, the grid length $\Delta x$ is defined as the ratio of the cell volume to the total surface area of the cell
+$$
+\Delta x \;=\; \frac{\text{Cell Volume}}{\text{Total Surface Area}} \;=\; \frac{V}{A}
+$$
+</p>
 
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture4ASlide31.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture4ASlide32.html" class="nav-button left">&#9664;</a>
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture4ASlide33.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture4ASlide34.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
