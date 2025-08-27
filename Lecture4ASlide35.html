@@ -153,73 +153,17 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">The Courant-Friedrichs-Lewy (CFL) Condition</div>
+        <div class="title">Finite Element Method</div>
 
-<div class="image-container" style="text-align: left;">
-<p>The next step is to consider the individual faces that make up the grid cells. We need to obtain the velocity component normal to the face.
-in three dimensions the velocity direction is not necessarily perpendicular to the face. Since velocity and the face normal are not aligned, the actual fluid displacement relevant to the Courant number is only the projection of the velocity in the face normal direction. 
-</p>
-<img src="Figures/Lecture4A_CorantFluxSurface.png" alt="CorantFluxSurface.png" style="max-width: 59%; height: auto; display: block; margin: auto;">      
-</div>
-<p>Therefore, we must take the velocity component in the face-normal direction $(U_f \cdot \hat{n}_f)$. Multiplying this component by the time step $\Delta t$ gives the fluid displacement in the face-normal direction.
-This definition method is also applicable to polygonal grids with multiple faces. In 3D grids, the Courant number is defined as
-$$
-Co = \sum_{\text{Faces}} 
-\overbrace{(U_f \cdot \hat{n}_f)}^{\text{velocity component normal to face } j}\,
-\Delta t \,
-\frac{\overbrace{A_j}^{\text{face area}}}{\underbrace{V_p}_{\text{cell volume}}}
-$$
-Due to mass conservation, this formulation inherently satisfies the condition that the total flux across all cell faces is zero
-$$
-\sum_{\text{Faces}} (U_f \cdot \hat{n}_f)\, A_f = 0
-$$
-<table>
-  <tr>
-    <td class="text">
-      We also need to introduce a factor of \( \tfrac{1}{2} \); otherwise, the flux through the control volume would be counted twice
-    </td>
-    <td class="equation"></td>
-  </tr>
-  <tr>
-    <td class="text">
-      For example, if the flux on the left face is 4 and on the right face is \(-4\), their sum is zero
-    </td>
-    <td class="equation">
-      \(-4 + 4 = 0 \quad (U_f \cdot \hat{n}_f)\)
-    </td>
-  </tr>
-  <tr>
-    <td class="text">
-      However, if we take the absolute values, the sum becomes 8, which is greater than the actual physical flux
-    </td>
-    <td class="equation">
-      \(4 + 4 = 8 \quad |U_f \cdot \hat{n}_f|\)
-    </td>
-  </tr>
-  <tr>
-    <td class="text">
-      Therefore, multiplying by \( \tfrac{1}{2} \) ensures that only one side of each pair of opposing faces is effectively considered
-    </td>
-    <td class="equation">
-      \(\tfrac{1}{2}(4 + 4) = 4 \quad \tfrac{1}{2} |U_f \cdot \hat{n}_f|\)
-    </td>
-  </tr>
-</table>
-</p>
 <div class="description">
-The definition of the Courant number in 3D grids is
-$$
-Co = \sum_{\text{Faces}} \tfrac{1}{2} \; |U_f \cdot \hat{n}_f| \; \Delta t \; \frac{A_f}{V_p}
-\Rightarrow
-Co = \tfrac{1}{2} \; \Delta t \; \frac{\sum_f |U_f \cdot \hat{n}_f| \, A_f}{V_p}
-$$
+
 </div>
 
 
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture4ASlide33.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture4ASlide34.html" class="nav-button left">&#9664;</a>
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture4ASlide35.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture4ASlide36.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
