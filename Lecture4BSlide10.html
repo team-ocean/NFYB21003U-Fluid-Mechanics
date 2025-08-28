@@ -157,95 +157,30 @@ window.addEventListener('resize', scaleContainer);
 
 
 <div class="description">
-The proper dimensionless variables for boundary-layer flow are
-$x^*=x/L,\quad y^*=y/\bar\delta=(y/L)\mathrm{Re}^{1/2},\quad u^*=u/U_\infty,\quad v^*=(v/U_\infty)\mathrm{Re}^{1/2}, \quad p^*=(p-p_\infty)/(\rho U_\infty^2)$
+$$
+\delta \sim \sqrt{\nu L / U_\infty} 
+\quad \text{or} \quad 
+\delta/L \sim 1/\sqrt{\text{Re}}
+$$
+This estimate of $\delta$ can also be obtained by noting that viscous effects diffuse to a distance of order $(\nu t)^{1/2}$ in time $t$ and that the time-of-flight for a fluid element along a body of length $L$ is of order $L/U_\infty$. 
+Substituting $L/U_\infty$ for $t$ in $(\nu t)^{1/2}$ suggests the viscous layer's diffusive thickness at $x = L$ is of order $(\nu L/U_\infty)^{1/2}$
 </div>
-
 <p>
-    \(\because \bar\delta \ll L \text{ when } \mathrm{Re}\gg 1\)<br>
-    \(\therefore \bar\delta \sim \sqrt{\frac{\nu L}{U_\infty}}
-\;\Rightarrow\;
-\frac{\bar\delta}{L}\sim \sqrt{\frac{\nu}{U_\infty L}}
-=\left(\frac{U_\infty L}{\nu}\right)^{-1/2}
-=\mathrm{Re}^{-1/2}\ll1
-\;\Rightarrow\; \bar\delta\ll L\)<br>
-\(\because \text{Continuity equation } \boxed{\partial u/\partial x+\partial v/\partial y=0} \text{ gives the scale for $v$}\)<br>
-\(\therefore \frac{\partial}{\partial x}\sim\frac{1}{L},\ \frac{\partial}{\partial y}\sim\frac{1}{\bar\delta},\ u\sim U_\infty \Rightarrow\quad \frac{U_\infty}{L}\sim \frac{v}{\bar\delta}
-\;\Rightarrow\;
-v \sim \frac{\bar\delta}{L}U_\infty
-= U_\infty\,\mathrm{Re}^{-1/2}
-\)<br>
-\(\because \text{Pressure scale at high } \mathrm{Re} \text{ (outer flow nearly irrotational)} \Rightarrow \text{the pressure variations scale with the fluid inertia}
-\)<br>
-\(\therefore \rho(\mathbf{u}\cdot\nabla)\mathbf{u}\sim\nabla p
-\;\Rightarrow\;
-\frac{\rho U_\infty^2}{L}\sim \frac{p-p_\infty}{L}
-\;\Rightarrow\;
-p-p_\infty \sim \rho U_\infty^2
-\)<br>
-<span class="highlight">\(\therefore \text{Choose nondimensional variables } x^*=\frac{x}{L},\quad
-y^*=\frac{y}{\bar\delta},\quad
-u^*=\frac{u}{U_\infty},\quad
-v^*=\frac{v}{U_\infty}\mathrm{Re}^{1/2},\quad
-p^*=\frac{p-p_\infty}{\rho U_\infty^2}
-\)</span><br>
-Confirming these scalings make the continuity equation order-one
-\(\frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}
-=\frac{U_\infty}{L}\!\left(\frac{\partial u^*}{\partial x^*}+\frac{\partial v^*}{\partial y^*}\right)=0
-\;\Rightarrow\;
-\frac{\partial u^*}{\partial x^*}+\frac{\partial v^*}{\partial y^*}=0\)
+\(\ \delta \sim (\nu t)^{1/2},\quad t\sim \frac{L}{U_\infty}\ \Rightarrow\ \delta \sim \sqrt{\frac{\nu L}{U_\infty}} \ \)<br>
+\(\ \frac{\delta}{L} \sim \frac{1}{L}\sqrt{\frac{\nu L}{U_\infty}}
+= \frac{\sqrt{\nu}}{\sqrt{U_\infty}}\cdot\frac{\sqrt{L}}{L}
+= \frac{\sqrt{\nu}}{\sqrt{U_\infty}}\cdot
+\frac{\cancel{\sqrt{L}}}{\cancel{\sqrt{L}}\ \sqrt{L}} \ \)<br>
+\(\ \frac{\delta}{L} \sim \frac{\sqrt{\nu}}{\sqrt{U_\infty}}\cdot\frac{1}{\sqrt{L}}
+= \sqrt{\frac{\nu}{U_\infty L}}
+= \left(\frac{U_\infty L}{\nu}\right)^{-1/2}
+= \mathrm{Re}_L^{-1/2} \ \)
 </p>
-
-<div class="description">
-In terms of these dimensionless variables, the steady two-dimensional equations of motion are
-$$
-\frac{\partial u^{*}}{\partial x^{*}}+\frac{\partial v^{*}}{\partial y^{*}}=0
-$$
-$$
-u^{*}\frac{\partial u^{*}}{\partial x^{*}}+v^{*}\frac{\partial u^{*}}{\partial y^{*}}
-=-\frac{\partial p^{*}}{\partial x^{*}}+\frac{1}{\mathrm{Re}}\frac{\partial^{2}u^{*}}{\partial x^{*2}}+\frac{\partial^{2}u^{*}}{\partial y^{*2}}
-$$
-$$
-\frac{1}{\mathrm{Re}}\!\left(u^{*}\frac{\partial v^{*}}{\partial x^{*}}+v^{*}\frac{\partial v^{*}}{\partial y^{*}}\right)
-=-\frac{\partial p^{*}}{\partial y^{*}}+\frac{1}{\mathrm{Re}^{2}}\frac{\partial^{2}v^{*}}{\partial x^{*2}}+\frac{1}{\mathrm{Re}}\frac{\partial^{2}v^{*}}{\partial y^{*2}}
-$$ where $\mathrm{Re}\equiv U_{\infty}L/\nu$ is an overall Reynolds number
-</div>
-<p>
-     $x$-momentum: \(u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y}
-=-\frac{1}{\rho}\frac{\partial p}{\partial x}
-+\nu\!\left(\frac{\partial^2 u}{\partial x^2}
-+\frac{\partial^2 u}{\partial y^2}\right) \Rightarrow \frac{U_\infty^2}{L}
-\!\left(
-u^*\frac{\partial u^*}{\partial x^*}
-+v^*\frac{\partial u^*}{\partial y^*}\right)
-=\frac{U_\infty^2}{L}
-\!\left(
--\frac{\partial p^*}{\partial x^*}
-+\frac{1}{\mathrm{Re}}\frac{\partial^2 u^*}{\partial x^{*2}}
-+\frac{\partial^2 u^*}{\partial y^{*2}}\right)\)<br>
-\(\Rightarrow u^*\frac{\partial u^*}{\partial x^*}
-+v^*\frac{\partial u^*}{\partial y^*}
-=-\frac{\partial p^*}{\partial x^*}
-+\frac{1}{\mathrm{Re}}\frac{\partial^2 u^*}{\partial x^{*2}}
-+\frac{\partial^2 u^*}{\partial y^{*2}}\)<br>
-$y$-momentum: \(u\frac{\partial v}{\partial x}+v\frac{\partial v}{\partial y}
-=-\frac{1}{\rho}\frac{\partial p}{\partial y}
-+\nu\!\left(\frac{\partial^2 v}{\partial x^2}
-+\frac{\partial^2 v}{\partial y^2}\right) \Rightarrow \frac{U_\infty^2}{L\,\mathrm{Re}^{1/2}}
-\!\left(
-u^*\frac{\partial v^*}{\partial x^*}
-+v^*\frac{\partial v^*}{\partial y^*}\right)
-=\frac{U_\infty^2}{L}
-\!\left(
--\mathrm{Re}^{1/2}\frac{\partial p^*}{\partial y^*}
-+\frac{1}{\mathrm{Re}^{3/2}}\frac{\partial^2 v^*}{\partial x^{*2}}
-+\frac{1}{\mathrm{Re}^{1/2}}\frac{\partial^2 v^*}{\partial y^{*2}}\right)\)<br>
-\(\Rightarrow \frac{1}{\mathrm{Re}}\!\left(
-u^*\frac{\partial v^*}{\partial x^*}
-+v^*\frac{\partial v^*}{\partial y^*}\right)
-=-\frac{\partial p^*}{\partial y^*}
-+\frac{1}{\mathrm{Re}^2}\frac{\partial^2 v^*}{\partial x^{*2}}
-+\frac{1}{\mathrm{Re}}\frac{\partial^2 v^*}{\partial y^{*2}}\)
+<p>A formal simplification of the equations of motion within the boundary layer can now be performed. The basic idea is that variations across the boundary layer occur over a much shorter length scale than variations along the layer
+    $$
+\frac{\partial}{\partial x}\sim \frac{1}{L},\qquad 
+\frac{\partial}{\partial y}\sim \frac{1}{\bar\delta}
+$$ where <span class="highlightkumon">\(\boxed{\mathrm{Re}\gg 1} \ \Rightarrow\ \frac{\bar\delta}{L}\sim \mathrm{Re}^{-1/2}\ll 1 \ \Rightarrow\ \boxed{\bar\delta \ll L}\)</span>
 </p>
 
         <!-- Left Arrow to go back to Slide  -->

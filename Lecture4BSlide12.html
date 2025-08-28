@@ -155,46 +155,33 @@ window.addEventListener('resize', scaleContainer);
     <div class="container">
         <div class="title">Boundary Layer Theory</div>
 <div class="description">
-Although the steady boundary-layer equations \(\boxed{\frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}=0,\quad
+The importance of each term in
+$$
+\frac{\partial u^{*}}{\partial x^{*}}+\frac{\partial v^{*}}{\partial y^{*}}=0
+$$
+$$
+u^{*}\frac{\partial u^{*}}{\partial x^{*}}+v^{*}\frac{\partial u^{*}}{\partial y^{*}}
+=-\frac{\partial p^{*}}{\partial x^{*}}+\frac{1}{\mathrm{Re}}\frac{\partial^{2}u^{*}}{\partial x^{*2}}+\frac{\partial^{2}u^{*}}{\partial y^{*2}}
+$$
+$$
+\frac{1}{\mathrm{Re}}\!\left(u^{*}\frac{\partial v^{*}}{\partial x^{*}}+v^{*}\frac{\partial v^{*}}{\partial y^{*}}\right)
+=-\frac{\partial p^{*}}{\partial y^{*}}+\frac{1}{\mathrm{Re}^{2}}\frac{\partial^{2}v^{*}}{\partial x^{*2}}+\frac{1}{\mathrm{Re}}\frac{\partial^{2}v^{*}}{\partial y^{*2}}
+$$ is determined by its coefficient
+</div>
+
+<div class="description">
+As $\mathrm{Re}\to\infty$, the terms with coefficients $1/\mathrm{Re}$ or $1/\mathrm{Re}^2$ drop out asymptotically
+</div>
+
+<div class="description">
+The relevant equations for laminar boundary-layer flow in dimensional form are
+$$
+\frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}=0,\qquad
 u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y}
-=-\frac{1}{\rho}\frac{\partial p}{\partial x}+\nu\,\frac{\partial^2 u}{\partial y^2},\quad
-0=-\frac{\partial p}{\partial y}}\) do represent a significant simplification of the full equations, they are still nonlinear second-order partial differential equations that can only be solved when appropriate boundary and matching conditions are specified
+=-\frac{1}{\rho}\frac{\partial p}{\partial x}+\nu\,\frac{\partial^2 u}{\partial y^2},\qquad
+0=-\frac{\partial p}{\partial y}
+$$ This scaling exercise has shown which terms must be kept and which terms may be dropped under the boundary-layer assumption
 </div>
-
-<div class="description">
-If the exterior flow is presumed to be known and irrotational (and the fluid density is constant), the pressure gradient at the edge of the boundary layer can be found by differentiating the steady constant-density Bernoulli equation (without the body force term)
-\(\boxed{p+\tfrac{1}{2}\rho U_e^2=\text{const.}}\) to find
-\[
--\,\frac{1}{\rho}\,\frac{dp}{dx}
-=
-\underbrace{U_e(x)}_{\substack{\text{velocity at the edge} \\ \text{of the boundary layer}}}\,
-\frac{dU_e}{dx}
-\]
-It represents a matching condition between the outer ideal-flow solution and the inner boundary-layer solution in the region where both solutions must be valid
-</div>
-
-<div class="description">
-The (usual) remaining boundary conditions on the fluid velocities of the inner solution are
-<ul class="custom-list">
-    <li>$$
-u(x,0)=v(x,0)=0 \quad \text{(no slip and no through flow at the wall)}
-$$</li>
-    <li>$$
-u(x, y\to\infty)=U_e(x) \quad \text{(matching of inner and outer solutions)}
-$$</li>
-<li>$$
-u(x_0,y)=u_{\text{in}}(y) \quad \text{(inlet boundary condition at } x_0\text{)}
-$$</li>
-</ul>
-</div>
-<ul class="custom-list">
-<li>\(\boxed{u(x, y\to\infty)=U_e(x) \quad \text{(matching of inner and outer solutions)}
-}\) merely means that the boundary layer must join smoothly with the outer flow; for the inner solution, points outside the boundary layer are represented by $y\to\infty$, although we mean this strictly in terms of the dimensionless distance $y/\bar\delta=(y/L)\mathrm{Re}^{1/2}\to\infty$</li>
-<li>\(\boxed{u(x_0,y)=u_{\text{in}}(y) \quad \text{(inlet boundary condition at } x_0\text{)}}\)  implies that an initial velocity profile $u_{\text{in}}(y)$ at 
-    some location $x_0$ is required for solving the problem. Such a condition is needed because the terms $u\,\partial u/\partial x$ and $v\,\partial^2 u/\partial y^2$ give the boundary-layer equations a parabolic character, with $x$ playing the role of a time-like variable</li>
-</ul>
-<p>The complete Navier–Stokes equations require boundary conditions on the velocity (or its derivative normal to the boundary) upstream, downstream, and on the top and bottom boundaries, that is, all around. (The upstream influence of the downstream boundary condition is a common concern in CFD)
-</p>
 
 
         <!-- Left Arrow to go back to Slide  -->
