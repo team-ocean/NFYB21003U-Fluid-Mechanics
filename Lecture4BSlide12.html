@@ -187,6 +187,14 @@ u(x_0,y)=u_{\text{in}}(y) \quad \text{(inlet boundary condition at } x_0\text{)}
 $$</li>
 </ul>
 </div>
+<ul class="custom-list">
+<li>\(\boxed{u(x, y\to\infty)=U_e(x) \quad \text{(matching of inner and outer solutions)}
+}\) merely means that the boundary layer must join smoothly with the outer flow; for the inner solution, points outside the boundary layer are represented by $y\to\infty$, although we mean this strictly in terms of the dimensionless distance $y/\bar\delta=(y/L)\mathrm{Re}^{1/2}\to\infty$</li>
+<li>\(\boxed{u(x_0,y)=u_{\text{in}}(y) \quad \text{(inlet boundary condition at } x_0\text{)}}\)  implies that an initial velocity profile $u_{\text{in}}(y)$ at 
+    some location $x_0$ is required for solving the problem. Such a condition is needed because the terms $u\,\partial u/\partial x$ and $v\,\partial^2 u/\partial y^2$ give the boundary-layer equations a parabolic character, with $x$ playing the role of a time-like variable</li>
+</ul>
+<p>The complete Navier–Stokes equations require boundary conditions on the velocity (or its derivative normal to the boundary) upstream, downstream, and on the top and bottom boundaries, that is, all around. (The upstream influence of the downstream boundary condition is a common concern in CFD)
+</p>
 
 
         <!-- Left Arrow to go back to Slide  -->
