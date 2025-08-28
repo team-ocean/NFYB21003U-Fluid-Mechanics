@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+<script>
+  window.MathJax = {
+    tex: {
+      packages: {'[+]': ['ams']},  // add ams package
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    },
+    loader: {load: ['[tex]/ams']}
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+        /* Center the table horizontally */
+        .slide table {
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        /* Left-align table text */
+        .slide table th,
+        .slide table td {
+        text-align: left;
+        }
+
+        /* Custom bullet list styled as flex container */
+    ul.custom {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
+    }
+    ul.custom li {
+      flex: 0 0 45%; /* roughly two items per row */
+      display: flex;
+      align-items: center;
+      gap: 10px; /* space between the text and image */
+      position: relative;
+      padding-left: 20px; /* extra padding for the bullet */
+    }
+    ul.custom li::before {
+      content: "■"; /* Unicode for small square bullet */
+      color: #7DCDF4;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Ensure images align properly */
+    ul.custom li img {
+      max-width: 49%;
+      height: auto;
+    }
+
+    .highlight {
+    background-color:rgba(221, 241, 243, 0.8); 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    .highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+
+.image-container {
+    margin-bottom: 0px; /* or even 0 if you want no space */
+}
+
+.image-container p {
+    margin-bottom: 0px; /* reduce space under paragraphs */
+}
+
+.image-container img {
+    margin-top: 0px; /* reduce space above images */
+}
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  td { 
+    border: 1px solid #444; 
+    padding: 0.25rem 0.5rem; 
+    vertical-align: top; 
+    text-align: left;
+  }
+  .text { width: 65%; }
+  .equation { width: 35%; }
+    </style>
+<script>
+function scaleContainer() {
+  const container = document.querySelector('.container');
+  const padding = 0; // optional padding margin
+  const viewportHeight = window.innerHeight - padding;
+  const containerHeight = container.offsetHeight;
+  // Compute the scale ratio
+  const scale = Math.min(1, viewportHeight / containerHeight);
+  container.style.transform = `scale(${scale})`;
+}
+// Run on load
+window.addEventListener('load', scaleContainer);
+// Run on resize
+window.addEventListener('resize', scaleContainer);
+</script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="title">Boundary Layer Theory</div>
+
+
+<div class="description">
+The proper dimensionless variables for boundary-layer flow are
+$x^*=x/L,\quad y^*=y/\bar\delta=(y/L)\mathrm{Re}^{1/2},\quad u^*=u/U_\infty,\quad v^*=(v/U_\infty)\mathrm{Re}^{1/2}, \quad p^*=(p-p_\infty)/(\rho U_\infty^2)$
+</div>
+
+<p>
+    \(\because \bar\delta \ll L \text{ when } \mathrm{Re}\gg 1\)<br>
+    \(\therefore \bar\delta \sim \sqrt{\frac{\nu L}{U_\infty}}
+\;\Rightarrow\;
+\frac{\bar\delta}{L}\sim \sqrt{\frac{\nu}{U_\infty L}}
+=\left(\frac{U_\infty L}{\nu}\right)^{-1/2}
+=\mathrm{Re}^{-1/2}\ll1
+\;\Rightarrow\; \bar\delta\ll L\)<br>
+\(\because \text{Continuity equation } \boxed{\partial u/\partial x+\partial v/\partial y=0} \text{ gives the scale for $v$}\)<br>
+\(\therefore \frac{\partial}{\partial x}\sim\frac{1}{L},\ \frac{\partial}{\partial y}\sim\frac{1}{\bar\delta},\ u\sim U_\infty \Rightarrow\quad \frac{U_\infty}{L}\sim \frac{v}{\bar\delta}
+\;\Rightarrow\;
+v \sim \frac{\bar\delta}{L}U_\infty
+= U_\infty\,\mathrm{Re}^{-1/2}
+\)<br>
+\(\because \text{Pressure scale at high } \mathrm{Re} \text{ (outer flow nearly irrotational)} \Rightarrow \text{the pressure variations scale with the fluid inertia}
+\)<br>
+\(\therefore \rho(\mathbf{u}\cdot\nabla)\mathbf{u}\sim\nabla p
+\;\Rightarrow\;
+\frac{\rho U_\infty^2}{L}\sim \frac{p-p_\infty}{L}
+\;\Rightarrow\;
+p-p_\infty \sim \rho U_\infty^2
+\)<br>
+<span class="highlight">\(\therefore \text{Choose nondimensional variables } x^*=\frac{x}{L},\quad
+y^*=\frac{y}{\bar\delta},\quad
+u^*=\frac{u}{U_\infty},\quad
+v^*=\frac{v}{U_\infty}\mathrm{Re}^{1/2},\quad
+p^*=\frac{p-p_\infty}{\rho U_\infty^2}
+\)</span><br>
+Confirming these scalings make the continuity equation order-one
+\(\frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}
+=\frac{U_\infty}{L}\!\left(\frac{\partial u^*}{\partial x^*}+\frac{\partial v^*}{\partial y^*}\right)=0
+\;\Rightarrow\;
+\frac{\partial u^*}{\partial x^*}+\frac{\partial v^*}{\partial y^*}=0\)
+</p>
+
+<div class="description">
+In terms of these dimensionless variables, the steady two-dimensional equations of motion are
+$$
+\frac{\partial u^{*}}{\partial x^{*}}+\frac{\partial v^{*}}{\partial y^{*}}=0
+$$
+$$
+u^{*}\frac{\partial u^{*}}{\partial x^{*}}+v^{*}\frac{\partial u^{*}}{\partial y^{*}}
+=-\frac{\partial p^{*}}{\partial x^{*}}+\frac{1}{\mathrm{Re}}\frac{\partial^{2}u^{*}}{\partial x^{*2}}+\frac{\partial^{2}u^{*}}{\partial y^{*2}}
+$$
+$$
+\frac{1}{\mathrm{Re}}\!\left(u^{*}\frac{\partial v^{*}}{\partial x^{*}}+v^{*}\frac{\partial v^{*}}{\partial y^{*}}\right)
+=-\frac{\partial p^{*}}{\partial y^{*}}+\frac{1}{\mathrm{Re}^{2}}\frac{\partial^{2}v^{*}}{\partial x^{*2}}+\frac{1}{\mathrm{Re}}\frac{\partial^{2}v^{*}}{\partial y^{*2}}
+$$ where $\mathrm{Re}\equiv U_{\infty}L/\nu$ is an overall Reynolds number
+</div>
+<p>
+     $x$-momentum: \(u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y}
+=-\frac{1}{\rho}\frac{\partial p}{\partial x}
++\nu\!\left(\frac{\partial^2 u}{\partial x^2}
++\frac{\partial^2 u}{\partial y^2}\right) \Rightarrow \frac{U_\infty^2}{L}
+\!\left(
+u^*\frac{\partial u^*}{\partial x^*}
++v^*\frac{\partial u^*}{\partial y^*}\right)
+=\frac{U_\infty^2}{L}
+\!\left(
+-\frac{\partial p^*}{\partial x^*}
++\frac{1}{\mathrm{Re}}\frac{\partial^2 u^*}{\partial x^{*2}}
++\frac{\partial^2 u^*}{\partial y^{*2}}\right)\)<br>
+\(\Rightarrow u^*\frac{\partial u^*}{\partial x^*}
++v^*\frac{\partial u^*}{\partial y^*}
+=-\frac{\partial p^*}{\partial x^*}
++\frac{1}{\mathrm{Re}}\frac{\partial^2 u^*}{\partial x^{*2}}
++\frac{\partial^2 u^*}{\partial y^{*2}}\)<br>
+$y$-momentum: \(u\frac{\partial v}{\partial x}+v\frac{\partial v}{\partial y}
+=-\frac{1}{\rho}\frac{\partial p}{\partial y}
++\nu\!\left(\frac{\partial^2 v}{\partial x^2}
++\frac{\partial^2 v}{\partial y^2}\right) \Rightarrow \frac{U_\infty^2}{L\,\mathrm{Re}^{1/2}}
+\!\left(
+u^*\frac{\partial v^*}{\partial x^*}
++v^*\frac{\partial v^*}{\partial y^*}\right)
+=\frac{U_\infty^2}{L}
+\!\left(
+-\mathrm{Re}^{1/2}\frac{\partial p^*}{\partial y^*}
++\frac{1}{\mathrm{Re}^{3/2}}\frac{\partial^2 v^*}{\partial x^{*2}}
++\frac{1}{\mathrm{Re}^{1/2}}\frac{\partial^2 v^*}{\partial y^{*2}}\right)\)<br>
+\(\Rightarrow \frac{1}{\mathrm{Re}}\!\left(
+u^*\frac{\partial v^*}{\partial x^*}
++v^*\frac{\partial v^*}{\partial y^*}\right)
+=-\frac{\partial p^*}{\partial y^*}
++\frac{1}{\mathrm{Re}^2}\frac{\partial^2 v^*}{\partial x^{*2}}
++\frac{1}{\mathrm{Re}}\frac{\partial^2 v^*}{\partial y^{*2}}\)
+</p>
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture4BSlide9.html" class="nav-button left">&#9664;</a>
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture4BSlide11.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>
