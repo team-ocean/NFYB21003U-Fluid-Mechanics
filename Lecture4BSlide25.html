@@ -156,39 +156,56 @@ window.addEventListener('resize', scaleContainer);
         <div class="title">Boundary-Layer Thickness Definitions</div>
 
 <div class="description">
-Since the fluid velocity in the boundary layer smoothly joins that of the outer flow, 
-there is no obvious demarcation of the boundary layer’s edge. 
-Thus, a variety of thickness definitions are used to define a boundary layer’s character
-<img src="Figures/Lecture4B_BoundaryLayerThickness.png" alt="BoundaryLayerThickness" style="max-width: 100%; height: auto; border: none;">
+An additional parameter, known as <span class="sql">shape factor</span> and usually denoted by $H$, helps describe the shape of the boundary-layer velocity profile. It is defined as the ratio of displacement thickness to momentum thickness
+$$
+H=\frac{\delta^{*}}{\theta}
+$$
 </div>
-<p>The three most common thickness definitions are described here</p>
+
+<div class="description">
+All these parameters depend only on the velocity profile inside the boundary layer. We can simply evaluate their magnitudes by assuming that the velocity profile inside the laminar boundary layer satisfies the quadratic curve
+$$
+\frac{u}{U}=a+b\!\left(\frac{y}{\delta}\right)+c\!\left(\frac{y}{\delta}\right)^{2}
+$$
+</div>
+
+<div class="description">
+The values of the coefficients are determined by the boundary conditions at the wall and outer edge of the boundary layer:
 <ul class="custom-list">
-    <li>The overall boundary-layer thickness is defined by 
-        $\delta_{99}$, the distance from the wall at which the local streamwise velocity 
-        reaches 99% of the edge (free-stream) speed \(u(x,\delta_{99}) = 0.99\,U_e(x)\).
-    It is used mainly as a conceptual thickness,
-    it is hard to measure accurately and the choice of 99% (vs. 95%, 98%, 99.5%, etc.) 
-    is arbitrary, so its physical significance is somewhat subjective.  This is the commonly used engineering <span class="sql">nominal thickness</span> of the boundary layer</li>
-    <li>A second measure of the boundary-layer thickness, and one in which there is no arbitrariness, is the <span class="sql">displacement thickness</span>, which is commonly denoted $\delta^*(x)$ or $\delta_1$</li>
-    <li>A third measure of the boundary-layer thickness is the <span class="sql">momentum thickness</span> $\theta$ or $\delta_2$. 
-        It is defined such that $\rho U^2 \theta$ is the momentum loss in the actual flow 
-        because of the presence of the boundary layer</li>
+    <li>At the wall $(y=0)\!$ : $u=0$</li>
+    <li>At the outer edge of the boundary layer $(y=\delta)\!$ : $u=U,\quad \partial u/\partial y=0$</li>
 </ul>
+The velocity profile inside the boundary layer is given by
+$$
+\frac{u}{U}=2\!\left(\frac{y}{\delta}\right)-\left(\frac{y}{\delta}\right)^{2},\qquad 0\le y\le \delta
+$$
+</div>
+
+<div class="description">
+Substituting the above formula into Equations \(\boxed{\delta^{*}=\int_{0}^{\infty}\!\left(1-\frac{u}{U}\right)\,dy}\), \(\boxed{\theta=\int_{0}^{\infty}\!\frac{u}{U}\!\left(1-\frac{u}{U}\right)dy}\) and \(\boxed{H=\frac{\delta^{*}}{\theta}}\), and setting the upper limit to be \(\delta\)
+$$
+\delta^{*}=\frac{1}{3}\,\delta,\qquad
+\theta=\frac{1}{7.5}\,\delta,\qquad
+H=2.5
+$$
+</div>
+<img src="Figures/Lecture4B_ConditionThreeBoundaryLayerThickness.png" alt="ConditionThreeBoundaryLayerThickness" style="max-width: 100%; height: 100%; border: none;">
 
 
         <!-- Footnote Section -->
         <div class="footnote-container">
             <hr class="footnote-line">
             <p class="footnote">
-                <sup>1</sup>Yunus A. Çengel, Heat and mass transfer: fundamentals and applications, 5th ed.
-in SI units. New York: McGraw-Hill, 2015.
+                <sup>1</sup>Hongwei Wang (2023). A Guide to Fluid Mechanics. National Defense Industry Press.
             </p>
         </div>
 
+
+
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture4BSlide18.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture4BSlide24.html" class="nav-button left">&#9664;</a>
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture4BSlide20.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture4BSlide26.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>

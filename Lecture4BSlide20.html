@@ -156,32 +156,48 @@ window.addEventListener('resize', scaleContainer);
         <div class="title">Boundary-Layer Thickness Definitions</div>
 
 <div class="description">
-A third measure of the boundary-layer thickness is the momentum thickness $\theta$ or $\delta_2$. 
-        It is defined such that $\rho U^2 \theta$ is the momentum loss in the actual flow 
-        because of the presence of the boundary layer
+A second measure of the boundary-layer thickness, and one in which there is no arbitrariness, is the <span class="sql">displacement thickness</span>, which is commonly denoted $\delta^*(x)$ or $\delta_1$
 </div>
 <div class="description">
-A control volume calculation leads to the following definition
+    It is defined as the thickness of a layer of zero-velocity fluid that has the same velocity deficit as the actual boundary layers.
+    The velocity deficit in a boundary layer is $U_e-u$, so this definition implies
 $$
-\theta=\int_{y=0}^{\infty}\frac{u}{U_e}\left(1-\frac{u}{U_e}\right)\,dy
+\int_{y=0}^{h} (U_e-u)\,dy
+=\int_{y=0}^{\delta^*} (U_e-0)\,dy
+=U_e\,\delta^*,
+\quad\text{or}\quad
+\delta^*=\int_{y=0}^{\infty}\!\left(1-\frac{u}{U_e}\right) dy
 $$
+where $h$ is a surface-normal distance that lies far outside the boundary layer 
 </div>
-<div class="description">
-The momentum thickness embodies the integrated influence of the wall shear stress from the beginning of the boundary layer to the stream-wise location of interest
-</div>
-<div class="description">
-<img src="Figures/Lecture4B_DisplacementThicknessMomentumThickness.png" alt="DisplacementThicknessMomentumThickness" style="max-width: 100%; height: auto; border: none;">
-</div>
-        <!-- Footnote Section -->
-        <div class="footnote-container">
-            <hr class="footnote-line">
-            <p class="footnote">
-                <sup>1</sup>Niklas Andersson. Fluid Mechanics - MTF053. Chapter 7.
-                <a href="https://fluidmech.onlineflowcalculator.com/White/Chapter7/index.html" target="_blank">
-                    <code>https://fluidmech.onlineflowcalculator.com/White/Chapter7/index.html</code>
-                </a> 
-            </p>
-        </div>
+
+<div class="image-container">
+<img src="Figures/Lecture4B_SchematicDisplacementThickness.png" alt="SchematicDisplacementThickness" style="max-width: 49%; height: 100%; border: none;">
+<p>Schematic depiction of the displacement thickness. The panel on the left shows a typical laminar boundary-layer profile. The panel on the right shows an equivalent ideal-flow velocity profile with a zero-velocity layer having the same volume-flux deficit as the actual boundary layer.
+    <br>The thickness of this zero-velocity layer is the displacement thickness \(\delta^*\)</p>
+</div> 
+<p>The displacement thickness is the distance by which the wall would have to be displaced outward in a hypothetical frictionless flow to maintain the same mass flux as that in the actual flow. This means that the displacement thickness can be interpreted as the distance by which streamlines outside the boundary layer are displaced due to the presence of the boundary layer.</p>
+<div class="image-container">
+<p>Displacement thickness and streamline displacement.
+    Within the boundary layer, fluid motion in the downstream direction is retarded, so $\partial u/\partial x$ is negative. 
+    Thus, the continuity equation requires $\partial v/\partial y$ to be positive, 
+    so the boundary layer produces a surface-normal velocity that deflects streamlines away from the surface
+    . Above the boundary layer, the extent of this deflection is the displacement thickness $\delta^*$
+</p>
+<img src="Figures/Lecture4B_DisplacementThicknessStreamline.png" alt="DisplacementThicknessStreamline" style="max-width: 49%; height: 100%; border: none;">
+</div> 
+
+<p>Equating mass flux across two sections A and B
+$$
+U_e\,h=\int_{y=0}^{h+\delta^*}\!u\,dy
+\;=\;\int_{y=0}^{h}\!u\,dy+U_e\,\delta^*,
+\quad\text{or}\quad
+U_e\,\delta^*=\int_{y=0}^{h}\!\big(U_e-u\big)\,dy
+$$
+where $h$ is the wall-normal distance defined above</p>
+
+
+
         <!-- Left Arrow to go back to Slide  -->
         <a href="Lecture4BSlide19.html" class="nav-button left">&#9664;</a>
         <!-- Right Arrow to go to Slide  -->

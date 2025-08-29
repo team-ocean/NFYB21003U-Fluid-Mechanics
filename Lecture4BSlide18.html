@@ -153,35 +153,33 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Boundary-Layer Thickness Definitions</div>
+        <div class="title">Boundary Layer Characteristics</div>
 
-<div class="description">
-Since the fluid velocity in the boundary layer smoothly joins that of the outer flow, 
-there is no obvious demarcation of the boundary layer’s edge. 
-Thus, a variety of thickness definitions are used to define a boundary layer’s character
-<img src="Figures/Lecture4B_BoundaryLayerThickness.png" alt="BoundaryLayerThickness" style="max-width: 100%; height: auto; border: none;">
-</div>
-<p>The three most common thickness definitions are described here</p>
-<ul class="custom-list">
-    <li>The overall boundary-layer thickness is defined by 
-        $\delta_{99}$, the distance from the wall at which the local streamwise velocity 
-        reaches 99% of the edge (free-stream) speed \(u(x,\delta_{99}) = 0.99\,U_e(x)\).
-    It is used mainly as a conceptual thickness,
-    it is hard to measure accurately and the choice of 99% (vs. 95%, 98%, 99.5%, etc.) 
-    is arbitrary, so its physical significance is somewhat subjective</li>
-    <li>A second measure of the boundary-layer thickness, and one in which there is no arbitrariness, is the <span class="sql">displacement thickness</span>, which is commonly denoted $\delta^*(x)$ or $\delta_1$</li>
-    <li>A third measure of the boundary-layer thickness is the momentum thickness $\theta$ or $\delta_2$. 
-        It is defined such that $\rho U^2 \theta$ is the momentum loss in the actual flow 
-        because of the presence of the boundary layer</li>
-</ul>
+<div class="image-container">
+<img src="Figures/Lecture4B_FountainTwoFlow.png" alt="FountainTwoFlow" style="max-width: 49%; height: 100%; border: none;">
+<p>Two kinds of flow in a fountain. 
+  The water spouted from the four side nozzles moves regularly in stratified and parallel layers is called <span class="sql">laminar flow</span>. 
+  The water spouted from the middle nozzle is characterized by the irregular and unsteady movement is called <span class="sql">turbulent flow</span>. 
+  As a complex phenomenon in fluid dynamics, turbulent flow is caused by the combined action of inertia forces and viscous forces. Its unpredictability is one of the major obstacles to solving fluid mechanics problems.</p>
+</div> 
 
+
+        <div class="image-container" style="display: flex; justify-content: center; gap: 2px; margin-top: 10px;">
+            <div class="image-box" style="width: 50%; text-align: center;">
+                <img src="Figures/Lecture4B_AirfoilLaminarBoundary.png" alt="FluidParticleBoundaryLayer" style="max-width: 100%; height: auto; border: none;">
+                <p class="caption" style="font-size: 12px;">Laminar Boundary Layer</p>
+            </div>
+            <div class="image-box" style="width: 50%; text-align: center;">
+                <img src="Figures/Lecture4B_VelocityProfileTurbulentBoundary.png" alt="BoundaryLayerReCr" style="max-width: 100%; height: auto; border: none;">
+                <p class="caption" style="font-size: 12px;">Turbulent Boundary Layer</p>
+            </div>
+        </div>
 
         <!-- Footnote Section -->
         <div class="footnote-container">
             <hr class="footnote-line">
             <p class="footnote">
-                <sup>1</sup>Yunus A. Çengel, Heat and mass transfer: fundamentals and applications, 5th ed.
-in SI units. New York: McGraw-Hill, 2015.
+                <sup>1</sup>Hongwei Wang (2023). A Guide to Fluid Mechanics. National Defense Industry Press.
             </p>
         </div>
 
@@ -191,4 +189,4 @@ in SI units. New York: McGraw-Hill, 2015.
         <a href="Lecture4BSlide19.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
-</html>
+</htm50

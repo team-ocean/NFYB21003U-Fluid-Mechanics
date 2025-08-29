@@ -156,39 +156,34 @@ window.addEventListener('resize', scaleContainer);
         <div class="title">Boundary-Layer Thickness Definitions</div>
 
 <div class="description">
-Since the fluid velocity in the boundary layer smoothly joins that of the outer flow, 
-there is no obvious demarcation of the boundary layer’s edge. 
-Thus, a variety of thickness definitions are used to define a boundary layer’s character
-<img src="Figures/Lecture4B_BoundaryLayerThickness.png" alt="BoundaryLayerThickness" style="max-width: 100%; height: auto; border: none;">
+Sometimes, we are more concerned with how much mechanical energy has been converted into internal energy (or how much mechanical energy has been lost) during a flow process. The strong shear flow inside the boundary layer results in mechanical energy losses whose magnitude depends directly on the magnitudes of shear force and shear rate,
+amd and mechanical energy loss corresponds to <span class="sql">energy thickness</span>.
+We can define the energy thickness in a similar way as the displacement thickness
 </div>
-<p>The three most common thickness definitions are described here</p>
-<ul class="custom-list">
-    <li>The overall boundary-layer thickness is defined by 
-        $\delta_{99}$, the distance from the wall at which the local streamwise velocity 
-        reaches 99% of the edge (free-stream) speed \(u(x,\delta_{99}) = 0.99\,U_e(x)\).
-    It is used mainly as a conceptual thickness,
-    it is hard to measure accurately and the choice of 99% (vs. 95%, 98%, 99.5%, etc.) 
-    is arbitrary, so its physical significance is somewhat subjective.  This is the commonly used engineering <span class="sql">nominal thickness</span> of the boundary layer</li>
-    <li>A second measure of the boundary-layer thickness, and one in which there is no arbitrariness, is the <span class="sql">displacement thickness</span>, which is commonly denoted $\delta^*(x)$ or $\delta_1$</li>
-    <li>A third measure of the boundary-layer thickness is the <span class="sql">momentum thickness</span> $\theta$ or $\delta_2$. 
-        It is defined such that $\rho U^2 \theta$ is the momentum loss in the actual flow 
-        because of the presence of the boundary layer</li>
-</ul>
+
+<div class="description">
+$$
+\delta_{3}=\int_{0}^{\infty}\frac{u}{U}\left(1-\frac{u^{2}}{U^{2}}\right)\,dy
+$$
+The energy thickness $\delta_{3}$ is the distance by which the boundary should be displaced to compensate for the deficit in kinetic energy of the free flow caused by the boundary layer
+</div>
 
 
-        <!-- Footnote Section -->
-        <div class="footnote-container">
-            <hr class="footnote-line">
-            <p class="footnote">
-                <sup>1</sup>Yunus A. Çengel, Heat and mass transfer: fundamentals and applications, 5th ed.
-in SI units. New York: McGraw-Hill, 2015.
-            </p>
-        </div>
+
+
+
+<!-- Footnote Section -->
+<div class="footnote-container">
+<hr class="footnote-line">
+<p class="footnote">
+<sup>1</sup>Hongwei Wang (2023). A Guide to Fluid Mechanics. National Defense Industry Press.
+</p>
+</div>
 
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture4BSlide18.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture4BSlide21.html" class="nav-button left">&#9664;</a>
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture4BSlide20.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture4BSlide23.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>

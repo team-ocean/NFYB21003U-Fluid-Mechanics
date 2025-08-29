@@ -154,48 +154,31 @@ window.addEventListener('resize', scaleContainer);
 <body>
     <div class="container">
         <div class="title">Boundary-Layer Thickness Definitions</div>
-
-<div class="description">
-<span class="sql">[Q]</span> 
-Use the control volume shown to derive the definition of the momentum thickness, $\theta$, for flow over a flat plate
-$$
-\rho U^{2}\theta
-=\rho U^{2}\int_{0}^{h}\frac{u}{U}\!\left(1-\frac{u}{U}\right)\,dy
-=\frac{\text{Drag force on the plate from zero to }x}{\text{unit depth into the page}}
-=\int_{0}^{x}\tau_{w}\,dx
-$$
-<div class="image-container">
-<img src="Figures/Lecture4B_ExerciseMomentumThickness.png" alt="ExerciseMomentumThickness" style="max-width: 69%; height: 100%; border: none;">
-<p>The words in the figure describe the upper and lower control volume boundaries</p>
-</div> 
-</div>
-
-
-<p><span class="sql">[Sol]</span> 
-    \(\because \text{The integral form of the continuity equation} \underbrace{\rho U h_0}_{\text{inlet mass flow}}
-=\underbrace{\rho\displaystyle\int_{0}^{h} u(y)\,dy}_{\text{outlet mass flow}} 
-        \)<br>
-    \(\because \text{The pressure is 
-the same everywhere}\)<br>
-\(\therefore x-\text{momentum balance} \overbrace{-\,\rho U^{2}h_0}^{\substack{\text{inlet momentum flux}\\ \text{(enters, minus)}}}
-+\overbrace{\rho\displaystyle\int_{0}^{h} u^{2}(y)\,dy}^{\substack{\text{outlet momentum flux}\\ \text{(exits, plus)}}}
-=\underbrace{-\displaystyle\int_{0}^{x}\tau_w\,dx}_{\substack{\text{wall shear force on fluid}}}
-    \)<br>
-\(\therefore \text{Eliminate } h_0 \text{u sing continuity } \big(Uh_0=\int_{0}^{h}u\,dy\big): -\rho U\,\overbrace{\int_{0}^{h}u(y)\,dy}^{Uh_0}
-+\rho\int_{0}^{h}u^{2}(y)\,dy
-=-\int_{0}^{x}\tau_w\,dx
-    \)<br>
-\(\therefore \text{The momentum thickness } \theta: \underbrace{\rho\int_{0}^{h} u(y)\big(U-u(y)\big)\,dy}_{\text{momentum deficit}}
-=\underbrace{\int_{0}^{x}\tau_w\,dx}_{\substack{\text{drag force on the plate}\\ \text{from }0\text{ to }x\ \text{(per unit depth)}}},
-\)<br>
-\(\qquad
-\rho U^{2}\,
-\underbrace{\int_{0}^{\infty}\frac{u(y)}{U}\!\left(1-\frac{u(y)}{U}\right)dy}_{\displaystyle \theta}
-=\int_{0}^{x}\tau_w\,dx
-    \)<br>
-<span class="highlight">\(\therefore \text{A control volume calculation leads to the following definition } \theta=\int_{y=0}^{\infty}\frac{u}{U_e}\left(1-\frac{u}{U_e}\right)\,dy\)</span>
-    
+<p>The fluid velocity at a stationary wall is zero, and the velocity at the outer edge of the boundary layer is equal to the mainstream velocity. Moreover, the velocity gradient at the outer edge of the boundary layer should be zero. Therefore, the boundary layer satisfies the following boundary conditions
+    <ul class="custom-list">
+        <li>At the wall: \(u=0,\quad \partial u/\partial y=\tau_w / \mu\)</li>
+        <li>At the outer edge of the boundary layer: \(u=U,\quad \partial u/\partial y=0\)</li>
+    </ul>
+Based on these boundary conditions, we can assume an approximate velocity profile inside the boundary layer.
 </p>
+        <div class="image-container">
+<img src="Figures/Lecture4B_NominalThicknessBoundaryLayer.png" alt="NominalThicknessBoundaryLayer" style="max-width: 59%; height: 100%; border: none;">
+<p>Nominal thickness of the boundary layer. The nominal thickness of the boundary layer does not have much practical significance, and some other types of boundary layer thickness are more meaningful in engineering.</p>
+</div> 
+
+<div class="image-container">
+<img src="Figures/Lecture4B_DerivationDisplacementThickness.png" alt="DerivationDisplacementThickness" style="max-width: 79%; height: 100%; border: none;">
+<p>Derivation of displacement thickness.</p>
+</div> 
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>Hongwei Wang (2023). A Guide to Fluid Mechanics. National Defense Industry Press.
+            </p>
+        </div>
+
 
 
         <!-- Left Arrow to go back to Slide  -->
