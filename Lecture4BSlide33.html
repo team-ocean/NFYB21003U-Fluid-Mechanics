@@ -140,7 +140,7 @@ function scaleContainer() {
   const padding = 0; // optional padding margin
   const viewportHeight = window.innerHeight - padding;
   const containerHeight = container.offsetHeight;
-  // Compute the scale rati
+  // Compute the scale ratio
   const scale = Math.min(1, viewportHeight / containerHeight);
   container.style.transform = `scale(${scale})`;
 }
@@ -153,37 +153,60 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Governing Equations for the Mean Flow Field</div>
+        <div class="title">Reynolds-Averaged Vorticity Transport Equation</div>
 
 <div class="description">
-In tensor form, the momentum and continuity equations are
+A Reynolds averaged vorticity transport equation can be derived by taking the curl of the RANS.
+In many situations, it is necessary to understand the variation of average vorticity in turbulent flows.
+The relationship between instantaneous vorticity and instantaneous velocity is as follows:
 $$
-\underbrace{\frac{\partial \tilde{u}_i}{\partial t}}_{\text{local (unsteady) acceleration}}
-\;+\;
-\underbrace{\frac{\partial (\tilde{u}_i \tilde{u}_j)}{\partial x_j}}_{\text{advection}}
+\omega = \nabla \times u 
+\quad \text{or} \quad 
+\tilde{\omega}_i = \varepsilon_{ijk} \frac{\partial \tilde{u}_k}{\partial x_j}
+$$
+$\varepsilon_{ijk}$ is the third-order permutation tensor
+\[
+\varepsilon_{ijk} =
+\begin{cases}
+1, & \text{if } ijk = 123, \, 231, \, \text{or } 312 \\
+-1, & \text{if } ijk = 132, \, 321, \, \text{or } 213 \\
+0, & \text{if any two indices in } ijk \text{ are repeated}
+\end{cases}
+\]
+</div>
+
+<div class="description">
+Taking the curl of both sides of equation <span class="highlight">\(\boxed{\frac{\partial \tilde{u}_i}{\partial t}
++ \frac{\partial (\tilde{u}_i \tilde{u}_j)}{\partial x_j}
 =
 -\,\frac{1}{\rho}\,
-\underbrace{\frac{\partial \tilde{p}}{\partial x_i}}_{\text{pressure gradient}}
-\;+\;
-\underbrace{g_i}_{\text{body-force acceleration}}
-\;+\;
-\nu\,
-\underbrace{\frac{\partial^2 \tilde{u}_i}{\partial x_j \partial x_j}}_{\text{viscous diffusion}}
-(i,j=1,2,3) 
+\frac{\partial \tilde{p}}{\partial x_i}
++ g_i
++ \nu \frac{\partial^2 \tilde{u}_i}{\partial x_j \partial x_j}
+\quad (i,j=1,2,3)}\)</span> yields the instantaneous vorticity transport equation in turbulent flow
 $$
-
+\frac{\partial \tilde{\omega}_i}{\partial t}
++ \frac{\partial}{\partial x_j} \big( \tilde{u}_j \tilde{\omega}_i \big)
+= \underbrace{\tilde{\omega}_j 
+\overbrace{\tilde{s}_{ij}}^{\substack{\tilde{s}_{ij} =\tfrac{1}{2}\left(\tfrac{\partial \tilde{u}_i}{\partial x_j} + \tfrac{\partial \tilde{u}_j}{\partial x_i}\right) \\ \text{strain-rate tensor}}}}_{\substack{\text{vortex stretching and tilting} \\ \text{that causes vorticity amplification}}}
++ \underbrace{\nu \frac{\partial^2 \tilde{\omega}_i}{\partial x_j \partial x_j}}_{\substack{\text{diffusion of vorticity} \\ \text{due to molecular motion}}}
+\quad (i, j = 1, 2, 3)
 $$
-\underbrace{\frac{\partial \tilde{u}_j}{\partial x_j}}_{\text{incompressibility}} = 0
-$$
-The two equations above describe, at every instant, the instantaneous velocity and pressure at every point in the flow field. 
-However <span class="bullet"></span>closed-form analytical solutions of the full N–S equations are not available <span class="bullet"></span>and direct numerical solutions for high-Reynolds-number turbulent flows are impractical. Therefore, it is necessary to develop averaged equations of motion that are capable of addressing practical problems
 </div>
 
 
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>Song Fu & Liang Wang (2023). Theory of Turbulence Modelling. ISBN 978-7-03-074639-9.
+            </p>
+        </div>
+
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture4BSlide28.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture4BSlide32.html" class="nav-button left">&#9664;</a>
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture4BSlide30.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture4BSlide34.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
