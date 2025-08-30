@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+<script>
+  window.MathJax = {
+    tex: {
+      packages: {'[+]': ['ams']},  // add ams package
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    },
+    loader: {load: ['[tex]/ams']}
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+        /* Center the table horizontally */
+        .slide table {
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        /* Left-align table text */
+        .slide table th,
+        .slide table td {
+        text-align: left;
+        }
+
+        /* Custom bullet list styled as flex container */
+    ul.custom {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
+    }
+    ul.custom li {
+      flex: 0 0 45%; /* roughly two items per row */
+      display: flex;
+      align-items: center;
+      gap: 10px; /* space between the text and image */
+      position: relative;
+      padding-left: 20px; /* extra padding for the bullet */
+    }
+    ul.custom li::before {
+      content: "■"; /* Unicode for small square bullet */
+      color: #7DCDF4;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Ensure images align properly */
+    ul.custom li img {
+      max-width: 49%;
+      height: auto;
+    }
+
+    .highlight {
+    background-color:rgba(221, 241, 243, 0.8); 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    .highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+
+.image-container {
+    margin-bottom: 0px; /* or even 0 if you want no space */
+}
+
+.image-container p {
+    margin-bottom: 0px; /* reduce space under paragraphs */
+}
+
+.image-container img {
+    margin-top: 0px; /* reduce space above images */
+}
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  td { 
+    border: 1px solid #444; 
+    padding: 0.25rem 0.5rem; 
+    vertical-align: top; 
+    text-align: left;
+  }
+  .text { width: 65%; }
+  .equation { width: 35%; }
+    </style>
+<script>
+function scaleContainer() {
+  const container = document.querySelector('.container');
+  const padding = 0; // optional padding margin
+  const viewportHeight = window.innerHeight - padding;
+  const containerHeight = container.offsetHeight;
+  // Compute the scale ratio
+  const scale = Math.min(1, viewportHeight / containerHeight);
+  container.style.transform = `scale(${scale})`;
+}
+// Run on load
+window.addEventListener('load', scaleContainer);
+// Run on resize
+window.addEventListener('resize', scaleContainer);
+</script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="title">Statistical Averaging Methods for Turbulent-Flow Quantities</div>
+
+<div class="description">
+For turbulent flows, physical quantities $f(x_i,t)$ (for example a velocity component, pressure, temperature, or their products) fluctuate irregularly in time and space, so different statistical averages are used under different circumstances.
+If the turbulence is statistically steady, a <span class="sql">time average</span> is commonly used. At spatial position $x_i$, the time-average is defined as
+$$
+\overline{f(x_i)_{\,t}}
+= \lim_{T \to \infty} \frac{1}{T}\int_{0}^{T} f(x_i, t)\, dt
+$$
+Here $T$ is the averaging time; $T\to\infty$ means that $T$ is much larger than the time scale of the turbulent fluctuations
+</div>
+
+<div class="description">
+If the turbulence is statistically homogeneous in one or several spatial directions, a <span class="sql">spatial average</span> in that direction may be used. At time $t$ and coordinates $x_k\ (k\ne j)$, the average in the $x_j$ direction is
+$$
+\overline{f(x_k, t)_{\,x_j}}
+= \lim_{X_j \to \infty} \frac{1}{X_j}\int_{0}^{X_j} f(x_k, t, x_j)\, dx_j
+$$
+Here $X_j$ denotes the extent of the averaging region: a <span class="sql">length</span> ($j=1$), <span class="sql">area</span> ($j=1,2$), or <span class="sql">volume</span> ($j=1,2,3$). 
+The notation $X_j\to\infty$ means that $X_j$ is much larger than the length scale of the turbulent fluctuations. In these cases, the spatial average represents a line average, a surface average, or a volume average respectively
+</div>
+
+<div class="description">
+In any situation, one can also use an <span class="sql">ensemble average</span>. The ensemble average of $f$ is defined by
+$$
+\overline{f(x_i, t)_{\,n}}
+= \lim_{N \to \infty} \frac{1}{N}\sum_{n=1}^{N} f_n(x_i, t)
+$$
+where $n$ indexes the realizations (or the $n$-th measurement result) of statistically identical flows
+</div>
+
+<p>From a probabilistic viewpoint, the ensemble average is the most fundamental average. However, it is difficult to obtain in experiments because many statistically identical realizations are required. For statistically steady or statistically homogeneous turbulence, time averages and spatial averages can be obtained from a single experiment, and the corresponding ensemble averages are therefore easy to infer</p>
+<p>
+The statistical averages of turbulent quantities given by time average, spatial average, and ensemble average are also called <span class="sql">Reynolds averages</span>
+</p>
+
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>Song Fu & Liang Wang (2023). Theory of Turbulence Modelling. ISBN 978-7-03-074639-9.
+            </p>
+        </div>
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture4BSlide29.html" class="nav-button left">&#9664;</a>
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture4BSlide31.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>
