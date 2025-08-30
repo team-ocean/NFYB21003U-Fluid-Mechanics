@@ -153,45 +153,30 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Boundary-Layer Thickness Definitions</div>
+        <div class="title">Turbulent Boundary Layer</div>
 
 <div class="description">
-An additional parameter, known as <span class="sql">shape factor</span> and usually denoted by $H$, helps describe the shape of the boundary-layer velocity profile. It is defined as the ratio of displacement thickness to momentum thickness
-$$
-H=\frac{\delta^{*}}{\theta}
-$$
+Turbulent boundary layers are very different from laminar ones, 
+the turbulent boundary layer is characterized by chaotic and irregular velocity fluctuations, 
+and there is almost no general law for the velocity profile. 
+Moreover, the outer edge of the boundary layer does not remain steady, 
+so the boundary layer thickness at the same streamwise position may vary significantly with time
 </div>
 
 <div class="description">
-All these parameters depend only on the velocity profile inside the boundary layer. We can simply evaluate their magnitudes by assuming that the velocity profile inside the laminar boundary layer satisfies the quadratic curve
-$$
-\frac{u}{U}=a+b\!\left(\frac{y}{\delta}\right)+c\!\left(\frac{y}{\delta}\right)^{2}
-$$
+The alternation of turbulent and laminar flows is called the <span class="sql">intermittent motion</span> of the turbulent boundary layer, 
+and the <span class="sql">intermittent factor</span> can be defined according to the proportion of time occupied by turbulent and laminar flows
 </div>
 
-<div class="description">
-The values of the coefficients are determined by the boundary conditions at the wall and outer edge of the boundary layer:
-<ul class="custom-list">
-    <li>At the wall $(y=0)\!$ : $u=0$</li>
-    <li>At the outer edge of the boundary layer $(y=\delta)\!$ : $u=U,\quad \partial u/\partial y=0$</li>
-</ul>
-The velocity profile inside the boundary layer is given by
-$$
-\frac{u}{U}=2\!\left(\frac{y}{\delta}\right)-\left(\frac{y}{\delta}\right)^{2},\qquad 0\le y\le \delta
-$$
-</div>
+<div class="image-container">
+<img src="Figures/Lecture4B_TurbulenceTransitionRegion.png" alt="TurbulenceTransitionRegion" style="max-width: 69%; height: 100%; border: none;">
+<p><span class="sql"><span class="highlight">As the fluid flows over a long flat plate, the boundary layer will always be laminar at the entrance region, 
+    and change from laminar to turbulent (known as laminar-to-turbulent transition) at a critical distance where the flow cannot remain stable</span></span></p>
+</div> 
 
-<div class="description">
-Substituting the above formula into Equations \(\boxed{\delta^{*}=\int_{0}^{\infty}\!\left(1-\frac{u}{U}\right)\,dy}\), \(\boxed{\theta=\int_{0}^{\infty}\!\frac{u}{U}\!\left(1-\frac{u}{U}\right)dy}\) and \(\boxed{H=\frac{\delta^{*}}{\theta}}\), and setting the upper limit to be \(\delta\)
-$$
-\delta^{*}=\frac{1}{3}\,\delta,\qquad
-\theta=\frac{1}{7.5}\,\delta,\qquad
-H=2.5
-$$
-</div>
-<img src="Figures/Lecture4B_ConditionThreeBoundaryLayerThickness.png" alt="ConditionThreeBoundaryLayerThickness" style="max-width: 100%; height: 100%; border: none;">
-
-
+<p>The turbulent boundary layer flow is strongly unsteady. Although the average velocity profile is quite regular, the velocity fluctuations still have an important influence on the averaged flow.
+    Subsequently, the averaged turbulent boundary layer equation is different from the laminar one, with the terms of fluctuating quantities in the equation.
+</p>
         <!-- Footnote Section -->
         <div class="footnote-container">
             <hr class="footnote-line">
@@ -201,9 +186,9 @@ $$
         </div>
 
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture4BSlide24.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture4BSlide25.html" class="nav-button left">&#9664;</a>
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture4BSlide26.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture4BSlide27.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>

@@ -153,43 +153,60 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Boundary-Layer Thickness Definitions</div>
+        <div class="title">Averaged Equations of Motion</div>
 
 <div class="description">
-An additional parameter, known as <span class="sql">shape factor</span> and usually denoted by $H$, helps describe the shape of the boundary-layer velocity profile. It is defined as the ratio of displacement thickness to momentum thickness
-$$
-H=\frac{\delta^{*}}{\theta}
-$$
+In the boundary layer, the momentum equation in the $y$ direction reduces to $\partial p/\partial y = 0$. <span class="sql">The pressure in the boundary layer remains constant along the normal direction</span>. 
+So the pressure depends only on the $x$ coordinate, and the pressure-gradient term in the momentum equation in the $x$ direction can be written in ordinary differential form
+\[
+u\,\frac{\partial u}{\partial x}
++ v\,\frac{\partial u}{\partial y}
+= -\,\frac{1}{\rho}\,\frac{dP}{dx}
++ \frac{\mu}{\rho}\left(\frac{\partial^{2}u}{\partial y^{2}}\right)
+\]
+where $P$ is the fluid pressure outside the boundary layer that might change in the streamwise direction, it is also called <span class="sql">Prandtl’s boundary-layer equation</span>
 </div>
 
 <div class="description">
-All these parameters depend only on the velocity profile inside the boundary layer. We can simply evaluate their magnitudes by assuming that the velocity profile inside the laminar boundary layer satisfies the quadratic curve
-$$
-\frac{u}{U}=a+b\!\left(\frac{y}{\delta}\right)+c\!\left(\frac{y}{\delta}\right)^{2}
-$$
+Applying Newton’s law of viscosity: $\tau=\mu\,(\partial u/\partial y)$, the boundary-layer equation for steady, incompressible, laminar flow \(\boxed{u\,\frac{\partial u}{\partial x}
++ v\,\frac{\partial u}{\partial y}
+= U\,\frac{\partial U}{\partial x}
++ \frac{\mu}{\rho}\,\frac{\partial^{2}u}{\partial y^{2}}}\) can be rewritten as
+\[
+u\,\frac{\partial u}{\partial x}+v\,\frac{\partial u}{\partial y}
+=U\,\frac{\partial U}{\partial x}+\frac{1}{\rho}\,\frac{\partial \tau}{\partial y}
+\]
 </div>
 
 <div class="description">
-The values of the coefficients are determined by the boundary conditions at the wall and outer edge of the boundary layer:
-<ul class="custom-list">
-    <li>At the wall $(y=0)\!$ : $u=0$</li>
-    <li>At the outer edge of the boundary layer $(y=\delta)\!$ : $u=U,\quad \partial u/\partial y=0$</li>
-</ul>
-The velocity profile inside the boundary layer is given by
-$$
-\frac{u}{U}=2\!\left(\frac{y}{\delta}\right)-\left(\frac{y}{\delta}\right)^{2},\qquad 0\le y\le \delta
-$$
+This equation is applicable to both laminar and averaged turbulent boundary layers. For the turbulent boundary-layer equation, the velocity and shear-force terms are replaced by time-averaged values
+\[
+\overline{u}\,\frac{\partial \overline{u}}{\partial x}
++\overline{v}\,\frac{\partial \overline{u}}{\partial y}
+=U\,\frac{\partial U}{\partial x}
++\frac{1}{\rho}\,\frac{\partial \overline{\tau}}{\partial y}
+\]
+The averaged shear stress is not equal to the gradient of the averaged velocity \(\overline{\tau}\not\propto \frac{\partial \overline{u}}{\partial y}
+\)
 </div>
 
 <div class="description">
-Substituting the above formula into Equations \(\boxed{\delta^{*}=\int_{0}^{\infty}\!\left(1-\frac{u}{U}\right)\,dy}\), \(\boxed{\theta=\int_{0}^{\infty}\!\frac{u}{U}\!\left(1-\frac{u}{U}\right)dy}\) and \(\boxed{H=\frac{\delta^{*}}{\theta}}\), and setting the upper limit to be \(\delta\)
-$$
-\delta^{*}=\frac{1}{3}\,\delta,\qquad
-\theta=\frac{1}{7.5}\,\delta,\qquad
-H=2.5
-$$
+It can be proved that the average shear stress for turbulent flows is
+\[
+\underbrace{\overline{\tau}}_{\text{average shear stress}}
+=
+\underbrace{\mu\,\dfrac{\partial \overline{u}}{\partial y}}_{\text{gradient of the averaged velocity}}
+\;+\;
+\underbrace{\left(-\,\rho\,\overline{u'v'}\right)}_{\substack{\text{streamwise and wall-normal} \\ \text{components of the fluctuating velocity}\\ \text{(difference between instantaneous and averaged)}}}
+\]
 </div>
-<img src="Figures/Lecture4B_ConditionThreeBoundaryLayerThickness.png" alt="ConditionThreeBoundaryLayerThickness" style="max-width: 100%; height: 100%; border: none;">
+
+<div class="description">
+\[
+-\rho\,\overline{\underbrace{u'}_{\text{streamwise fluctuation}}\;
+\underbrace{v'}_{\text{wall-normal fluctuation}} }
+\]
+</div>
 
 
         <!-- Footnote Section -->
@@ -200,10 +217,11 @@ $$
             </p>
         </div>
 
+
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture4BSlide24.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture4BSlide27.html" class="nav-button left">&#9664;</a>
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture4BSlide26.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture4BSlide29.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>

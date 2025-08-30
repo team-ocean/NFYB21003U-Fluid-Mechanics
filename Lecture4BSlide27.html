@@ -153,57 +153,35 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Boundary-Layer Thickness Definitions</div>
+        <div class="title">Averaged Equations of Motion</div>
 
 <div class="description">
-An additional parameter, known as <span class="sql">shape factor</span> and usually denoted by $H$, helps describe the shape of the boundary-layer velocity profile. It is defined as the ratio of displacement thickness to momentum thickness
-$$
-H=\frac{\delta^{*}}{\theta}
-$$
+The following development of the mean-flow equations is for incompressible turbulent flow with constant viscosity where density fluctuations are caused by temperature fluctuations alone
 </div>
 
 <div class="description">
-All these parameters depend only on the velocity profile inside the boundary layer. We can simply evaluate their magnitudes by assuming that the velocity profile inside the laminar boundary layer satisfies the quadratic curve
+The first step is to separate the dependent-field quantities into components representing the mean (capital letters and those with over bars) and those representing the deviation from the mean (lower case letters and those with primes)
 $$
-\frac{u}{U}=a+b\!\left(\frac{y}{\delta}\right)+c\!\left(\frac{y}{\delta}\right)^{2}
+\tilde{u}_i = U_i + u_i,\qquad
+\tilde{p} = P + p,\qquad
+\tilde{\rho} = \bar{\rho} + \rho',\qquad
+\tilde{T} = \bar{T} + T'
 $$
+the complete field quantities are denoted by a tilde (~)
 </div>
 
 <div class="description">
-The values of the coefficients are determined by the boundary conditions at the wall and outer edge of the boundary layer:
-<ul class="custom-list">
-    <li>At the wall $(y=0)\!$ : $u=0$</li>
-    <li>At the outer edge of the boundary layer $(y=\delta)\!$ : $u=U,\quad \partial u/\partial y=0$</li>
-</ul>
-The velocity profile inside the boundary layer is given by
-$$
-\frac{u}{U}=2\!\left(\frac{y}{\delta}\right)-\left(\frac{y}{\delta}\right)^{2},\qquad 0\le y\le \delta
-$$
+First proposed by Reynolds, this decomposition, called <span class="sql">Reynolds decomposition</span> or <span class="sql">Reynolds averaging</span>, has become the leading method to simulate turbulent flows
 </div>
 
 <div class="description">
-Substituting the above formula into Equations \(\boxed{\delta^{*}=\int_{0}^{\infty}\!\left(1-\frac{u}{U}\right)\,dy}\), \(\boxed{\theta=\int_{0}^{\infty}\!\frac{u}{U}\!\left(1-\frac{u}{U}\right)dy}\) and \(\boxed{H=\frac{\delta^{*}}{\theta}}\), and setting the upper limit to be \(\delta\)
-$$
-\delta^{*}=\frac{1}{3}\,\delta,\qquad
-\theta=\frac{1}{7.5}\,\delta,\qquad
-H=2.5
-$$
+However, it leads to a closure problem in the resulting equation set that has still not been resolved without empiricism and modeling
 </div>
-<img src="Figures/Lecture4B_ConditionThreeBoundaryLayerThickness.png" alt="ConditionThreeBoundaryLayerThickness" style="max-width: 100%; height: 100%; border: none;">
-
-
-        <!-- Footnote Section -->
-        <div class="footnote-container">
-            <hr class="footnote-line">
-            <p class="footnote">
-                <sup>1</sup>Hongwei Wang (2023). A Guide to Fluid Mechanics. National Defense Industry Press.
-            </p>
-        </div>
 
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture4BSlide24.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture4BSlide26.html" class="nav-button left">&#9664;</a>
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture4BSlide26.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture4BSlide28.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
