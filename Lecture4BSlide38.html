@@ -154,85 +154,25 @@ window.addEventListener('resize', scaleContainer);
 <body>
     <div class="container">
         <div class="title">Reynolds Stress Transport Equations</div>
-
 <div class="description">
-For convenience in later applications, the transport equation of turbulent fluctuating velocity \(\boxed{\frac{\partial u_i}{\partial t}
-+ U_j \frac{\partial u_i}{\partial x_j}
-+ u_j \frac{\partial U_i}{\partial x_j}
-+ \frac{\partial}{\partial x_j}\big( u_i u_j - \overline{u_i u_j} \big)
-= -\frac{1}{\rho} \frac{\partial p}{\partial x_i}
-+ \nu \frac{\partial^2 u_i}{\partial x_j \partial x_j}s}\) is denoted as
-$$
-L(u_i) = 0
-$$
+\[
+\underbrace{c_{ij}}_{\substack{\text{convection term}}}
+=
+\underbrace{d_{ij}}_{\substack{\text{diffusion term}}}
++ \underbrace{P_{ij}}_{\substack{\text{production term}}}
++ \underbrace{\phi_{ij}}_{\substack{\text{redistribution term}}}
+- \underbrace{\varepsilon_{ij}}_{\substack{\text{dissipation term}}}
+\]
 </div>
 
-<div class="description">
-Multiplying the transport equation for $u_i$ by $u_j$, and the transport equation for $u_j$ by $u_i$, then adding the two together and taking the average
-$$
-\langle u_j L(u_i) + u_i L(u_j) \rangle = 0
-$$
-</div>
-
-<div class="description">
-\(
-\frac{D \, \overline{u_i u_j}}{Dt}
-= \frac{\partial}{\partial x_k} \left(
-\nu \frac{\partial \overline{u_i u_j}}{\partial x_k}
-- \overline{u_i u_j u_k}
-- \frac{1}{\rho} \overline{u_i p} \, \delta_{jk}
-+ \frac{1}{\rho} \overline{u_j p} \, \delta_{ik}
-\right)
-- \left(
-\overline{u_k u_i} \frac{\partial U_j}{\partial x_k}
-+ \overline{u_k u_j} \frac{\partial U_i}{\partial x_k}
-\right)
-+ \frac{2}{\rho} \, \overline{p s_{ij}}
-- 2\nu \, \overline{\frac{\partial u_i}{\partial x_k} \frac{\partial u_j}{\partial x_k}}
-\)<br>
-In the equation, $s_{ij}$ is the fluctuating strain-rate tensor
-$
-s_{ij} = \tfrac{1}{2} \left( \frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i} \right);
-$
-$\delta_{ik}$ and $\delta_{jk}$ are the Kronecker delta in tensor notation
-</div>
+<img src="Figures/Lecture4B_PhysicalMeaningReynoldsStressTransport.png" alt="PhysicalMeaningReynoldsStressTransport" style="max-width: 100%; height: 100%; border: none;">
 
 
-<div class="description">
-For convenience, this equation is generally written as
-
-$$
-c_{ij} = d_{ij} + P_{ij} + \phi_{ij} - \varepsilon_{ij}
-$$
-
-This equation describes all the mechanisms governing the transport of Reynolds stresses
-</div>
-
-
-
-
-        <!-- Footnote Section -->
-        <div class="footnote-container">
-            <hr class="footnote-line">
-            <p class="footnote">
-                <sup>1</sup>Song Fu & Liang Wang (2023). Theory of Turbulence Modelling. ISBN 978-7-03-074639-9.
-            </p>
-            <p class="footnote">
-                <sup>2</sup>The simplest interpretation of the Kronecker delta is as the discrete version of the delta function defined by 
-\(
-\delta_{i j} \equiv
-\begin{cases}
-0 & \text{for } i \ne j \\
-1 & \text{for } i = j
-\end{cases}
-\)
-            </p>
-        </div>
 
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture4BSlide35.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture4BSlide37.html" class="nav-button left">&#9664;</a>
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture4BSlide37.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture4BSlide39.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
