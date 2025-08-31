@@ -167,31 +167,31 @@ window.addEventListener('resize', scaleContainer);
 
 <div class="description">
 The order of magnitude of the relative acceleration is
-\[
+\(
 \frac{d\mathbf{u}}{dt} 
 = \underbrace{\frac{\partial \mathbf{u}}{\partial t}}_{\;\mathcal{O}(U/\tau)} 
 + \underbrace{(\mathbf{u} \cdot \nabla)\mathbf{u}}_{\;\mathcal{O}(U^2/L)}
 = \mathcal{O}\!\left(\frac{U}{\tau}, \frac{U^2}{L}\right)
-\]
+\)
 </div>
 
 <div class="description">
 Whose ratio to the Coriolis acceleration is
-\[
+\(
 \underbrace{2\Omega \times \mathbf{u}}_{\;\mathcal{O}(2\Omega U)}
 \Rightarrow 
 \frac{|d\mathbf{u}/dt|}{|2\Omega \times \mathbf{u}|}
 = \underbrace{\mathcal{O}\!\left[(2\Omega\tau)^{-1}, \;\frac{U}{2\Omega L}\right]}_{\text{Rossby number}}
-\]
+\)
 </div>
 
 <div class="description">
-For Newtonian fluids like air or water
-\[
+For Newtonian fluids like air or water,
+\(
 \mathcal{F} 
 = \overbrace{\mu}^{\text{molecular viscosity}} \nabla^2 \mathbf{u} 
 + \tfrac{\mu}{3}\,\nabla(\nabla \cdot \mathbf{u})
-\]
+\)<br>
 and under incompressibility \(\nabla \cdot \mathbf{u} = 0\)
 \[
 \frac{\mathcal{F}}{\rho} 
