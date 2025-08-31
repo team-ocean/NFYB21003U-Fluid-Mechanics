@@ -154,11 +154,65 @@ window.addEventListener('resize', scaleContainer);
     <div class="container">
         <div class="title">Geostrophy</div>
 
-
 <div class="description">
-
+If both the Ekman number and the Rossby number are small, the first approximation to the momentum equation is
+$$
+\rho \, 2\Omega \times \mathbf{u} = - \nabla p + \rho \nabla \Phi
+$$
 </div>
 
+<div class="description">
+Large-scale ocean flows generally follow <span class="sql">geostrophic balance</span><br>
+<span class="bullet"></span>\(x\)-direction:\(fv = \frac{1}{\rho}\,\frac{\partial p}{\partial x}\)
+<span class="bullet"></span>\(y\)-direction:\(fu = -\frac{1}{\rho}\,\frac{\partial p}{\partial y}\)
+</div>
+
+<div class="image-container">
+<img src="Figures/Lecture5A_GeostrophicSphericalCoordinate.png" alt="GeostrophicSphericalCoordinate" style="max-width: 33%; height: 100%;">
+<p>$$
+\rho\Big[ -2 \Omega
+\underbrace{v}_{\text{northward velocity}} \sin\theta 
++ 2\Omega \underbrace{w}_{\text{vertical velocity}} \cos\theta \Big]
+= -\frac{1}{r \cos\theta}
+\frac{\partial p}{\partial \underbrace{\phi}_{\text{longitude}}}
+$$
+
+$$
+\rho \, 2\Omega
+\underbrace{u}_{\text{eastward velocity}} \sin\theta
+= -\frac{1}{r} \frac{\partial p}{\partial \underbrace{\theta}_{\text{colatitude}}}
+$$
+$$
+-\rho \, 2\Omega u \cos\theta
+= -\frac{\partial p}{\partial r}
+- \rho \overbrace{g}^{\text{gravitational acceleration}}
+$$</p>
+</div>
+<p>
+In the absence of relative motion $u = v = w = 0$, the equation implies that $p$ must be independent of $\phi$ and $\theta$ and therefore be a function only of $r$. 
+The density must also be a function only of $r$<br>
+\(
+p = p_s(r) + p'(r, \theta, \phi)
+\)<br>
+\(
+\rho = \rho_s(r) + \rho'(r, \theta, \phi)
+\)<br>
+where $p_s(r)$ and $\rho_s(r)$ are the fields that would be present in the absence of motion, while $p'$ and $\rho'$ are the departures from this basic state due to the existence of winds and currents.
+</p>
+
+\(
+- \frac{\partial p_s}{\partial r} = \rho_s g \;\;\Rightarrow\;\; 
+\begin{cases}
+(\rho_s + \rho')\big[-2\Omega v \sin\theta + 2\Omega w \cos\theta\big] 
+= - \dfrac{1}{r \cos\theta}\dfrac{\partial p'}{\partial \phi}
+&\\
+(\rho_s + \rho') 2\Omega u \sin\theta 
+= - \dfrac{1}{r}\dfrac{\partial p'}{\partial \theta}
+&\\
+-(\rho_s + \rho') 2\Omega u \cos\theta 
+= - \dfrac{\partial p'}{\partial r} - \rho' g
+\end{cases}
+\)
 
         <!-- Footnote Section -->
         <div class="footnote-container">
