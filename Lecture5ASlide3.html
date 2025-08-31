@@ -5,11 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
-    <!-- Include MathJax for LaTeX Rendering -->
-    <script type="text/javascript" async 
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
-    </script>
+<script>
+  window.MathJax = {
+    tex: {
+      packages: {'[+]': ['ams']},  // add ams package
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    },
+    loader: {load: ['[tex]/ams']}
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
     <style>
+        /* Custom Bullet Points */
         .custom-list {
             list-style: none; /* Remove default bullets */
             padding-left: 20px; /* Adjust indentation */
@@ -29,26 +37,118 @@
             left: 0;
             top: 2px; /* Align with text */
         }
-        .image-container {
+
+        /* Image Row */
+        .image-row {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: left;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
         }
-        .image-container img {
-            max-width: 30%;
-            height: auto;
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
         }
-        .image-text {
-            max-width: 100%;
-            padding-left: 20px;
-            font-size: 16px;
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
         }
-        .blue-box {
-            text-align: center;
-            font-size: 14px;
+        /* Center the table horizontally */
+        .slide table {
+        margin-left: auto;
+        margin-right: auto;
         }
+
+        /* Left-align table text */
+        .slide table th,
+        .slide table td {
+        text-align: left;
+        }
+
+        /* Custom bullet list styled as flex container */
+    ul.custom {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
+    }
+    ul.custom li {
+      flex: 0 0 45%; /* roughly two items per row */
+      display: flex;
+      align-items: center;
+      gap: 10px; /* space between the text and image */
+      position: relative;
+      padding-left: 20px; /* extra padding for the bullet */
+    }
+    ul.custom li::before {
+      content: "■"; /* Unicode for small square bullet */
+      color: #7DCDF4;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Ensure images align properly */
+    ul.custom li img {
+      max-width: 49%;
+      height: auto;
+    }
+
+    .highlight {
+    background-color:rgba(221, 241, 243, 0.8); 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    .highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+
+.image-container {
+    margin-bottom: 0px; /* or even 0 if you want no space */
+}
+
+.image-container p {
+    margin-bottom: 0px; /* reduce space under paragraphs */
+}
+
+.image-container img {
+    margin-top: 0px; /* reduce space above images */
+}
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  td { 
+    border: 1px solid #444; 
+    padding: 0.25rem 0.5rem; 
+    vertical-align: top; 
+    text-align: left;
+  }
+  .text { width: 65%; }
+  .equation { width: 35%; }
     </style>
+    <script>
+function scaleContainer() {
+  const container = document.querySelector('.container');
+  const padding = 0; // optional padding margin
+  const viewportHeight = window.innerHeight - padding;
+  const containerHeight = container.offsetHeight;
+  // Compute the scale ratio
+  const scale = Math.min(1, viewportHeight / containerHeight);
+  container.style.transform = `scale(${scale})`;
+}
+// Run on load
+window.addEventListener('load', scaleContainer);
+// Run on resize
+window.addEventListener('resize', scaleContainer);
+</script>
 </head>
 <body>
     <div class="container">
@@ -65,33 +165,106 @@
 
 
                 <div class="description">    
+<table>
+  <tr>
+    <td class="equation">
+      \[
+      u_t + \vec{u} \cdot \nabla u - fv = -\frac{1}{\rho_0} p_x + k \nabla^2 u + F^x
+      \]
+    </td>
+    <td class="equation">
+      \[
+      \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} + w \frac{\partial u}{\partial z} - fv 
+      = -\frac{1}{\rho_0} \frac{\partial p}{\partial x} + k \nabla^2 u + F^x
+      \]
+    </td>
+  </tr>
 
-                \[
-                \begin{aligned}
-                & u_t + \vec{u} \cdot \nabla u - fv = -\frac{1}{\rho_0} p_x + k \nabla^2 u + F^x \quad \text{(top/bottom)} \\
-                & v_t + \vec{u} \cdot \nabla v + fu = -\frac{1}{\rho_0} p_y + k \nabla^2 v + F^y \quad \text{(top/bottom)} \\
-                & 0 = -\frac{1}{\rho} p_z + g \quad \text{(hydrostatic approximation, } g \gg w_t\text{)} \\
-                & u_x + v_y + w_z = \nabla \cdot \vec{u} = 0 \quad \text{(water is almost incompressible)} \\
-                & T_t + \vec{u} \cdot \nabla T = k \nabla^2 T + H \quad \text{(heating/cooling)} \\
-                & S_t + \vec{u} \cdot \nabla S = k \nabla^2 S + S \quad \text{(rain/evaporation)} \\
-                & \rho = f(T, S, p) \approx \rho_0 (1 - \alpha T + \beta S)
-                \end{aligned}
-                \]
+  <tr>
+    <td class="equation">
+      \[
+      v_t + \vec{u} \cdot \nabla v + fu = -\frac{1}{\rho_0} p_y + k \nabla^2 v + F^y
+      \]
+    </td>
+    <td class="equation">
+      \[
+      \frac{\partial v}{\partial t} + u \frac{\partial v}{\partial x} + v \frac{\partial v}{\partial y} + w \frac{\partial v}{\partial z} + fu 
+      = -\frac{1}{\rho_0} \frac{\partial p}{\partial y} + k \nabla^2 v + F^y
+      \]
+    </td>
+  </tr>
 
-            </div>
+  <tr>
+    <td class="equation">
+      \[
+      0 = -\frac{1}{\rho} p_z + g
+      \]
+    </td>
+    <td class="equation">
+      \[
+      0 = -\frac{1}{\rho} \frac{\partial p}{\partial z} + g 
+      \quad \text{(hydrostatic approximation, } g \gg w_t\text{)}
+      \]
+    </td>
+  </tr>
 
-            <div class="description">
+  <tr>
+    <td class="equation">
+      \[
+      u_x + v_y + w_z = \nabla \cdot \vec{u} = 0
+      \]
+    </td>
+    <td class="equation">
+      \[
+      \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} = 0
+      \quad \text{(incompressibility)}
+      \]
+    </td>
+  </tr>
 
-                <ul class="custom-list">
-                    <li><img src="Figures/Lecture5A_Divergence.png" alt="Divergence" style="max-width: 30%; height: 30%;"></li>
-                    <li>Reynolds averaging has been done already, and k is turbulent diffusivity </li>
-                    <li>\(f = 2\Omega \sin\Theta, \text{ where } \Omega = \frac{2\pi}{86400 \, \text{s}} \text{ and } \Theta \text{ is latitude}\)</li>
-                    <li>For now, we avoid using the spherical coordinate system, so we use Taylor \( f(x) \approx f(x_0) + f'(x_0)\Delta x \) to approximate f:
-                        \(f = 2\Omega \sin\theta \approx 2\Omega \left( \sin\Theta_0 + \frac{1}{R} \cos\Theta_0 \, \Delta \Theta \right) \Delta R = f_0 + \beta y\)</li>
+  <tr>
+    <td class="equation">
+      \[
+      T_t + \vec{u} \cdot \nabla T = k \nabla^2 T + H
+      \]
+    </td>
+    <td class="equation">
+      \[
+      \frac{\partial T}{\partial t} + u \frac{\partial T}{\partial x} + v \frac{\partial T}{\partial y} + w \frac{\partial T}{\partial z}
+      = k \nabla^2 T + H \quad \text{(heating/cooling)}
+      \]
+    </td>
+  </tr>
 
-                </ul>
-    
-                </div>
+  <tr>
+    <td class="equation">
+      \[
+      S_t + \vec{u} \cdot \nabla S = k \nabla^2 S + S
+      \]
+    </td>
+    <td class="equation">
+      \[
+      \frac{\partial S}{\partial t} + u \frac{\partial S}{\partial x} + v \frac{\partial S}{\partial y} + w \frac{\partial S}{\partial z}
+      = k \nabla^2 S + S \quad \text{(rain/evaporation)}
+      \]
+    </td>
+  </tr>
+
+  <tr>
+    <td class="equation">
+      \[
+      \rho = f(T, S, p) \approx \rho_0 (1 - \alpha T + \beta S)
+      \]
+    </td>
+    <td class="equation">
+      \[
+      \rho = f(T, S, p) \approx \rho_0 \left( 1 - \alpha T + \beta S \right)
+      \]
+    </td>
+  </tr>
+</table>
+
+
         </div>
 
 

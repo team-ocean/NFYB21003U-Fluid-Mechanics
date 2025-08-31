@@ -134,7 +134,7 @@
   .text { width: 65%; }
   .equation { width: 35%; }
     </style>
-    <script>
+<script>
 function scaleContainer() {
   const container = document.querySelector('.container');
   const padding = 0; // optional padding margin
@@ -152,58 +152,83 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Navier-Stokes equations for a hydrostatic ocean on the rotating sphere</div>
-
-        <div class="slide">
+        <div class="title">Geostrophy</div>
 
 
-            <div class="description">
-
-                <ul class="custom-list">
-                    <li><img src="Figures/Lecture5A_Divergence.png" alt="Divergence" style="max-width: 50%; height: 50%;"></li>
-                    <li>Reynolds averaging has been done already, and \(k\) is turbulent diffusivity </li>
-                    <li>\(f = 2\Omega \sin\Theta, \text{ where } \Omega = \frac{2\pi}{\text{day}} = \frac{2\pi}{86400 \, \text{s}} \text{ and } \Theta \text{ is latitude}\)</li>
-                    <li>For now, we avoid using the spherical coordinate system, so we use Taylor \( f(x) \approx f(x_0) + f'(x_0)\Delta x \) to approximate f:
-                        \(
-f = f_{o} + \left. \frac{\partial f}{\partial \theta} \right|_{\theta_{o}} \Delta \theta 
-+ \left. \frac{\partial^{2} f}{\partial \theta^{2}} \right|_{\theta_{o}} \frac{\Delta \theta^{2}}{2} + \cdots
-= 2 \Omega \sin \theta_{o} + 2 \Omega \cos \theta_{o} (\theta - \theta_{o}) + \mathcal{O}(\Delta \theta^{2})
-= \boxed{f_{o} + \beta y}
-\)
-</li>
-                </ul>
-    
-                </div>
-<p>
-    <ul class="custom-list">
-        <li>Zonal (East–West) Momentum Equation:
-            \[
-            \frac{\partial u}{\partial t} + \vec{u} \cdot \nabla u - fv
-= -\frac{1}{\rho_0} \frac{\partial p}{\partial x} + \nu \nabla^2 u
-+ \underbrace{F^x}_{\substack{\text{External forcing in the $x$-direction} \\ \text{(typically wind stress $\tau^x$)}}}\]
-        </li>
-        <li>Meridional (North–South) Momentum Equation:
-            \[\frac{\partial v}{\partial t} + \vec{u} \cdot \nabla v + fu
-= -\frac{1}{\rho_0} \frac{\partial p}{\partial y} + \nu \nabla^2 v
-+ \underbrace{F^y}_{\substack{\text{External forcing in the $y$-direction} \\ \text{(typically wind stress $\tau^y$)}}}\]
-        </li>
-        <li>Hydrostatic Balance (Vertical):\[\frac{\partial p}{\partial z} = -\rho g
-\]</li>
-        <li>Continuity (Incompressibility):
-            \[
-\nabla \cdot \vec{u} = \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} = 0
+<div class="description">
+\[
+\underbrace{\frac{d\mathbf{u}}{dt}}_{\substack{\text{relative (material)} \\ \text{acceleration}}}
++ \underbrace{2\Omega \times \mathbf{u}}_{\substack{\text{Coriolis} \\ \text{acceleration}}}
+= - \underbrace{\frac{\nabla p}{\rho}}_{\substack{\text{pressure gradient} \\ \text{force}}}
++ \underbrace{\nabla \Phi}_{\substack{\text{gravitational} \\ \text{potential}}}
++ \underbrace{\frac{\mathcal{F}}{\rho}}_{\substack{\text{frictional (viscous)} \\ \text{force per unit mass}}}
 \]
-        </li>
-    </ul>
-</p>
+</div>
+
+<div class="description">
+The order of magnitude of the relative acceleration is
+\[
+\frac{d\mathbf{u}}{dt} 
+= \underbrace{\frac{\partial \mathbf{u}}{\partial t}}_{\;\mathcal{O}(U/\tau)} 
++ \underbrace{(\mathbf{u} \cdot \nabla)\mathbf{u}}_{\;\mathcal{O}(U^2/L)}
+= \mathcal{O}\!\left(\frac{U}{\tau}, \frac{U^2}{L}\right)
+\]
+</div>
+
+<div class="description">
+Whose ratio to the Coriolis acceleration is
+\[
+\underbrace{2\Omega \times \mathbf{u}}_{\;\mathcal{O}(2\Omega U)}
+\Rightarrow 
+\frac{|d\mathbf{u}/dt|}{|2\Omega \times \mathbf{u}|}
+= \underbrace{\mathcal{O}\!\left[(2\Omega\tau)^{-1}, \;\frac{U}{2\Omega L}\right]}_{\text{Rossby number}}
+\]
+</div>
+
+<div class="description">
+For Newtonian fluids like air or water
+\[
+\mathcal{F} 
+= \overbrace{\mu}^{\text{molecular viscosity}} \nabla^2 \mathbf{u} 
++ \tfrac{\mu}{3}\,\nabla(\nabla \cdot \mathbf{u})
+\]
+and under incompressibility \(\nabla \cdot \mathbf{u} = 0\)
+\[
+\frac{\mathcal{F}}{\rho} 
+= \underbrace{\nu \nabla^2 \mathbf{u}}_{\;\mathcal{O}(\nu U/L^2)}
+\]
+</div>
+
+<div class="description">
+Scaling the frictional term relative to the Coriolis acceleration gives the dimensionless Ekman number
+\[
+\frac{(\nu U/L^2)}{2\Omega U}
+= \underbrace{\mathcal{O}\!\left(\tfrac{\nu}{2\Omega L^2}\right)}_{\text{Ekman number}}
+\]
+The Ekman number equals the kinematic viscosity divided by the angular velocity and the square of the characteristic length
+</div>
+<p>If $\nu$ is the molecular, kinematic viscosity of water, for example, a straightforward estimate for Ekman number $E$ for oceanic motions would be, for $L = 10^3 \,\text{km}$,
+$\nu = 10^{-2} \,\text{cm}^2 \,\text{s}^{-1}$,
+
+$$
+E = \frac{10^{-2} \,\text{cm}^2 \,\text{s}^{-1}}{(10^{-4} \,\text{s}^{-1})(10^{16} \,\text{cm}^2)} = 10^{-14}
+$$
+
+This is a terribly small number, and such frictional forces are clearly negligible for large scale motions. </p>
 
 
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup> Pedlosky, J. (1982). Geophysical Fluid Dynamics. Springer study edition. Springer, Berlin, Heidelberg.
+            </p>
+        </div>
 
-        <!-- Left Arrow to go back to Slide x -->
-        <a href="Lecture5ASlide3.html" class="nav-button left">&#9664;</a>
 
-        <!-- Right Arrow to go to Slide x -->
-        <a href="Lecture5ASlide5.html" class="nav-button right">&#9654;</a>
+        <!-- Navigation Buttons -->
+        <a href="Lecture5ASlide9.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture5ASlide11.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>

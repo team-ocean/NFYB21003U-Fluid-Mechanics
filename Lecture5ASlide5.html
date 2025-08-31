@@ -53,24 +53,22 @@
             text-align: center;
             font-size: 14px;
         }
-        body {
-            text-align: left;
-            margin-left: 20px;  /* Add some left margin for better readability */
-        }
-
-        .description {
-            text-align: left;
-        }
-        p {
-            text-align: left;
-        }
-        /* Force MathJax equations to be left-aligned */
-        .MathJax_Display {
-            text-align: left !important;
-            display: block !important;
-        }
-        /* Proper alignment for the equation table */
     </style>
+    <script>
+function scaleContainer() {
+  const container = document.querySelector('.container');
+  const padding = 0; // optional padding margin
+  const viewportHeight = window.innerHeight - padding;
+  const containerHeight = container.offsetHeight;
+  // Compute the scale ratio
+  const scale = Math.min(1, viewportHeight / containerHeight);
+  container.style.transform = `scale(${scale})`;
+}
+// Run on load
+window.addEventListener('load', scaleContainer);
+// Run on resize
+window.addEventListener('resize', scaleContainer);
+</script>
 </head>
 <body>
     <div class="container">
@@ -78,47 +76,48 @@
 
         <div class="slide">
 
+
             <div class="description">
 
                 <ul class="custom-list">
                     <li>Steady state: \( \delta(Anything)_t = 0 \) </li>
                     <li>Adiabatic: no diffusion, heating or adding of mass, \( k = S = T = 0 \)
-                    <li>Salinity and temperature are constant</li>
+                        \[
+                    \begin{aligned}
+                    & \cancel{u_t} + \vec{u} \cdot \nabla u - fv = -\frac{1}{\rho_0} p_x + \cancel{k \nabla^2 u} + F^x \quad \text{(top/bottom)} \\
+                    & \cancel{v_t} + \vec{u} \cdot \nabla v + fu = -\frac{1}{\rho_0} p_y + \cancel{k \nabla^2 v} + F^y \quad \text{(top/bottom)} \\
+                    & \cancel{T_t} + \vec{u} \cdot \nabla T = \cancel{k \nabla^2 T} + \cancel{H} \quad \text{(heating/cooling)} \\
+                    & \cancel{S_t} + \vec{u} \cdot \nabla S = \cancel{k \nabla^2 S} + \cancel{S} \quad \text{(rain/evaporation)} \\
+                    \end{aligned}
+                    \]
+
+                    </li>
+                    <li>Salinity and temperature are constant
+                        \[
+                        \begin{aligned}
+                        & \vec{u} \cdot \nabla u - fv = -\frac{1}{\rho_0} p_x + F^x \quad \text{(top/bottom)} \\
+                        & \vec{u} \cdot \nabla v + fu = -\frac{1}{\rho_0} p_y + F^y \quad \text{(top/bottom)} \\
+                        & 0 = -\frac{1}{\rho} p_z + g \\
+                        & u_x + v_y + w_z = \nabla \cdot \vec{u} = 0
+                        \end{aligned}
+                        \]
+                    </li>
+
                 </ul>
-            </div>      
 
-            <div class="description">
-                \[
-                \begin{aligned}
-                & \vec{u} \cdot \nabla u - fv = -\frac{1}{\rho_0} p_x + F^x \quad \text{(top/bottom)} \\
-                & \vec{u} \cdot \nabla v + fu = -\frac{1}{\rho_0} p_y + F^y \quad \text{(top/bottom)} \\
-                & 0 = -\frac{1}{\rho} p_z + g \\
-                & u_x + v_y + w_z = \nabla \cdot \vec{u} = 0
-                \end{aligned}
-                \]
-                The force of the wind can be expressed as the vertical divergence of the horizontal stress  
-                \(
-                \vec{F} = \vec{\tau}_z
-                \)
-
-            </div>
-
-            <p>Can we ignore any of the other terms? Let’s compare the magnitudes of momentum advection and Coriolis force:</p>
-
-            \(
-            \begin{aligned}
-            \mathcal{O}\left( \frac{u \, \frac{\partial u}{\partial x}}{fu} \right)
-            &= \mathcal{O}\left( \frac{u}{fu} \cdot \frac{\partial u}{\partial x} \right)
-            = \mathcal{O}\left( \frac{1}{f} \cdot \frac{\partial u}{\partial x} \right) 
-            \approx \mathcal{O}\left( \frac{1}{f} \cdot \frac{\Delta u}{\Delta x} \right)
-            = \mathcal{O}\left( \frac{\Delta u / \Delta x}{f} \right) \\[8pt]
-            &\approx \mathcal{O}\left( \frac{U / L}{f} \right) 
-            = \mathcal{O}\left( \frac{U}{fL} \right)
-            \end{aligned}
-            \)
-            <p>with \( U \) and \( L \) being magnitudes of the variables</p>
 
     
+                </div>
+        </div>
+
+        <!-- Image Replacement for Equations and Explanation -->
+        <div class="image-container" style="text-align: center;">
+            <img src="Figures/Lecture5A_SketchCompound-channelGeometry.png" alt="SketchCompound-channelGeometry" style="max-width: 70%; height: 50%;">
+            
+            <div class="image-text">
+                <p>Sketch of a typical compound-channel geometry with mean flow profile and large-scale vortices at depth transition</p>
+
+            </div>
         </div>
 
 
