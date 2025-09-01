@@ -1,132 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css">
-    <!-- Include MathJax for LaTeX Rendering -->
-    <script type="text/javascript" async 
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
-    </script>
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-            TeX: { extensions: ["cancel.js"] }
-        });
-    </script>
-    <style>
-        .custom-list {
-            list-style: none; /* Remove default bullets */
-            padding-left: 20px; /* Adjust indentation */
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="styles.css">
 
-        .custom-list li {
-            position: relative;
-            padding-left: 20px; /* Space for custom bullet */
-            text-align: left; /* Align text to the left */
-        }
+  <!-- Configure MathJax -->
+  <script>
+    window.MathJax = {
+      tex: {
+        packages: {'[+]': ['ams']},
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      loader: {load: ['[tex]/ams']}
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 
-        .custom-list li::before {
-            content: "■"; /* Unicode for small square */
-            color: #7DCDF4; /* Adjusted to match the blue color */
-            font-size: 14px; /* Adjust size */
-            position: absolute;
-            left: 0;
-            top: 2px; /* Align with text */
-        }
-        .image-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: left;
-        }
-        .image-container img {
-            max-width: 30%;
-            height: auto;
-        }
-        .image-text {
-            max-width: 100%;
-            padding-left: 20px;
-            font-size: 16px;
-        }
-        .blue-box {
-            text-align: center;
-            font-size: 14px;
-        }
-    </style>
-    <script>
-function scaleContainer() {
-  const container = document.querySelector('.container');
-  const padding = 0; // optional padding margin
-  const viewportHeight = window.innerHeight - padding;
-  const containerHeight = container.offsetHeight;
-  // Compute the scale ratio
-  const scale = Math.min(1, viewportHeight / containerHeight);
-  container.style.transform = `scale(${scale})`;
-}
-// Run on load
-window.addEventListener('load', scaleContainer);
-// Run on resize
-window.addEventListener('resize', scaleContainer);
-</script>
+  <style>
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+      text-align: center;
+    }
+
+    iframe {
+      width: 100%;
+      height: 600px; /* adjust height as needed */
+      border: 0;
+      border-radius: 5px;
+    }
+
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="title">The Navier-Stokes Equations II: Further Simplifications</div>
+  <div class="container">
+    <div class="title">Rubber Ducks Used as Tracers</div>
 
-        <div class="slide">
+    <!-- Embedded VisualPDE simulation -->
+    <iframe 
+      title="VisualPDE simulation" 
+      src="https://visualpde.com/sim/?options=N4IghgThD2DuDC0A20CuEQC4CMAGAHAMy7YAsANOFHADICmAdgOYAuAFgLJgAeWIuAOgBMISpBiwAygGMwSOnwh0kYFgEsAbgrHVYADT6pRVCQE0+G4wCN5DACYBJALZgmCzCwio6lG40cubgCCTmgMLFjYvrYBrnQACqpsfAIA9GqBdADOqbDQEEh2APouAA4CsHRWpdZgfFmh0OxgdnbWGJggIr6WnYLYxtJ87HQQLkiD0Fie3pTSAHKRcwAi014+IHYAqlt8giTGdgBqR3uHAOrnZ5R2EZj7USAAZkMe65RqU51pGXE5eQVimUKlUah87iAfpl-vlCkUnihYAJSsxBrs+sYANZ8JwAAgAvLjcLi1AxcQBtXDkbBCAC6AG5cZJ8dgSWTKeQ6fTjC49gJ8Dy1NcQE5SQZOgBaGhFbipboi0nmSXSgCecuMDDqmCElAYWAoIAYABUsERKDVOvBUFkWNAnMZSjArHQAGKoPWdNrmp10ejMdhYYhUkAQIVvWYhyK4IQGiDokASgAUqAAVMVuLiANQaNNFFUASlxEtxdhTyZlWdxGjzheL-RTpLsiYcRUkQQAfLh82nKwAhVBOUqJqUyuXkEdqig0OVdsuSCV2fPGCCnDGUCBXTqJsBWLKJpwSgBs+dSh5TLaNACVM4nsBKd3uD8fT92L72JYIAKzdxvN1tBfF8S7ZcAEU+G3Xd9yPE8zwvABxG87wfKDn2Pc8iiNIIPwEb8G3sP820A4DKCyC1+GEYwsg9TZcSyXFUCrYwtGkW0IBdNRlDacMNl6clQHEOBEBQdAoyIEgDQE2BlkYLI1BYFUsC-HQJD9VhOB4Pl5UkmQ5HcENlFUTRtBMOBxRAIxlLgJUQEsMRUFtSQ6BYIS0AgS8wGYdwnjkLINlkJxRjAI02CcrViDmMAAogMB4jYMNwpAfzAoALWgO1FP5OZkFcsphhCsY5EmYSICsSAsG8pBfKy8JXKyNYI2kaAavQFyRPuarbXQABRUpZJQD0Hg61z5gHJZEutW0nEkdBvOkLyfI2OgnCsaAsjqzAKqqkAlpWtaQisDjwgyz9KB21asmWNQniea13EEQ9TuW87YrDbAcIAdgIR7dqySQ4oYBScGDM61skRp2AYbJ1sEHVtqe0HSjoaRUBUDoYe+87gtCjL3vwT8DQRNRSkRuxWoKi0Zg2JBSToc41FuTgUbGlxuDJo45G8PkBUoUUGDZjm9NwYxoC0AowEBzaNhF0YVBVMnFMoaWxZVHq+qajLcFwE6QCV2Wuu4R0+AGRXRdlmgabphmOCZnBzRQFgjRVRG+FKFRIYdJ1SSYcqFu9aBnTdaivRAR1-d9Rg1MDTW-edR3nc6UkWDoJhoomGO6DMoX0+srOQCyGawDmwPhXYJQ6GWAAJOg1CYNgWB0+QccoZjWPYzj6o2WA2FUI1oHie2+GDzUAr4QA+DcAMN2QAAX1pShYC4zZjFgMjg9kpwjTkxvOmWVBpExOqp6AA"
+      allowfullscreen>
+    </iframe>
 
-
-            <div class="description">
-
-                <ul class="custom-list">
-                    <li>Steady state: \( \delta(Anything)_t = 0 \) </li>
-                    <li>Adiabatic: no diffusion, heating or adding of mass, \( k = S = T = 0 \)
-                        \[
-                    \begin{aligned}
-                    & \cancel{u_t} + \vec{u} \cdot \nabla u - fv = -\frac{1}{\rho_0} p_x + \cancel{k \nabla^2 u} + F^x \quad \text{(top/bottom)} \\
-                    & \cancel{v_t} + \vec{u} \cdot \nabla v + fu = -\frac{1}{\rho_0} p_y + \cancel{k \nabla^2 v} + F^y \quad \text{(top/bottom)} \\
-                    & \cancel{T_t} + \vec{u} \cdot \nabla T = \cancel{k \nabla^2 T} + \cancel{H} \quad \text{(heating/cooling)} \\
-                    & \cancel{S_t} + \vec{u} \cdot \nabla S = \cancel{k \nabla^2 S} + \cancel{S} \quad \text{(rain/evaporation)} \\
-                    \end{aligned}
-                    \]
-
-                    </li>
-                    <li>Salinity and temperature are constant
-                        \[
-                        \begin{aligned}
-                        & \vec{u} \cdot \nabla u - fv = -\frac{1}{\rho_0} p_x + F^x \quad \text{(top/bottom)} \\
-                        & \vec{u} \cdot \nabla v + fu = -\frac{1}{\rho_0} p_y + F^y \quad \text{(top/bottom)} \\
-                        & 0 = -\frac{1}{\rho} p_z + g \\
-                        & u_x + v_y + w_z = \nabla \cdot \vec{u} = 0
-                        \end{aligned}
-                        \]
-                    </li>
-
-                </ul>
-
-
-    
-                </div>
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup> Walker, B.J., Townsend, A.K., Chudasama, A.K. et al. VisualPDE: Rapid Interactive Simulations of Partial Differential Equations. Bull Math Biol 85, 113 (2023). https://doi.org/10.1007/s11538-023-01218-4
+            </p>
+            <p class="footnote">
+                <sup>2</sup> Ocean spills.                
+                 <a href="https://visualpde.com/visual-stories/ducks.html" target="_blank">
+                    <code>https://visualpde.com/visual-stories/ducks.html</code>
+                </a> 
+            </p>
         </div>
 
-        <!-- Image Replacement for Equations and Explanation -->
-        <div class="image-container" style="text-align: center;">
-            <img src="Figures/Lecture5A_SketchCompound-channelGeometry.png" alt="SketchCompound-channelGeometry" style="max-width: 70%; height: 50%;">
-            
-            <div class="image-text">
-                <p>Sketch of a typical compound-channel geometry with mean flow profile and large-scale vortices at depth transition</p>
-
-            </div>
-        </div>
-
-
-
-        <!-- Left Arrow to go back to Slide x -->
-        <a href="Lecture5ASlide4.html" class="nav-button left">&#9664;</a>
-
-        <!-- Right Arrow to go to Slide x -->
-        <a href="Lecture5ASlide6.html" class="nav-button right">&#9654;</a>
-    </div>
+    <!-- Navigation Buttons -->
+    <a href="Lecture5ASlide4.html" class="nav-button left">&#9664;</a>
+    <a href="Lecture5ASlide6.html" class="nav-button right">&#9654;</a>
+  </div>
 </body>
 </html>

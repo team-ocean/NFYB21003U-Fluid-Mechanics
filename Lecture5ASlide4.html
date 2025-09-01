@@ -134,7 +134,7 @@
   .text { width: 65%; }
   .equation { width: 35%; }
     </style>
-    <script>
+<script>
 function scaleContainer() {
   const container = document.querySelector('.container');
   const padding = 0; // optional padding margin
@@ -152,58 +152,56 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Navier-Stokes equations for a hydrostatic ocean on the rotating sphere</div>
+        <div class="title">Prandtl 1926: the Austauschansatz</div>
 
-        <div class="slide">
+<div class="description">
+Prandtl proposed an ansatz (Austauschansatz)
+$$
+T' \approx - l' \, \overline{T}_x \Rightarrow u'T'_x \;\approx\; u' l' \overline{T}_{xx}
+$$
+</div>
 
+<div class="description">
+By introducing the <span class="sql">turbulent diffusivity \(k_t\)</span>, which depends on size and strength of the waves or
+$$
+k_t \;\equiv\; u' l'
+$$
+</div>
 
-            <div class="description">
+<div class="description">
+Approximate
+$$
+\overline{u'T'_x} \;\approx\; k_t \, \overline{T}_{xx}
+$$
+</div>
 
-                <ul class="custom-list">
-                    <li><img src="Figures/Lecture5A_Divergence.png" alt="Divergence" style="max-width: 50%; height: 50%;"></li>
-                    <li>Reynolds averaging has been done already, and \(k\) is turbulent diffusivity </li>
-                    <li>\(f = 2\Omega \sin\Theta, \text{ where } \Omega = \frac{2\pi}{\text{day}} = \frac{2\pi}{86400 \, \text{s}} \text{ and } \Theta \text{ is latitude}\)</li>
-                    <li>For now, we avoid using the spherical coordinate system, so we use Taylor \( f(x) \approx f(x_0) + f'(x_0)\Delta x \) to approximate f:
-                        \(
-f = f_{o} + \left. \frac{\partial f}{\partial \theta} \right|_{\theta_{o}} \Delta \theta 
-+ \left. \frac{\partial^{2} f}{\partial \theta^{2}} \right|_{\theta_{o}} \frac{\Delta \theta^{2}}{2} + \cdots
-= 2 \Omega \sin \theta_{o} + 2 \Omega \cos \theta_{o} (\theta - \theta_{o}) + \mathcal{O}(\Delta \theta^{2})
-= \boxed{f_{o} + \beta y}
-\)
-</li>
-                </ul>
-    
-                </div>
-<p>
-    <ul class="custom-list">
-        <li>Zonal (East–West) Momentum Equation:
-            \[
-            \frac{\partial u}{\partial t} + \vec{u} \cdot \nabla u - fv
-= -\frac{1}{\rho_0} \frac{\partial p}{\partial x} + \nu \nabla^2 u
-+ \underbrace{F^x}_{\substack{\text{External forcing in the $x$-direction} \\ \text{(typically wind stress $\tau^x$)}}}\]
-        </li>
-        <li>Meridional (North–South) Momentum Equation:
-            \[\frac{\partial v}{\partial t} + \vec{u} \cdot \nabla v + fu
-= -\frac{1}{\rho_0} \frac{\partial p}{\partial y} + \nu \nabla^2 v
-+ \underbrace{F^y}_{\substack{\text{External forcing in the $y$-direction} \\ \text{(typically wind stress $\tau^y$)}}}\]
-        </li>
-        <li>Hydrostatic Balance (Vertical):\[\frac{\partial p}{\partial z} = -\rho g
-\]</li>
-        <li>Continuity (Incompressibility):
-            \[
-\nabla \cdot \vec{u} = \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} = 0
-\]
-        </li>
-    </ul>
-</p>
+<div class="description">
+$$
+\overline{T}_t = - \overline{u} \, \overline{T}_x + (k + k_t)\, \overline{T}_{xx} + \overline{H}
+$$
+Or in vector form
+$$
+\overline{T}_t = - \overline{\mathbf{u}} \cdot \nabla \overline{T} + k_{\text{turb}} \nabla^2 \overline{T} + \overline{H}
+$$
+</div>
+<ul class="custom-list">
+  <li>For waves of $1 \, \text{m}$ amplitude and $1 \, \text{mm/s}$ speed of water,
+$$
+k_t \approx 10^{-3} \, \text{m}^2 \, \text{s}^{-1}
+$$</li>
+<li>For comparison, the molecular diffusion
+$$
+k_{\text{Molecular}} = 10^{-7} \, \text{m}^2 \, \text{s}^{-1}
+$$</li>
+</ul>
 
-
-
-        <!-- Left Arrow to go back to Slide x -->
+        <!-- Navigation Buttons -->
         <a href="Lecture5ASlide3.html" class="nav-button left">&#9664;</a>
-
-        <!-- Right Arrow to go to Slide x -->
         <a href="Lecture5ASlide5.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
+
+
+
+

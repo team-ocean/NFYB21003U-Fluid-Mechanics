@@ -134,7 +134,7 @@
   .text { width: 65%; }
   .equation { width: 35%; }
     </style>
-<script>
+    <script>
 function scaleContainer() {
   const container = document.querySelector('.container');
   const padding = 0; // optional padding margin
@@ -152,74 +152,121 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">The Navier-Stokes Equations II: Further Simplifications</div>
+        <div class="title">Navier-Stokes equations for a hydrostatic ocean on the rotating sphere</div>
 
-        <div class="slide">    
+        <div class="slide">
+            <div class="description">
+
+            <p>In a rotating frame of reference and in the absence of sources and sinks
+                of mass or salt the Navier-Stokes equations are
+                </p>
+
+            </div>
 
 
-    <!-- Rossby number block with image inside description -->
-    <div class="description">
-        <div class="image-container">
-        <img src="Figures/Lecture5A_RossbyNumberEffect.png" alt="RossbyNumberEffect" style="max-width: 39%; height: 39%;">
-<p>         $$
-\begin{aligned}
-&\text{Rossby number} = \frac{U}{fL} \\
-&=
-\begin{cases}
-\ll 1 & \text{Coriolis force dominates} \\
-\sim 1 & \text{Advection and Coriolis are comparable} \\
-\gg 1 & \text{Advection dominates; rotation negligible}
-\end{cases}
-\end{aligned}
-$$</p>
-</div> 
+                <div class="description">    
+<table>
+  <tr>
+    <td class="equation">
+      \[
+      u_t + \vec{u} \cdot \nabla u - fv = -\frac{1}{\rho_0} p_x + k \nabla^2 u + F^x
+      \]
+    </td>
+    <td class="equation">
+      \[
+      \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} + w \frac{\partial u}{\partial z} - fv 
+      = -\frac{1}{\rho_0} \frac{\partial p}{\partial x} + k \nabla^2 u + F^x
+      \]
+    </td>
+  </tr>
 
-      </div>
-  
-      <!-- Péclet number block with image inside description -->
-      <div class="description">
-                <div class="image-container">
-        <img src="Figures/Lecture5A_PecletNumberThermocline.png" alt="PecletNumberThermocline" style="max-width: 39%; height: 100%;">
-<p>                  $$
-\begin{aligned}
-&\text{Péclet number} = \frac{UL}{k} \\
-&=
-\begin{cases}
-\ll 1 & \text{Diffusion dominates (slow, smoothed transport)} \\
-\sim 1 & \text{Advection and diffusion are both important} \\
-\gg 1 & \text{Advection dominates (sharp gradients persist)}
-\end{cases}
-\end{aligned}
-$$</p>
-</div> 
+  <tr>
+    <td class="equation">
+      \[
+      v_t + \vec{u} \cdot \nabla v + fu = -\frac{1}{\rho_0} p_y + k \nabla^2 v + F^y
+      \]
+    </td>
+    <td class="equation">
+      \[
+      \frac{\partial v}{\partial t} + u \frac{\partial v}{\partial x} + v \frac{\partial v}{\partial y} + w \frac{\partial v}{\partial z} + fu 
+      = -\frac{1}{\rho_0} \frac{\partial p}{\partial y} + k \nabla^2 v + F^y
+      \]
+    </td>
+  </tr>
 
-</div> 
+  <tr>
+    <td class="equation">
+      \[
+      0 = -\frac{1}{\rho} p_z + g
+      \]
+    </td>
+    <td class="equation">
+      \[
+      0 = -\frac{1}{\rho} \frac{\partial p}{\partial z} + g 
+      \quad \text{(hydrostatic approximation, } g \gg w_t\text{)}
+      \]
+    </td>
+  </tr>
 
-            \(
-            \begin{aligned}
-            \mathcal{O}\left( \frac{u \, \frac{\partial DIC}{\partial x}}{k \, \frac{\partial^2 DIC}{\partial x^2}} \right) 
-            &= \mathcal{O}\left( \frac{u}{k} \cdot \frac{\frac{\partial DIC}{\partial x}}{\frac{\partial^2 DIC}{\partial x^2}} \right) 
-            \approx \mathcal{O}\left( \frac{u}{k} \cdot \frac{\Delta DIC / \Delta x}{\Delta DIC / \Delta x^2} \right) 
-            = \mathcal{O}\left( \frac{u}{k} \cdot \frac{\Delta DIC / \Delta x}{\Delta DIC / (\Delta x)^2} \right) 
-            = \mathcal{O}\left( \frac{u}{k} \cdot \frac{(\Delta x)^2}{\Delta x} \right) \\[8pt]
-            = \mathcal{O}\left( \frac{u \cdot \Delta x}{k} \right) 
-            &\approx \mathcal{O}\left( \frac{U \cdot L}{k} \right) 
-            = \mathcal{O}\left( \frac{UL}{k} \right) 
-            \end{aligned}
-            \) 
-            <p>with \( U = 1 \times 10^{-4} \, \text{m/s}, \quad L = 1 \times 10^6 \, \text{m}, \quad k = 1 \times 10^2 \, \text{m}^2/\text{s} \Rightarrow \text{Pe} \approx 1 \)</p>
+  <tr>
+    <td class="equation">
+      \[
+      u_x + v_y + w_z = \nabla \cdot \vec{u} = 0
+      \]
+    </td>
+    <td class="equation">
+      \[
+      \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} = 0
+      \quad \text{(incompressibility)}
+      \]
+    </td>
+  </tr>
+
+  <tr>
+    <td class="equation">
+      \[
+      T_t + \vec{u} \cdot \nabla T = k \nabla^2 T + H
+      \]
+    </td>
+    <td class="equation">
+      \[
+      \frac{\partial T}{\partial t} + u \frac{\partial T}{\partial x} + v \frac{\partial T}{\partial y} + w \frac{\partial T}{\partial z}
+      = k \nabla^2 T + H \quad \text{(heating/cooling)}
+      \]
+    </td>
+  </tr>
+
+  <tr>
+    <td class="equation">
+      \[
+      S_t + \vec{u} \cdot \nabla S = k \nabla^2 S + S
+      \]
+    </td>
+    <td class="equation">
+      \[
+      \frac{\partial S}{\partial t} + u \frac{\partial S}{\partial x} + v \frac{\partial S}{\partial y} + w \frac{\partial S}{\partial z}
+      = k \nabla^2 S + S \quad \text{(rain/evaporation)}
+      \]
+    </td>
+  </tr>
+
+  <tr>
+    <td class="equation">
+      \[
+      \rho = f(T, S, p) \approx \rho_0 (1 - \alpha T + \beta S)
+      \]
+    </td>
+    <td class="equation">
+      \[
+      \rho = f(T, S, p) \approx \rho_0 \left( 1 - \alpha T + \beta S \right)
+      \]
+    </td>
+  </tr>
+</table>
+
+
         </div>
-        <!-- Footnote Section -->
-        <div class="footnote-container">
-            <hr class="footnote-line">
-            <p class="footnote">
-                <sup>1</sup>On the origin of the Λ effect, the updated ideas of Kitchatinov, L. L. 1987, Geophys & Astrophys. Fluid Dynamics, 38, 273.
-            </p>
 
-            <p class="footnote">
-                <sup>2</sup>Yogender Pal Chandra & Tomas Matuska. Stratification analysis of domestic hot water storage tanks: A comprehensive review.
-            </p>
-        </div>
 
 
         <!-- Left Arrow to go back to Slide x -->

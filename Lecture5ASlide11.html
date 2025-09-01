@@ -152,12 +152,80 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Tracer Equations</div>
+        <div class="title">The Navier-Stokes Equations II: Further Simplifications</div>
+
+        <div class="slide">    
 
 
+    <!-- Rossby number block with image inside description -->
+    <div class="description">
+        <div class="image-container">
+        <img src="Figures/Lecture5A_RossbyNumberEffect.png" alt="RossbyNumberEffect" style="max-width: 39%; height: 39%;">
+<p>         $$
+\begin{aligned}
+&\text{Rossby number} = \frac{U}{fL} \\
+&=
+\begin{cases}
+\ll 1 & \text{Coriolis force dominates} \\
+\sim 1 & \text{Advection and Coriolis are comparable} \\
+\gg 1 & \text{Advection dominates; rotation negligible}
+\end{cases}
+\end{aligned}
+$$</p>
+</div> 
 
-        <!-- Navigation Buttons -->
+      </div>
+  
+      <!-- Péclet number block with image inside description -->
+      <div class="description">
+                <div class="image-container">
+        <img src="Figures/Lecture5A_PecletNumberThermocline.png" alt="PecletNumberThermocline" style="max-width: 39%; height: 100%;">
+<p>                  $$
+\begin{aligned}
+&\text{Péclet number} = \frac{UL}{k} \\
+&=
+\begin{cases}
+\ll 1 & \text{Diffusion dominates (slow, smoothed transport)} \\
+\sim 1 & \text{Advection and diffusion are both important} \\
+\gg 1 & \text{Advection dominates (sharp gradients persist)}
+\end{cases}
+\end{aligned}
+$$</p>
+</div> 
+
+</div> 
+
+            \(
+            \begin{aligned}
+            \mathcal{O}\left( \frac{u \, \frac{\partial DIC}{\partial x}}{k \, \frac{\partial^2 DIC}{\partial x^2}} \right) 
+            &= \mathcal{O}\left( \frac{u}{k} \cdot \frac{\frac{\partial DIC}{\partial x}}{\frac{\partial^2 DIC}{\partial x^2}} \right) 
+            \approx \mathcal{O}\left( \frac{u}{k} \cdot \frac{\Delta DIC / \Delta x}{\Delta DIC / \Delta x^2} \right) 
+            = \mathcal{O}\left( \frac{u}{k} \cdot \frac{\Delta DIC / \Delta x}{\Delta DIC / (\Delta x)^2} \right) 
+            = \mathcal{O}\left( \frac{u}{k} \cdot \frac{(\Delta x)^2}{\Delta x} \right) \\[8pt]
+            = \mathcal{O}\left( \frac{u \cdot \Delta x}{k} \right) 
+            &\approx \mathcal{O}\left( \frac{U \cdot L}{k} \right) 
+            = \mathcal{O}\left( \frac{UL}{k} \right) 
+            \end{aligned}
+            \) 
+            <p>with \( U = 1 \times 10^{-4} \, \text{m/s}, \quad L = 1 \times 10^6 \, \text{m}, \quad k = 1 \times 10^2 \, \text{m}^2/\text{s} \Rightarrow \text{Pe} \approx 1 \)</p>
+        </div>
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>On the origin of the Λ effect, the updated ideas of Kitchatinov, L. L. 1987, Geophys & Astrophys. Fluid Dynamics, 38, 273.
+            </p>
+
+            <p class="footnote">
+                <sup>2</sup>Yogender Pal Chandra & Tomas Matuska. Stratification analysis of domestic hot water storage tanks: A comprehensive review.
+            </p>
+        </div>
+
+
+        <!-- Left Arrow to go back to Slide x -->
         <a href="Lecture5ASlide10.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide x -->
         <a href="Lecture5ASlide12.html" class="nav-button right">&#9654;</a>
     </div>
 </body>

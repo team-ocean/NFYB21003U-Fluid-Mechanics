@@ -5,19 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
-<script>
-  window.MathJax = {
-    tex: {
-      packages: {'[+]': ['ams']},  // add ams package
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']],
-    },
-    loader: {load: ['[tex]/ams']}
-  };
-</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <!-- Include MathJax for LaTeX Rendering -->
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            TeX: { extensions: ["cancel.js"] }
+        });
+    </script>
     <style>
-        /* Custom Bullet Points */
         .custom-list {
             list-style: none; /* Remove default bullets */
             padding-left: 20px; /* Adjust indentation */
@@ -37,104 +34,27 @@
             left: 0;
             top: 2px; /* Align with text */
         }
-
-        /* Image Row */
-        .image-row {
+        .image-container {
             display: flex;
-            justify-content: space-between; /* Space images evenly */
-            align-items: center; /* Align images vertically */
-            margin-top: 20px; /* Add some space after description */
-            flex-wrap: wrap; /* Ensure responsiveness */
+            align-items: center;
+            justify-content: center;
+            text-align: left;
         }
-
-        .image-row img {
-            width: 25%; /* Make sure all images take equal space */
-            max-width: 100%; /* Prevent overflow */
-            height: auto; /* Maintain aspect ratio */
-            border-radius: 5px; /* Optional: Rounded corners */
+        .image-container img {
+            max-width: 30%;
+            height: auto;
         }
-        .bullet::before {
-        content: "■ ";
-        color: #7DCDF4;
+        .image-text {
+            max-width: 100%;
+            padding-left: 20px;
+            font-size: 16px;
         }
-        /* Center the table horizontally */
-        .slide table {
-        margin-left: auto;
-        margin-right: auto;
+        .blue-box {
+            text-align: center;
+            font-size: 14px;
         }
-
-        /* Left-align table text */
-        .slide table th,
-        .slide table td {
-        text-align: left;
-        }
-
-        /* Custom bullet list styled as flex container */
-    ul.custom {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      padding-left: 0;
-      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
-    }
-    ul.custom li {
-      flex: 0 0 45%; /* roughly two items per row */
-      display: flex;
-      align-items: center;
-      gap: 10px; /* space between the text and image */
-      position: relative;
-      padding-left: 20px; /* extra padding for the bullet */
-    }
-    ul.custom li::before {
-      content: "■"; /* Unicode for small square bullet */
-      color: #7DCDF4;
-      font-size: 14px;
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    /* Ensure images align properly */
-    ul.custom li img {
-      max-width: 49%;
-      height: auto;
-    }
-
-    .highlight {
-    background-color:rgba(221, 241, 243, 0.8); 
-    padding: 2px 4px;
-    border-radius: 3px;
-    }
-
-    .highlightkumon {
-    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
-    padding: 2px 4px;
-    border-radius: 3px;
-    }
-
-
-.image-container {
-    margin-bottom: 0px; /* or even 0 if you want no space */
-}
-
-.image-container p {
-    margin-bottom: 0px; /* reduce space under paragraphs */
-}
-
-.image-container img {
-    margin-top: 0px; /* reduce space above images */
-}
-  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
-  td { 
-    border: 1px solid #444; 
-    padding: 0.25rem 0.5rem; 
-    vertical-align: top; 
-    text-align: left;
-  }
-  .text { width: 65%; }
-  .equation { width: 35%; }
     </style>
-<script>
+    <script>
 function scaleContainer() {
   const container = document.querySelector('.container');
   const padding = 0; // optional padding margin
@@ -152,12 +72,57 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Tracer Equations</div>
+        <div class="title">The Navier-Stokes Equations II: Further Simplifications</div>
+
+        <div class="slide">
+
+
+            <div class="description">
+
+                <ul class="custom-list">
+                    <li>Steady state: \( \delta(Anything)_t = 0 \) </li>
+                    <li>Adiabatic: no diffusion, heating or adding of mass, \( k = S = T = 0 \)
+                        \[
+                    \begin{aligned}
+                    & \cancel{u_t} + \vec{u} \cdot \nabla u - fv = -\frac{1}{\rho_0} p_x + \cancel{k \nabla^2 u} + F^x \quad \text{(top/bottom)} \\
+                    & \cancel{v_t} + \vec{u} \cdot \nabla v + fu = -\frac{1}{\rho_0} p_y + \cancel{k \nabla^2 v} + F^y \quad \text{(top/bottom)} \\
+                    & \cancel{T_t} + \vec{u} \cdot \nabla T = \cancel{k \nabla^2 T} + \cancel{H} \quad \text{(heating/cooling)} \\
+                    & \cancel{S_t} + \vec{u} \cdot \nabla S = \cancel{k \nabla^2 S} + \cancel{S} \quad \text{(rain/evaporation)} \\
+                    \end{aligned}
+                    \]
+
+                    </li>
+                    <li>Salinity and temperature are constant
+                        \[
+                        \begin{aligned}
+                        & \vec{u} \cdot \nabla u - fv = -\frac{1}{\rho_0} p_x + F^x \quad \text{(top/bottom)} \\
+                        & \vec{u} \cdot \nabla v + fu = -\frac{1}{\rho_0} p_y + F^y \quad \text{(top/bottom)} \\
+                        & 0 = -\frac{1}{\rho} p_z + g \\
+                        & u_x + v_y + w_z = \nabla \cdot \vec{u} = 0
+                        \end{aligned}
+                        \]
+                    </li>
+                </ul>
+    
+                </div>
+        </div>
+
+        <!-- Image Replacement for Equations and Explanation -->
+        <div class="image-container" style="text-align: center;">
+            <img src="Figures/Lecture5A_SketchCompound-channelGeometry.png" alt="SketchCompound-channelGeometry" style="max-width: 70%; height: 50%;">
+            
+            <div class="image-text">
+                <p>Sketch of a typical compound-channel geometry with mean flow profile and large-scale vortices at depth transition</p>
+
+            </div>
+        </div>
 
 
 
-        <!-- Navigation Buttons -->
+        <!-- Left Arrow to go back to Slide x -->
         <a href="Lecture5ASlide8.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide x -->
         <a href="Lecture5ASlide10.html" class="nav-button right">&#9654;</a>
     </div>
 </body>

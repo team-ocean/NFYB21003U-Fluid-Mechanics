@@ -5,11 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
-    <!-- Include MathJax for LaTeX Rendering -->
-    <script type="text/javascript" async 
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
-    </script>
+<script>
+  window.MathJax = {
+    tex: {
+      packages: {'[+]': ['ams']},  // add ams package
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    },
+    loader: {load: ['[tex]/ams']}
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
     <style>
+        /* Custom Bullet Points */
         .custom-list {
             list-style: none; /* Remove default bullets */
             padding-left: 20px; /* Adjust indentation */
@@ -29,27 +37,104 @@
             left: 0;
             top: 2px; /* Align with text */
         }
-        .image-container {
+
+        /* Image Row */
+        .image-row {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: left;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
         }
-        .image-container img {
-            max-width: 100%;
-            height: auto;
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
         }
-        .image-text {
-            max-width: 100%;
-            padding-left: 20px;
-            font-size: 16px;
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
         }
-        .blue-box {
-            text-align: center;
-            font-size: 14px;
+        /* Center the table horizontally */
+        .slide table {
+        margin-left: auto;
+        margin-right: auto;
         }
+
+        /* Left-align table text */
+        .slide table th,
+        .slide table td {
+        text-align: left;
+        }
+
+        /* Custom bullet list styled as flex container */
+    ul.custom {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
+    }
+    ul.custom li {
+      flex: 0 0 45%; /* roughly two items per row */
+      display: flex;
+      align-items: center;
+      gap: 10px; /* space between the text and image */
+      position: relative;
+      padding-left: 20px; /* extra padding for the bullet */
+    }
+    ul.custom li::before {
+      content: "■"; /* Unicode for small square bullet */
+      color: #7DCDF4;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Ensure images align properly */
+    ul.custom li img {
+      max-width: 49%;
+      height: auto;
+    }
+
+    .highlight {
+    background-color:rgba(221, 241, 243, 0.8); 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    .highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+
+.image-container {
+    margin-bottom: 0px; /* or even 0 if you want no space */
+}
+
+.image-container p {
+    margin-bottom: 0px; /* reduce space under paragraphs */
+}
+
+.image-container img {
+    margin-top: 0px; /* reduce space above images */
+}
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  td { 
+    border: 1px solid #444; 
+    padding: 0.25rem 0.5rem; 
+    vertical-align: top; 
+    text-align: left;
+  }
+  .text { width: 65%; }
+  .equation { width: 35%; }
     </style>
-    <script>
+<script>
 function scaleContainer() {
   const container = document.querySelector('.container');
   const padding = 0; // optional padding margin
@@ -67,47 +152,62 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Navier-Stokes equations for a hydrostatic ocean on the rotating sphere</div>
+        <div class="title">Tracer Equations</div>
 
-        <div class="slide">
-            <div class="description">
+<div class="description">
+$$
+f
+=\underbrace{\overline{f}}_{\text{average part}}
++\underbrace{f'}_{\text{fluctuation}}
+$$
+</div>
 
-            <p>The governing equations for a real fluid are the Navier-Stokes equations (conservation of linear momentum and mass) along with conservation of salt, conservation of heat (the first law of thermodynamics), and an equation of state 
-                </p>
+<div class="description">
+The Navier–Stokes equation for incompressible flow can be written as
+$$
+\underbrace{\frac{\partial \vec{u}}{\partial t}}_{\text{Local acceleration}} 
++ \underbrace{(\vec{u} \cdot \nabla)\vec{u}}_{\text{Advection}} 
+= - \underbrace{\frac{1}{\rho} \nabla P}_{\text{Pressure force}} 
++ \underbrace{g\vec{k}}_{\text{Gravity}} 
++ \underbrace{\nu \nabla^2 \vec{u}}_{\text{Viscous diffusion}}
+$$
+$g\vec{k}$ with typically
+$
+\vec{k} = \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}
+$
+defines gravity as a vector field acting downward (if you use $-g\vec{k}$, then $\vec{k}$ points upward)
+</div>
 
-            </div>
+<div class="description">
+For any field variable (velocity $\vec{u}$, pressure $P$, or scalar tracer $T$), we decompose it into a mean and a fluctuating part
+$$
+\vec{u} = \overline{\vec{u}} + \vec{u}' \quad \text{and} \quad P = \overline{P} + P' \quad \text{and} \quad T = \overline{T} + T'
+$$
+</div>
 
+<div class="description">
+Apply the time-average operator to the NS equation. The nonlinear advection term becomes
+$$
+(\vec{u} \cdot \nabla)\vec{u} = (\overline{\vec{u}} \cdot \nabla)\overline{\vec{u}} + \nabla \cdot \overline{\vec{u}'\vec{u}'}
+$$
+$$
+\overline{u_i' u_j'} \;\;\Rightarrow\;\; \text{new unknowns!}
+$$
+This introduces a <span class="sql">Reynolds stress tensor</span>
+</div>
 
-            <div class="description">
+<div class="description">
+So the <span class="sql">Reynolds-averaged Navier-Stokes (RANS)</span> equation becomes
+$$
+\frac{\partial \overline{\vec{u}}}{\partial t} 
++ (\overline{\vec{u}} \cdot \nabla)\overline{\vec{u}} 
+= - \frac{1}{\rho} \nabla \overline{P} + g\vec{k} + \nu \nabla^2 \overline{\vec{u}} - \nabla \cdot \overline{\vec{u}' \vec{u}'}
+$$
+The term $- \nabla \cdot \overline{\vec{u}'\vec{u}'}$ is the <span class="sql">turbulent momentum transport</span>, and it leads directly to the <span class="sql">turbulence closure problem</span>
+</div>
 
-                    <p>However, these equations support fast acoustic modes and involve nonlinearities in many terms that make solving them both difficult and expensive and particularly ill suited for long time scale calculations. 
-                    Instead, a series of approximations are made to simplify the Navier-Stokes equations to yield the “primitive equations,” which are the basis of most general circulation models</p>
-
-            </div>
-
-        </div>
-        <!-- Image Row -->
-        <div class="image-container">
-            <img src="Figures/Lecture5A_RotatingEarth.png" alt="RotatingEarth">
-          
-        </div>
-
-        <!-- Footnote Section -->
-        <div class="footnote-container">
-            <hr class="footnote-line">
-            <p class="footnote">
-                <sup>1</sup>Blumberg AF, Bruno MS. Governing Dynamics. In: The Urban Ocean: The Interaction of Cities with Water. Cambridge University Press; 2018:33-42.
-            </p>
-
-            <p class="footnote">
-                <sup>2</sup>MIT OpenCourseWare. 12.950 | Spring 2004 | Graduate. Atmospheric and Oceanic Modeling.
-            </p>
-        </div>
-
-        <!-- Left Arrow to go back to Slide x -->
+        <!-- Navigation Buttons -->
         <a href="Lecture5ASlide1.html" class="nav-button left">&#9664;</a>
-
-        <!-- Right Arrow to go to Slide x -->
         <a href="Lecture5ASlide3.html" class="nav-button right">&#9654;</a>
     </div>
 </body>

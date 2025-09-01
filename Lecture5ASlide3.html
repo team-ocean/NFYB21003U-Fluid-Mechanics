@@ -134,7 +134,7 @@
   .text { width: 65%; }
   .equation { width: 35%; }
     </style>
-    <script>
+<script>
 function scaleContainer() {
   const container = document.querySelector('.container');
   const padding = 0; // optional padding margin
@@ -152,127 +152,56 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Navier-Stokes equations for a hydrostatic ocean on the rotating sphere</div>
+        <div class="title">Tracer Equations</div>
 
-        <div class="slide">
-            <div class="description">
+<div class="description">
+For a scalar tracer
+$$
+\frac{\partial C}{\partial t} = C_t = - \mathbf{u} \cdot \nabla C \; (\text{advection}) + k \nabla^2 C \; (\text{diffusion}) + S \; (\text{source})
+$$
+</div>
 
-            <p>In a rotating frame of reference and in the absence of sources and sinks
-                of mass or salt the Navier-Stokes equations are
-                </p>
+<div class="description">
+$$
+T = \overline{T} + T', 
+\quad 
+\overline{T} = \frac{1}{\Delta t} \int_0^{\Delta t} T \, dt,
+\quad 
+\overline{T'} = 0
+$$
+</div>
 
-            </div>
+<div class="description">
+For a 1D tracer with source $H$
+$$
+T_t = - u T_x + k T_{xx} + H
+$$
+Insert $T = \overline{T} + T'$, $u = \overline{u} + u'$, $H = \overline{H} + H'$
+$$
+(\overline{T} + T')_t 
+= - (\overline{u} + u') (\overline{T} + T')_x 
++ k (\overline{T} + T')_{xx} 
++ (\overline{H} + H')
+$$
+</div>
 
+<div class="description">
+Taking the Reynolds average yields
 
-                <div class="description">    
-<table>
-  <tr>
-    <td class="equation">
-      \[
-      u_t + \vec{u} \cdot \nabla u - fv = -\frac{1}{\rho_0} p_x + k \nabla^2 u + F^x
-      \]
-    </td>
-    <td class="equation">
-      \[
-      \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} + w \frac{\partial u}{\partial z} - fv 
-      = -\frac{1}{\rho_0} \frac{\partial p}{\partial x} + k \nabla^2 u + F^x
-      \]
-    </td>
-  </tr>
+$$
+\overline{T}_t 
+= - \big( \overline{u} \, \overline{T}_x + \overline{u'T'_x} \big) 
++ k \, \overline{T}_{xx} + \overline{H}.
+$$
 
-  <tr>
-    <td class="equation">
-      \[
-      v_t + \vec{u} \cdot \nabla v + fu = -\frac{1}{\rho_0} p_y + k \nabla^2 v + F^y
-      \]
-    </td>
-    <td class="equation">
-      \[
-      \frac{\partial v}{\partial t} + u \frac{\partial v}{\partial x} + v \frac{\partial v}{\partial y} + w \frac{\partial v}{\partial z} + fu 
-      = -\frac{1}{\rho_0} \frac{\partial p}{\partial y} + k \nabla^2 v + F^y
-      \]
-    </td>
-  </tr>
-
-  <tr>
-    <td class="equation">
-      \[
-      0 = -\frac{1}{\rho} p_z + g
-      \]
-    </td>
-    <td class="equation">
-      \[
-      0 = -\frac{1}{\rho} \frac{\partial p}{\partial z} + g 
-      \quad \text{(hydrostatic approximation, } g \gg w_t\text{)}
-      \]
-    </td>
-  </tr>
-
-  <tr>
-    <td class="equation">
-      \[
-      u_x + v_y + w_z = \nabla \cdot \vec{u} = 0
-      \]
-    </td>
-    <td class="equation">
-      \[
-      \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} = 0
-      \quad \text{(incompressibility)}
-      \]
-    </td>
-  </tr>
-
-  <tr>
-    <td class="equation">
-      \[
-      T_t + \vec{u} \cdot \nabla T = k \nabla^2 T + H
-      \]
-    </td>
-    <td class="equation">
-      \[
-      \frac{\partial T}{\partial t} + u \frac{\partial T}{\partial x} + v \frac{\partial T}{\partial y} + w \frac{\partial T}{\partial z}
-      = k \nabla^2 T + H \quad \text{(heating/cooling)}
-      \]
-    </td>
-  </tr>
-
-  <tr>
-    <td class="equation">
-      \[
-      S_t + \vec{u} \cdot \nabla S = k \nabla^2 S + S
-      \]
-    </td>
-    <td class="equation">
-      \[
-      \frac{\partial S}{\partial t} + u \frac{\partial S}{\partial x} + v \frac{\partial S}{\partial y} + w \frac{\partial S}{\partial z}
-      = k \nabla^2 S + S \quad \text{(rain/evaporation)}
-      \]
-    </td>
-  </tr>
-
-  <tr>
-    <td class="equation">
-      \[
-      \rho = f(T, S, p) \approx \rho_0 (1 - \alpha T + \beta S)
-      \]
-    </td>
-    <td class="equation">
-      \[
-      \rho = f(T, S, p) \approx \rho_0 \left( 1 - \alpha T + \beta S \right)
-      \]
-    </td>
-  </tr>
-</table>
+Here the new correlation term $\overline{u'T'_x}$ arises.
+The unresolved correlation $\overline{u'T'_x}$ represents the effect of turbulent fluctuations.
+This is the <span class="sql">closure problem</span>: the mean equation now contains an unknown term
+</div>
 
 
-        </div>
-
-
-
-        <!-- Left Arrow to go back to Slide x -->
+        <!-- Navigation Buttons -->
         <a href="Lecture5ASlide2.html" class="nav-button left">&#9664;</a>
-
-        <!-- Right Arrow to go to Slide x -->
         <a href="Lecture5ASlide4.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
