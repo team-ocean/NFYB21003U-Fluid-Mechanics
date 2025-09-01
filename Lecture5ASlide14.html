@@ -152,13 +152,83 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Tracer Equations</div>
+        <div class="title">Geostrophy</div>
 
+
+<div class="description">
+\[
+\underbrace{\frac{d\mathbf{u}}{dt}}_{\substack{\text{relative (material)} \\ \text{acceleration}}}
++ \underbrace{2\Omega \times \mathbf{u}}_{\substack{\text{Coriolis} \\ \text{acceleration}}}
+= - \underbrace{\frac{\nabla p}{\rho}}_{\substack{\text{pressure gradient} \\ \text{force}}}
++ \underbrace{\nabla \Phi}_{\substack{\text{gravitational} \\ \text{potential}}}
++ \underbrace{\frac{\mathcal{F}}{\rho}}_{\substack{\text{frictional (viscous)} \\ \text{force per unit mass}}}
+\]
+</div>
+
+<div class="description">
+The order of magnitude of the relative acceleration is
+\(
+\frac{d\mathbf{u}}{dt} 
+= \underbrace{\frac{\partial \mathbf{u}}{\partial t}}_{\;\mathcal{O}(U/\tau)} 
++ \underbrace{(\mathbf{u} \cdot \nabla)\mathbf{u}}_{\;\mathcal{O}(U^2/L)}
+= \mathcal{O}\!\left(\frac{U}{\tau}, \frac{U^2}{L}\right)
+\)
+</div>
+
+<div class="description">
+Whose ratio to the Coriolis acceleration is
+\(
+\underbrace{2\Omega \times \mathbf{u}}_{\;\mathcal{O}(2\Omega U)}
+\Rightarrow 
+\frac{|d\mathbf{u}/dt|}{|2\Omega \times \mathbf{u}|}
+= \underbrace{\mathcal{O}\!\left[(2\Omega\tau)^{-1}, \;\frac{U}{2\Omega L}\right]}_{\text{Rossby number}}
+\)
+</div>
+
+<div class="description">
+For Newtonian fluids like air or water,
+\(
+\mathcal{F} 
+= \overbrace{\mu}^{\text{molecular viscosity}} \nabla^2 \mathbf{u} 
++ \tfrac{\mu}{3}\,\nabla(\nabla \cdot \mathbf{u})
+\)<br>
+and under incompressibility \(\nabla \cdot \mathbf{u} = 0\)
+\[
+\frac{\mathcal{F}}{\rho} 
+= \underbrace{\nu \nabla^2 \mathbf{u}}_{\;\mathcal{O}(\nu U/L^2)}
+\]
+</div>
+
+<div class="description">
+Scaling the frictional term relative to the Coriolis acceleration gives the dimensionless Ekman number
+\[
+\frac{(\nu U/L^2)}{2\Omega U}
+= \underbrace{\mathcal{O}\!\left(\tfrac{\nu}{2\Omega L^2}\right)}_{\text{Ekman number}}
+\]
+The Ekman number equals the kinematic viscosity divided by the angular velocity and the square of the characteristic length
+</div>
+<p>If $\nu$ is the molecular, kinematic viscosity of water, for example, a straightforward estimate for Ekman number $E$ for oceanic motions would be, for $L = 10^3 \,\text{km}$,
+$\nu = 10^{-2} \,\text{cm}^2 \,\text{s}^{-1}$,
+
+$$
+E = \frac{10^{-2} \,\text{cm}^2 \,\text{s}^{-1}}{(10^{-4} \,\text{s}^{-1})(10^{16} \,\text{cm}^2)} = 10^{-14}
+$$
+
+This is a terribly small number, and such frictional forces are clearly negligible for large scale motions. </p>
+
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup> Pedlosky, J. (1982). Geophysical Fluid Dynamics. Springer study edition. Springer, Berlin, Heidelberg.
+            </p>
+        </div>
 
 
         <!-- Navigation Buttons -->
-        <a href="Lecture5ASlide8.html" class="nav-button left">&#9664;</a>
-        <a href="Lecture5ASlide10.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture5ASlide13.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture5ASlide15.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>

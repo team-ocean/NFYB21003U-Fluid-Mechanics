@@ -152,13 +152,63 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Tracer Equations</div>
+        <div class="title">Geostrophy</div>
+
+<div class="description">
+Since the aspect ratio of the motion is small, geometrical considerations of the trajectory of the motion of fluid elements allow us to estimate the ratio of the vertical to horizontal velocities
+\[
+\frac{\underbrace{w}_{\text{vertical velocity}}}{\underbrace{u}_{\text{horizontal velocities}}}
+= \mathcal{O}\!\left(\frac{w}{\underbrace{v}_{\text{horizontal velocities}}}\right)
+= \mathcal{O}\!\left(\frac{\underbrace{D}_{\text{thickness of the fluid region}}}{\underbrace{L}_{\text{horizontal scale of variation}}}\right) \ll 1 \Rightarrow p' = \mathcal{O}(\rho \, 2\Omega U L)
+\]
+</div>
+
+<div class="description">
+Vertical pressure gradient
+\[
+\frac{\partial p'}{\partial r} = \mathcal{O}\!\left(\rho \frac{2\Omega U L}{D}\right)
+\]
+while the vertical Coriolis acceleration is
+\[
+\rho 2\Omega u \cos\theta = \mathcal{O}(\rho 2\Omega U)
+\]
+Their ratio is
+$$
+\frac{\rho 2\Omega u \cos\theta}{\partial p'/\partial r} 
+= \mathcal{O}\!\left(\frac{D}{L}\right) = \delta \ll 1
+$$
+so the vertical Coriolis term proportional to $2\Omega \cos \theta$ in both the horizontal and vertical equations can be neglected
+</div>
+
+<div class="description">
+As long as the Rossby number is small
+\[
+\rho' \leq \mathcal{O}\!\left(\frac{p'}{gD}\right) 
+= \mathcal{O}\!\left(\frac{\rho 2\Omega U L}{gD}\right)
+\Rightarrow \frac{\rho'}{\rho} 
+= \mathcal{O}\!\left(\frac{U}{2\Omega L}\frac{4\Omega^2 L^2}{gD}\right) 
+= \varepsilon \frac{4\Omega^2 L^2}{gD}
+\Rightarrow \frac{\rho'}{\rho} \leq \mathcal{O}(\varepsilon) \ll 1
+\Rightarrow
+\rho' \ll \rho_s(r)
+\]
+</div>
 
 
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup> Pedlosky, J. (1982). Geophysical Fluid Dynamics. Springer study edition. Springer, Berlin, Heidelberg.
+            </p>
+            <p class="footnote">
+                <sup>2</sup> Near the equator the terms proportional to $2\Omega \sin \theta$ are small. This does not imply that the Coriolis terms proportional to $2\Omega \cos \theta$ are significant. They still remain unimportant, but other dynamical terms ignored in the approximation must be retained near the equator.
+            </p>
+        </div>
 
         <!-- Navigation Buttons -->
-        <a href="Lecture5ASlide8.html" class="nav-button left">&#9664;</a>
-        <a href="Lecture5ASlide10.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture5ASlide15.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture5ASlide17.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>

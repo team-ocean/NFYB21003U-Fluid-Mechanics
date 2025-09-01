@@ -152,13 +152,63 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Tracer Equations</div>
+        <div class="title">Geostrophy</div>
+
+<div class="description">
+Approximated momentum equations
+\[
+\begin{aligned}
+fv &= +\frac{1}{\rho_s r \cos\theta}\frac{\partial p}{\partial \phi}\\
+fu &= -\frac{1}{\rho_s r}\frac{\partial p}{\partial \theta}\\
+\rho g &= -\frac{\partial p}{\partial r}
+\end{aligned}
+\]
+</div>
+
+<div class="description">
+The parameter $f$ is the local component of the planetary vorticity normal to the earth’s surface and is called the <span class="sql">Coriolis parameter</span>
+$$
+f = 2\Omega \sin\theta
+$$
+With radial coordinate, $r_0$ is the distance from the earth’s center to its surface, $z = r - r_0$, $z \ll r_0$
+$$
+\begin{aligned}
+fv &= \frac{1}{\rho_s r_0 \cos\theta} \frac{\partial p}{\partial \phi}\\
+fu &= -\frac{1}{\rho_s r_0}\frac{\partial p}{\partial \theta}\\
+\rho g &= -\frac{\partial p}{\partial z}
+\end{aligned}
+$$
+</div>
+
+<div class="description">
+In this limiting form the momentum balance for the <span class="sql">horizontal velocity</span> reduces to a balance between the horizontal pressure gradient and the horizontal component of the Coriolis acceleration. 
+The velocity derived from this relation is called the <span class="sql">geostrophic velocity</span>. The <span class="sql">geostrophic approximation</span> can be written in vector form as
+$$
+\underbrace{\mathbf{u}_H}_{\substack{\text{horizontal} \\ \text{velocity vector}}}
+= \frac{1}{f\rho_s} \;
+\underbrace{\mathbf{k}}_{\substack{\text{unit vector perpendicular} \\ \text{to the surface of the sphere}}}
+\times \nabla p$$
+while
+$$
+\rho g = - \frac{\partial p}{\partial z}
+$$
+is the <span class="sql">hydrostatic approximation</span>
+</div>
 
 
+
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup> Pedlosky, J. (1982). Geophysical Fluid Dynamics. Springer study edition. Springer, Berlin, Heidelberg.
+            </p>
+        </div>
 
         <!-- Navigation Buttons -->
-        <a href="Lecture5ASlide8.html" class="nav-button left">&#9664;</a>
-        <a href="Lecture5ASlide10.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture5ASlide16.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture5ASlide18.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
