@@ -149,83 +149,110 @@ window.addEventListener('load', scaleContainer);
 // Run on resize
 window.addEventListener('resize', scaleContainer);
 </script>
+
 </head>
 <body>
     <div class="container">
-        <div class="title">The Navier-Stokes Equations II: Further Simplifications</div>
+        <div class="title">The Ekman Layer</div>
 
-        <div class="slide">    
+<div class="description">
+At infinity ($z \to \infty$), the flow tends to a uniform geostrophic velocity
+$
+\boxed{
+u = U, v = 0, w = 0}
+$<br>
+At the rigid wall ($z=0$), by the no-slip condition that
+ both the normal <span class="sql">and</span> tangential velocities vanish on $z = 0$
+$
+\boxed{
+u = v = w = 0}
+$
+</div>
 
+<div class="description">
+In the absence of friction, the balance would be
 
-    <!-- Rossby number block with image inside description -->
-    <div class="description">
-        <div class="image-container">
-        <img src="Figures/Lecture5A_RossbyNumberEffect.png" alt="RossbyNumberEffect" style="max-width: 39%; height: 39%;">
-<p>         $$
-\begin{aligned}
-&\text{Rossby number} = \frac{U}{fL} \\
-&=
-\begin{cases}
-\ll 1 & \text{Coriolis force dominates} \\
-\sim 1 & \text{Advection and Coriolis are comparable} \\
-\gg 1 & \text{Advection dominates; rotation negligible}
-\end{cases}
-\end{aligned}
-$$</p>
-</div> 
+$$
+u = U = -\frac{1}{\rho f} \frac{\partial p}{\partial y}, \quad v = w = 0
+$$
 
-      </div>
-  
-      <!-- Péclet number block with image inside description -->
-      <div class="description">
-                <div class="image-container">
-        <img src="Figures/Lecture5A_PecletNumberThermocline.png" alt="PecletNumberThermocline" style="max-width: 39%; height: 100%;">
-<p>                  $$
-\begin{aligned}
-&\text{Péclet number} = \frac{UL}{k} \\
-&=
-\begin{cases}
-\ll 1 & \text{Diffusion dominates (slow, smoothed transport)} \\
-\sim 1 & \text{Advection and diffusion are both important} \\
-\gg 1 & \text{Advection dominates (sharp gradients persist)}
-\end{cases}
-\end{aligned}
-$$</p>
-</div> 
+which is just the geostrophic balance.
+But since friction and the wall condition require $u,v=0$ at $z=0$, the velocity must significantly
+depart from geostrophy balance near the wall
+</div>
 
-</div> 
-            \(
-            \begin{aligned}
-            \mathcal{O}\left( \frac{u \, \frac{\partial DIC}{\partial x}}{k \, \frac{\partial^2 DIC}{\partial x^2}} \right) 
-            &= \mathcal{O}\left( \frac{u}{k} \cdot \frac{\frac{\partial DIC}{\partial x}}{\frac{\partial^2 DIC}{\partial x^2}} \right) 
-            \approx \mathcal{O}\left( \frac{u}{k} \cdot \frac{\Delta DIC / \Delta x}{\Delta DIC / \Delta x^2} \right) 
-            = \mathcal{O}\left( \frac{u}{k} \cdot \frac{\Delta DIC / \Delta x}{\Delta DIC / (\Delta x)^2} \right) 
-            = \mathcal{O}\left( \frac{u}{k} \cdot \frac{(\Delta x)^2}{\Delta x} \right) \\[8pt]
-            = \mathcal{O}\left( \frac{u \cdot \Delta x}{k} \right) 
-            &\approx \mathcal{O}\left( \frac{U \cdot L}{k} \right) 
-            = \mathcal{O}\left( \frac{UL}{k} \right) 
-            \end{aligned}
-            \) 
-            <p>with \( U = 1 \times 10^{-4} \, \text{m/s}, \quad L = 1 \times 10^6 \, \text{m}, \quad k = 1 \times 10^2 \, \text{m}^2/\text{s} \Rightarrow \text{Pe} \approx 1 \)</p>
-        </div>
+<div class="description">
+Assume exact solution form
+$
+u = u(z), \quad v = v(z), \quad w = w(z)
+$<br>
+Substitute into continuity \(\frac{\partial u}{\partial x} 
++ \frac{\partial v}{\partial y} 
++ \frac{\partial w}{\partial z} = 0\)
+
+$$
+\frac{\partial w}{\partial z} = 0
+$$
+
+With boundary condition $w(0) = 0$
+$$
+w(z) = 0 \quad \forall z
+$$
+The vertical velocity vanishes everywhere
+</div>
+
+<div class="description">
+With $w=0$ and no $x,y$ dependence, the momentum equations reduce to<br>
+<span class="bullet"></span>$x$-momentum
+\(
+\cancel{\frac{\partial u}{\partial t}}
++ \cancel{u \frac{\partial u}{\partial x}}
++ \cancel{v \frac{\partial u}{\partial y}}
++ w \cancel{\frac{\partial u}{\partial z}}
+- fv
+= -\frac{1}{\rho}\frac{\partial p}{\partial x} 
++ A_v \frac{\partial^2 u}{\partial z^2}
++ \cancel{A_H \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right)}
+\Rightarrow
+-fv = -\frac{1}{\rho}\frac{\partial p}{\partial x} + A_v \frac{d^2 u}{dz^2}
+\)<br>
+<span class="bullet"></span>$y$-momentum
+\(
+\cancel{\frac{\partial v}{\partial t}}
++ \cancel{u \frac{\partial v}{\partial x}}
++ \cancel{v \frac{\partial v}{\partial y}}
++ w \cancel{\frac{\partial v}{\partial z}}
++ fu
+= -\frac{1}{\rho}\frac{\partial p}{\partial y} 
++ A_v \frac{\partial^2 v}{\partial z^2}
++ \cancel{A_H \left( \frac{\partial^2 v}{\partial x^2} + \frac{\partial^2 v}{\partial y^2} \right)}
+\Rightarrow
+fu = -\frac{1}{\rho}\frac{\partial p}{\partial y} + A_v \frac{d^2 v}{dz^2}
+\)<br>
+<span class="bullet"></span>Hydrostatic balance
+\(
+\cancel{\frac{\partial w}{\partial t}}
++ \cancel{u \frac{\partial w}{\partial x}}
++ \cancel{v \frac{\partial w}{\partial y}}
++ w \cancel{\frac{\partial w}{\partial z}}
+= -\frac{1}{\rho} \frac{\partial p}{\partial z} - g
++ \cancel{A_v \frac{\partial^2 w}{\partial z^2}}
++ \cancel{A_H \left( \frac{\partial^2 w}{\partial x^2} + \frac{\partial^2 w}{\partial y^2} \right)}
+\Rightarrow
+g = -\frac{1}{\rho}\frac{\partial p}{\partial z}
+\)
+</div>
+
         <!-- Footnote Section -->
         <div class="footnote-container">
             <hr class="footnote-line">
             <p class="footnote">
-                <sup>1</sup>On the origin of the Λ effect, the updated ideas of Kitchatinov, L. L. 1987, Geophys & Astrophys. Fluid Dynamics, 38, 273.
+                <sup>1</sup> Pedlosky, J. (1982). Geophysical Fluid Dynamics. Springer study edition. Springer, Berlin, Heidelberg.
             </p>
 
-            <p class="footnote">
-                <sup>2</sup>Yogender Pal Chandra & Tomas Matuska. Stratification analysis of domestic hot water storage tanks: A comprehensive review.
-            </p>
-        </div>
-
-
-        <!-- Left Arrow to go back to Slide x -->
-        <a href="Lecture5ASlide10.html" class="nav-button left">&#9664;</a>
-
-        <!-- Right Arrow to go to Slide x -->
-        <a href="Lecture5ASlide12.html" class="nav-button right">&#9654;</a>
+        <!-- Navigation Buttons -->
+        <a href="Lecture5ASlide22.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture5ASlide24.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
