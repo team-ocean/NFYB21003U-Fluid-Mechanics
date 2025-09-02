@@ -153,49 +153,65 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">The Ekman Layer</div>
+        <div class="title">Sverdrup Transport</div>
+
 
 <div class="description">
-Define the horizontal vorticity components
-
-$$
-\zeta = - \frac{\partial v}{\partial z}, 
-\qquad 
-\eta = + \frac{\partial u}{\partial z}
-$$
-
-These describe how the horizontal flow varies with depth
+Equations of motion
+\begin{align}
+\text{I:} \quad & -fv = -\frac{1}{\rho_0} \frac{\partial p}{\partial x} + \frac{1}{\rho_0} \frac{\partial \tau^x}{\partial z} \\
+\text{II:} \quad & fu = -\frac{1}{\rho_0} \frac{\partial p}{\partial y} + \frac{1}{\rho_0} \frac{\partial \tau^y}{\partial z} \\
+\text{III:} \quad & 0 = -\frac{1}{\rho_0} \frac{\partial p}{\partial z} + g \\
+\text{IV:} \quad & \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} = 0 
+\quad \text{(continuity equation)}
+\end{align}
 </div>
 
 <div class="description">
-Differentiate the \(x\)-momentum and \(y\)-momentum equation with respect to $z$
-\[-f \frac{\partial v}{\partial z} = A_v \frac{d^3 u}{dz^3} \Rightarrow f\zeta = A_v \frac{d^2 \eta}{dz^2}\]
-\[f \frac{\partial u}{\partial z} = A_v \frac{d^3 v}{dz^3} \Rightarrow f\eta = A_v \frac{d^2 \zeta}{dz^2} \]
-$$
-0 = + f \frac{\partial v}{\partial z} + A_v \frac{\partial^2 \eta}{\partial z^2}, \qquad
-0 = + f \frac{\partial u}{\partial z} + A_v \frac{\partial^2 \zeta}{\partial z^2}
-$$
+Combine equations (I) and (II)
+\begin{align}
+\frac{\partial}{\partial x} \big(\text{II}\big) \;-\; \frac{\partial}{\partial y} \big(\text{I}\big): \quad 
+f \left( \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} \right) + \beta v 
+= \frac{1}{\rho_0} \left( \frac{\partial^2 p}{\partial x \partial y} - \frac{\partial^2 p}{\partial y \partial x} \right) 
++ \frac{1}{\rho_0} \left( \frac{\partial^2 \tau^y}{\partial x \partial z} - \frac{\partial^2 \tau^x}{\partial y \partial z} \right)
+\end{align}
 </div>
 
-
-<div class="image-container">
-<img src="Figures/Lecture5A_ProfileVelocityEkman.png" alt="ProfileVelocityEkman" style="max-width: 49%; height: 100%;">
-<p>The Ekman layer is established as a <span class="highlightkumon"><span class="sql">balance between the vorticity diffusion from the boundary and the compensating tilting of the planetary vorticity filaments</span>.</span><br><br>
-The requirement that $u$ should decrease from $U$ to zero as the boundary is approached requires $\eta \neq 0$, and this in turn requires $v \neq 0$, so that the diffusion of $\eta$ can be balanced by the tilting of vortex filaments in the $y$-direction by $\partial v / \partial z$<br>
-The figure shows the profiles of the velocity components $u$ and $v$. Far from the wall the velocity is entirely in the $x$-direction, which is the direction of the geostrophic flow. As the wall is approached, the retarding effect of friction decreases $u$. However, the pressure gradient in the $y$-direction is independent of $z$ and is therefore balanced only at infinity by the $y$-component of the Coriolis force. As $u$ decreases, this Coriolis force weakens, and in the presence of the pressure force in the $y$-direction, a velocity $v$ in that direction must be produced, flowing from high pressure to low pressure, retarded only by fluid friction
-</p>
+<div class="description">
+Combine with continuity equation (IV)
+\begin{align}
+\beta v = f \frac{\partial w}{\partial z} 
++ \frac{1}{\rho_0} \frac{\partial}{\partial z} 
+\left( \frac{\partial \tau^y}{\partial x} - \frac{\partial \tau^x}{\partial y} \right)
+\end{align}
 </div>
 
-        <!-- Footnote Section -->
-        <div class="footnote-container">
-            <hr class="footnote-line">
-            <p class="footnote">
-                <sup>1</sup> Pedlosky, J. (1982). Geophysical Fluid Dynamics. Springer study edition. Springer, Berlin, Heidelberg.
-            </p>
+<div class="description">
+If there is no friction below the mixed layer, this simplifies to
+\begin{align}
+\beta V = f \frac{\partial w}{\partial z}
+\end{align}
+This is the Sverdrup Relation
+</div>
+
+<div class="description">
+At the ocean surface and bottom, \( w = 0 \).  
+Taking the depth integral yields
+\begin{align}
+V_s = \frac{1}{\beta \rho_0} 
+\left( \frac{\partial \tau^y}{\partial x} - \frac{\partial \tau^x}{\partial y} \right)
+\end{align}
+</div>
+
+<div class="description">
+\begin{align}
+\mathbf{V}_s = \frac{1}{\beta \rho_0} \, \text{curl} \, \boldsymbol{\tau} 
+\end{align} !!! The Sverdrup Balance!
+</div>
 
         <!-- Navigation Buttons -->
-        <a href="Lecture5ASlide25.html" class="nav-button left">&#9664;</a>
-        <a href="Lecture5ASlide27.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture5ASlide29.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture5ASlide31.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
