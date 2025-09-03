@@ -157,59 +157,57 @@ window.addEventListener('resize', scaleContainer);
 
 
 <div class="description">
-Equations of motion
-\begin{align}
-\text{I:} \quad & -fv = -\frac{1}{\rho_0} \frac{\partial p}{\partial x} + \frac{1}{\rho_0} \frac{\partial \tau^x}{\partial z} \\
-\text{II:} \quad & fu = -\frac{1}{\rho_0} \frac{\partial p}{\partial y} + \frac{1}{\rho_0} \frac{\partial \tau^y}{\partial z} \\
-\text{III:} \quad & 0 = -\frac{1}{\rho_0} \frac{\partial p}{\partial z} + g \\
-\text{IV:} \quad & \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} = 0 
-\quad \text{(continuity equation)}
-\end{align}
+$$
+\underbrace{M_x}_{\substack{\text{zonal mass transport in the}\\\text{wind–driven layer}}} 
+= \int_{-D}^{0} \rho u(z) \, dz, 
+\qquad 
+\underbrace{M_y}_{\substack{\text{meridional mass transport in the}\\\text{wind–driven layer}}} 
+= \int_{-D}^{0} \rho v(z) \, dz
+$$
 </div>
 
 <div class="description">
-Combine equations (I) and (II)
-\begin{align}
-\frac{\partial}{\partial x} \big(\text{II}\big) \;-\; \frac{\partial}{\partial y} \big(\text{I}\big): \quad 
-f \left( \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} \right) + \beta v 
-= \frac{1}{\rho_0} \left( \frac{\partial^2 p}{\partial x \partial y} - \frac{\partial^2 p}{\partial y \partial x} \right) 
-+ \frac{1}{\rho_0} \left( \frac{\partial^2 \tau^y}{\partial x \partial z} - \frac{\partial^2 \tau^x}{\partial y \partial z} \right)
-\end{align}
+Streamfunction representation of volume transport <img src="Figures/Lecture5A_VolumeStreamFunction.png" 
+                alt="VolumeStreamFunction.png" 
+                style="height: 17em; vertical-align: middle;">
+$$
+U = - \frac{\partial \Psi}{\partial y}, 
+\qquad 
+V = \frac{\partial \Psi}{\partial x} 
+$$
 </div>
 
 <div class="description">
-Combine with continuity equation (IV)
-\begin{align}
-\beta v = f \frac{\partial w}{\partial z} 
-+ \frac{1}{\rho_0} \frac{\partial}{\partial z} 
-\left( \frac{\partial \tau^y}{\partial x} - \frac{\partial \tau^x}{\partial y} \right)
-\end{align}
+Integrating westward from the eastern boundary
+$$
+\Psi(x,y) 
+= \frac{1}{\rho_{\text{ref}} \, \beta} 
+\int_{\text{eastern bdy}}^{x} 
+\underbrace{\hat{\mathbf{z}}}_{\substack{\text{vertical}\\\text{unit vector}}} 
+\cdot 
+\underbrace{\left( \nabla \times \boldsymbol{\tau}_{\text{wind}} \right)}_{\substack{\text{curl of}\\\text{wind stress}}} 
+\, dx
+$$
 </div>
 
-<div class="description">
-If there is no friction below the mixed layer, this simplifies to
-\begin{align}
-\beta V = f \frac{\partial w}{\partial z}
-\end{align}
-This is the Sverdrup Relation
-</div>
 
-<div class="description">
-At the ocean surface and bottom, \( w = 0 \).  
-Taking the depth integral \(\boxed{V_s = \int_{-D}^{0} v \, dz}\) yields
-\begin{align}
-V_s = \frac{1}{\beta \rho_0} 
-\left( \frac{\partial \tau^y}{\partial x} - \frac{\partial \tau^x}{\partial y} \right) = \frac{1}{\beta \rho_0} \, \text{curl} \, \boldsymbol{\tau} 
-\end{align}
-</div>
 
-<div class="description">
-!!! The Sverdrup Balance!
-</div>
+
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup> Marshall J., Plumb R. A., . (2008). Atmosphere, ocean, and climate dynamics. Amsterdam: Elsevier Academic Press.
+            </p>
+            <p class="footnote">
+                <sup>2</sup> Robert H. Stewart. (2025). Introduction to Physical Oceanography (Stewart).
+            </p>
 
         <!-- Navigation Buttons -->
-        <a href="Lecture5ASlide29.html" class="nav-button left">&#9664;</a>
-        <a href="Lecture5ASlide31.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture5ASlide31.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture5ASlide33.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
+

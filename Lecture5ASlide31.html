@@ -157,59 +157,40 @@ window.addEventListener('resize', scaleContainer);
 
 
 <div class="description">
-Equations of motion
-\begin{align}
-\text{I:} \quad & -fv = -\frac{1}{\rho_0} \frac{\partial p}{\partial x} + \frac{1}{\rho_0} \frac{\partial \tau^x}{\partial z} \\
-\text{II:} \quad & fu = -\frac{1}{\rho_0} \frac{\partial p}{\partial y} + \frac{1}{\rho_0} \frac{\partial \tau^y}{\partial z} \\
-\text{III:} \quad & 0 = -\frac{1}{\rho_0} \frac{\partial p}{\partial z} + g \\
-\text{IV:} \quad & \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} = 0 
-\quad \text{(continuity equation)}
-\end{align}
+The Sverdrup relation is one
+of the cornerstones of dynamical oceanography. We can use it to derive a simple
+expression for the transport of ocean gyres
+<img src="Figures/Lecture5A_WindOceanGyres.png" alt="WindOceanGyres" style="max-width: 100%; height: 100%;">
 </div>
 
-<div class="description">
-Combine equations (I) and (II)
-\begin{align}
-\frac{\partial}{\partial x} \big(\text{II}\big) \;-\; \frac{\partial}{\partial y} \big(\text{I}\big): \quad 
-f \left( \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} \right) + \beta v 
-= \frac{1}{\rho_0} \left( \frac{\partial^2 p}{\partial x \partial y} - \frac{\partial^2 p}{\partial y \partial x} \right) 
-+ \frac{1}{\rho_0} \left( \frac{\partial^2 \tau^y}{\partial x \partial z} - \frac{\partial^2 \tau^x}{\partial y \partial z} \right)
-\end{align}
+
+<div class="image-container">
+<img src="Figures/Lecture5A_GillGeostrophicWindEkman.png" alt="GillGeostrophicWindEkman" style="max-width: 59%; height: 100%;">
+<p>The geostrophic wind gives a cyclonic rotation around the low pressure centre. Ekman transport in the atmosphere is inward and associated pumping velocity is upward. The Ekman mass transport in the oceanic boundary layer is equal and opposite, so there is an outward mass transport and upward pumping velocity in the ocean. This tends to raise the thermocline.</p>
 </div>
 
-<div class="description">
-Combine with continuity equation (IV)
-\begin{align}
-\beta v = f \frac{\partial w}{\partial z} 
-+ \frac{1}{\rho_0} \frac{\partial}{\partial z} 
-\left( \frac{\partial \tau^y}{\partial x} - \frac{\partial \tau^x}{\partial y} \right)
-\end{align}
-</div>
 
-<div class="description">
-If there is no friction below the mixed layer, this simplifies to
-\begin{align}
-\beta V = f \frac{\partial w}{\partial z}
-\end{align}
-This is the Sverdrup Relation
-</div>
 
-<div class="description">
-At the ocean surface and bottom, \( w = 0 \).  
-Taking the depth integral \(\boxed{V_s = \int_{-D}^{0} v \, dz}\) yields
-\begin{align}
-V_s = \frac{1}{\beta \rho_0} 
-\left( \frac{\partial \tau^y}{\partial x} - \frac{\partial \tau^x}{\partial y} \right) = \frac{1}{\beta \rho_0} \, \text{curl} \, \boldsymbol{\tau} 
-\end{align}
-</div>
 
-<div class="description">
-!!! The Sverdrup Balance!
-</div>
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup> Marshall J., Plumb R. A., . (2008). Atmosphere, ocean, and climate dynamics. Amsterdam: Elsevier Academic Press.
+            </p>
+            <p class="footnote">
+                <sup>2</sup> Adrian E. Gill. 1982. Atmosphere-Ocean Dynamics. Academic Press, 1st edition.
+            </p>
+            <p class="footnote">
+                <sup>3</sup>  Clare Helen Heaviside. 2009. Coupling of oceanic and atmospheric
+heat transport in the tropics.
+
+            </p>
 
         <!-- Navigation Buttons -->
-        <a href="Lecture5ASlide29.html" class="nav-button left">&#9664;</a>
-        <a href="Lecture5ASlide31.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture5ASlide30.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture5ASlide32.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
+
