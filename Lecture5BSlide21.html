@@ -153,58 +153,34 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Approximate Solution of the Stommel Model: Asymptotic Matching</div>
+        <div class="title">Using Viscosity Instead of Drag</div>
 
 <div class="description">
-Stretch the coordinate
-$$
-x = \epsilon \alpha \quad \text{or} \quad x - 1 = \epsilon \alpha
-$$
-At the boundary, $\phi(x,y)$ varies rapidly with $x$
+A natural variation on the Stommel problem is to use a harmonic viscosity, $\boxed{\nu \nabla^2 \zeta}$, in place of the drag term $\boxed{-r\zeta}$ in the vorticity equation, 
+the argument being that the wind-driven circulation does not reach all the way to the ocean bottom so that an Ekman drag is not appropriate. 
+This variation is called the 'Munk problem' or 'Munk model', and if both drag and viscosity are present we have the 'Stommel-Munk' model
 </div>
 
 <div class="description">
-Insert $\psi = \psi_I + \phi$ into vorticity balance
+The problem is to find and understand the solution to the (dimensional) equation
 $$
-\epsilon_S (\nabla^2 \psi_I + \nabla^2 \phi) + \frac{\partial \psi_I}{\partial x} + \frac{1}{\epsilon} \frac{\partial \phi}{\partial \alpha} = \text{curl}_z \boldsymbol{\tau}_T
-$$
-</div>
-
-<div class="description">
-Since $\psi_I$ already satisfies Sverdrup balance, the equation reduces to
-$$
-\epsilon_S \left( \nabla^2 \psi_I + \frac{1}{\epsilon^2} \frac{\partial^2 \phi}{\partial \alpha^2} + \frac{\partial^2 \phi}{\partial y^2} \right) + \frac{1}{\epsilon} \frac{\partial \phi}{\partial \alpha} = 0
+\beta \frac{\partial \psi}{\partial x} 
+= \text{curl}_z \tau_T + \nu \nabla^2 \zeta 
+= \text{curl}_z \tau_T + \nu \nabla^4 \psi 
 $$
 </div>
 
-<div class="description">
-Choose $\epsilon = \epsilon_S$ (dominant balance), this gives the leading-order equation
-$$
-\frac{\partial^2 \phi}{\partial \alpha^2} + \frac{\partial \phi}{\partial \alpha} = 0 \Rightarrow \underbrace{\phi}_{\text{boundary layer solution}} = A(y) + B(y)e^{-\alpha}
-$$
-</div>
+<p>We need two boundary conditions at each wall to solve the problem uniquely<img src="Figures/Lecture5B_EastCoasrWestCoast.png" 
+                alt="EastCoasrWestCoast" 
+                style="height: 7em; vertical-align: middle;">, and as before for one of them we choose $\psi = 0$ to satisfy the no-normal-flow condition. For the other condition, two possibilities present themselves
+    <ul class = "custom-list">
+        <li>Zero vorticity, or $\zeta = 0$. Since $\psi = 0$ along the boundary, this possibility is equivalent to $\partial^2 \psi / \partial n^2 = 0$ where $\partial / \partial n$ denotes a derivative normal to the boundary. 
+            This is known as the 'free-slip' condition. At $x = 0$, for example, the condition becomes $\partial v / \partial x = 0$; that is, there is no horizontal shear at the boundary</li>
+        <li>No flow along the boundary (the no-slip condition). That is $\psi_n = 0$ where the subscript denotes the normal derivative of the streamfunction. At $x = 0$ we have $v = 0$</li>
+    </ul>
+</p>
 
-<div class="description">
-Choose $C=1$ in the Sverdrup interior, and apply boundary condition at $x=0$ ($\psi = \psi_I + \phi = 0$ at $x=0$)
-\[
-\underbrace{\psi_I}_{\substack{\text{interior} \\ \text{solution}}}
-= \pi (1-x)\sin \pi y
-\;\Rightarrow\;
-\underbrace{\phi}_{\substack{\text{boundary layer} \\ \text{solution}}}
-= -\pi \sin \pi y \, e^{-x/\epsilon_S}
-\;\Rightarrow\;
-\underbrace{\psi}_{\substack{\text{composite} \\ \text{solution}}}
-= (1-x-e^{-x/\epsilon_S})\pi \sin \pi y
-\]
-This is the composite (boundary layer plus interior) solution \(\boxed{(1-x-e^{-x/\epsilon_S})\pi \sin \pi y}\)
-</div>
 
-<div class="description">
-Restore dimensions
-$$
-\psi = \frac{\tau_0 \pi}{\beta} \left(1 - \frac{x}{a} - e^{-x/(a\epsilon_S)}\right) \sin \frac{\pi y}{a}
-$$
-</div>
 
 
 
@@ -215,14 +191,17 @@ $$
             <p class="footnote">
                 <sup>1</sup>Vallis GK. The Overturning Circulation: Hadley and Ferrel Cells. In: Atmospheric and Oceanic Fluid Dynamics: Fundamentals and Large-Scale Circulation. Cambridge University Press; 2017:511-538.
             </p>
+            <p class="footnote">
+                <sup>2</sup> Pedlosky, J. (1982). Geophysical Fluid Dynamics. Springer study edition. Springer, Berlin, Heidelberg.
+            </p>
         </div>
 
 
 
 
         <!-- Navigation Buttons -->
-        <a href="Lecture5BSlide18.html" class="nav-button left">&#9664;</a>
-        <a href="Lecture5BSlide20.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture5BSlide19.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture5BSlide21.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
