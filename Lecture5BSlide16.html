@@ -153,58 +153,62 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Quasi-Geostrophic Formulation</div>
+        <div class="title">Approximate Solution of the Stommel Model: Boundary-Layer Solution</div>
 
 <div class="description">
-If we neglect the advective derivative and vertically integrate
+Consider a square domain of side $a$ and rescale the variables by setting
 $$
-\beta \int_{\underbrace{B}_{\text{bottom}}}^{\overbrace{T}^{\text{top}}} v \, dz 
-= f_0 [w]_B^T + \text{curl}_z[\boldsymbol{\tau}]_B^T
-$$
+x = a\hat{x}, \quad y = a\hat{y}, \quad 
+\boldsymbol{\tau} = \tau_0 \hat{\boldsymbol{\tau}}, \quad 
+\psi = \hat{\psi} \frac{\overbrace{\tau_0}^{\text{amplitude of wind stress}}}{\beta}
+$$ The hatted variables are nondimensional and $\mathcal{O}(1)$ quantities in the interior
 </div>
-<p>
-We now make one of two virtually equivalent
-choices
-<ul class="custom-list">
-    <li>Suppose that the integration is over the entire depth of the ocean, the term $[w]_B^T$ vanishes given a rigid lid and a flat bottom. If the stress at the top of the ocean is given by the wind stress, and at the bottom of the ocean it is parameterized by a linear drag
-        $$
-\beta \overbrace{\underbrace{\bar{v}}_{\partial \psi / \partial x}}^{\text{vertical integral}} 
-= F_\tau(x,y) - r \overbrace{\underbrace{\bar{\zeta}}_{\nabla^2 \psi}}^{\text{vertical integral}} \Rightarrow r \nabla^2 \psi + \beta \frac{\partial \psi}{\partial x} = F_\tau(x,y)
-$$
-    </li>
-    <li>Suppose that the integration is between two thin Ekman layers at the top and bottom of
-the ocean. The stress is zero at the interior edge of these layers, but the vertical velocity is
-not.
-At the base of the upper Ekman layer, at $z = -\overbrace{\delta_T}^{\text{upper Ekman thickness}}$, the vertical velocity is
-$$
-w(x,y,-\delta_T) = \text{curl}_z (\boldsymbol{\tau}_T/f_0)
-$$
-where the top of the ocean is at $z=0$<br>
-At the top of the lower Ekman layer, the vertical velocity is
-$$
-w(x,y,-H+\underbrace{\delta_B}_{\text{bottom Ekman thickness}}) = \delta_B \zeta
-$$ where $z=-H$ at the ocean bottom<br>
-Neglecting the advective derivative, and integrating over the ocean between the two Ekman layers, \(\boxed{\frac{D\zeta}{Dt} + \beta v = f_0 \frac{\partial w}{\partial z} + \text{curl}_z \frac{\partial \boldsymbol{\tau}}{\partial z}}\) becomes
-$$
-\beta \bar{v} = \text{curl}_z \boldsymbol{\tau}_T - f_0 \delta_B \zeta
-= \text{curl}_z \boldsymbol{\tau}_T
-- \underbrace{f_0 \delta_B \bar{\zeta}/H}_{\text{assume bottom drag using vertically integrated vorticity } \bar{\zeta}}
-$$
-Defining the drag coefficient $r$ by $r=f_0\delta_B/H$, and introducing a streamfunction gives
 
+<div class="description">
+Consider a square domain of side $a$ and rescale the variables by setting
+$$
+x = a\hat{x}, \quad y = a\hat{y}, \quad 
+\boldsymbol{\tau} = \tau_0 \hat{\boldsymbol{\tau}}, \quad 
+\psi = \hat{\psi} \frac{\overbrace{\tau_0}^{\text{amplitude of wind stress}}}{\beta}
+$$ The hatted variables are nondimensional and $O(1)$ quantities in the interior
+</div>
+
+<div class="description">
 $$
 r \nabla^2 \psi + \beta \frac{\partial \psi}{\partial x} = \text{curl}_z \boldsymbol{\tau}_T
+\Rightarrow
+\frac{\partial \hat{\psi}}{\partial \hat{x}} 
++ \underbrace{\epsilon_S}_{=\,r/(a\beta)\,\ll\,1} \nabla^2 \hat{\psi} 
+= \text{curl}_z \hat{\boldsymbol{\tau}}_T
 $$
-</li>
-</ul>
+</div>
 
-</p>
+<div class="description">
+Over the interior of the domain, away from boundaries, the frictional term is small
+$$
+\psi(x,y) = \underbrace{\psi_I(x,y)}_{\text{interior streamfunction}} 
++ \underbrace{\phi(x,y)}_{\text{boundary-layer correction}}
+$$
+</div>
+
+<div class="description">
+Away from boundaries $\psi_I$ is presumed to dominate the flow, and this satisfies
+
+$$
+\frac{\partial \psi_I}{\partial x} = \text{curl}_z \boldsymbol{\tau}_T \Rightarrow  \underbrace{\psi_I(x,y)}_{\text{Sverdrup interior}} = \int_0^x \text{curl}_z \boldsymbol{\tau}(x',y)\, dx' + \underbrace{g(y)}_{\text{arbitrary function of integration}}
+$$
+</div>
 
 
-
-
-
-
+<div class="description">
+The corresponding velocities are 
+$$
+v_I = \text{curl}_z \boldsymbol{\tau}, 
+\quad 
+u_I = -\frac{\partial}{\partial y} \int_0^x \text{curl}_z \boldsymbol{\tau}(x',y)\, dx' 
+- \frac{dg(y)}{dy}
+$$
+</div>
 
 
         <div class="footnote-container">
@@ -218,8 +222,8 @@ $$
 
 
         <!-- Navigation Buttons -->
-        <a href="Lecture5BSlide13.html" class="nav-button left">&#9664;</a>
-        <a href="Lecture5BSlide15.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture5BSlide15.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture5BSlide17.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>

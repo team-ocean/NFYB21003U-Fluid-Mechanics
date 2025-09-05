@@ -153,13 +153,37 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Approximate Solution of Stommel Model</div>
+        <div class="title">Approximate Solution of the Stommel Model: Sverdrup Balance</div>
 
 <div class="description">
-The Stommel model
+The <span class="sql">Stommel model</span> 
+$$
+r \nabla^2 \psi + \beta \frac{\partial \psi}{\partial x} = F_\tau(x,y)
+$$ 
+is linear and it is possible to obtain an exact, analytic solution. 
+However, it is more insightful to approach the problem perturbatively, by supposing that the frictional term is small, meaning there is an approximate balance between wind stress and the $\beta$-effect
 </div>
 
-<p>Sverdrup balance provides a useful, if not impregnable, foundation on which to build</p>
+<div class="description">
+For Friction is small if $|r\zeta| \ll |\beta v|$ or
+$$
+\frac{\overbrace{r}^{=\,f_0 \delta_B/H}}{\underbrace{L}_{\text{horizontal scale}}} 
+= \frac{f_0 \delta_B}{HL} \ll \beta 
+$$
+generally speaking this
+inequality is well satisfied for large-scale flow
+</div>
+
+<div class="description">
+The vorticity equation becomes
+$$
+\beta v \approx \text{curl}_z \tau_T
+$$
+which is known as <span class="sql">Sverdrup balance</span>, a balance between the beta effect and wind stress curl
+</div>
+
+<p>Sverdrup balance provides a useful, if not impregnable, foundation on which to build. However, the observational support for Sverdrup balance is rather mixed, with discrepancies arising from the presence of small-scale eddying motion with concomitantly large nonlinear terms, as well as from non-negligible vertical velocities induced by interaction with bottom topography.
+</p>
 
 
 
