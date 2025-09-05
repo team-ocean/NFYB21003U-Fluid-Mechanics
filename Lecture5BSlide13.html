@@ -153,16 +153,30 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">A Homogeneous Model</div>
+        <div class="title">Quasi-Geostrophic Formulation</div>
 
 <div class="description">
-To obtain the original Stommel model we just ignore the advective derivative, which will be valid if $\boxed{|\zeta| \sim Z \ll \beta L}$ where $Z = U/L$ is a representative value of vorticity. This condition is equivalent to
-$$
-\underbrace{R_\beta}_{\text{beta-Rossby number}} 
-\equiv \frac{\underbrace{U}_{\text{velocity scale}}}{\underbrace{\beta L^2}_{\text{planetary vorticity gradient term}}} \ll 1
-$$
-$R_\beta$ is called the <span class="sql">beta-Rossby number</span>. On sufficiently large scales, $\beta \sim f/L$ and \(R_\beta\) is similar to a small Rossby number assumption
+In the planetary-geostrophic formulation, the horizontal velocity is divergence-free only because we have vertically integrated. If the scales of motion are not too large the horizontal flow at every level is divergence-free for another reason: because it is in geostrophic balance
 </div>
+
+<div class="description">
+In reality, over a single oceanic gyre (say from 15° to 40° latitude), variations in Coriolis parameter are not large, and this prompts us to formulate the model in terms of the quasi-geostrophic equations.
+An
+advantage of the quasi-geostrophic equations is that they readily allow for the inclusion of both
+nonlinearity and stratification
+</div>
+
+<div class="description">
+Such a model would  be restricted to length scales, $L$, of no more than $O(Ro^{-1})$ larger than the deformation radius, and for gyre scales this criterion is marginally satisfied if $L_d = 100 \, \mathrm{km}$
+</div>
+
+<div class="description">
+The quasi-geostrophic vorticity equation for a Boussinesq system is
+\[
+\frac{D\zeta}{Dt} + \beta v 
+= f_0 \frac{\partial w}{\partial z} 
++ \text{curl}_z \frac{\partial \boldsymbol{\tau}}{\partial z}
+\]</div>
 
 
 
@@ -181,10 +195,9 @@ $R_\beta$ is called the <span class="sql">beta-Rossby number</span>. On sufficie
 
 
 
-
         <!-- Navigation Buttons -->
-        <a href="Lecture5BSlide11.html" class="nav-button left">&#9664;</a>
-        <a href="Lecture5BSlide13.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture5BSlide12.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture5BSlide14.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
