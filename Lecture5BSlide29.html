@@ -156,11 +156,59 @@ window.addEventListener('resize', scaleContainer);
         <div class="title">Zonal Boundary Layers</div>
 
 <div class="description">
-
+Consider the Stommel problem forced by the linear wind profile
+$$
+\tau^x = \frac{\tau_0}{a}\left(y - \frac{a}{2}\right)
+$$
+This profile is special because its curl vanishes at $y = 0$ and $y = a$, so the interior solution satisfies $\psi_I = 0$ at both ends
 </div>
 
+<div class="description">
+Scaling the variables
+$$
+\mathcal{O}\!\left(\frac{\beta \Psi / a}{\beta \Psi / a}\right) 
++ \mathcal{O}\!\left(\frac{r \Psi / a^2}{\beta \Psi / a}\right) 
+= \mathcal{O}\!\left(\frac{\tau_0/a}{\beta \Psi / a}\right) \Rightarrow \epsilon_S \nabla^2 \hat{\psi} + \frac{\partial \hat{\psi}}{\partial \hat{x}} = -1
+$$
+</div>
 
+<div class="description">
+The interior flow obeys
 
+$$
+\frac{\partial \psi_I}{\partial \hat{x}} = -1
+$$
+
+so boundary layers are needed at both the meridional and zonal boundaries.
+
+The total solution is written as the sum of five parts
+
+$$
+\hat{\psi} = \psi_I + \phi_W + \phi_E + \phi_N + \phi_S
+$$
+
+where each $\phi$ is a boundary layer correction
+</div>
+
+<div class="description">
+The western boundary layer correction is found as
+$$
+\phi_W = -e^{-\hat{x}/\epsilon_S}
+$$
+</div>
+
+<div class="description">
+At the northern boundary ($y = 1$), introduce a stretched coordinate
+$
+\alpha = \epsilon'^{-1} (y - 1), \quad \epsilon' \ll 1
+$.
+Let $\phi_N = \phi_N(x,\alpha)$.
+Substitute $\hat{\psi} = \psi_I + \phi_W + \phi_E + \phi_N + \phi_S$ into \(\boxed{\epsilon_S \nabla^2 \hat{\psi} + \frac{\partial \hat{\psi}}{\partial \hat{x}} = -1
+}\), keeping only the relevant terms
+$$
+\epsilon_S \left( \nabla^2 \psi_I + \frac{\partial^2 \phi_N}{\partial \hat{x}^2} + \frac{1}{\epsilon'^2}\frac{\partial^2 \phi_N}{\partial \alpha^2} \right) + \frac{\partial \psi_I}{\partial \hat{x}} + \frac{\partial \phi_N}{\partial \hat{x}} = -1
+$$
+</div>
 
         <div class="footnote-container">
             <hr class="footnote-line">
