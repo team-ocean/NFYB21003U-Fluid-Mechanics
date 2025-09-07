@@ -153,31 +153,55 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Approximate Solution of the Stommel Model: Asymptotic Matching</div>
+        <div class="title">Using Viscosity Instead of Drag</div>
 
 <div class="description">
+When adding both western and eastern boundary layer corrections, the full solution is written as
 $$
-\psi = \frac{\tau_0 \pi}{\beta} \left(1 - \frac{x}{a} - e^{-x/(a\epsilon_S)}\right) \sin \frac{\pi y}{a}
+\hat{\psi} = \psi_I - e^{-\hat{x}/(2\epsilon)} 
+\Bigg\{ \psi_I(0,\hat{y})
+\Bigg[\cos\!\left(\tfrac{\sqrt{3}\hat{x}}{2\epsilon}\right)
++ \tfrac{1}{\sqrt{3}}\sin\!\left(\tfrac{\sqrt{3}\hat{x}}{2\epsilon}\right)\Bigg]
++ \tfrac{2\epsilon}{\sqrt{3}} \sin\!\left(\tfrac{\sqrt{3}\hat{x}}{2\epsilon}\right)
+\left.\frac{\partial \psi_I}{\partial \hat{x}}\right|_{x=0}
+\Bigg\}
+- \epsilon e^{(\hat{x}-1)/\epsilon}
+\left.\frac{\partial \psi_I}{\partial \hat{x}}\right|_{x=1}
 $$
-This is a 'single gyre' solution. Two or more gyres can be obtained with a different wind forcing, such as $\tau^x = -\tau_0 \cos(2 \pi y)$
+where $\epsilon = (\nu / \beta a^3)^{1/3}$
 </div>
 
-        <div class="image-container">
-            <img src="Figures/Lecture5B_StreamfunctionWindStress.png" alt="StreamfunctionWindStress" style="max-width: 55%; height: 100%; border: none;">
-            <p>Two solutions of the Stommel model. Upper panel shows the streamfunction of a single-gyre solution, with a wind stress proportional to $-\cos(\pi y / a)$ (in a domain of side $a$), and the lower panel shows a two-gyre solution, with wind stress proportional to $\cos(2 \pi y / a)$<br>
-                It is a relatively straightforward matter to generalize to other wind stresses, provided these also vanish at the two latitudes between which the solution is desired. In general
-                $$
-\psi_I = \int_{x_E}^x \text{curl}_z \tau(x',y)\, dx'
-$$ and that the composite solution is
+<div class="description">
+With the canonical wind stress, using the interior (Sverdrup) solution
 $$
-\psi = \psi_I - \psi_I(0,y) e^{-x/(x_E \epsilon_S)}
+\psi_I = \pi (1-x)\sin \pi y
 $$
-            </p>
-        </div>
+This simplifies the interior contributions and yields
+$$
+\hat{\psi} = \pi \sin(\pi \hat{y})
+\Bigg\{ 1-\hat{x} - e^{-\hat{x}/(2\epsilon)}
+\Bigg[\cos\!\left(\tfrac{\sqrt{3}\hat{x}}{2\epsilon}\right)
++ \tfrac{1-2\epsilon}{\sqrt{3}} \sin\!\left(\tfrac{\sqrt{3}\hat{x}}{2\epsilon}\right)\Bigg]
++ \epsilon e^{(\hat{x}-1)/\epsilon} \Bigg\}
+$$
+</div>
 
 
-
-
+<div class="image-container">
+<img src="Figures/Lecture5B_StommelMunkSolution.png" alt="StommelMunkSolution" style="max-width: 56%; height: 100%; border: none;">
+<p>
+The Stommel and Munk solutions, with the wind stress $\tau = -\cos \pi y$, for $x,y \in (0,1)$. Upper panels are contours of streamfunction in the $x$-$y$ plane, and the flow is clockwise. 
+The lower panels are plots of meridional velocity, $v$, as a function of $x$, in the centre of the domain.<br>
+The Munk layers bring the tangential as well
+as the normal velocity to zero. The eastern boundary layer has a similar thickness to the western
+boundary layer, but is not as dynamically important since its <span class="sql">raison d'etre</span> is to enable the no-slip
+condition to be satisfied, a relatively weak frictional constraint that manifests itself by a boundary
+layer in which the flow parallel to the boundary is slowed down. <br>
+The western
+boundary layer exists in order that the no-normal flow condition can be satisfied, which causes
+a qualitative change in the flow pattern.
+</p>
+</div>
 
 
         <div class="footnote-container">
@@ -191,8 +215,8 @@ $$
 
 
         <!-- Navigation Buttons -->
-        <a href="Lecture5BSlide19.html" class="nav-button left">&#9664;</a>
-        <a href="Lecture5BSlide21.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture5BSlide23.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture5BSlide25.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
