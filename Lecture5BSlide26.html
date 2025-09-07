@@ -153,37 +153,94 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Using Viscosity Instead of Drag</div>
+        <div class="title">The Stommel and Munk Models of the Wind-Driven Circulation</div>
 
-<p>It should be emphasized that neither the Stommel nor
-the Munk models are accurate descriptors of the real ocean, but taken together the similarities of
-their solutions are a powerful argument for the relative insensitivity of the qualitative form of the
-solution to the detailed form of the friction. The models do in fact produce reasonably realistic
-patterns of large-scale flow in the major basins of the world.</p>
-
-<p>
-The figure below shows the solution (streamfunction, in Sverdrups) to the Stommel-Munk problem numerically calculated for the North Atlantic, using the observed wind field. The model has realistic geometry, but is flat-bottomed.
-The calculation reproduces the observed large-scale patterns, but the Gulf Stream and its extension are too diffuse, and its separation from the coast is a little too far north.
-</p>
-
-<div class="image-container">
-<img src="Figures/Lecture5B_WindCalculatedStommelMunkSolution.png" alt="WindCalculatedStommelMunkSolution" style="max-width: 100%; height: 100%; border: none;">
+<div class="description">
+The full vorticity equation rewritten with streamfunction $\psi$ is
+\begin{align}
+&\overbrace{
+  \underbrace{\tfrac{\partial}{\partial t} (\nabla^2 \psi)}_{\text{Local change of relative vorticity } 
+  \zeta = \tfrac{\partial v}{\partial x} - \tfrac{\partial u}{\partial y}}
+  + \underbrace{J(\psi, \nabla^2 \psi)}_{\text{Jacobian, Nonlinear advection of vorticity}}
+}^{\text{Material derivative } \tfrac{D\zeta}{Dt}}
++ \underbrace{\beta \psi_x}_{\text{Meridional advection of planetary vorticity}} \notag \\
+&= \underbrace{\tfrac{f_0}{D} w_E}_{\text{Column Stretching/compression by Ekman pumping}}
+ - \underbrace{r \nabla^2 \psi}_{\text{Linear bottom friction}}
+ + \underbrace{k_H \nabla^4 \psi}_{\text{Horizontal friction}} 
+\end{align}
+with
+\(
+J(A, B) = A_x B_y - A_y B_x
+\)
 </div>
 
+<div class="description">
+Stommel's assumption
+<ul>
+  <li>Include only linear bottom drag: keep $-r \nabla^2 \psi$</li>
+  <li>Ignore $\nabla^4 \psi$ and nonlinear terms</li>
+</ul>
+\begin{align}
+&\overbrace{
+\cancel{
+\underbrace{\tfrac{\partial}{\partial t} (\nabla^2 \psi)}_{\text{Local change of relative vorticity } \zeta}} + 
+\cancel{
+\underbrace{J(\psi, \nabla^2 \psi)}_{\text{Nonlinear advection of vorticity}}}
+}^{\text{Material derivative } \tfrac{D\zeta}{Dt}}
++ \underbrace{\beta \tfrac{\partial \psi}{\partial x}}_{\text{Meridional advection of planetary vorticity}} \notag \\
+&= \underbrace{\tfrac{f_0}{D} w_E}_{\text{Ekman pumping (stretching/compression)}}
+ - \underbrace{r \nabla^2 \psi}_{\text{Linear bottom friction}}
+ + \cancel{
+ \underbrace{k_H \nabla^4 \psi}_{\text{Horizontal friction}}}
+\end{align}
 
-        <div class="footnote-container">
-            <hr class="footnote-line">
-            <p class="footnote">
-                <sup>1</sup>Vallis GK. The Overturning Circulation: Hadley and Ferrel Cells. In: Atmospheric and Oceanic Fluid Dynamics: Fundamentals and Large-Scale Circulation. Cambridge University Press; 2017:511-538.
-            </p>
-        </div>
+$$
+\frac{\partial^2 \psi}{\partial x^2} \gg \frac{\partial^2 \psi}{\partial y^2}
+\quad \Rightarrow \quad
+\boxed{
+\beta \frac{\partial \psi}{\partial x}
+=
+\frac{f_0}{D} w_E
+-
+r \frac{\partial^2 \psi}{\partial x^2}
+}
+$$
+</div>
+
+<div class="description">
+Munk's extension
+<ul>
+  <li>Adds horizontal friction using biharmonic term $+k_H \nabla^4 \psi$</li>
+  <li>Important for resolving realistic boundary layers</li>
+</ul>
+\begin{align}
+&\overbrace{
+\cancel{
+\underbrace{\tfrac{\partial}{\partial t} (\nabla^2 \psi)}_{\text{Local change of relative vorticity } \zeta}} + 
+\cancel{
+\underbrace{J(\psi, \nabla^2 \psi)}_{\text{Nonlinear advection of vorticity}}}
+}^{\text{Material derivative } \tfrac{D\zeta}{Dt}}
++ \underbrace{\beta \tfrac{\partial \psi}{\partial x}}_{\text{Meridional advection of planetary vorticity}} \notag \\
+&= \underbrace{\tfrac{f_0}{D} w_E}_{\text{Column Stretching/compression by Ekman pumping}}
+ - \underbrace{\cancel{r \nabla^2 \psi}}_{\text{Linear bottom friction}}
+ + \underbrace{k_H \nabla^4 \psi}_{\text{Horizontal friction}}
+\end{align}
+Applying the western boundary layer assumption
+$
+\nabla^4 \psi \approx \frac{\partial^4 \psi}{\partial x^4}
+\quad \Rightarrow \quad
+\boxed{
+\beta \frac{\partial \psi}{\partial x} = \frac{f_0}{D} w_E + k_H \frac{\partial^4 \psi}{\partial x^4}
+}
+$
+</div>
 
 
 
 
         <!-- Navigation Buttons -->
-        <a href="Lecture5BSlide24.html" class="nav-button left">&#9664;</a>
-        <a href="Lecture5BSlide26.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture5BSlide25.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture5BSlide27.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
