@@ -154,53 +154,26 @@ window.addEventListener('resize', scaleContainer);
 <body>
     <div class="container">
         <div class="title">The Stommel and Munk Models of the Wind-Driven Circulation</div>
-
-<div class="description">
-<span class="sql">Formulation</span>
-<ul>
-    <li>Vertically integrated planetary-geostrophic equations, or a homogeneous fluid with
-nonlinearity neglected</li>
-<li>Friction parameterized by a linear drag (Stommel model) or a harmonic Newtonian
-viscosity (Munk model) or both (Stommel-Munk model)</li>
-<li>Flat bottomed ocean</li>
-</ul>
-Variations on the theme include allowing nonlinearity in the vorticity equation, posing
-the problem in domains of various shapes, and allowing bottom topography (in particular sloping sidewalls). The solutions are most usefully calculated in the boundary-layer
-approximation, but some exact solutions exist
+<p>The figure below shows the streamlines of the circulation pattern, as given by Munk (1950), for a rectangular ocean driven by the stress distribution for the Pacific Ocean, shown in the panel at left.</p>
+<div class="image-container">
+<img src="Figures/Lecture5B_MunkStreamlinesCirculation.png" alt="MunkStreamlinesCirculation" style="max-width: 100%; height: 100%; border: none;">
 </div>
 
-<div class="description">
-<span class="sql">Properties</span>
-<ul>
-    <li>The transport in the Sverdrup interior is equatorwards for an anti-cyclonic windstress curl. This transport is exactly balanced by the poleward transport in the western boundary layer</li>
-    <li>There must be a boundary layer to satisfy mass conservation, and this must be a <span class="sql">western</span> boundary layer if the friction acts to provide a force of opposite sign to the motion itself. As there is a balance between friction and the $\beta$-effect, it is a 'frictional boundary layer'. The western location does not depend on the sign of the wind stress, nor on the sign of the Coriolis parameter, but it does depend on the sign of $\beta$, and so on the direction of rotation of the Earth</li>
-    <li>In the Stommel model the boundary layer width arises by noting that the terms\(r \nabla^2 \psi \quad \text{and} \quad \beta \frac{\partial \psi}{\partial x}\)
-  are in approximate balance in the western boundary layer, implying boundary-layer scale \(L_S = \frac{r}{\beta}\).
-  If \(r\), the inverse frictional time, is chosen to be \(1/20 \text{ days}^{-1}\) then \(L_S \approx 60 \text{km}\), similar to the width of the Gulf Stream. Unless the wind has a special form the Sverdrup flow is non-zero on the zonal walls and there must also be boundary layers there, but they are weaker and less visible</li>
-    <li>In the Munk model the balance in the western boundary layer is between
-  \(
-  \nu \nabla^4 \psi\) and \(\beta \frac{\partial \psi}{\partial x}
-  \),
 
-  implying a scale of
-\(
-  L_M = \left(\frac{\nu}{\beta}\right)^{1/3}\).
-
-  There are also weak boundary layers on the eastern and zonal walls, to satisfy the no-slip (or free slip) condition</li>
-</ul>
-</div>
 
 
         <div class="footnote-container">
             <hr class="footnote-line">
             <p class="footnote">
-                <sup>1</sup>Vallis GK. The Overturning Circulation: Hadley and Ferrel Cells. In: Atmospheric and Oceanic Fluid Dynamics: Fundamentals and Large-Scale Circulation. Cambridge University Press; 2017:511-538.
+                <sup>1</sup>Pedlosky, J. (1982). Geophysical Fluid Dynamics. Springer study edition. Springer, Berlin, Heidelberg.
             </p>
+            <p class="footnote">
+                <sup>2</sup>Munk, W. H. (1950). ON THE WIND-DRIVEN OCEAN CIRCULATION. Journal of Atmospheric Sciences, 7(2), 80-93.
         </div>
 
         <!-- Navigation Buttons -->
-        <a href="Lecture5BSlide26.html" class="nav-button left">&#9664;</a>
-        <a href="Lecture5BSlide28.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture5BSlide27.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture5BSlide29.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
