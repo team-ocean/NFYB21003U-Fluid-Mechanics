@@ -156,31 +156,45 @@ window.addEventListener('resize', scaleContainer);
         <div class="title">Using Viscosity Instead of Drag</div>
 
 <div class="description">
-A natural variation on the Stommel problem is to use a harmonic viscosity, $\boxed{\nu \nabla^2 \zeta}$, in place of the drag term $\boxed{-r\zeta}$ in the vorticity equation, 
-the argument being that the wind-driven circulation does not reach all the way to the ocean bottom so that an Ekman drag is not appropriate. 
-This variation is called the 'Munk problem' or 'Munk model', and if both drag and viscosity are present we have the 'Stommel-Munk' model
+Start with the canonical wind stress forcing
+$$
+\tau^x = -\cos\!\left(\frac{\pi y}{a}\right)
+$$
+From this, the interior Sverdrup flow is
+$$
+\underbrace{\psi_I}_{\text{interior (Sverdrup) solution}} = \pi(1-x)\sin \pi y
+$$
+This solution satisfies the meridional no-slip boundary conditions at $y=0,1$, since $\partial_y \psi = 0$ there
 </div>
-
 <div class="description">
-The problem is to find and understand the solution to the (dimensional) equation
+The dimensional vorticity equation including viscosity is
 $$
-\beta \frac{\partial \psi}{\partial x} 
-= \text{curl}_z \tau_T + \nu \nabla^2 \zeta 
-= \text{curl}_z \tau_T + \nu \nabla^4 \psi 
+\beta \frac{\partial \psi}{\partial x} = \text{curl}_z \tau_T + \nu \nabla^2 \zeta 
+= \text{curl}_z \tau_T + \nu \nabla^4 \psi
 $$
+To satisfy all four boundary conditions (western and eastern boundaries as well), boundary layers are needed
 </div>
-
-<p>We need two boundary conditions at each wall to solve the problem uniquely<img src="Figures/Lecture5B_EastCoasrWestCoast.png" 
-                alt="EastCoasrWestCoast" 
-                style="height: 7em; vertical-align: middle;">, and as before for one of them we choose $\psi = 0$ to satisfy the no-normal-flow condition. For the other condition, two possibilities present themselves
-    <ul class = "custom-list">
-        <li>Zero vorticity, or $\zeta = 0$. Since $\psi = 0$ along the boundary, this possibility is equivalent to $\partial^2 \psi / \partial n^2 = 0$ where $\partial / \partial n$ denotes a derivative normal to the boundary. 
-            This is known as the 'free-slip' condition. At $x = 0$, for example, the condition becomes $\partial v / \partial x = 0$; that is, there is no horizontal shear at the boundary</li>
-        <li>No flow along the boundary (the no-slip condition). That is $\psi_n = 0$ where the subscript denotes the normal derivative of the streamfunction. At $x = 0$ we have $v = 0$</li>
-    </ul>
+<p>
+Balancing the viscous term with the $\beta$-term in the dimensional vorticity equation including viscosity gives the boundary layer scale
+$$
+L_M = \left(\frac{\nu}{\beta}\right)^{1/3}
+$$
+This is the classical  <span class="highlight"><span class="sql">Munk boundary layer thickness</span></span><br>
+Introduce nondimensional variables and rescale as in the Stommel case
+$$
+\beta \frac{\partial \psi}{\partial x} = \text{curl}_z \tau_T + \nu \nabla^2 \zeta 
+= \text{curl}_z \tau_T + \nu \nabla^4 \psi \Rightarrow -\epsilon_M \nabla^4 \hat{\psi} + \frac{\partial \hat{\psi}}{\partial \hat{x}} 
+= \text{curl}_z \hat{\tau}_T
+$$
+with \(
+\epsilon_M = \frac{\nu}{\beta a^3}\)<br>
+Considering only the western boundary layer correction, now split the total streamfunction into an interior Sverdrup solution and a boundary layer correction
+$$
+\hat{\psi} = \underbrace{\psi_I}_{\text{Sverdrup streamfunction}} 
++ \underbrace{\phi_W(\alpha,\hat{y})}_{\text{boundary layer correction}}
+$$
+Here $\alpha$ is a stretched coordinate defined by $\hat{x} = \epsilon \alpha$, with $\epsilon$ small
 </p>
-
-
 
 
 
@@ -191,17 +205,14 @@ $$
             <p class="footnote">
                 <sup>1</sup>Vallis GK. The Overturning Circulation: Hadley and Ferrel Cells. In: Atmospheric and Oceanic Fluid Dynamics: Fundamentals and Large-Scale Circulation. Cambridge University Press; 2017:511-538.
             </p>
-            <p class="footnote">
-                <sup>2</sup> Pedlosky, J. (1982). Geophysical Fluid Dynamics. Springer study edition. Springer, Berlin, Heidelberg.
-            </p>
         </div>
 
 
 
 
         <!-- Navigation Buttons -->
-        <a href="Lecture5BSlide20.html" class="nav-button left">&#9664;</a>
-        <a href="Lecture5BSlide22.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture5BSlide21.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture5BSlide23.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
