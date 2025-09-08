@@ -153,7 +153,7 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">The Nonlinear Problem: </div>
+        <div class="title">The Nonlinear Problem: A Perturbative Approach</div>
 
 <div class="description">
 A direct attack on the full nonlinear problem \(\boxed{J(\psi,\zeta) + \beta \frac{\partial \psi}{\partial x} 
@@ -168,7 +168,43 @@ $$
 $$
 </div>
 
+<div class="description">
+Now substitute this into  the Stommel problem and equate powers of $R_\beta$. The lowest-order problem is simply
 
+$$
+\epsilon_S \nabla^2 \psi_0 + \frac{\partial \psi_0}{\partial \hat{x}} = \text{curl}_z \hat{\tau}
+$$
+
+which is the Stommel problem we have already solved. At the next order,
+
+$$
+\epsilon_S \nabla^2 \psi_1 + \frac{\partial \psi_1}{\partial \hat{x}} = J(\psi_0, \zeta_0)
+$$
+
+This equation has precisely the same form as the Stommel problem, with the nonlinear term on the right-hand side playing the part of the wind stress
+</div>
+
+<div class="description">
+Take the canonical wind stress forcing
+$
+\tau^x = -\tau_0 \cos(\pi \hat{y})
+$,
+in the boundary layer approximation, and ignoring zonal boundary corrections, the corrected solution becomes
+$$
+\hat{\psi} \approx \sin(\pi \hat{y})(1 - \hat{x} - e^{-\hat{x}/\epsilon_S}) 
+- \frac{R_\beta \pi^3}{2 \epsilon_S^3} \sin(2\pi \hat{y}) \, \hat{x} e^{-\hat{x}/\epsilon_S}
+$$
+<div class="image-container">
+<img src="Figures/Lecture5B_StommelPerturbation.png" alt="StommelPerturbation" style="max-width: 73%; height: 100%; border: none;">
+<p>The nonlinear perturbation solution of the Stommel problem. On the left is the perturbation
+
+$
+-\frac{R_\beta \pi^3}{2 \epsilon_S^3} \sin(2\pi y) x e^{-x/\epsilon_S}
+$,
+
+and on the right is the reconstituted solution. <br>Dashed contours are negative</p>
+</div>
+</div>
 
 
 
