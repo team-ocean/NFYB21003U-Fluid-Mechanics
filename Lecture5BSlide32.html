@@ -153,35 +153,22 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Zonal Boundary Layers</div>
+        <div class="title">The Nonlinear Problem: </div>
 
 <div class="description">
-<ul>
-    <li>Neglect small contributions from other boundary layer terms</li>
-    <li>Choose $\epsilon'^2 = \epsilon_S$ to balance terms</li>
-</ul>
-This reduces to the dominant balance
+A direct attack on the full nonlinear problem \(\boxed{J(\psi,\zeta) + \beta \frac{\partial \psi}{\partial x} 
+= - r \nabla^2 \psi + \text{curl}_z \tau_T + \nu \nabla^2 \zeta}\) is possible only through numerical methods, so first we shall explore the problem perturbatively, assuming the nonlinear term to be small
+</div>
+
+<div class="description">
+Begin with the Stommel problem \(\boxed{R_\beta J(\hat{\psi}, \hat{\zeta}) + \frac{\partial \hat{\psi}}{\partial \hat{x}}
+= - \epsilon_S \nabla^2 \hat{\psi} + \text{curl}_z \hat{\tau}_T + \epsilon_M \nabla^2 \hat{\zeta}}\) with $\epsilon_M = 0$, and expand the streamfunction in powers of the small parameter $R_\beta$
 $$
-\frac{\partial^2 \phi_N}{\partial \alpha^2} + \frac{\partial \phi_N}{\partial \hat{x}} = 0
+\hat{\psi} = \psi_0 + R_\beta \psi_1 + \dots
 $$
 </div>
-<p>
-The boundary conditions necessary to complete the solution are
-<ul class="custom-list">
-    <li>The total streamfunction (interior plus boundary correction) must vanish at the northern boundary <span class="highlightkumon">\(\phi_N(\hat{x}, \alpha = 0) = -\psi_I(\hat{x}, \hat{y} = 1) = -(1-\hat{x})\)</span></li>
-    <li>The boundary solution should match to the interior streamfunction far from the boundary <span class="highlightkumon">\(\phi_N(\hat{x}, \alpha \to -\infty) = 0\)</span></li>
-    <li>At the eastern boundary $\phi_N$ should also vanish, for otherwise it would provide a velocity into the eastern wall <span class="highlightkumon">\(\phi_N(1, \alpha) = 0\)</span></li>
-</ul>
-<div class="image-container">
-<img src="Figures/Lecture5B_StommelZonalBoundary.png" alt="StommelZonalBoundary" style="max-width: 50%; height: 100%; border: none;">
-<p>Obtaining the solution at the southern boundary analytically is quite algebraically tedious and is
-easier done numerically. The figure shows solutions to the Stommel problem with a wind stress that increases linearly from $y = 0$ to $y = 1$. The interior solution is $\psi_I = (1-x)$, or $v_I = -1$, necessitating zonal boundary layers at $y = 0$ and $y = 1$, as well as a western boundary layer at $x = 0$.<br>
-The nondimensional thickness of the zonal boundary layers is \(\epsilon_S^{1/2}\). This is thicker than the western boundary layer because it scales as the square root of a small parameter.
-The thickness comes from the leading balance in the dimensional vorticity equation
-  $$
-  r \frac{\partial^2 \psi}{\partial y^2} + \beta \frac{\partial \psi}{\partial x} = 0
-  $$</p>
-</div>
+
+
 
 
 
@@ -193,8 +180,8 @@ The thickness comes from the leading balance in the dimensional vorticity equati
         </div>
 
         <!-- Navigation Buttons -->
-        <a href="Lecture5BSlide29.html" class="nav-button left">&#9664;</a>
-        <a href="Lecture5BSlide31.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture5BSlide31.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture5BSlide33.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
