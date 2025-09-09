@@ -156,55 +156,90 @@ window.addEventListener('resize', scaleContainer);
 
         <div class="slide">
 <p>
-    <span class="sql">[Q]</span> A solid sphere of mass $m$ and diameter $D$ is released from rest and falls through an incompressible viscous fluid with density $\rho$ and viscosity $\mu$ under the action of gravity $g$. When the $z$ coordinate increases downward, the vertical component of Newton’s second law for the sphere is:
-
-$$
-m \left( \frac{du_z}{dt} \right) = +mg - F_B - F_D,
-$$
-
-where $u_z$ is positive downward, $F_B$ is the buoyancy force on the sphere, and $F_D$ is the fluid-dynamic drag force on the sphere. Here, with $u_z > 0$, $F_D$ opposes the sphere’s downward motion.
-
-At first the sphere is moving slowly so its Reynolds number is low, but
-
-$$
-\text{Re}_D = \frac{\rho u_z D}{\mu}
-$$
-
-increases with time as the sphere’s velocity increases. To account for this variation in $\text{Re}_D$, the sphere’s coefficient of drag may be approximated as:
-
-$$
-C_D \approx \frac{1}{2} + \frac{24}{\text{Re}_D}.
-$$
-
-For the following items, provide answers in terms of $m, \rho, \mu, g,$ and $D$; do not use $z, u_z, F_B,$ or $F_D$.
+    <span class="sql">[A]</span> 
+(a) The buoyant and drag forces on the sphere:
+$
+F_B = \rho \frac{\pi}{6} D^3 g 
+\quad \text{and} \quad
+F_D = \frac{1}{2} \rho u_z^2 \frac{\pi}{4} D^2 C_D 
+= \frac{1}{2} \rho u_z^2 \frac{\pi}{4} D^2 
+\left( \tfrac{1}{2} + \tfrac{24}{Re_D} \right)
+$<br>
+The approximate equation for the sphere's velocity:
+$
+m \frac{du_z}{dt} 
+= mg - \rho \frac{\pi}{6} D^3 g 
+- \frac{1}{2} \rho u_z^2 \frac{\pi}{4} D^2 
+\left( \tfrac{1}{2} + \tfrac{24}{Re_D} \right)
+$<br>
+Use
+$u_z = \mu Re_D / \rho D$ to eliminate $u_z$:
+$
+m \frac{du_z}{dt} 
+= m \frac{\mu}{\rho D} \frac{dRe_D}{dt} 
+= mg - \rho \frac{\pi}{6} D^3 g 
+- \frac{1}{2} \rho \left( \frac{\mu Re_D}{\rho D} \right)^2 \frac{\pi}{4} D^2 
+\left( \tfrac{1}{2} + \tfrac{24}{Re_D} \right) $
+$\Rightarrow \frac{m \mu}{\rho D} \frac{dRe_D}{dt} 
+= \Bigg( m - \rho \frac{\pi}{6} D^3 \Bigg) g 
+- \frac{\pi}{8\rho} \mu^2 Re_D^2 
+\left( \tfrac{1}{2} + \tfrac{24}{Re_D} \right)
+$<br>
+For the dimensionless time $t^*$ using the chain rule for differentiation and $t^* = \rho g t D / \mu$
+$
+\frac{m \mu}{\rho D} \frac{dRe_D}{dt} 
+= \frac{m \mu}{\rho D} \left( \frac{dRe_D}{dt^*} \frac{dt^*}{dt} \right) 
+= \frac{m \mu}{\rho D} \left( \frac{dRe_D}{dt^*} \frac{\rho g D}{\mu} \right)
+= mg \frac{dRe_D}{dt^*} 
+= \Bigg( m - \rho \frac{\pi}{6} D^3 \Bigg) g 
+- \frac{\pi}{8\rho} \mu^2 Re_D^2 
+\left( \tfrac{1}{2} + \tfrac{24}{Re_D} \right)
+$<br>
+Divide both sides of the final equality by $mg$:
+$
+\frac{dRe_D}{dt^*} 
+= - \frac{\pi}{16} \left( \frac{\mu^2}{\rho m g} \right) Re_D^2 
+- 3\pi \left( \frac{\mu^2}{\rho m g} \right) Re_D 
++ \left( 1 - \frac{\pi}{6} \frac{\rho D^3}{m} \right)
+$<br>
+<span class="highlightkumon">\(\therefore A = - \frac{\pi}{16} \left( \frac{\mu^2}{\rho m g} \right), 
+\quad B = -3\pi \left( \frac{\mu^2}{\rho m g} \right), 
+ \quad C = 1 - \frac{\pi}{6} \frac{\rho D^3}{m}\)</span><br>
+ (b) Assuming $C$ is positive, intergrate the scaled equation:
+ $
+\int \frac{dRe_D}{A Re_D^2 + B Re_D + C} 
+= \int dt^*,
+t^* + \text{const.} = -\frac{2}{\sqrt{B^2 - 4AC}} 
+\tanh^{-1} \left( \frac{2A Re_D + B}{\sqrt{B^2 - 4AC}} \right)
+$
+$\Rightarrow Re_D = \frac{1}{2A} \Bigg\{ -B + \sqrt{B^2 - 4AC} \, \tanh \Bigg[ -\tfrac{1}{2} \sqrt{B^2 - 4AC} \, (t^* + \text{const.}) \Bigg] \Bigg\}
+$<br>
+With the initial condition $Re_D = 0$ at $t = 0$:
+<span class="highlightkumon">$
+Re_D = \frac{1}{2A} \Bigg\{ -B + \sqrt{B^2 - 4AC} \, \tanh \Bigg[ 
+-\frac{\sqrt{B^2 - 4AC}}{2} t^* + \tanh^{-1} \Bigg( \frac{B}{\sqrt{B^2 - 4AC}} \Bigg) \Bigg] \Bigg\}
+$</span><br>
+(c) Terminal velocity will occur when $\tfrac{dRe_D}{dt^*} = 0$, $Re_T$ is the Reynolds number at terminal velocity: \(0 = -\frac{\pi}{16} \left( \frac{\mu^2}{\rho m g} \right) Re_T^2 
+   - 3\pi \left( \frac{\mu^2}{\rho m g} \right) Re_T 
+   + \left( 1 - \frac{\pi}{6} \frac{\rho D^3}{m} \right)
+   \Rightarrow 0 = Re_T^2 + 48 Re_T - \frac{16}{\pi} \left( \frac{\rho m g}{\mu^2} \right) 
+\left( 1 - \frac{\pi}{6} \frac{\rho D^3}{m} \right)\)<br>
+\(\because\) $Re_T > 0$: \(Re_T = \frac{1}{2} \Bigg( -48 + \sqrt{48^2 - 4(1) \left(-\frac{16}{\pi} \left(\frac{\rho m g}{\mu^2}\right) 
+\left(1 - \frac{\pi}{6} \frac{\rho D^3}{m}\right)\right)} \Bigg)\)<br>
+<span class="highlightkumon">\(\therefore (u_z)_T = \frac{\mu}{\rho D} \left( \frac{-B}{2A} + \sqrt{\left(\frac{B}{2A}\right)^2 - \frac{C}{A}} \right) 
+= \frac{\mu}{\rho D} \left( -24 + \sqrt{24^2 + \frac{16}{\pi} \left(\frac{\rho m g}{\mu^2}\right) 
+\left(1 - \frac{\pi}{6} \frac{\rho D^3}{m}\right)} \right)\)</span>
 </p>
-<div class="image-container">
-<img src="Figures/Lecture6A_falling.png" alt="falling" style="max-width: 9%; height: 100%; border: none;">
-<p>
-(a) Assume the sphere's vertical equation of motion will be solved by a computer after 
-being put into dimensionless form. Therefore, use the information provided and the definition
-$
-t^* \equiv \frac{\rho g t D}{\mu}
-$
-to show that this equation may be rewritten:
-$
-\frac{d \text{Re}_D}{dt^*} = A \, \text{Re}_D^2 + B \, \text{Re}_D + C,
-$
-and determine the coefficients $A, B,$ and $C$.<br><br>
-(b) Solve the part (a) equation for $\text{Re}_D$ analytically in terms of $A, B,$ and $C$ for a sphere that is initially at rest.
-<br><br>
-(c) Undo the dimensionless scaling to determine the terminal velocity of the sphere (from the part c) answer as $t \to \infty$).
-</p>
-</div>
+
 
 
             
 
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture6ASlide17.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture6ASlide18.html" class="nav-button left">&#9664;</a>
 
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture6ASlide19.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture6AOverview.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
