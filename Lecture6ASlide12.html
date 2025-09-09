@@ -152,42 +152,23 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Step 5. Construct Dimensionless Groups</div>
+        <div class="title">Step 6. State the Dimensionless Relationship</div>
 
         <div class="slide">
             <div class="description">   
-Use exponent algebra: select 
-r parameters as repeating parameters
-
-<p style="margin-left: 18ch; margin-bottom: -9px; line-height: 0.01;">│</p> <p style="margin-left: 18ch; margin-bottom: -9px; line-height: 0.01;">│</p> <p style="margin-left: 18ch; margin-bottom: -9px; line-height: 0.01;">└─ must span \(r\)-dimensional space \(M, L, T\) (det. of matrix formed from these non-repeating parameters must be \(\neq 0\))</p>
-<br>
-★ For many fluid problems: velocity, length, and a fluid property<br>
-★ Each dimensionless group is formed by combining the repeating parameters, raised to unknown powers, with one of the nonrepeating variables
+$$
+\frac{\Delta P}{\rho U^2} = \varphi \left( \frac{\Delta x}{d}, \; \frac{\varepsilon}{d}, \; \frac{\mu}{\rho U d} \right)
+$$
+★ Once the dimensionless groups have been identified, the resulting relationship can be used for similarity-scaling analysis between two or more different scenarios involving same physical principles
             </div>
-$$
-[\Pi_1] = M^a L^b T^c = [\Delta p^a U^b d^c \rho^c] = (M L^{-1} T^{-2})^a (L T^{-1})^b (L)^c (M L^{-3})^c 
-= M^{a+c} L^{b+c-3c-a} T^{-a-2}
-$$
 
-<p>
-    $$
-\Rightarrow a = -2,\; b = 0,\; c = -1
-
-\Rightarrow \Pi_1 = \Delta p \, \rho^{-1} U^{-2} \;\equiv\; \frac{\Delta p}{\rho U^2}
-$$
-
-Similarly
-
-$$
-\Pi_2 = \frac{\Delta x}{d}, \quad \Pi_3 = \frac{\varepsilon}{d}, \quad \Pi_4 = \frac{\mu}{\rho U d}
-$$
-</p>
+            
 
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture6ASlide10.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture6ASlide11.html" class="nav-button left">&#9664;</a>
 
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture6ASlide12.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture6ASlide13.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>

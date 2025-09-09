@@ -152,42 +152,43 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Step 5. Construct Dimensionless Groups</div>
+        <div class="title">Dynamic Similarity & Dimensionless Forms of the Equations</div>
 
         <div class="slide">
             <div class="description">   
-Use exponent algebra: select 
-r parameters as repeating parameters
-
-<p style="margin-left: 18ch; margin-bottom: -9px; line-height: 0.01;">│</p> <p style="margin-left: 18ch; margin-bottom: -9px; line-height: 0.01;">│</p> <p style="margin-left: 18ch; margin-bottom: -9px; line-height: 0.01;">└─ must span \(r\)-dimensional space \(M, L, T\) (det. of matrix formed from these non-repeating parameters must be \(\neq 0\))</p>
-<br>
-★ For many fluid problems: velocity, length, and a fluid property<br>
-★ Each dimensionless group is formed by combining the repeating parameters, raised to unknown powers, with one of the nonrepeating variables
+Dimensionless parameters → scale model testing
             </div>
-$$
-[\Pi_1] = M^a L^b T^c = [\Delta p^a U^b d^c \rho^c] = (M L^{-1} T^{-2})^a (L T^{-1})^b (L)^c (M L^{-3})^c 
-= M^{a+c} L^{b+c-3c-a} T^{-a-2}
-$$
 
+            <div class="description">   
+Two flow fields are dynamically similar when
+<ul>
+    <li>their geometries are scale similar</li>
+    <li>their dimensionless parameters match</li>
+</ul>
+            </div>
+
+<p><span class="sql">[Ex]</span>
+Consider the drag force $F_D$ on a sphere, of diameter $d$ moving at a speed $U$ through a fluid of density $\rho$ and viscosity $\mu$.
+Dimensional analysis using these five parameters produces the following possible dimensionless scaling laws:
+\[\frac{F_D}{\rho U^2 d^2} = \Psi \left( \frac{\rho U d}{\mu} \right)\]
+<div class="image-container">
+<img src="Figures/Lecture6A_DimensionlessDrag.png" alt="DimensionlessDrag" style="max-width: 49%; height: 100%; border: none;">
 <p>
-    $$
-\Rightarrow a = -2,\; b = 0,\; c = -1
-
-\Rightarrow \Pi_1 = \Delta p \, \rho^{-1} U^{-2} \;\equiv\; \frac{\Delta p}{\rho U^2}
-$$
-
-Similarly
-
-$$
-\Pi_2 = \frac{\Delta x}{d}, \quad \Pi_3 = \frac{\varepsilon}{d}, \quad \Pi_4 = \frac{\mu}{\rho U d}
-$$
+Coefficient of drag $C_D$ for a sphere vs. the Reynolds number Re based on sphere diameter. 
+At low Reynolds number $C_D \sim 1/\text{Re}$, and above $\text{Re} \sim 10^3$, $C_D \sim$ constant (except for the dip between $\text{Re} = 10^5$ and $10^6$). 
+These behaviors (except for the dip) can be explained by simple dimensional reasoning. 
+The reason for the dip is the transition of the laminar boundary layer to a turbulent one.
+</p>
+</div>
 </p>
 
+            
+
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture6ASlide10.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture6ASlide12.html" class="nav-button left">&#9664;</a>
 
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture6ASlide12.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture6ASlide14.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
