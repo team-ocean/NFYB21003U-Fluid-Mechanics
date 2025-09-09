@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="favicon.png" type="image/x-icon">
-    <title>2D Incompressible Navier-Stokes</title>
+    <title>Wingtip Vortices</title>
     <link rel="stylesheet" href="styles.css">
     <script>
         window.MathJax = {
@@ -22,57 +22,122 @@
         </script>
         
     <style>
-        .custom-list { list-style: none; padding-left: 20px; }
-        .custom-list li { position: relative; padding-left: 20px; text-align: left; }
-        .custom-list li::before { content: "■"; color: #7DCDF4; font-size: 14px; position: absolute; left: 0; top: 2px; }
-        .image-container { display: flex; align-items: center; justify-content: center; text-align: left; }
-        .image-container img { max-width: 100%; height: auto; }
-        .image-text { max-width: 100%; padding-left: 10px; font-size: 16px; }
-        /* Ensure all text and equations are left-aligned */
-        body {
-            text-align: left;
-            margin-left: 20px;  /* Add some left margin for better readability */
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
         }
 
-        .description {
-            text-align: left;
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
         }
-        p {
-            text-align: left;
-        }
-        /* Force MathJax equations to be left-aligned */
-        .MathJax_Display {
-            text-align: left !important;
-            display: block !important;
-        }
-        /* Proper alignment for the equation table */
 
-        .footnote-container {
-            margin-top: 20px;
-            font-size: 12px;
-            text-align: left;
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
         }
-        .footnote-line {
-            border: 0;
-            height: 1px;
-            background: #000;
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
         }
-        .footnote a code, .footnote code {
-            font-family: monospace;
-            color: #1e1e1e;
-            text-decoration: none;
-            font-style: normal; /* Ensures code text is not italic */
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
         }
-        code {
-  font-family: 'Courier New', Courier, monospace;
-  color: #1e1e1e;
-  background-color: #ddf1f3;
-  font-size: 0.95em;
-  padding: 0.1em 0.4em;
-  border-radius: 4px;
-  border: 1px solid #d6ebff;
-  white-space: nowrap;
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+        /* Center the table horizontally */
+        .slide table {
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        /* Left-align table text */
+        .slide table th,
+        .slide table td {
+        text-align: left;
+        }
+
+        /* Custom bullet list styled as flex container */
+    ul.custom {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
+    }
+    ul.custom li {
+      flex: 0 0 45%; /* roughly two items per row */
+      display: flex;
+      align-items: center;
+      gap: 10px; /* space between the text and image */
+      position: relative;
+      padding-left: 20px; /* extra padding for the bullet */
+    }
+    ul.custom li::before {
+      content: "■"; /* Unicode for small square bullet */
+      color: #7DCDF4;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Ensure images align properly */
+    ul.custom li img {
+      max-width: 49%;
+      height: auto;
+    }
+
+    .highlight {
+    background-color:rgba(221, 241, 243, 0.8); 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    .highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+
+.image-container {
+    margin-bottom: 0px; /* or even 0 if you want no space */
 }
+
+.image-container p {
+    margin-bottom: 0px; /* reduce space under paragraphs */
+}
+
+.image-container img {
+    margin-top: 0px; /* reduce space above images */
+}
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  td { 
+    border: 1px solid #444; 
+    padding: 0.25rem 0.5rem; 
+    vertical-align: top; 
+    text-align: left;
+  }
+  .text { width: 65%; }
+  .equation { width: 35%; }
     </style>
     <script>
 function scaleContainer() {
@@ -95,27 +160,22 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Problem 6: Python Implementation of the 2D Incompressible Navier–Stokes Equations</div>
+        <div class="title">Problem 6: Wingtip Vortices</div>
 
         <div class="slide">    
-<p>In this problem, we will examine a numerical solution to the two-dimensional 
-    incompressible Navier–Stokes equations using the 
-    pressure correction method (also known as the projection method) with finite difference discretization in Python.
-    The scenario corresponds to a square lid-driven cavity, where the fluid is set into motion by 
-    the top wall moving horizontally at constant speed. 
-    The solution consists of iteratively solving for the pressure and velocity fields 
-    while enforcing the incompressibility condition.
-</p>
-    <p>
-    (1) Implement the function <code>build_up_b(b, rho, dt, u, v, dx, dy)</code> to compute the source term <code>b</code> used in the Poisson pressure equation
-    \[\nabla^2 p = b\] 
-    This term is derived from the divergence of the momentum equations and ensures that the final velocity field satisfies the incompressibility condition \(\nabla \cdot \vec{u} = 0\).
-    </p>
+<div class="image-container">
+<p>The cover of <i>Fluid Mechanics - 5th Edition</i> by Pijush K. Kundu, Ira M. Cohen, and David R. Dowling illustrates an airplane creating wingtip vortices. <br>
+    Wingtip vortices are formed when airflow from beneath the wing curls around the wingtip to the upper surface.
+Birds also generate wingtip vortices at the tips of their wings. Formula One race cars are also equipped with wing-like diffusers. Their main function is to generate downforce (aerodynamic force directed downward). As a result, the vortices trailing behind the car's rear wing rotate in the opposite direction to an aircraft's wingtip vortices. <br><br>
+(1) Explain the formation of wingtip vortices from both the pressure-difference perspective and the vortex-theory perspective, either in your own words or with equations. <br><br>
 
-    <p>(2) Complete the <code>pressure_poisson(p, dx, dy, b)</code> function to iteratively solve the Poisson equation \(\nabla^2 p = b\) using second-order finite differences with Neumann boundary conditions on the vertical and bottom walls, a Dirichlet condition \(p = 0\) on the top wall, and at least <code>nit = 50</code> iterations per step.
+(2) Using appropriate software to plot the streamlines around an airfoil to illustrate <span class="bullet"></span>the flow field with the aircraft as the reference frame <span class="bullet"></span> the circulation/vortex pattern with the ground as the reference frame <span class="bullet"></span> the formation of a starting vortex and wingtip vortices behind the airfoil</p>
 
-    <p>(3) Complete the <code>cavity_flow</code> function to advance the velocity fields <code>u</code> and <code>v</code> through time using convection, diffusion, and pressure gradient terms (with temporary arrays <code>un</code> and <code>vn</code>), enforce no-slip boundary conditions including the moving lid (<code>u = 1</code> at the top wall), and visualize the final velocity field with a quiver plot and the pressure field with a contour plot.</p>
-</p>
+<img src="Figures/PS2_KunduFifthCover.png" alt="KunduFifthCover" style="max-width: 38%; height: 100%; border: none;">
+</div>
+
+<p>(3) Using appropriate software to plot the flow field around an airfoil with streamlines and colored pressure contours to illustrate how wingtip vortices create upwash, downwash, and pressure gradients along the wing span.</p>
+
 
 
 

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <title>2D Incompressible Navier-Stokes</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],  // Allow inline math with $...$ and \( ... \)
+            displayMath: [['$$', '$$'], ['\\[', '\\]']] // Allow display math with $$...$$ and \[ ... \]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+        </script>
+        <script type="text/javascript" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        
+    <style>
+        .custom-list { list-style: none; padding-left: 20px; }
+        .custom-list li { position: relative; padding-left: 20px; text-align: left; }
+        .custom-list li::before { content: "■"; color: #7DCDF4; font-size: 14px; position: absolute; left: 0; top: 2px; }
+        .image-container { display: flex; align-items: center; justify-content: center; text-align: left; }
+        .image-container img { max-width: 100%; height: auto; }
+        .image-text { max-width: 100%; padding-left: 10px; font-size: 16px; }
+        /* Ensure all text and equations are left-aligned */
+        body {
+            text-align: left;
+            margin-left: 20px;  /* Add some left margin for better readability */
+        }
+
+        .description {
+            text-align: left;
+        }
+        p {
+            text-align: left;
+        }
+        /* Force MathJax equations to be left-aligned */
+        .MathJax_Display {
+            text-align: left !important;
+            display: block !important;
+        }
+        /* Proper alignment for the equation table */
+
+        .footnote-container {
+            margin-top: 20px;
+            font-size: 12px;
+            text-align: left;
+        }
+        .footnote-line {
+            border: 0;
+            height: 1px;
+            background: #000;
+        }
+        .footnote a code, .footnote code {
+            font-family: monospace;
+            color: #1e1e1e;
+            text-decoration: none;
+            font-style: normal; /* Ensures code text is not italic */
+        }
+        code {
+  font-family: 'Courier New', Courier, monospace;
+  color: #1e1e1e;
+  background-color: #ddf1f3;
+  font-size: 0.95em;
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  border: 1px solid #d6ebff;
+  white-space: nowrap;
+}
+    </style>
+    <script>
+function scaleContainer() {
+  const container = document.querySelector('.container');
+  const padding = 0; // optional padding margin
+  const viewportHeight = window.innerHeight - padding;
+  const containerHeight = container.offsetHeight;
+
+  // Compute the scale ratio
+  const scale = Math.min(1, viewportHeight / containerHeight);
+
+  container.style.transform = `scale(${scale})`;
+}
+
+// Run on load
+window.addEventListener('load', scaleContainer);
+// Run on resize
+window.addEventListener('resize', scaleContainer);
+</script>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Problem 6: Python Implementation of the 2D Incompressible Navier–Stokes Equations</div>
+
+        <div class="slide">    
+<p>In this problem, we will examine a numerical solution to the two-dimensional 
+    incompressible Navier-Stokes equations using the 
+    pressure correction method (also known as the projection method) with finite difference discretization in Python.
+    The scenario corresponds to a square lid-driven cavity, where the fluid is set into motion by 
+    the top wall moving horizontally at constant speed. 
+    The solution consists of iteratively solving for the pressure and velocity fields 
+    while enforcing the incompressibility condition.
+</p>
+    <p>
+    (1) Implement the function <code>build_up_b(b, rho, dt, u, v, dx, dy)</code> to compute the source term <code>b</code> used in the Poisson pressure equation
+    \[\nabla^2 p = b\] 
+    This term is derived from the divergence of the momentum equations and ensures that the final velocity field satisfies the incompressibility condition \(\nabla \cdot \vec{u} = 0\).
+    </p>
+
+    <p>(2) Complete the <code>pressure_poisson(p, dx, dy, b)</code> function to iteratively solve the Poisson equation \(\nabla^2 p = b\) using second-order finite differences with Neumann boundary conditions on the vertical and bottom walls, a Dirichlet condition \(p = 0\) on the top wall, and at least <code>nit = 50</code> iterations per step.
+
+    <p>(3) Complete the <code>cavity_flow</code> function to advance the velocity fields <code>u</code> and <code>v</code> through time using convection, diffusion, and pressure gradient terms (with temporary arrays <code>un</code> and <code>vn</code>), enforce no-slip boundary conditions including the moving lid (<code>u = 1</code> at the top wall), and visualize the final velocity field with a quiver plot and the pressure field with a contour plot.</p>
+</p>
+
+
+
+
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <p class="footnote"><sup>1</sup> This problem set contains 6 problems, and your final score will be based on the 4 problems on which you earned the highest scores.
+            </p>
+        </div>
+        <!-- Navigation Arrows -->
+        <a href="PS2Slide6.html" class="nav-button left">&#9664;</a>
+        <a href="PS1Overview.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>
