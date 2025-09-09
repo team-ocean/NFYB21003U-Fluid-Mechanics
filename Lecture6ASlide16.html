@@ -152,54 +152,33 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Dynamic Similarity & Dimensionless Forms of the Equations</div>
+        <div class="title">Dimensional Analysis of Spinning Ball Trajectory</div>
 
         <div class="slide">
-            <div class="description">   
-Consider a flow of fluid with velocity scale $U$, length scale $L$, rotation or oscillation frequency $\Omega$
-            </div>
-
-
-
-<p><span class="sql">[Ex]</span> 
-Pulsating flow in a tube, flow past undulating body (sperm, bacteria), or flow through a turbomachine.
-
-Momentum Eq. for an incompressible flow:
-
-$$
-\rho \left( \frac{\partial \vec{u}}{\partial t} + (\vec{u} \cdot \vec{\nabla}) \vec{u} \right) 
-= - \vec{\nabla} p + \rho \vec{g} + \mu \, \vec{\nabla}^2 \vec{u} $$
-
-Define dimensionless variables:
-
-$$
-\vec{x}^{★} = \frac{\vec{x}}{L}, 
-\quad t^{★} = \Omega t, 
-\quad \vec{u}^{★} = \frac{\vec{u}}{U}, 
-\quad \vec{g}^{★} = \frac{\vec{g}}{g}, 
-\quad p^{★} = \frac{p - p_{\infty}}{\rho U^2}
-$$
-
-$$
-\rho \left(\frac{\partial \vec{u}}{\partial t} + (\vec{u} \cdot \vec{\nabla}) \vec{u} \right) 
-= - \vec{\nabla} p + \rho \vec{g} + \mu \, \vec{\nabla}^2 \vec{u}
-\Rightarrow
-\left[ \frac{\Omega L}{U} \right] \frac{\partial \vec{u}^{★}}{\partial t^{★}} 
-+ (\vec{u}^{★} \cdot \vec{\nabla}^{★}) \vec{u}^{★} 
-= - \vec{\nabla}^{★} p^{★} 
-+ \left[ \frac{gL}{U^2} \right] \vec{g}^{★} 
-+ \left[ \frac{\mu}{\rho U L} \right] \vec{\nabla}^{★2} \vec{u}^{★}
-$$
-where \(\vec{\nabla}^{★} = L \vec{\nabla}\)
+<p>
+    <span class="sql">[Q]</span> 
+    The horizontal displacement $\Delta$ of the trajectory of a spinning ball depends on the mass $m$ and diameter $d$ of the ball, the air density $\rho$ and viscosity $\mu$, the ball's rotation rate $\omega$, the ball's speed $U$, and the distance $L$ traveled.
+    <br>
+    (a) Use dimensional analysis to predict how $\Delta$ can depend on the other parameters.
+    <br><br>
+    (b) Simplify your result from part (a) for negligible viscous forces.
+    <br><br>
+    (c) It is experimentally observed that $\Delta$ for a spinning sphere becomes essentially independent of the rotation rate once the surface rotation speed, $\omega d/2$, exceeds twice $U$. Simplify your result from part (b) for this high-spin regime. 
+    <br><br>
+    (d) Based on the result in part (c), how does $\Delta$ depend on $U$?
 </p>
+<img src="Figures/Lecture6A_BallTrajectory.png" alt="BallTrajectory" style="max-width: 100%; height: 100%; border: none;">
+
+
+
 
             
 
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture6ASlide13.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture6ASlide15.html" class="nav-button left">&#9664;</a>
 
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture6ASlide15.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture6ASlide17.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
