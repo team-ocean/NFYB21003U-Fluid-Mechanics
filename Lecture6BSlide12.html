@@ -157,50 +157,48 @@ window.addEventListener('resize', scaleContainer);
         <div class="slide">
 
             <div class="description">   
+★Two special limits
+            </div>
+
+            <div class="description">   
+<span class="bullet"></span>$R_2 \to \infty$ & $\Omega_2 = 0$
 <div class="image-container">
+<img src="Figures/Lecture6B_RotationCylinderViscousFluid.png" alt="RotationCylinderViscousFluid" style="max-width: 29%; height: 100%; border: none;">
 <p>
+Flow outside a cylinder rotating in an infinite bath of fluid
 $$
-\mathbf{u} = (0, u_\varphi(R), 0)
+u_\varphi = \frac{\Omega_1 R_1^2}{R}
 $$
+Viscous shear stress
 $$
--\frac{u_\varphi^2}{R} = -\frac{1}{\rho}\frac{dP}{dR}, 
-\quad 0 = \mu \frac{d}{dR} \left[ \frac{1}{R} \frac{d}{dR} \left( R u_\varphi \right) \right]
+\sigma_{R\varphi} = \mu \left[ \frac{1}{R}\frac{\partial u_\varphi}{\partial \varphi} 
++ R \frac{\partial}{\partial R} \left( \frac{u_\varphi}{R} \right) \right] 
+= - \frac{2 \mu \Omega_1 R_1^2}{R^2}
 $$
+Mechanical power supplied to fluid
 $$
-\Rightarrow u_\varphi(R) = A R + \frac{B}{R}
+(2 \pi R_1) \, \tau_{R\varphi} \, u_\varphi
 $$
 </p>
-<img src="Figures/Lecture6B_CircularCouetteFlow.png" alt="CircularCouetteFlow.png" style="max-width: 49%; height: 100%; border: none;">
 </div>
             </div>
 
-<p>
-Boundary conditions
-<ul class="custom-list">
-    <li>@ $R = R_1:\; u_\varphi = \Omega_1 R_1$</li>
-    <li>@ $R = R_2:\; u_\varphi = \Omega_2 R_2$</li>
-</ul>
-<p>
-From boundary conditions
+            <div class="description">   
+<span class="bullet"></span>$R_2 \to \infty$ & $\Omega_2 = 0$<br>
+Flow within a cylindrical tank
 $$
-A = \frac{\Omega_2 R_2^2 - \Omega_1 R_1^2}{R_2^2 - R_1^2}, 
-\quad 
-B = -\frac{(\Omega_2 - \Omega_1) R_1^2 R_2^2}{R_2^2 - R_1^2}
-\Rightarrow
-u_\varphi(R) = \frac{1}{R_2^2 - R_1^2} 
-\left\{ 
-\big[ \Omega_2 R_2^2 - \Omega_1 R_1^2 \big] R 
-- \big[ \Omega_2 - \Omega_1 \big] \frac{R_1^2 R_2^2}{R}
-\right\}
+u_\varphi(R) = \Omega_2 R
 $$
-</p>
+Velocity field of solid body rotation
+            </div>
+
         
 
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture6BSlide10.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture6BSlide11.html" class="nav-button left">&#9664;</a>
 
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture6BSlide12.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture6BSlide13.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
