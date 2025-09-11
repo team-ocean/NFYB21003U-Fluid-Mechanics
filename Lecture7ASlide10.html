@@ -157,54 +157,103 @@ window.addEventListener('resize', scaleContainer);
         <div class="slide">
 
             <div class="description">   
-Instability at the interface between two horizontal parallel fluid streams with different velocities and densities is called the <span class="sql">Kelvin-Helmholtz instability</span>. 
-This is an inertial instability and it can be readily analyzed assuming ideal flow in each stream. The name is also commonly used to describe the instability of the more general case where the variations of velocity and density are continuous and occur over a finite thickness
-            </div>
-
-            <div class="description">   
-<div class="image-container">
-<img src="Figures/Lecture7A_BasicFlowKelvin-HelmholtzInstability.png" alt="BasicFlowKelvin-HelmholtzInstability" style="max-width: 49%; height: 39%;">
-<p>The Kelvin-Helmholtz instability is analyzed in two dimensions $(x, z)$,
-  where $x$ is the stream-wise coordinate and $z$ is the vertical coordinate.
-Two fluid layers of infinite depth meet at a zero-thickness interface located at
-  $z = \zeta(x, t)$. <br>
-Let $U_1$ and $\rho_1$ be the horizontal velocity and density of the basic state in the upper half-space. Let $U_2$ and $\rho_2$ be those of the basic state in the lower half-space.
-From Kelvin's circulation theorem, the perturbed flow must be irrotational in each half-space</p>
-</div> 
-            </div>
-
-<div class="description">   
-The interface can be described by the velocity potentials
-$$
-\tilde{\phi}_1 = 
-\underbrace{U_1 x}_{\text{basic state}} 
-+ 
-\underbrace{\phi_1}_{\text{perturbation}},  
+            There are a total of four boundary conditions
+            $$
+\phi_1 \to 0 \quad \text{as } z \to +\infty, 
 \qquad 
-\tilde{\phi}_2 = 
-\underbrace{U_2 x}_{\text{basic state}} 
-+ 
-\underbrace{\phi_2}_{\text{perturbation}}
-$$            
-</div>
+\phi_2 \to 0 \quad \text{as } z \to -\infty
+$$
 
-<div class="description">   
-$\tilde{\phi}_1$ and $\tilde{\phi}_2$ must satisfy the Laplace equation, so the perturbation potentials, $\phi_1$ and $\phi_2$, must also satisfy
 $$
-\nabla^2 \phi_1 = 0, 
-\qquad 
-\nabla^2 \phi_2 = 0
+\overbrace{
+\underbrace{\mathbf{n}}_{\text{local normal}} \cdot \nabla \tilde{\phi}_1 
+= \underbrace{\mathbf{n}}_{\text{local normal}} \cdot 
+\underbrace{\mathbf{u}_s}_{\text{velocity of the interface}} 
+= \underbrace{\mathbf{n}}_{\text{local normal}} \cdot \nabla \tilde{\phi}_2 
+\quad \text{on } z = \zeta
+}^{\text{Kinematic boundary condition}}
 $$
-</div>
+
+$$
+\overbrace{
+\underbrace{p_1, p_2}_{\text{pressures above/below}} : \quad p_1 = p_2 
+\quad \text{on } z = \zeta
+}^{\text{Dynamic boundary condition}}
+$$
+            </div>
+<p>
+  Kinematic boundary condition can be rewritten
+  $$
+\mathbf{n} \cdot 
+\left\{ 
+\frac{\partial \tilde{\phi}_1}{\partial x}\mathbf{e}_x 
++ \frac{\partial \tilde{\phi}_1}{\partial z}\mathbf{e}_z 
+\right\} 
+= \mathbf{n} \cdot 
+\left\{ 
+\frac{\partial \zeta}{\partial t}\mathbf{e}_z 
+\right\} 
+= \mathbf{n} \cdot 
+\left\{ 
+\frac{\partial \tilde{\phi}_2}{\partial x}\mathbf{e}_x 
++ \frac{\partial \tilde{\phi}_2}{\partial z}\mathbf{e}_z 
+\right\} 
+\quad \text{on } z = \zeta
+$$
+The normal vector
+$$
+\mathbf{n} = \nabla f / |\nabla f| = [-(\partial \zeta/\partial x)\mathbf{e}_x + \mathbf{e}_z] / \sqrt{1 + (\partial \zeta/\partial x)^2}
+$$
+
+when $f(x,z,t) = z - \zeta(x,t) = 0$ defines the interface, and
+
+$
+\mathbf{u}_s = (\partial \zeta / \partial t)\mathbf{e}_z
+$
+
+can be considered purely vertical
+$$
+\frac{
+-\left(U_1 + \frac{\partial \phi_1}{\partial x}\right)\frac{\partial \zeta}{\partial x}
++ \frac{\partial \phi_1}{\partial z}
+}{
+\cancel{\sqrt{1+\left(\frac{\partial \zeta}{\partial x}\right)^2}}}
+=
+\frac{\frac{\partial \zeta}{\partial t}}{\cancel{\sqrt{1+\left(\frac{\partial \zeta}{\partial x}\right)^2}}}
+=
+\frac{
+-\left(U_2 + \frac{\partial \phi_2}{\partial x}\right)\frac{\partial \zeta}{\partial x}
++ \frac{\partial \phi_2}{\partial z}
+}{
+\cancel{\sqrt{1+\left(\frac{\partial \zeta}{\partial x}\right)^2}}}
+$$
+The normal vector reduces to $$
+-\left(U_1 + \frac{\partial \phi_1}{\partial x}\right)\frac{\partial \zeta}{\partial x} 
++ \frac{\partial \phi_1}{\partial z} 
+= \frac{\partial \zeta}{\partial t} 
+= -\left(U_2 + \frac{\partial \phi_2}{\partial x}\right)\frac{\partial \zeta}{\partial x} 
++ \frac{\partial \phi_2}{\partial z} 
+\quad \text{on } z = \zeta
+$$
+This condition can be linearized by applying it at $z = 0$ instead of at $z = \zeta$ and by neglecting quadratic terms.
+
+Thus, the simplified version of the kinematic boundary condition is
+$$
+- U_1 \frac{\partial \zeta}{\partial x} + \frac{\partial \phi_1}{\partial z} 
+= \frac{\partial \zeta}{\partial t} 
+= - U_2 \frac{\partial \zeta}{\partial x} + \frac{\partial \phi_2}{\partial z} 
+\quad \text{on } z = 0
+$$
+</p>
 
 
 
 
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture7ASlide8.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture7ASlide9.html" class="nav-button left">&#9664;</a>
 
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture7ASlide10.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture7ASlide11.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
