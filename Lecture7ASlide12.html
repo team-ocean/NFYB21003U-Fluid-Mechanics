@@ -157,122 +157,58 @@ window.addEventListener('resize', scaleContainer);
         <div class="slide">
 
             <div class="description">   
-The dynamic boundary condition at the interface requires the pressure to be continuous across the interface (when surface tension is neglected).
-The unsteady Bernoulli equations above and below the layer are
-$$
-\frac{\partial \tilde{\phi}_1}{\partial t}
-+\frac{1}{2}\left|\nabla \tilde{\phi}_1\right|^2
-+\frac{p_1}{\rho_1}+gz=C_1,
-\qquad
-\frac{\partial \tilde{\phi}_2}{\partial t}
-+\frac{1}{2}\left|\nabla \tilde{\phi}_2\right|^2
-+\frac{p_2}{\rho_2}+gz=C_2
-$$
-            </div>
-
-            <div class="description">   
-So pressure matching requires
-$$
-p_1=\rho_1\!\left(C_1-\frac{\partial \tilde{\phi}_1}{\partial t}-\frac{1}{2}\left|\nabla \tilde{\phi}_1\right|^{2}-gz\right)
-=\rho_2\!\left(C_2-\frac{\partial \tilde{\phi}_2}{\partial t}-\frac{1}{2}\left|\nabla \tilde{\phi}_2\right|^{2}-gz\right)
-=p_2
-\quad \text{on } z=\zeta 
-$$
-\(\rightarrow\)
-In the undisturbed state $(\phi_1=\phi_2=0,\ \zeta=0)$
-$$
-(p_1)_{\text{undisturbed}}
-=\rho_1\!\left(C_1-\tfrac{1}{2}U_1^{2}\right)
-=\rho_2\!\left(C_2-\tfrac{1}{2}U_2^{2}\right)
-=(p_2)_{\text{undisturbed}} 
-$$
+Apply the method of normal modes to look for oscillatory solutions for $\phi_1$ and $\phi_2$ in the second exponential form with $\mathbf{K} = (k,0,0)$
             </div>
 <p>
-    Subtracting the pressure expression from the undisturbed pressure state 
-    $$
-\rho_1\!\left(C_1-\tfrac{1}{2}U_1^{2}\right)
--\rho_1\!\left(C_1-\frac{\partial \tilde{\phi}_1}{\partial t}-\frac{1}{2}\left|\nabla \tilde{\phi}_1\right|^{2}-gz\right)
-=
-\rho_2\!\left(C_2-\tfrac{1}{2}U_2^{2}\right)
--\rho_2\!\left(C_2-\frac{\partial \tilde{\phi}_2}{\partial t}-\frac{1}{2}\left|\nabla \tilde{\phi}_2\right|^{2}-gz\right)
+Normal-mode form
 $$
+\phi_1(x,z,t)=A_1(z)\,e^{\,ik(x-ct)}, \qquad
+\phi_2(x,z,t)=A_2(z)\,e^{\,ik(x-ct)}
 $$
-\xrightarrow{\text{Insert }\tilde{\phi}_1=U_1x+\phi_1,\ \tilde{\phi}_2=U_2x+\phi_2\ \text{and simplify}}
-
-\rho_1\!\left(
-\frac{\partial \phi_1}{\partial t}
-+U_1\frac{\partial \phi_1}{\partial x}
-+\frac{1}{2}\left|\nabla \phi_1\right|^{2}+gz
-\right)
-=
-\rho_2\!\left(
-\frac{\partial \phi_2}{\partial t}
-+U_2\frac{\partial \phi_2}{\partial x}
-+\frac{1}{2}\left|\nabla \phi_2\right|^{2}+gz
-\right)
+Insert into Laplace equations
 $$
-Linearizing by dropping quadratic terms and evaluating derivatives at $z=0$ 
+-\,k^{2}A_1+\frac{d^{2}A_1}{dz^{2}}=0, 
+\qquad
+-\,k^{2}A_2+\frac{d^{2}A_2}{dz^{2}}=0
 $$
-\rho_1\!\left(
-\frac{\partial \phi_1}{\partial t}
-+U_1\frac{\partial \phi_1}{\partial x}
-+g\zeta
-\right)
-=
-\rho_2\!\left(
-\frac{\partial \phi_2}{\partial t}
-+U_2\frac{\partial \phi_2}{\partial x}
-+g\zeta
-\right)
-\quad \text{on } z=0 
+Solve for vertical structure
+$$
+A_{1,2}(z)=A_{\pm}\,e^{\pm kz}
+$$
+Apply boundary conditions
+$$
+\phi_1=A_{-}\,e^{\,ik(x-ct)-kz}\quad(z > 0), 
+\qquad
+\phi_2=A_{+}\,e^{\,ik(x-ct)+kz}\quad(z < 0)
+$$
+Interface shape (matching form)
+$$
+\zeta=\zeta_0\,e^{\,ik(x-ct)}
+$$
+Insert $\phi_1,\phi_2,\zeta$ into the kinematic and dynamic conditions
+$$
+-\,iU_1k\zeta_0-kA_{-}=-ikc\zeta_0
+= -\,iU_2k\zeta_0+kA_{+},
 $$
 
-Thus, the field equations
-<span class="highlight">
-$
-\nabla^{2}\phi_{1}=0, \quad \nabla^{2}\phi_{2}=0
-$
-</span>,
-together with the boundary conditions
-<span class="highlight">
-$
-\phi_{1}\to 0 \ \text{as}\ z\to +\infty,\quad 
-\phi_{2}\to 0 \ \text{as}\ z\to -\infty
-$
-</span>
-and the relations
-<span class="highlight">
-$
-- U_{1}\frac{\partial \zeta}{\partial x}
-+ \frac{\partial \phi_{1}}{\partial z}
-= \frac{\partial \zeta}{\partial t}
-= - U_{2}\frac{\partial \zeta}{\partial x}
-+ \frac{\partial \phi_{2}}{\partial z}
-$</span>,
-<span class="highlight">
-$
-\rho_{1}\!\left(
-\frac{\partial \phi_{1}}{\partial t}
-+ U_{1}\frac{\partial \phi_{1}}{\partial x}
-+ g\zeta
-\right)
-=
-\rho_{2}\!\left(
-\frac{\partial \phi_{2}}{\partial t}
-+ U_{2}\frac{\partial \phi_{2}}{\partial x}
-+ g\zeta
-\right)
-$</span>
+$$
+\rho_1\!\left(-ikcA_{-}+ikU_1A_{-}+g\zeta_0\right)
+=\rho_2\!\left(-ikcA_{+}+ikU_2A_{+}+g\zeta_0\right)
+$$
+Solve the kinematic relation for $A_{\pm}$ in terms of $\zeta_0$
+$$
+kA_{-}=-(ikU_1-ikc)\,\zeta_0, 
+\qquad
+kA_{+}=(ikU_2-ikc)\,\zeta_0
+$$
 
-specify the linear stability of a velocity discontinuity between uniform flows of different speeds and densities
+
 </p>
-
-
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture7ASlide10.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture7ASlide11.html" class="nav-button left">&#9664;</a>
 
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture7ASlide12.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture7ASlide13.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
