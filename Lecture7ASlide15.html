@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+<script>
+  window.MathJax = {
+    tex: {
+      packages: {'[+]': ['ams']},  // add ams package
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    },
+    loader: {load: ['[tex]/ams']}
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+        /* Center the table horizontally */
+        .slide table {
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        /* Left-align table text */
+        .slide table th,
+        .slide table td {
+        text-align: left;
+        }
+
+        /* Custom bullet list styled as flex container */
+    ul.custom {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
+    }
+    ul.custom li {
+      flex: 0 0 45%; /* roughly two items per row */
+      display: flex;
+      align-items: center;
+      gap: 10px; /* space between the text and image */
+      position: relative;
+      padding-left: 20px; /* extra padding for the bullet */
+    }
+    ul.custom li::before {
+      content: "■"; /* Unicode for small square bullet */
+      color: #7DCDF4;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Ensure images align properly */
+    ul.custom li img {
+      max-width: 49%;
+      height: auto;
+    }
+
+    .highlight {
+    background-color:rgba(221, 241, 243, 0.8); 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    .highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+
+.image-container {
+    margin-bottom: 0px; /* or even 0 if you want no space */
+}
+
+.image-container p {
+    margin-bottom: 0px; /* reduce space under paragraphs */
+}
+
+.image-container img {
+    margin-top: 0px; /* reduce space above images */
+}
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  td { 
+    border: 1px solid #444; 
+    padding: 0.25rem 0.5rem; 
+    vertical-align: top; 
+    text-align: left;
+  }
+  .text { width: 65%; }
+  .equation { width: 35%; }
+    </style>
+<script>
+function scaleContainer() {
+  const container = document.querySelector('.container');
+  const padding = 0; // optional padding margin
+  const viewportHeight = window.innerHeight - padding;
+  const containerHeight = container.offsetHeight;
+  // Compute the scale ratio
+  const scale = Math.min(1, viewportHeight / containerHeight);
+  container.style.transform = `scale(${scale})`;
+}
+// Run on load
+window.addEventListener('load', scaleContainer);
+// Run on resize
+window.addEventListener('resize', scaleContainer);
+</script>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Kelvin-Helmholtz Instabilitys</div>
+
+        <div class="slide">
+
+<div class="image-container" style="display: flex; justify-content: center; gap: 1px; margin-top: 1px;">
+            <div class="image-box" style="width: 50%; text-align: center;">
+                <img src="Figures/Lecture7A_KHInstabilityGeneratedHorizontaChannel.png" alt="KHInstabilityGeneratedHorizontaChannel" style="max-width: 100%; height: auto; border: none;">
+                <p class="caption" style="font-size: 12px;">The Kelvin–Helmholtz instability is caused by the destabilizing effect of shear, which overcomes the stabilizing effect of stratification.
+This kind of instability can be generated in a laboratory by filling a horizontal glass tube (of rectangular cross section) containing two liquids of slightly different densities (one colored) and gently tilting it.
+This starts a current in the lower layer down the plane and a current in the upper layer up the plane.</p>
+
+            </div>
+            <div class="image-box" style="width: 50%; text-align: center;">
+                <img src="Figures/Lecture7A_KHInstabilityNaturalOverturning.png" alt="KHInstabilityNaturalOverturning" style="max-width: 100%; height: auto; border: none;">
+                <p class="caption" style="font-size: 12px;">Shear instability of stratified fluids is ubiquitous in the atmosphere and the ocean and is believed to be a major source of internal waves.
+                    This figure shows an acoustic backscatter image of Kelvin–Helmholtz vortical structures observed in a river estuary at ebb tide when nominally fresh water is flowing over saltier and denser ocean water.
+Similar images of injected dye have been recorded in oceanic thermoclines and in billow cloud patterns.
+                </p>
+            </div>
+        </div>
+
+<div class="image-box" style="display: flex; align-items: center; width: 80%; gap: 10px;">
+    <img src="Figures/Lecture7A_KHInstabilityNumericalEvolutionVortex.png" 
+         alt="KHInstabilityNumericalEvolutionVortex" 
+         style="max-width: 70%; height: auto; border: none;">
+    <p class="caption" style="font-size: 12px; margin: 0; text-align: left;">
+The figure shows a nonlinear numerical calculation*of the evolution of a vortex sheet that has been given a small transverse sinusoidal displacement with wavelength $\lambda$. 
+The density difference across the interface is zero, and $U_0$ is the velocity difference across the vortex sheet.<br><br>
+The smaller vertical displacements shown in two figures above are consistent with the effects of stratification that are absent from the calculations shown in this figure.
+    </p>
+</div>
+
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture7ASlide14.html" class="nav-button left">&#9664;</a>
+
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture7ASlide16.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>
