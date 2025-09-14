@@ -156,9 +156,65 @@ window.addEventListener('resize', scaleContainer);
 
         <div class="slide">
 <div class="description"> 
-    
+A necessary condition for instability is that $d^{2}U/dy^{2}$ must change sign somewhere in the flow. 
+This condition is called <span class="sql">Rayleigh's inflection point criterion</span>.
+ In terms of mean flow vorticity, $\bar{\zeta} = - dU/dy$, the criterion states that $d\bar{\zeta}/dy$ must change sign somewhere in the flow. 
+ That analysis is extended here to a rotating earth to find that the criterion requires that $d(\bar{\zeta} + f)/dy$ must change sign somewhere within the flow
 </div>
 
+<div class="description"> 
+Consider a horizontal wind profile or current $U(y)$ in a medium of uniform density.
+In the absence of horizontal density gradients only the barotropic mode is allowed, and $U(y)$ does not vary with depth.
+The vorticity equation is
+$$
+\left( \frac{\partial}{\partial t} + \mathbf{u} \cdot \nabla \right) (\zeta + f) = 0
+$$
+Let the total flow be decomposed into a background flow plus a disturbance
+$$
+u = U(y) + u', \qquad v = v'
+$$
+$$ \Rightarrow
+\zeta 
+= 
+\bar{\zeta} + \zeta' 
+= 
+-\frac{dU}{dy} 
++ 
+\underbrace{\left( 
+\frac{\partial v'}{\partial x} - \frac{\partial u'}{\partial y} 
+\right)}_{u' = \partial \psi / \partial y, v' = - \partial \psi / \partial x}
+= 
+-\frac{dU}{dy} 
+- 
+\underbrace{\nabla^{2}\psi}_{\text{$\psi$ is the stream function for the disturbance}}
+$$
+</div>
+
+<div class="description"> 
+Substituting these relationships into \(\boxed{\left( \frac{\partial}{\partial t} + \mathbf{u} \cdot \nabla \right) (\zeta + f) = 0
+}\) and linearizing \(\rightarrow\) the perturbation vorticity equation
+$$
+\frac{\partial}{\partial t} (\nabla^{2}\psi) + U \frac{\partial}{\partial x} (\nabla^{2}\psi)
++ \left( \beta - \frac{d^{2}U}{dy^{2}} \right) \frac{\partial \psi}{\partial x} = 0
+$$
+</div>
+
+<div class="description"> 
+Because the coefficients of the perturbation vorticity equation are independent of $x$ and $t$, 
+its solutions can be of the form
+$$
+\psi = \hat{\psi}(y) \exp \{ i k (x - ct) \}
+$$
+The phase speed $c = c_{r} + i c_{i}$ may be complex and solutions are unstable when $c_{i} > 0$
+</div>
+
+<div class="description"> 
+The perturbation vorticity equation then becomes
+$$
+(U - c)\left[\frac{d^{2}}{dy^{2}} - k^{2}\right] \hat{\psi} +
+\left[\beta - \frac{d^{2}U}{dy^{2}}\right] \hat{\psi} = 0
+$$
+</div>
 
 
         <!-- Left Arrow to go back to Slide  -->
