@@ -155,46 +155,55 @@ window.addEventListener('resize', scaleContainer);
         <div class="title">Kelvin-Helmholtz Instability</div>
 
         <div class="slide">
-<p> The transition from laminar flow to turbulence itself is a stability problem; fluid-mechanical instability can trigger the transition of a flow to turbulence. In real life, such as in atmospheric and oceanic turbulence, there do exist situations genuinely close to two-dimensional turbulence, because motion is largely confined to a horizontal plane. Most large-scale geophysical turbulence behaves this way because one direction is strongly constrained, leaving only two horizontal directions where motion can develop. Kelvin–Helmholtz instability represents this kind of situation. </p>
 
-<p>It should be noted that if you have a two-dimensional structure, there will inevitably be a secondary instability, so there must be structure developing in the other perpendicular direction.</p>
+
+<div class="image-box" style="display: flex; align-items: center; width: 100%; gap: 10px;">
+    <img src="Figures/Lecture7A_KHFields.gif" 
+         alt="KHFields" 
+         style="max-width: 80%; height: auto; border: none;">
+    <p class="caption" style="font-size: 12px; margin: 0; text-align: left;">
+Animation of the CFD analysis results. Top-left plot: Pressure field. Top-right plot: Velocity magnitude and Arrow Surface. Bottom-left plot: Vorticity surface, vorticity contours, and velocity Arrow Surface. Bottom-right plot: Arrow Line. Left legend: Vorticity [1/a]. Top-right legend: Pressure [Pa]. Bottom-right legend: Velocity magnitude [m/s].
+    </p>
+</div>
 
 <div class="image-container" style="display: flex; justify-content: center; gap: 1px; margin-top: 1px;">
-            <div class="image-box" style="width: 66%; text-align: center;">
-                <img src="Figures/Lecture7A_Jupiter'sGreatRedSpot.gif" alt="Jupiter'sGreatRedSpot" style="max-width: 100%; height: auto; border: none;">
-                <p class="caption" style="font-size: 12px;">Winds around Jupiter's Great Red Spot are simulated in a JunoCam view that has been animated using a model of the winds there</p>
-
+            <div class="image-box" style="width: 50%; text-align: center;">
+                <img src="Figures/Lecture7A_MassTransportKH.gif" alt="MassTransportKH" style="max-width: 100%; height: auto; border: none;">
+                <p class="caption" style="font-size: 12px;">Mass transport simulation animation. Legend: Concentration [mol/m3].</p>
             </div>
-            <div class="image-box" style="width: 40%; text-align: center;">
-                <img src="Figures/Lecture7A_Jupiter'sThreeRedSpots.png" alt="Jupiter'sThreeRedSpots" style="max-width: 100%; height: auto; border: none;">
-                <p class="caption" style="font-size: 12px;">
-                On 2008 May, Jupiter has a third red spot produced from a smaller whitish storm.  All three are seen in this image made from data recorded on May 9 and 10 with the Hubble Space Telescope's Wide Field and Planetary Camera 2.
-                Jupiter's recent outbreak of red spots is likely related to large scale climate change as the gas giant planet is getting warmer near the equator.</p>
+            <div class="image-box" style="width: 50%; text-align: center;">
+                <img src="Figures/Lecture7A_ParticleTracingKH.gif" alt="ParticleTracingKH" style="max-width: 100%; height: auto; border: none;">
+                <p class="caption" style="font-size: 12px;">Particle tracing simulation animation.</p>
             </div>
         </div>
 
-<p>For scale, the Great Red Spot has almost twice the diameter of planet Earth, and both new spots shown above less than one Earth-diameter across.</p>
 
         <div class="footnote-container">
             <hr class="footnote-line">
             <p class="footnote">
-                <sup>1</sup>NASA, JPL-Caltech, SwRI, MSSS, Gerald Eichstadt and Justin Cowart. 
-            </p>
-            <p class="footnote">
-                <sup>2</sup>NASA, ESA, M. Wong, I. de Pater (UC Berkeley), et al.
-                                <a href="https://apod.nasa.gov/apod/ap080523.html" target="_blank">
-                    <code>https://apod.nasa.gov/apod/ap080523.html</code>
+                <sup>1</sup>Valerio Marra. March 18, 2014. COMSOL Blog. Simulating Kelvin-Helmholtz Instability and Climate Dynamics.
+                <a href="https://www.comsol.com/blogs/simulating-kelvin-helmholtz-instability-climate-dynamics" target="_blank">
+                    <code>https://www.comsol.com/blogs/simulating-kelvin-helmholtz-instability-climate-dynamics</code>
                 </a> 
             </p>
             <p class="footnote">
-                <sup>3</sup>Prandtl-Essentials of Fluid Mechanics. Herbert Oertel Jr. (Herausgeber). 3rd ed. 2010. Springer-Verlag New York.
+                <sup>2</sup>Abigail Beall. Soap-bubble cyclone is a deadly storm in miniature.
+                                <a href="https://www.newscientist.com/article/mg22129530-100-soap-bubble-cyclone-is-a-deadly-storm-in-miniature/#.UwqNaPldXE0" target="_blank">
+                    <code>https://www.newscientist.com/article/mg22129530-100-soap-bubble-cyclone-is-a-deadly-storm-in-miniature/#.UwqNaPldXE0</code>
+                </a> 
+            </p>
+            <p class="footnote">
+                <sup>3</sup>Bell, John & Colella, Phillip & Glaz, Harland. (1989). A second-order projection method for the Navier-Stokes equations. Journal of Computational Physics. 85. 257-283. 10.1016/0021-9991(89)90151-4. 
             </p>
         </div>
 
+
+
+
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture7ASlide18.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture7ASlide19.html" class="nav-button left">&#9664;</a>
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture7ASlide20.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture7ASlide21.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
