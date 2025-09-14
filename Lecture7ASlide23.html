@@ -152,42 +152,45 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Kelvin-Helmholtz Clouds</div>
+        <div class="title">Barotropic Instability</div>
 
         <div class="slide">
-        <p>Kelvin-Helmholtz clouds form when pressure differences amplify disturbances at the interface between two air layers, lifting wave crests toward the faster flow and pressing troughs downward until they develop into characteristic billows. After wind is forced up and over a barrier such as a mountain, the air continues in a wavelike pattern through the atmosphere. Complex evaporation and condensation processes create the capped tops and cloudless troughs of these waves. These clouds occur when there is a difference in wind speed or direction between two atmospheric layers.</p>
-
-<div class="image-container" style="display: flex; justify-content: center; gap: 1px; margin-top: 1px;">
-    <img src="Figures/Lecture7A_KHCloudsGlobalOccurrence.png" 
-         alt="KHCloudsGlobalOccurrence" 
-         style="max-width: 50%; height: auto; border: none;">
-        <p>Although this instability is rarely observed in large air masses, it can occasionally be seen over the Southern Hemisphere in regions with strong extra-tropical cyclones, where greater space and higher wind speeds favor its development<br><img src="Figures/Lecture7A_KHICS.png" 
-                alt="KHICS" 
-                style="height: 8em; vertical-align: middle;">
-              </p>
+<div class="description"> 
+Comparing the perturbation vorticity equation \(\boxed{(U - c)\left[\frac{d^{2}}{dy^{2}} - k^{2}\right] \hat{\psi} +
+\left[\beta - \frac{d^{2}U}{dy^{2}}\right] \hat{\psi} = 0}\) with the <span class="sql">Rayleigh equation</span> \(\boxed{(U - c) \left( \frac{d^{2}\phi}{dy^{2}} - k^{2}\phi \right)
+- \frac{d^{2}U}{dy^{2}} \phi = 0}\) derived without the Coriolis acceleration, 
+the effect of planetary rotation is the replacement of $-d^{2}U/dy^{2}$ by $(\beta - d^{2}U/dy^{2})$
 </div>
-        <img src="Figures/Lecture7A_KHClouds.png" alt="KHClouds" style="max-width: 100%; height: auto; border: none;">
 
-        <div class="footnote-container">
-            <hr class="footnote-line">
-            <p class="footnote">
-                <sup>1</sup>Cathy O'Keefe. "Wave" clouds, or Kelvin-Helmholtz clouds, seen from Whidbey Island toward Possession Point on Sept. 3. 2024.
-            </p>
-            <p class="footnote">
-                <sup>2</sup>M. Paperin. 'Kelvin-Helmholtz Instability' Cloud Structure (KHICS).
-                                <a href="https://www.brockmann-consult.de/CloudStructures/kelvin-helmholtz-instability-description.htm" target="_blank">
-                    <code>https://www.brockmann-consult.de/CloudStructures/kelvin-helmholtz-instability-description.htm</code>
-                </a> 
-            </p>
-        </div>
+<div class="description"> 
+<span class="sql">A necessary condition for the inviscid instability of a barotropic current $U(y)$ 
+is that the gradient of the absolute vorticity</span>
+$$
+\frac{d}{dy} \bigl(\bar{\zeta} + f\bigr) = - \frac{d^{2}U}{dy^{2}} + \beta
+$$
+<span class="sql">must change sign somewhere in the flow</span>
+</div>
+
+<p>
+Barotropic instability quite possibly plays an important role in the instability of currents in the atmosphere and in the ocean. The instability has no preference for any latitude, because the criterion involves $\beta$ and not $f$.
+However, the mechanism presumably dominates in the tropics because mid-latitude disturbances prefer the <span class="highlight"><span class="sql">baroclinic instability</span></span> mechanism.
+An unstable distribution of westward tropical wind is shown below.
+</p>
+<div class="image-container">
+<img src="Figures/Lecture7A_DistributionWestwardTropicalWind.png" alt="DistributionWestwardTropicalWind" style="max-width: 49%; height: 100%; border: none;">
+<p>
+Profiles of velocity $U(y)$, vorticity $\bar{\zeta}$, and Coriolis parameter $f$ in a westward tropical wind as a function of latitude. The velocity distribution is barotropically unstable as $d(\bar{\zeta} + f)/dy$ changes sign within the flow near $8^{\circ}$
+</p>
+</div>
+
 
 
 
 
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture7ASlide19.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture7ASlide22.html" class="nav-button left">&#9664;</a>
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture7ASlide21.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture7ASlide24.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
