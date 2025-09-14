@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+<script>
+  window.MathJax = {
+    tex: {
+      packages: {'[+]': ['ams']},  // add ams package
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    },
+    loader: {load: ['[tex]/ams']}
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+        /* Center the table horizontally */
+        .slide table {
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        /* Left-align table text */
+        .slide table th,
+        .slide table td {
+        text-align: left;
+        }
+
+        /* Custom bullet list styled as flex container */
+    ul.custom {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
+    }
+    ul.custom li {
+      flex: 0 0 45%; /* roughly two items per row */
+      display: flex;
+      align-items: center;
+      gap: 10px; /* space between the text and image */
+      position: relative;
+      padding-left: 20px; /* extra padding for the bullet */
+    }
+    ul.custom li::before {
+      content: "■"; /* Unicode for small square bullet */
+      color: #7DCDF4;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Ensure images align properly */
+    ul.custom li img {
+      max-width: 49%;
+      height: auto;
+    }
+
+    .highlight {
+    background-color:rgba(221, 241, 243, 0.8); 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    .highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+
+.image-container {
+    margin-bottom: 0px; /* or even 0 if you want no space */
+}
+
+.image-container p {
+    margin-bottom: 0px; /* reduce space under paragraphs */
+}
+
+.image-container img {
+    margin-top: 0px; /* reduce space above images */
+}
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  td { 
+    border: 1px solid #444; 
+    padding: 0.25rem 0.5rem; 
+    vertical-align: top; 
+    text-align: left;
+  }
+  .text { width: 65%; }
+  .equation { width: 35%; }
+    </style>
+<script>
+function scaleContainer() {
+  const container = document.querySelector('.container');
+  const padding = 0; // optional padding margin
+  const viewportHeight = window.innerHeight - padding;
+  const containerHeight = container.offsetHeight;
+  // Compute the scale ratio
+  const scale = Math.min(1, viewportHeight / containerHeight);
+  container.style.transform = `scale(${scale})`;
+}
+// Run on load
+window.addEventListener('load', scaleContainer);
+// Run on resize
+window.addEventListener('resize', scaleContainer);
+</script>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Baroclinic Instability</div>
+
+        <div class="slide">
+<div class="description"> 
+Weather maps at mid-latitudes invariably show the presence of wavelike horizontal excursions of temperature and pressure contours, superposed on eastward mean flows such as the jet stream. 
+They seem to be propagating as Rossby waves, 
+but their erratic and unexpected appearance suggests that they are not forced by any external agency, 
+but are due to an inherent <span class="sql">instability</span> of mid-latitude eastward flows. 
+In other words, the eastward flows have a spontaneous tendency to develop wavelike disturbances
+</div>
+
+<div class="description"> 
+<div class="image-container">
+<p>
+The poleward decrease of solar irradiation results in a poleward decrease of air temperature and a consequent increase of air density.
+And by the thermal wind relation, eastward flow velocity must increase with height.
+A system with inclined density surfaces has more potential energy than one with horizontal density surfaces, making the arrangement possibly unstable.
+Instability of baroclinic flows that releases potential energy by flattening out constant density surfaces is called the <span class="sql">baroclinic instability</span></p>
+<img src="Figures/Lecture7A_EarthLikePlanet.png" alt="EarthLikePlanet" style="max-width: 49%; height: 100%; border: none;">
+</div>
+</div>
+
+<div class="description"> 
+Consider a simple basic state in which the density increases northward at a <span class="sql">constant</span> rate
+$\partial \overline{\rho} / \partial y$ and is stably stratified in the vertical with a <span class="sql">uniform</span>
+buoyancy frequency $N$. According to the thermal wind relation, the constancy of
+$\partial \overline{\rho} / \partial y$ requires that the vertical shear of the basic eastward flow
+$U(z)$ also be constant. The $\beta$-effect is neglected here since it is not essential for the
+instability (The $\beta$-effect does modify the instability, however)
+</div>
+
+<img src="Figures/Lecture7A_LinesDensityNorthernHemisphericAtmosphere.png" alt="LinesDensityNorthernHemisphericAtmosphere" style="max-width: 100%; height: 100%; border: none;">
+
+
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>Sukhanovskii, A., Stepanov, R., Bykov, A. et al. Mid-latitude baroclinic waves in a zonally homogeneous Earth-like planet. Clim Dyn 63, 74 (2025).
+            </p>
+        </div>
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture7ASlide23.html" class="nav-button left">&#9664;</a>
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture7ASlide25.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>
