@@ -155,76 +155,58 @@ window.addEventListener('resize', scaleContainer);
         <div class="title">Perturbation Vorticity Equation</div>
 
         <div class="slide">
+<div class="description"> 
+Assume that $\partial \overline{\rho}/\partial y$ is constant, 
+and $U=0$ at the surface $z=0$, the background flow is
+$$
+U(z)=U_0\,z/H
+$$
+where $U_0$ is the velocity at the top of the layer of interest, $z=H$
+</div>
 
 <div class="description"> 
-The equations for the total flow are<br>
-<span class="sql">Continuity equation</span>
+Form the vorticity equation by cross-differentiating and adding the frictionless horizontal momentum equations to eliminate the pressure, 
+then use the continuity equation \(\nabla \cdot \mathbf{u} = 0\) 
+to replace $\partial u/\partial x+\partial v/\partial y$ with $-\partial w/\partial z$
 $$
-\nabla \cdot \mathbf{u} = 0
-$$
-<span class="sql">Horizontal momentum equations</span><br>
-$
-\begin{aligned}
-&\frac{D u}{D t}-f v=-\frac{1}{\rho_{0}}\frac{\partial p'}{\partial x}
-+\nu_H\!\left(\frac{\partial^2 u}{\partial x^2}+\frac{\partial^2 u}{\partial y^2}\right)
-+\nu_V\!\left(\frac{\partial^2 u}{\partial z^2}\right)\\
-&\frac{D v}{D t}+f u=-\frac{1}{\rho_{0}}\frac{\partial p'}{\partial y}
-+\nu_H\!\left(\frac{\partial^2 v}{\partial x^2}+\frac{\partial^2 v}{\partial y^2}\right)
-+\nu_V\!\left(\frac{\partial^2 v}{\partial z^2}\right)\\
-&\frac{D w}{D t}=-\frac{1}{\rho_{0}}\frac{\partial p'}{\partial z}
--\frac{g\rho'}{\rho_{0}}
-+\nu_H\!\left(\frac{\partial^2 w}{\partial x^2}+\frac{\partial^2 w}{\partial y^2}\right)
-+\nu_V\!\left(\frac{\partial^2 w}{\partial z^2}\right)
-\end{aligned}
-\;\xrightarrow[\text{frictionless}]{\text{negligible $w$}}\;
-\begin{aligned} 
-\frac{D u}{D t}-f v&=-\frac{1}{\rho_{0}}\frac{\partial p'}{\partial x}\\ 
-\frac{D v}{D t}+f u&=-\frac{1}{\rho_{0}}\frac{\partial p'}{\partial y} 
-\end{aligned}
-$<br>
-<span class="sql">Vertical hydrostatic equilibrium</span>
-$$
-\frac{d p}{d z} = - \rho g
-$$
-<span class="sql">Density equation</span>
-$$
-\frac{D \rho}{D t} \equiv \frac{\partial \rho}{\partial t} + \mathbf{u} \cdot \nabla \rho = 0
+\frac{\partial \zeta}{\partial t}+u\frac{\partial \zeta}{\partial x}+v\frac{\partial \zeta}{\partial y}
+-(\zeta+f)\frac{\partial w}{\partial z}=0
 $$
 </div>
 
 <div class="description"> 
-The total flow is assumed to be composed of an eastward wind $U(z)$ in geostrophic equilibrium with the basic density structure $\bar{\rho}(y, z)$, plus perturbations
+Assume that the perturbations are large-scale and slow, so that the velocity is nearly geostrophic
 $$
-u = U(z) + u'(x,t), \quad 
-v = v'(x,t), \quad
-w = w'(x,t), \quad
-\rho = \bar{\rho}(y,z) + \rho'(x,t), \quad
-p = \bar{p}(y,z) + p'(x,t)
-$$
-</div>
-
-<div class="description"> 
-The basic flow is in geostrophic and hydrostatic balance
-$$
-f U = - \frac{1}{\rho_0} \frac{\partial \bar{p}}{\partial y},
+u' \approx - \frac{1}{\rho_0 f} \frac{\partial p'}{\partial y},
 \qquad
-0 = -\frac{\partial \bar{p}}{\partial z} - \bar{\rho} g
+v' \approx \frac{1}{\rho_0 f} \frac{\partial p'}{\partial x}
+$$
+The perturbation vorticity is found as
+$$
+\zeta' = \frac{1}{\rho_0 f} \left( \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} \right) p'
+= \frac{1}{\rho_0 f} \nabla_H^2 p'
 $$
 </div>
 
 <div class="description"> 
-Eliminating the pressure, we obtain the thermal wind relation
-$$
-\frac{d U}{d z} = \frac{g}{\rho_0 f} \frac{\partial \bar{\rho}}{\partial y}
-$$
-which requires the eastward flow to increase with height because $\partial \bar{\rho} / \partial y > 0$
+Develop an expression for $w'$ in terms of $p'$ using the density Equation
+$
+\frac{\partial}{\partial t} (\overline{\rho} + \rho') +
+(U + u') \frac{\partial}{\partial x} (\overline{\rho} + \rho') +
+v' \frac{\partial}{\partial y} (\overline{\rho} + \rho') +
+w' \frac{\partial}{\partial z} (\overline{\rho} + \rho') = 0$
+$
+\xrightarrow[\text{and linearize}]{\text{Evaluate derivatives}}\;
+\frac{\partial \rho'}{\partial t}+U\frac{\partial \rho'}{\partial x}+v'\frac{\partial \overline{\rho}}{\partial y}
+-\rho_0 N^2 \frac{w'}{g}=0
+$ where \(N\) is the buoyancy frequency, \(\boxed{N^{2} \equiv -\frac{g}{\rho_{0}} \frac{d\rho}{dz}}\)
 </div>
 
 
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture7ASlide24.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture7ASlide25.html" class="nav-button left">&#9664;</a>
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture7ASlide26.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture7ASlide27.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
