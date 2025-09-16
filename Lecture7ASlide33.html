@@ -152,51 +152,41 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Instability Criterion</div>
+        <div class="title">Energetics</div>
 
         <div class="slide">
-<div class="description"> 
-   It is usual to omit the factor $\pi$ and define the Rossby radius $\Lambda$ in a continuously stratified fluid as
-   $$
-   \Lambda \equiv \frac{HN}{f}
-   $$
+<div class="image-container">
+<img src="Figures/Lecture7A_LinesDensityNorthernHemisphericAtmosphere.png" alt="LinesDensityNorthernHemisphericAtmosphere" style="max-width: 49%; height: 100%; border: none;">
+<p>
+The existence of planet-encircling weather waves is explained by the fact that small perturbations can spontaneously grow when superposed on an eastward current maintained by sloping density surfaces.
+</p>
 </div>
-
-<div class="description"> 
-   The condition \(\frac{HN}{f} < \frac{2.4}{k}
-\) for baroclinic instability is therefore that the east-west wavelength be large enough so that:
-
-   $$
-   \lambda > 2.6 \Lambda
-   $$
-</div>
-
-<div class="description"> 
-   The wavelength $\lambda = 2.6 \Lambda$ does not grow at the fastest rate
-\[c = \frac{U_0}{2} \pm \frac{U_0}{\alpha H} 
-\sqrt{\left(\frac{\alpha H}{2} - \tanh \frac{\alpha H}{2}\right)
-\left(\frac{\alpha H}{2} - \coth \frac{\alpha H}{2}\right)}
-\Rightarrow    \lambda_{\max} = 3.9 \Lambda
-\] 
-the wavelength with the largest growth rate  \(\lambda_{\max}\) is 3.9\(\Lambda\)
-</div>
-
-<p>This is therefore the wavelength that is observed when the instability develops.
-   Typical values for $f, N,$ and $H$ suggest that 
+<p>The perturbations extract their energy from the <span class="highlightkumon"><span class="sql">potential energy</span></span> stored in the system of sloping density surfaces.
+The energetics of the baroclinic instability are therefore quite different than those of the Kelvin-Helmholtz instability
 <ul class="custom-list">
-<li>\(\lambda_{\max} \sim 4000 \, \mathrm{km}\) in the atmosphere</li>
-<li>\(\lambda_{\max} \sim 200 \, \mathrm{km}\) in the ocean</li>
+   <li>For baroclinic instability, the perturbation Reynolds stress $\overline{u'w'}$ extracts energy from the vertical shear</li>
+   <li>Baroclinic instability is <span class="sql"><span class="highlight">not</span></span> a shear-flow instability because the Reynolds stresses are too small due to the small $w'$ in quasi-geostrophic large-scale flows</li>
 </ul>
-<p>which agree with observation.<br>
-Waves much smaller than the Rossby radius do not grow, and those much larger than the Rossby radius grow very slowly.
+<p>
+The energetics of baroclinic instability can be studied using the equation for perturbation kinetic energy
+   $$
+   \frac{d}{dt} \left( \rho_0 \int (u'^2 + v'^2) \, dx \, dy \, dz \right)
+   = \frac{dKE}{dt} = -g \int w' \rho' \, dx \, dy \, dz
+   $$
+For instability, $dKE/dt > 0$, which requires
+     $$
+     \int w' \rho' \, dx \, dy \, dz < 0
+     $$
+Denote the volume average as $\overline{w'\rho'}$.
+     A negative $\overline{w'\rho'}$ means lighter fluid rises and heavier fluid sinks, lowering the system’s potential energy.
 </p>
 
 
 
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture7ASlide31.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture7ASlide32.html" class="nav-button left">&#9664;</a>
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture7ASlide33.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture7ASlide34.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
