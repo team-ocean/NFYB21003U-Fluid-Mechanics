@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="favicon.png" type="image/x-icon">
+    <title>The Courant-Friedrichs-Lewy (CFL) Condition</title>
     <link rel="stylesheet" href="styles.css">
 <script>
   window.MathJax = {
@@ -145,7 +146,7 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">The Courant–Friedrichs–Lewy (CFL) Condition</div>
+        <div class="title">The Courant-Friedrichs-Lewy (CFL) Condition</div>
 <div class="description">
 If the conservation equation is rewritten in a form which resembles the ordinary differential equation, any method of time integration can be used
 $$
@@ -164,7 +165,7 @@ $$
 It assumes that the important balance is
 between advection and streamwise diffusion, a balance that rarely occurs in real
 flows. For this reason, one must be careful about extending what is learned from
-this equation to the Navier–Stokes equations
+this equation to the Navier-Stokes equations
 </div>
 
 <p>First assume that the spatial derivatives are approximated using central difference scheme and that the grid is uniform in the $x$-direction. In this case the same algebraic equation results from both Finite Difference and Finite Volume discretizations. The new variable value $\phi_i^{n+1}$ is:
