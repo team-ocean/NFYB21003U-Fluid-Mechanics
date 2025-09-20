@@ -6,8 +6,6 @@
     <link rel="icon" href="favicon.png" type="image/x-icon">
     <title>Bonus Material</title>
     <link rel="stylesheet" href="styles.css">
-
-    
 <script>
   window.MathJax = {
     tex: {
@@ -19,7 +17,6 @@
   };
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
-
     <style>
         /* Custom Bullet Points */
         .custom-list {
@@ -128,64 +125,43 @@
 .image-container img {
     margin-top: 0px; /* reduce space above images */
 }
-
-
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  td { 
+    border: 1px solid #444; 
+    padding: 0.25rem 0.5rem; 
+    vertical-align: top; 
+    text-align: left;
+  }
+  .text { width: 65%; }
+  .equation { width: 35%; }
     </style>
-</head>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const thumbnail = document.getElementById("customThumbnail");
-    const playOverlay = document.getElementById("playButtonOverlay");
-    const videoContainer = document.getElementById("videoContainer");
-
-    thumbnail.addEventListener("click", function () {
-      thumbnail.style.display = "none";
-      playOverlay.style.display = "none";
-      videoContainer.style.display = "block";
-    });
-  });
+function scaleContainer() {
+  const container = document.querySelector('.container');
+  const padding = 0; // optional padding margin
+  const viewportHeight = window.innerHeight - padding;
+  const containerHeight = container.offsetHeight;
+  // Compute the scale ratio
+  const scale = Math.min(1, viewportHeight / containerHeight);
+  container.style.transform = `scale(${scale})`;
+}
+// Run on load
+window.addEventListener('load', scaleContainer);
+// Run on resize
+window.addEventListener('resize', scaleContainer);
 </script>
-
+</head>
 <body>
     <div class="container">
         <div class="title">Bonus Material</div>
         <div class="slide">
 
-<div class="video-wrapper" style="position: relative; width: 100%; max-width: 100%; margin-top: 20px; padding-top: 56.25%; /* 16:9 ratio */">
-  <!-- Thumbnail Image -->
-  <img id="customThumbnail"
-       src="Figures/Lecture3A_0squid.png"
-       alt="Jellyfish thumbnail"
-       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; cursor: pointer; border-radius: 8px;">
 
-  <!-- Play Button Overlay -->
-  <div id="playButtonOverlay" style="
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 60px;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 50%;
-    pointer-events: none;
-  ">&#9658;</div>
-
-  <!-- YouTube iframe container (hidden by default) -->
-  <div id="videoContainer" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-    <iframe width="100%" height="100%"
-      src="https://www.youtube.com/embed/JXkWSgU-CL0?autoplay=1&start=5"
-      title="Jellyfish goes for a spin after wrapping itself around bubble ring."
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen
-      referrerpolicy="strict-origin-when-cross-origin">
-    </iframe>
-  </div>
-</div>
-
-</div>
+<!-- Video Section -->
+<video width="100%" controls poster="Figures/Lecture3A_JellyfishSpin.mp4">
+  <source src="Figures/Lecture3A_JellyfishSpin.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 
 
@@ -193,6 +169,9 @@
                 <hr class="footnote-line">
                     <p class="footnote">
                         <sup>1</sup>Jellyfish goes for a spin after wrapping itself around bubble ring.
+                        <a href="https://www.youtube.com/watch?v=JXkWSgU-CL0&t=8s" target="_blank">
+                        <code>https://www.youtube.com/watch?v=JXkWSgU-CL0&t=8s</code>
+                        </a> 
                     </p>
             </div>
 
