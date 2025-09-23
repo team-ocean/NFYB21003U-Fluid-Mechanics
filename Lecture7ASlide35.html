@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="favicon.png" type="image/x-icon">
-    <title>Kelvin-Helmholtz Instability</title>
+    <title>The Bénard Problem</title>
     <link rel="stylesheet" href="styles.css">
 <script>
   window.MathJax = {
@@ -153,44 +153,60 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Kelvin-Helmholtz Instability</div>
+        <div class="title">Thermal Instability: The Bénard Problem</div>
 
         <div class="slide">
+<div class="description"> 
+Convection is a phenomenon we frequently encounter in everyday life: a pot of boiling soup, the “hot air” rising from a chimney, and so on. 
+On a much larger scale, major ocean currents — warm and cold — as well as global atmospheric circulation are also manifestations of convection. 
+Some convective motions are not easily perceived; for example, the movement of tectonic plates is influenced by convection in the Earth's mantle
+</div>
+
+<div class="description"> 
+In 1900, the French scientist Henri Bénard observed that if a thin layer of liquid is placed in a horizontal container and heated slowly and uniformly from below, there is no macroscopic motion of the liquid at first. Once the heating reaches a certain threshold, however, the liquid suddenly develops regular polygonal patterns
+</div>
 
 <div class="image-container" style="display: flex; justify-content: center; gap: 1px; margin-top: 1px;">
-            <div class="image-box" style="width: 50%; text-align: center;">
-                <img src="Figures/Lecture7A_KHInstabilityGeneratedHorizontaChannel.png" alt="KHInstabilityGeneratedHorizontaChannel" style="max-width: 100%; height: auto; border: none;">
-                <p class="caption" style="font-size: 12px;">The Kelvin-Helmholtz instability is caused by the destabilizing effect of shear, which overcomes the stabilizing effect of stratification.
-This kind of instability can be generated in a laboratory by filling a horizontal glass tube (of rectangular cross section) containing two liquids of slightly different densities (one colored) and gently tilting it.
-This starts a current in the lower layer down the plane and a current in the upper layer up the plane.</p>
+            <div class="image-box" style="width: 35%; text-align: center;">
+                <img src="Figures/Lecture7A_AlmostPerfectBenard.png" alt="AlmostPerfectBenard" style="max-width: 100%; height: auto; border: none;">
+                <p class="caption" style="font-size: 12px;">
+                  Under the right conditions, convection cells will take the shape of hexagons. 
+                  Why don't we see hexagon-shaped clouds in the sky? Notice the small glitch in the pattern, it was later discovered that there was a tiny dent in the copper plate under the fluid. 
+                  This tells us that the pattern is very sensitive to the bottom surface. Earth's surface has dents and bumps in the form of mountains, valleys, canyons, and more. All of these surface features affect the convection patterns in the atmosphere.
+                </p>
 
             </div>
-            <div class="image-box" style="width: 50%; text-align: center;">
-                <img src="Figures/Lecture7A_KHInstabilityNaturalOverturning.png" alt="KHInstabilityNaturalOverturning" style="max-width: 100%; height: auto; border: none;">
-                <p class="caption" style="font-size: 12px;">Shear instability of stratified fluids is ubiquitous in the atmosphere and the ocean and is believed to be a major source of internal waves.
-                    This figure shows an acoustic backscatter image of Kelvin-Helmholtz vortical structures observed in a river estuary at ebb tide when nominally fresh water is flowing over saltier and denser ocean water.
-Similar images of injected dye have been recorded in oceanic thermoclines and in billow cloud patterns.
+            <div class="image-box" style="width: 65%; text-align: center;">
+                <img src="Figures/Lecture7A_AluminumFlakesBenard.png" alt="AluminumFlakesBenard" style="max-width: 100%; height: auto; border: none;">
+                <p class="caption" style="font-size: 12px;">
+                This picture shows a time lapse view of Rayleigh-Benard cells. The picture was taken over ten seconds, so the aluminum flakes in the fluid look like long trails instead of small particles. This helps to visulaize how the fluid is moving: up through the center of the cell, then spreading out and sinking at the edges of the cell.
                 </p>
             </div>
         </div>
 
-<div class="image-box" style="display: flex; align-items: center; width: 80%; gap: 10px;">
-    <img src="Figures/Lecture7A_KHInstabilityNumericalEvolutionVortex.png" 
-         alt="KHInstabilityNumericalEvolutionVortex" 
-         style="max-width: 70%; height: auto; border: none;">
-    <p class="caption" style="font-size: 12px; margin: 0; text-align: left;">
-The figure shows a nonlinear numerical calculation of the evolution of a vortex sheet that has been given a small transverse sinusoidal displacement with wavelength $\lambda$. 
-The density difference across the interface is zero, and $U_0$ is the velocity difference across the vortex sheet.<br><br>
-The smaller vertical displacements shown in two figures above are consistent with the effects of stratification that are absent from the calculations shown in this figure.
-    </p>
-</div>
 
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup> Lu Yu, Bolin Hao & Xiaosong Chen. 2016. The Miracle at the Edge: Phase Transitions and Critical Phenomena.
+            </p>
+            <p class="footnote">
+                <sup>2</sup> Van Dyke, M. (1982) An Album of Fluid Motion. The Parabolic Press, Stanford.
+            </p>
+            <p class="footnote">
+                <sup>3</sup> NOAA Physical Sciences Laboratory. Rayleigh-Benard Convection Cells.
+                <a href="https://psl.noaa.gov/outreach/education/science/convection/RBCells.html" target="_blank">
+                    <code>https://psl.noaa.gov/outreach/education/science/convection/RBCells.html</code>
+                </a> 
+            </p>
+        </div>
 
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture7ASlide14.html" class="nav-button left">&#9664;</a>
-
+        <a href="Lecture7ASlide34.html" class="nav-button left">&#9664;</a>
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture7ASlide16.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture7ASlide36.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>

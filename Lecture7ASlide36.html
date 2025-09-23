@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="favicon.png" type="image/x-icon">
-    <title>Kelvin-Helmholtz Instability</title>
+    <title>The Bénard Problem</title>
     <link rel="stylesheet" href="styles.css">
 <script>
   window.MathJax = {
@@ -153,44 +153,57 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Kelvin-Helmholtz Instability</div>
+        <div class="title">Thermal Instability: The Bénard Problem</div>
 
         <div class="slide">
+<div class="description"> 
+Take a square, flat container, fill it completely with liquid, 
+and seal it so that there is no free surface inside the container (this is very important — it is what makes the Rayleigh model “simple”). 
+Then heat the container slowly and uniformly from below, so that the temperature at the bottom $T_2$, gradually becomes higher than the temperature at the top $T_1$. 
+When the temperature difference reaches a certain threshold value, a convection pattern suddenly appears. In a rectangular container, this takes the form of cake roll that are aligned parallel to the short side
+<div class="image-container">
+<img src="Figures/Lecture7A_RayleighBuoyant.png" alt="RayleighBuoyant" style="max-width: 66%; height: 100%; border: none;">
+</div>
+</div>
 
-<div class="image-container" style="display: flex; justify-content: center; gap: 1px; margin-top: 1px;">
-            <div class="image-box" style="width: 50%; text-align: center;">
-                <img src="Figures/Lecture7A_KHInstabilityGeneratedHorizontaChannel.png" alt="KHInstabilityGeneratedHorizontaChannel" style="max-width: 100%; height: auto; border: none;">
-                <p class="caption" style="font-size: 12px;">The Kelvin-Helmholtz instability is caused by the destabilizing effect of shear, which overcomes the stabilizing effect of stratification.
-This kind of instability can be generated in a laboratory by filling a horizontal glass tube (of rectangular cross section) containing two liquids of slightly different densities (one colored) and gently tilting it.
-This starts a current in the lower layer down the plane and a current in the upper layer up the plane.</p>
+<div class="description"> 
+Stimulated by these experiments, Rayleigh in 1916 derived the theoretical requirement for the development of convective motion in a layer of fluid with two free surfaces. He showed that the instability would occur when the adverse temperature gradient was large enough to make the ratio
+$$
+Ra = g \alpha \Gamma d^{4} / \kappa \nu
+$$
+exceed a certain critical value. 
+$g$ is the acceleration due to gravity, $\alpha$ is the fluid's coefficient of thermal expansion, $\Gamma = -d\overline{T}/dz$ is the vertical temperature gradient of the background state, $d$ is the depth of the layer, $\kappa$ is the fluid's thermal diffusivity, and $\nu$ is the fluid's kinematic viscosity. 
+The parameter $Ra$ is called the <span class="sql">Rayleigh number</span>, and it represents a ratio of the destabilizing effect of buoyancy to the stabilizing effect of viscosity.
+</div>
 
-            </div>
-            <div class="image-box" style="width: 50%; text-align: center;">
-                <img src="Figures/Lecture7A_KHInstabilityNaturalOverturning.png" alt="KHInstabilityNaturalOverturning" style="max-width: 100%; height: auto; border: none;">
-                <p class="caption" style="font-size: 12px;">Shear instability of stratified fluids is ubiquitous in the atmosphere and the ocean and is believed to be a major source of internal waves.
-                    This figure shows an acoustic backscatter image of Kelvin-Helmholtz vortical structures observed in a river estuary at ebb tide when nominally fresh water is flowing over saltier and denser ocean water.
-Similar images of injected dye have been recorded in oceanic thermoclines and in billow cloud patterns.
-                </p>
-            </div>
-        </div>
+<div class="description"> 
+Since Bénard's original experiments, 
+it has been recognized that most of the 
+<span class="sql">motions he observed were instabilities driven by the variation of surface tension with 
+    temperature and not the thermal instability due to a top-heavy density gradient</span>
+</div>
 
-<div class="image-box" style="display: flex; align-items: center; width: 80%; gap: 10px;">
-    <img src="Figures/Lecture7A_KHInstabilityNumericalEvolutionVortex.png" 
-         alt="KHInstabilityNumericalEvolutionVortex" 
-         style="max-width: 70%; height: auto; border: none;">
-    <p class="caption" style="font-size: 12px; margin: 0; text-align: left;">
-The figure shows a nonlinear numerical calculation of the evolution of a vortex sheet that has been given a small transverse sinusoidal displacement with wavelength $\lambda$. 
-The density difference across the interface is zero, and $U_0$ is the velocity difference across the vortex sheet.<br><br>
-The smaller vertical displacements shown in two figures above are consistent with the effects of stratification that are absent from the calculations shown in this figure.
-    </p>
+<div class="image-container">
+<img src="Figures/Lecture7A_SwissRoll.png" alt="SwissRoll" style="max-width: 39%; height: 100%; border: none;">
+<p><span class="bullet"></span>Why does convection not grow gradually, but rather appear suddenly, seemingly switching from no motion to organized flow?
+    <span class="bullet"></span>How do the water molecules across the entire layer coordinate their motion to create a regular pattern of alternating upwelling and downwelling regions? We are accustomed to thinking of heat as a source of disorder, yet here heating gives rise to ordered motion.
+</p>
 </div>
 
 
-        <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture7ASlide14.html" class="nav-button left">&#9664;</a>
 
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup> Lu Yu, Bolin Hao & Xiaosong Chen. 2016. The Miracle at the Edge: Phase Transitions and Critical Phenomena.
+            </p>
+        </div>
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture7ASlide35.html" class="nav-button left">&#9664;</a>
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture7ASlide16.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture7ASlide37.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
