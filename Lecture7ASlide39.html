@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="favicon.png" type="image/x-icon">
-    <title>Rayleigh-Taylor Instability</title>
+    <title>Richtmyer-Meshkov Instability</title>
     <link rel="stylesheet" href="styles.css">
 <script>
   window.MathJax = {
@@ -153,57 +153,40 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Rayleigh-Taylor Instability</div>
+        <div class="title">Richtmyer-Meshkov Instability</div>
 
         <div class="slide">
 <p>
-    Rayleigh-Taylor instability is an interfacial hydrodynamic instability that develops when two fluids of different densities, 
-    separated by an interface and subjected to a relative acceleration. 
-It occurs widely in unstably stratified natural, industrial, and astrophysical systems, including coastal upwelling near the ocean surface, atmospheric and cloud dynamics, plasma physics phenomena, the ignition of supernovae, air bubble formation in divers' bloodstreams, and premixed combustion processes.
+The Richtmyer-Meshkov instability occurs when a shock wave impulsively accelerates a perturbed, corrugated interface between two fluids of different densities, during which vorticity is deposited through the baroclinic torque term $(\nabla \rho \times \nabla p)/\rho^{2}$, leading to the growth of interface perturbations.
 </p>
-
 <div class="image-container">
-  <img src="Figures/Lecture7A_RayleighTaylorMixingZone.png" 
-       alt="RayleighTaylorMixingZone" 
+  <img src="Figures/Lecture7A_InviscidRichtmyer-MeshkovInstability.png" 
+       alt="InviscidRichtmyer-MeshkovInstability" 
        style="max-width: 77%; height: auto; display: block; margin: 0 auto;">
 </div>
-
-<p>
-Many geological phenomena can be explained by this principle, such as diapirism.
-
-Magma can form diapirs, salt can form diapirs, deep crustal rock mixtures can form diapirs, and even ultrahigh-pressure solid rocks from depths of about 100 km can rise to the surface through diapirism.
-
-All of these processes are driven by buoyancy forces resulting from density differences.
-</p>
 <div class="image-container">
-  <img src="Figures/Lecture7A_GeologyRayleighTaylor.png" 
-       alt="GeologyRayleighTaylor" 
-       style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+  <img src="Figures/Lecture7A_ShockedInterfaces.gif" 
+       alt="ShockedInterfaces" 
+       style="max-width: 90%; height: auto; display: block; margin: 0 auto;">
+       <p>The animation shows a cylinder of denser gas (white) in still air (black) before being hit with a Mach 1.2 shock wave</p>
 </div>
-
 
 
         <!-- Footnote Section -->
         <div class="footnote-container">
             <hr class="footnote-line">
             <p class="footnote">
-                <sup>1</sup> Schwarzkopf, J. & Livescu, Daniel & Baltzer, Jon & Gore, R. & Ristorcelli, J.. (2015). A Two-length Scale Turbulence Model for Single-phase Multi-fluid Mixing. Flow, Turbulence and Combustion.
+                <sup>1</sup> Nishihara K., Wouchuk J. G., Matsuoka C., Ishizaki R. and Zhakhovsky V. V. 2010. Richtmyer-Meshkov instability: theory of linear and nonlinear evolution. Phil. Trans. R. Soc. A.
             </p>
             <p class="footnote">
-                <sup>2</sup> Rahman, S. M., & San, O. (2019). A Relaxation Filtering Approach for Two-Dimensional Rayleigh-Taylor Instability-Induced Flows. Fluids, 4(2), 78.
-            </p>
-            <p class="footnote">
-                <sup>3</sup> H. Fossen, Structural Geology, 2nd ed. Cambridge: Cambridge University Press, 2016.
-            </p>
-            <p class="footnote">
-                <sup>4</sup> Marschall, H., Schumacher, J. Arc magmas sourced from mélange diapirs in subduction zones. Nature Geosci 5, 862-867 (2012).
+                <sup>2</sup> Santhosh K. Shankar, Soshi Kawai, Sanjiva K. Lele; Two-dimensional viscous flow simulation of a shock accelerated heavy gas cylinder. Physics of Fluids 1 February 2011; 23 (2): 024102.
             </p>
         </div>
 
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture7ASlide37.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture7ASlide38.html" class="nav-button left">&#9664;</a>
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture7ASlide39.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture7AOverview.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
