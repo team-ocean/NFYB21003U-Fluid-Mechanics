@@ -157,50 +157,48 @@ window.addEventListener('resize', scaleContainer);
         <div class="title">The Theory of Homogeneous Isotropic Turbulence</div>
 
 <div class="description">
-<div class="image-container">
-<p>
-The process of large eddies becoming smaller involves a transfer of 
-kinetic energy from larger to smaller eddies, known as a the <span class="sql">energy cascade</span><br><br>
-See <i>Davidson, P. (2004). Turbulence: An Introduction for Scientists and Engineers.</i> Section 5.2 “Kolmogorov Revisited” for the proof of Kolmogorov's "5/3" law.
-</p>
-<img src="Figures/Lecture7B_EnergyCascade.png" alt="EnergyCascade" style="max-width: 49%; height: auto; display: block; margin: 0 auto;">
-</div> 
+The smallest eddy in a turbulent flow is called a <span class="sql">dissipative eddy</span>, 
+with a Reynolds number of 1. Its size is called dissipative scale, or Kolmogorov scale $\eta$. 
+On this smallest scale, turbulent kinetic energy will be rapidly dissipated by viscosity. 
+The Reynolds number based on the dissipative eddy is expressed as
+$$
+Re_k = \frac{u_k \eta}{\nu} \sim 1
+$$
+where $\nu = \mu / \rho$ is the kinematic viscosity of the fluid and $u_k$ may be simply understood as the rotational velocity of the dissipative eddy
 </div>
-<p>
-In classical theory, turbulent flow is viewed as a flow made up of eddies of different scales. For a particular flow, the largest-scale eddies represent the shear and rotation of the average flow. 
-For high Reynolds number flows, such large eddies tend to be unstable and break into a number of small ones with strong unsteadiness, which converts the kinetic energy of the average flow into turbulent kinetic energy. These small eddies might still be unstable and further break into smaller ones.
-</p>
 
-<div class="image-container">
-<img src="Figures/Lecture7B_SmallerScale.png" alt="SmallerScale" style="max-width: 39%; height: auto; display: block; margin: 0 auto;">
-<p>In this region, turbulent kinetic energy is not dissipated but continuously transported from large-scale to small-scale eddies, until the scales are small enough (corresponding to very small Reynolds numbers) for the dominant viscous forces to dissipate the kinetic energy into internal energy.<br>
+<div class="description">
+This formula apparently states that the higher the viscosity, the larger the dissipative eddy size. However, this is not the case, because $u_k$ is also related to the viscosity
+</div>
 
-The vortex stretching and squeezing mechanism represents the process by which large-scale eddies extract energy from the mean shear flow.
-Since stretching leads to a reduction in the vortex scale (i.e., the vortex tube becomes thinner), the stretching process shows that energy is transferred from large-scale motion to small-scale motion.
-The energy transmitted to the smallest-scale turbulent fluctuation is converted into heat.<br>
-After several steps of the energy cascade, the newly generated small-scale vortices become progressively smaller, and their directional preference becomes statistically less distinct, approaching isotropy. Therefore, in general, small-scale turbulent fluctuations tend to be isotropic (or locally isotropic).</p>
-</div> 
+<div class="description">
+The dissipation rate of turbulent kinetic energy, denoted by $\varepsilon$, is the rate at which the turbulent kinetic energy is converted into internal energy. The following relation can be obtained
+$$
+\eta \sim \left( \frac{\nu^{3}}{\varepsilon} \right)^{1/4}
+$$
+For a fluid, the greater the turbulent kinetic energy taken from the mean flow, the smaller the dissipation eddy size
+</div>
+<p>Suppose you are stirring a glass of water. The faster you stir, the more chaotic the water becomes - that is, the fluid eddies cover a wider range of spatial scales. More intense stirring results in a greater production rate of turbulent kinetic energy, and the wider range of spatial scales imply a smaller size of the smallest eddy (dissipative eddy)</p>
+
+<img src="Figures/Lecture7B_StirTeaCup.png" alt="StirTeaCup" style="max-width: 59%; height: auto; display: block; margin: 0 auto;">
 
 
         <!-- Footnote Section -->
         <div class="footnote-container">
             <hr class="footnote-line">
             <p class="footnote">
-                <sup>1</sup>H. W. Chris Greenshields, “Notes on Computational Fluid Dynamics: General Principles,” 4 2022. [Online].
-                <a href="https://doc.cfd.direct/notes/cfd-general-principles/energy-cascade" target="_blank">
-                <code>https://doc.cfd.direct/notes/cfd-general-principles/energy-cascade</code>
-                </a> 
+                <sup>1</sup>Hongwei Wang (2023). A Guide to Fluid Mechanics. National Defense Industry Press.
             </p>
             <p class="footnote">
-                <sup>2</sup>Hongwei Wang (2023). A Guide to Fluid Mechanics. National Defense Industry Press.
+                <sup>2</sup>When stirring half a cup of tea with loose tea at the bottom, the tea leaves will soon gather at the center of the bottom of the cup. This is a confusing phenomenon: Why are the tea leaves, which are heavier than water, not thrown to the side wall by centrifugal forces?
             </p>
         </div>
 
 
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture7BSlide11.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture7BSlide13.html" class="nav-button left">&#9664;</a>
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture7BSlide13.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture7BSlide15.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>

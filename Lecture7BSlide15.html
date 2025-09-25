@@ -157,50 +157,33 @@ window.addEventListener('resize', scaleContainer);
         <div class="title">The Theory of Homogeneous Isotropic Turbulence</div>
 
 <div class="description">
-<div class="image-container">
-<p>
-The process of large eddies becoming smaller involves a transfer of 
-kinetic energy from larger to smaller eddies, known as a the <span class="sql">energy cascade</span><br><br>
-See <i>Davidson, P. (2004). Turbulence: An Introduction for Scientists and Engineers.</i> Section 5.2 “Kolmogorov Revisited” for the proof of Kolmogorov's "5/3" law.
-</p>
-<img src="Figures/Lecture7B_EnergyCascade.png" alt="EnergyCascade" style="max-width: 49%; height: auto; display: block; margin: 0 auto;">
-</div> 
+The size of the largest eddies in turbulent flow, denoted by $L$, is set by that of the system boundary, such as pipe diameter or boundary layer thickness. Its relationship with the size of the dissipative eddies is expressed as
+$$
+\frac{L}{\eta} \sim Re_L^{3/4}
+$$
+For a flow with a given geometry, this formula states that the higher the Reynolds number, the smaller the size of the dissipative eddies
 </div>
-<p>
-In classical theory, turbulent flow is viewed as a flow made up of eddies of different scales. For a particular flow, the largest-scale eddies represent the shear and rotation of the average flow. 
-For high Reynolds number flows, such large eddies tend to be unstable and break into a number of small ones with strong unsteadiness, which converts the kinetic energy of the average flow into turbulent kinetic energy. These small eddies might still be unstable and further break into smaller ones.
-</p>
 
-<div class="image-container">
-<img src="Figures/Lecture7B_SmallerScale.png" alt="SmallerScale" style="max-width: 39%; height: auto; display: block; margin: 0 auto;">
-<p>In this region, turbulent kinetic energy is not dissipated but continuously transported from large-scale to small-scale eddies, until the scales are small enough (corresponding to very small Reynolds numbers) for the dominant viscous forces to dissipate the kinetic energy into internal energy.<br>
+<div class="description">
+In other words, the flow at high Reynolds numbers covers a wider range of spatial scales. When the Reynolds number is small, the sizes of the large and small eddies are similar. In this case, the kinetic energy begins to dissipate in the large eddies, and the transportation process of energy cannot form. This type of flow is a laminar flow with eddies, rather than a turbulent flow
+</div>
 
-The vortex stretching and squeezing mechanism represents the process by which large-scale eddies extract energy from the mean shear flow.
-Since stretching leads to a reduction in the vortex scale (i.e., the vortex tube becomes thinner), the stretching process shows that energy is transferred from large-scale motion to small-scale motion.
-The energy transmitted to the smallest-scale turbulent fluctuation is converted into heat.<br>
-After several steps of the energy cascade, the newly generated small-scale vortices become progressively smaller, and their directional preference becomes statistically less distinct, approaching isotropy. Therefore, in general, small-scale turbulent fluctuations tend to be isotropic (or locally isotropic).</p>
-</div> 
+
 
 
         <!-- Footnote Section -->
         <div class="footnote-container">
             <hr class="footnote-line">
             <p class="footnote">
-                <sup>1</sup>H. W. Chris Greenshields, “Notes on Computational Fluid Dynamics: General Principles,” 4 2022. [Online].
-                <a href="https://doc.cfd.direct/notes/cfd-general-principles/energy-cascade" target="_blank">
-                <code>https://doc.cfd.direct/notes/cfd-general-principles/energy-cascade</code>
-                </a> 
-            </p>
-            <p class="footnote">
-                <sup>2</sup>Hongwei Wang (2023). A Guide to Fluid Mechanics. National Defense Industry Press.
+                <sup>1</sup>Hongwei Wang (2023). A Guide to Fluid Mechanics. National Defense Industry Press.
             </p>
         </div>
 
 
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture7BSlide11.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture7BSlide14.html" class="nav-button left">&#9664;</a>
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture7BSlide13.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture7BSlide16.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>

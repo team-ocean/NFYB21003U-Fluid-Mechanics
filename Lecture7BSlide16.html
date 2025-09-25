@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="favicon.png" type="image/x-icon">
-    <title>The Theory of Homogeneous Isotropic Turbulence</title>
+    <title>The Possibility of Direct Numerical Solution of the N-S Equations</title>
     <link rel="stylesheet" href="styles.css">
 <script>
   window.MathJax = {
@@ -154,53 +154,61 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">The Theory of Homogeneous Isotropic Turbulence</div>
+        <div class="title">The Possibility of Direct Numerical Solution of the Navier-Stokes Equations</div>
 
 <div class="description">
-<div class="image-container">
-<p>
-The process of large eddies becoming smaller involves a transfer of 
-kinetic energy from larger to smaller eddies, known as a the <span class="sql">energy cascade</span><br><br>
-See <i>Davidson, P. (2004). Turbulence: An Introduction for Scientists and Engineers.</i> Section 5.2 “Kolmogorov Revisited” for the proof of Kolmogorov's "5/3" law.
-</p>
-<img src="Figures/Lecture7B_EnergyCascade.png" alt="EnergyCascade" style="max-width: 49%; height: auto; display: block; margin: 0 auto;">
-</div> 
+With the assumption of a continuous medium, directly solving the Navier-Stokes equations becomes the 
+most ideal approach to obtaining turbulence information. 
+To resolve the smallest eddies both spatially and temporally, the number of grid points 
+in each coordinate direction should be
+$$
+N_x > \frac{l}{\eta} \;\;\Longrightarrow\;\; N_x > Re^{3/4}
+$$
 </div>
+
+<div class="description">
+The number of time steps should be
+$$
+N_t > \frac{T}{\tau} \;\;\Longrightarrow\;\; N_t > Re^{1/2}
+$$
+</div>
+
+<div class="description">
+The computational effort in 3D space is
+$$
+N_t N_x N_y N_z > Re^{11/4}
+$$
+</div>
+
 <p>
-In classical theory, turbulent flow is viewed as a flow made up of eddies of different scales. For a particular flow, the largest-scale eddies represent the shear and rotation of the average flow. 
-For high Reynolds number flows, such large eddies tend to be unstable and break into a number of small ones with strong unsteadiness, which converts the kinetic energy of the average flow into turbulent kinetic energy. These small eddies might still be unstable and further break into smaller ones.
+In engineering problems, $Re = 10^{5}$ is quite common and not considered very large. 
+Even if the numerical scheme is efficient enough to require only 100 operations per grid point per time step, 
+a computer performing $10^{8}$ operations per second would still require 3.6 years of computation. 
+If $Re = 10^{6}$, the computation time would be about 1000 years.
+Here we have not even considered additional numerical issues such as the number of 
+grid points required to resolve the smallest scales. <br>
+Although a computational speed of $10^{8}$ operations per second is already quite fast, 
+the rate of increase in computational power is still far from meeting the demands of directly 
+solving high-Reynolds-number turbulent flows. 
+Therefore, it can be seen that direct numerical solution of the N-S equations is not yet practical for engineering applications and will likely remain impractical for the foreseeable future. 
+The development and improvement of turbulence modeling thus remain the only viable way to solve turbulence problems.
 </p>
 
-<div class="image-container">
-<img src="Figures/Lecture7B_SmallerScale.png" alt="SmallerScale" style="max-width: 39%; height: auto; display: block; margin: 0 auto;">
-<p>In this region, turbulent kinetic energy is not dissipated but continuously transported from large-scale to small-scale eddies, until the scales are small enough (corresponding to very small Reynolds numbers) for the dominant viscous forces to dissipate the kinetic energy into internal energy.<br>
-
-The vortex stretching and squeezing mechanism represents the process by which large-scale eddies extract energy from the mean shear flow.
-Since stretching leads to a reduction in the vortex scale (i.e., the vortex tube becomes thinner), the stretching process shows that energy is transferred from large-scale motion to small-scale motion.
-The energy transmitted to the smallest-scale turbulent fluctuation is converted into heat.<br>
-After several steps of the energy cascade, the newly generated small-scale vortices become progressively smaller, and their directional preference becomes statistically less distinct, approaching isotropy. Therefore, in general, small-scale turbulent fluctuations tend to be isotropic (or locally isotropic).</p>
-</div> 
 
 
         <!-- Footnote Section -->
         <div class="footnote-container">
             <hr class="footnote-line">
             <p class="footnote">
-                <sup>1</sup>H. W. Chris Greenshields, “Notes on Computational Fluid Dynamics: General Principles,” 4 2022. [Online].
-                <a href="https://doc.cfd.direct/notes/cfd-general-principles/energy-cascade" target="_blank">
-                <code>https://doc.cfd.direct/notes/cfd-general-principles/energy-cascade</code>
-                </a> 
-            </p>
-            <p class="footnote">
-                <sup>2</sup>Hongwei Wang (2023). A Guide to Fluid Mechanics. National Defense Industry Press.
+                <sup>1</sup>Song Fu & Liang Wang (2023). Theory of Turbulence Modelling. ISBN 978-7-03-074639-9.
             </p>
         </div>
 
 
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture7BSlide11.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture7BSlide14.html" class="nav-button left">&#9664;</a>
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture7BSlide13.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture7BSlide16.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
