@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <title>Numerical Computation of Turbulent Flows</title>
+    <link rel="stylesheet" href="styles.css">
+<script>
+  window.MathJax = {
+    tex: {
+      packages: {'[+]': ['ams']},  // add ams package
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    },
+    loader: {load: ['[tex]/ams']}
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+        /* Center the table horizontally */
+        .slide table {
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        /* Left-align table text */
+        .slide table th,
+        .slide table td {
+        text-align: left;
+        }
+
+        /* Custom bullet list styled as flex container */
+    ul.custom {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
+    }
+    ul.custom li {
+      flex: 0 0 45%; /* roughly two items per row */
+      display: flex;
+      align-items: center;
+      gap: 10px; /* space between the text and image */
+      position: relative;
+      padding-left: 20px; /* extra padding for the bullet */
+    }
+    ul.custom li::before {
+      content: "■"; /* Unicode for small square bullet */
+      color: #7DCDF4;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Ensure images align properly */
+    ul.custom li img {
+      max-width: 49%;
+      height: auto;
+    }
+
+    .highlight {
+    background-color:rgba(221, 241, 243, 0.8); 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    .highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+
+.image-container {
+    margin-bottom: 0px; /* or even 0 if you want no space */
+}
+
+.image-container p {
+    margin-bottom: 0px; /* reduce space under paragraphs */
+}
+
+.image-container img {
+    margin-top: 0px; /* reduce space above images */
+}
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  td { 
+    border: 1px solid #444; 
+    padding: 0.25rem 0.5rem; 
+    vertical-align: top; 
+    text-align: left;
+  }
+  .text { width: 65%; }
+  .equation { width: 35%; }
+    </style>
+<script>
+function scaleContainer() {
+  const container = document.querySelector('.container');
+  const padding = 0; // optional padding margin
+  const viewportHeight = window.innerHeight - padding;
+  const containerHeight = container.offsetHeight;
+  // Compute the scale ratio
+  const scale = Math.min(1, viewportHeight / containerHeight);
+  container.style.transform = `scale(${scale})`;
+}
+// Run on load
+window.addEventListener('load', scaleContainer);
+// Run on resize
+window.addEventListener('resize', scaleContainer);
+</script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="title">Numerical Computation of Turbulent Flows</div>
+
+<div class="description">
+Computational fluid dynamics (CFD) has been developed rapidly in recent years to make quantitative predictions of fluid flow phenomena, but turbulence is still an obstacle that engineers must face
+</div>
+
+<div class="description">
+In CFD, <span class="bullet"></span>DNS is used to solve instantaneous N-S equations.
+ It can obtain the whole range of spatial and temporal scales of the turbulence
+ <span class="bullet"></span>RANS equations are used to estimate the effect of fluctuating terms with mathematic models
+ <span class="bullet"></span>LES is used to solve N-S equations for the large eddies in turbulence, while small isotropic eddies are estimated with mathematical models
+</div>
+
+<p>Here is an example to illustrate the comparison of these three calculation methods, stones are rolled down from the top of a hill, and we are to estimate where they will hit the wall. Due to the uncertainty of the shape of the stones and the nonuniform surface roughness, this problem is difficult to solve in a theoretical way. Moreover, the collision position is not truly random, and errors may be introduced by statistical theory.</p>
+<div class="image-container">
+<img src="Figures/Lecture7B_NumericalTurbulenceStone.png" alt="NumericalTurbulenceStone" style="max-width: 50%; height: auto; display: block; margin: 0 auto;">
+<p>
+<span class="bullet"></span>Since DNS takes all details of a flow field into account, the solutions are greatly affected by small perturbations, resulting in a large dispersion of the solutions. One needs to average the time-dependent values to obtain the averaged solution
+<span class="bullet"></span>Since RANS ignores the details and impacts of small turbulent fluctuations, the solution might be closer to the average result. So, the RANS approach appears to be sufficient if one is interested only in the averaged flow
+<span class="bullet"></span>However, there is no perfect turbulence model to simulate the effect of the small-scale turbulence on the average flow. Therefore, there is no guarantee that the RANS results will reproduce the averaged DNS results
+</p>
+</div> 
+
+<p>
+In general, the time-averaged flow field obtained using DNS or LES should be more accurate. 
+<span class="highlight">In conclusion, RANS yields the averaged flow field just in theory, 
+    while DNS and LES are able to provide more details of the flow field. 
+    For the majority of engineering problems, the most important result 
+    should be an accurate time-averaged flow field. RANS will be the major method for a rather long period of time</span>
+</p>
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>Hongwei Wang (2023). A Guide to Fluid Mechanics. National Defense Industry Press.
+            </p>
+        </div>
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture7BSlide17.html" class="nav-button left">&#9664;</a>
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture7BSlide19.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>
