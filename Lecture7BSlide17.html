@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="favicon.png" type="image/x-icon">
-    <title>The Possibility of Direct Numerical Solution of the N-S Equations</title>
+    <title>Turbulence Modeling</title>
     <link rel="stylesheet" href="styles.css">
 <script>
   window.MathJax = {
@@ -154,61 +154,55 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">The Possibility of Direct Numerical Solution of the Navier-Stokes Equations</div>
+        <div class="title">Turbulence Modeling</div>
 
 <div class="description">
-With the assumption of a continuous medium, directly solving the Navier-Stokes equations becomes the 
-most ideal approach to obtaining turbulence information. 
-To resolve the smallest eddies both spatially and temporally, the number of grid points 
-in each coordinate direction should be
-$$
-N_x > \frac{l}{\eta} \;\;\Longrightarrow\;\; N_x > Re^{3/4}
-$$
+<span class="sql">Time-averaging approach:</span>
+need to solve the closure problem for the Reynolds stresses, such as $-\rho \overline{u'v'}$, etc
 </div>
 
 <div class="description">
-The number of time steps should be
-$$
-N_t > \frac{T}{\tau} \;\;\Longrightarrow\;\; N_t > Re^{1/2}
-$$
-</div>
-
-<div class="description">
-The computational effort in 3D space is
-$$
-N_t N_x N_y N_z > Re^{11/4}
-$$
-</div>
-
+<div class="image-container">
+<img src="Figures/Lecture7B_ReynoldsStableUnstableTurbulence.png" alt="ReynoldsStableUnstableTurbulence" style="max-width: 50%; height: auto; display: block; margin: 0 auto;">
 <p>
-In engineering problems, $Re = 10^{5}$ is quite common and not considered very large. 
-Even if the numerical scheme is efficient enough to require only 100 operations per grid point per time step, 
-a computer performing $10^{8}$ operations per second would still require 3.6 years of computation. 
-If $Re = 10^{6}$, the computation time would be about 1000 years.
-Here we have not even considered additional numerical issues such as the number of 
-grid points required to resolve the smallest scales. <br>
-Although a computational speed of $10^{8}$ operations per second is already quite fast, 
-the rate of increase in computational power is still far from meeting the demands of directly 
-solving high-Reynolds-number turbulent flows. 
-Therefore, it can be seen that direct numerical solution of the N-S equations is not yet practical for engineering applications and will likely remain impractical for the foreseeable future. 
-The development and improvement of turbulence modeling thus remain the only viable way to solve turbulence problems.
+In the Reynolds averaging method, the time interval $\Delta t$ for averaging any variable must satisfy certain requirements. 
+Relative to the random fluctuation period of turbulence, $\Delta t$ must be sufficiently large; relative to the slow variation of the mean flow field, $\Delta t$ must be sufficiently small (see the definition of continuum)
 </p>
+</div> 
+</div>
 
+<div class="description">
+<span class="sql">Different methods for Reynolds stress closure</span>
+<ul>
+<li>Algebraic (zero-equation) models — by modeling the eddy viscosity or mixing length</li>
+<li>One-equation models — solve one additional transport equation</li>
+<li>Two-equation models — solve two more additional transport equations, such as $k$-$\varepsilon$ model, $k$-$\omega$ model</li>
+<li>Reynolds stress transport models — solve the transport equation for Reynolds stresses</li>
+</ul>
+</div>
+
+<div class="description">
+<span class="sql">Large eddy simulations (LES)</span> — explicitly solve for the large eddies in a calculation and implicitly 
+account for the small eddies by using a subgrid-scale model (SGS model)
+</div>
+
+<div class="description">
+<span class="sql">Direct numerical simulations (DNS)</span> — directly solve the transient 3D Navier-Stokes equations with very fine grids and time steps
+</div>
 
 
         <!-- Footnote Section -->
         <div class="footnote-container">
             <hr class="footnote-line">
             <p class="footnote">
-                <sup>1</sup>Song Fu & Liang Wang (2023). Theory of Turbulence Modelling. ISBN 978-7-03-074639-9.
+                <sup>1</sup>National Tsing Hua University OpenCourseWare(NTHU, OCW). Fluid Mechanics. WONG, SHWIN-CHUNG. Chapter 8: Viscous Flow in Pipes.
             </p>
         </div>
 
-
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture7BSlide15.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture7BSlide16.html" class="nav-button left">&#9664;</a>
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture7BSlide17.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture7BSlide18.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
