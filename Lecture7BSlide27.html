@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <title>Boussinesq's Turbulent Viscosity Hypothesis</title>
+    <link rel="stylesheet" href="styles.css">
+<script>
+  window.MathJax = {
+    tex: {
+      packages: {'[+]': ['ams']},  // add ams package
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    },
+    loader: {load: ['[tex]/ams']}
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+        /* Center the table horizontally */
+        .slide table {
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        /* Left-align table text */
+        .slide table th,
+        .slide table td {
+        text-align: left;
+        }
+
+        /* Custom bullet list styled as flex container */
+    ul.custom {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
+    }
+    ul.custom li {
+      flex: 0 0 45%; /* roughly two items per row */
+      display: flex;
+      align-items: center;
+      gap: 10px; /* space between the text and image */
+      position: relative;
+      padding-left: 20px; /* extra padding for the bullet */
+    }
+    ul.custom li::before {
+      content: "■"; /* Unicode for small square bullet */
+      color: #7DCDF4;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Ensure images align properly */
+    ul.custom li img {
+      max-width: 49%;
+      height: auto;
+    }
+
+    .highlight {
+    background-color:rgba(221, 241, 243, 0.8); 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    .highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+
+.image-container {
+    margin-bottom: 0px; /* or even 0 if you want no space */
+}
+
+.image-container p {
+    margin-bottom: 0px; /* reduce space under paragraphs */
+}
+
+.image-container img {
+    margin-top: 0px; /* reduce space above images */
+}
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  td { 
+    border: 1px solid #444; 
+    padding: 0.25rem 0.5rem; 
+    vertical-align: top; 
+    text-align: left;
+  }
+  .text { width: 65%; }
+  .equation { width: 35%; }
+    </style>
+<script>
+function scaleContainer() {
+  const container = document.querySelector('.container');
+  const padding = 0; // optional padding margin
+  const viewportHeight = window.innerHeight - padding;
+  const containerHeight = container.offsetHeight;
+  // Compute the scale ratio
+  const scale = Math.min(1, viewportHeight / containerHeight);
+  container.style.transform = `scale(${scale})`;
+}
+// Run on load
+window.addEventListener('load', scaleContainer);
+// Run on resize
+window.addEventListener('resize', scaleContainer);
+</script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="title">Boussinesq's Turbulent Viscosity Hypothesis</div>
+
+<div class="description">
+For simple turbulent shear flows, Boussinesq in 1877 proposed the idea of 
+<span class="sql">eddy viscosity</span> (also called <span class="sql">turbulent viscosity</span>)
+</div>
+
+<div class="description">
+<span class="sql">A simple turbulent shear flow is one in which one single shear-rate component dominates</span>; examples include a two-dimensional turbulent mixing layer, a two-dimensional or axisymmetric jet, an axisymmetric wake, and a two-dimensional boundary layer over a wall.
+In these cases the Reynolds shear stress $-\rho\,\overline{u_1 u_2}$ plays the main role in the mean flow.
+By analogy with Newton's law of viscosity for a Newtonian fluid, Boussinesq proposed the turbulent viscosity hypothesis
+$$
+-\rho\,\overline{u_1 u_2} \;=\; \mu_t\,\frac{\partial U_1}{\partial x_2}
+$$
+where $\mu_t$ is the <span class="sql">turbulent viscosity coefficient</span> or <span class="sql">eddy viscosity coefficient</span>
+</div>
+
+<div class="description">
+For more complex turbulent flows, by analogy with the Newtonian law one further assumes that the Reynolds-stress tensor is related to the mean rate-of-strain tensor by
+$$
+\overline{u_i u_j}
+=\frac{2}{3}\,k\,\delta_{ij}
+-\nu_t\!\left(\frac{\partial U_i}{\partial x_j}
++\frac{\partial U_j}{\partial x_i}\right)
+$$
+where $k$ is the turbulent kinetic energy per unit mass, $\delta_{ij}$ is the Kronecker delta, and $\nu_t=\mu_t/\rho$ is the <span class="sql">kinematic eddy viscosity</span>
+</div>
+
+<p>
+\(\boxed{\overline{u_i u_j}
+=\frac{2}{3}\,k\,\delta_{ij}
+-\nu_t\!\left(\frac{\partial U_i}{\partial x_j}
++\frac{\partial U_j}{\partial x_i}\right)}\) is the <span class="highlight">Boussinesq's turbulent viscosity hypothesis</span>.
+For incompressible flow, let $i=j$ yields
+$
+\overline{u_i u_i}=2k
+$,
+which is consistent with the definition of $k$
+</p>
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>Song Fu & Liang Wang (2023). Theory of Turbulence Modelling. ISBN 978-7-03-074639-9.
+            </p>
+        </div>
+
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture7BSlide26.html" class="nav-button left">&#9664;</a>
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture7BSlide28.html" class="nav-button right">&#9654;</a>
+    </div>
+</body>
+</html>
