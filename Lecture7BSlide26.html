@@ -155,69 +155,33 @@ window.addEventListener('resize', scaleContainer);
 <body>
     <div class="container">
         <div class="title">Physical Meaning of the Reynolds Stress Transport Equation</div>
-        
-<div class="description">
 $$
-\frac{\partial \overline{u_i u_j}}{\partial t}+C_{ij}
-= P_{ij}+\Phi_{ij}+d^{\nu}_{ij}+d^{t}_{ij}+d^{p}_{ij}-\varepsilon_{ij}
+\underbrace{\frac{\partial \overline{u_i u_j}}{\partial t}}_{\substack{\text{Unsteady} \\ \text{(time) term}}}
++\underbrace{C_{ij}}_{\substack{\text{Convection} \\ \text{term}}}
+=
+\underbrace{P_{ij}}_{\substack{\text{Production} \\ \text{term}}}
++\underbrace{\Phi_{ij}}_{\substack{\text{Pressure--strain-rate} \\ \text{correlation}}}
++\underbrace{d^{\nu}_{ij}}_{\substack{\text{Molecular} \\ \text{diffusion}}}
++\underbrace{d^{t}_{ij}}_{\substack{\text{Velocity-fluctuation} \\ \text{diffusion}}}
++\underbrace{d^{p}_{ij}}_{\substack{\text{Pressure-fluctuation} \\ \text{diffusion}}}
+-\underbrace{\varepsilon_{ij}}_{\substack{\text{Viscous} \\ \text{dissipation}}}
 $$
-</div>
+<p>
+The <span class="sql"><span class="highlight">convection term</span></span> describes the total rate of change of Reynolds stress in each fluid control volume; 
+it is produced by the imbalance of the terms on the right-hand side of the equation and at the same time reflects the history effect of turbulent transport. 
+The <span class="sql"><span class="highlight">production term</span></span> describes the rate of change by which turbulence is generated or reduced through the interaction of the mean strain rate with the Reynolds stress. 
+The <span class="sql"><span class="highlight">pressure-strain-rate correlation</span></span> describes the redistribution among the components of turbulent energy. 
+Because $\phi_{ii}=0$ (as follows from $s_{ii}=0$), this term does not appear in the turbulent kinetic-energy equation; therefore it has a special meaning in the Reynolds-stress transport equation. 
+The <span class="sql"><span class="highlight">molecular diffusion</span></span>, <span class="sql"><span class="highlight">velocity-fluctuation diffusion</span></span>, and <span class="sql"><span class="highlight">pressure-fluctuation diffusion</span></span> terms represent the diffusive nature of turbulence. 
+For example, in a thin shear layer, $\partial U_1/\partial x_2$ is the dominant component; when integrated over any cross-section, the sum of the integrals of these three terms is zero. 
+Thus their role is to promote the spatial distribution of turbulence. In general, the <span class="sql"><span class="highlight">velocity-fluctuation diffusion</span></span> term is the main part of the diffusion process; the other two terms are relatively significant mainly in the near-wall region. 
+The <span class="sql"><span class="highlight">viscous dissipation</span></span> term describes the mechanism by which turbulent momentum is dissipated by fluid viscosity and converted into the internal energy of the fluid.
+</p>
 
-<div class="description">
-<span class="sql">Convection term</span>
-$$
-C_{ij}=U_k\,\frac{\partial \overline{u_i u_j}}{\partial x_k}
-$$
-</div>
-
-<div class="description">
-<span class="sql">Production term</span>
-$$
-P_{ij}=-\Big(\,\overline{u_i u_k}\,\frac{\partial U_j}{\partial x_k}
-+\overline{u_j u_k}\,\frac{\partial U_i}{\partial x_k}\Big)
-$$
-</div>
-
-<div class="description">
-<span class="sql">Pressure-strain-rate correlation</span>
-$$
-\Phi_{ij}= \overline{\frac{p}{\rho}\Big(\frac{\partial u_i}{\partial x_j}
-+\frac{\partial u_j}{\partial x_i}\Big)}
-$$
-</div>
-
-<div class="description">
-<span class="sql">Molecular diffusion</span>
-$$
-d^{\nu}_{ij}=\frac{\partial}{\partial x_k}
-\Big(\nu\,\frac{\partial \overline{u_i u_j}}{\partial x_k}\Big)
-$$
-</div>
-
-<div class="description">
-<span class="sql">Velocity-fluctuation diffusion</span>
-$$
-d^{t}_{ij}=-\,\frac{\partial}{\partial x_k}\overline{u_i u_j u_k}
-$$
-</div>
-
-<div class="description">
-<span class="sql">Pressure-fluctuation diffusion</span>
-$$
-d^{p}_{ij}=-\,\frac{\partial}{\partial x_k}
-\!\left(\frac{\overline{p\,u_j}}{\rho}\,\delta_{ik}
-+\frac{\overline{p\,u_i}}{\rho}\,\delta_{jk}\right)
-$$
-</div>
-
-<div class="description">
-<span class="sql">Viscous dissipation</span>
-$$
-\varepsilon_{ij}=2\nu\,\overline{\frac{\partial u_i}{\partial x_k}
-\frac{\partial u_j}{\partial x_k}}
-$$
-</div>
-
+<p>
+In \(\boxed{\frac{\partial \overline{u_i u_j}}{\partial t}+C_{ij}
+= P_{ij}+\Phi_{ij}+d^{\nu}_{ij}+d^{t}_{ij}+d^{p}_{ij}-\varepsilon_{ij}}\), if $U_k$ and $\overline{u_i u_j}$ are taken as the basic unknowns to be solved in the computation, then the terms that still need to be modeled are $\Phi_{ij}$, $d^{t}_{ij}$, $d^{p}_{ij}$, and $\varepsilon_{ij}$. The modeling of these terms should be expressed in terms of $U_k$, $\overline{u_i u_j}$, and suitable time- and length-scale variables.
+</p>
 
 
 
