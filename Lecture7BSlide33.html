@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="favicon.png" type="image/x-icon">
-    <title>Prandtl's Mixing-Length Hypothesis</title>
+    <title>Standard k-ε Model</title>
     <link rel="stylesheet" href="styles.css">
 <script>
   window.MathJax = {
@@ -160,54 +160,43 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Prandtl's Mixing-Length Hypothesis</div>
+        <div class="title">Standard $k\!-\!\varepsilon$ Model</div>
 
-<div class="image-container">
-<p>
-The Reynolds stress $-\rho\,\overline{u\,v}$ is <span class="highlight"><span class="sql">a correlation between the two velocity fluctuation components at a point</span></span>
-<span class="bullet"></span>If $\overline{u\,v}\neq 0$, $u$ and $v$ are <span class="highlightkumon"><span class="sql">correlated</span></span> <span class="bullet"></span>if $\overline{u\,v}=0$, they are <span class="highlightkumon"><span class="sql">uncorrelated</span></span>. 
-In turbulent shear flow, in general, the two fluctuation components at a point are correlated. There is a physical mechanism, <span class="bullet"></span>if $\partial U/\partial y>0$, when a fluid parcel from a low-speed layer moves toward a high-speed layer due to turbulent fluctuations, it develops a velocity deficit for the high-speed layer, i.e. $v>0,\;u < 0$; 
-<span class="bullet"></span>conversely, when a parcel from a high-speed layer moves toward a low-speed layer, $v< 0,\;u>0$. Hence $\overline{u\,v}< 0$. <span class="bullet"></span>Similarly, if $\partial U/\partial y > 0$, then $\overline{u\,v}>0$
-</p>
-<img src="Figures/Lecture7B_MixLengthTurbulenceMomentumTransport.png" alt="MixLengthTurbulenceMomentumTransport" style="max-width: 45%; height: auto; display: block; margin: 0 auto;">
+<div class="description">
+As stated by \(\boxed{\nu_t
+= C_1\,\sqrt{k}\,l
+= C_2\,\frac{k^{2}}{\varepsilon}
+= C_3\,k\left(\frac{\overline{\omega_i\omega_i}}{2}\right)^{1/2}
+= \cdots}\), in the $k\!-\!\varepsilon$ model the eddy viscosity is written as
+$$
+\nu_t=C_\mu\,\frac{k^{2}}{\varepsilon}
+$$
+that is, the velocity scale for $\nu_t$ is taken as $k^{1/2}$ and the length scale as $k^{3/2}/\varepsilon$. Here $C_\mu$ is a constant
 </div>
 
-<p>
-Define the correlation coefficient of $u$ and $v$ as
-$$
-C_{uv}=\frac{\overline{u\,v}}{\sqrt{\overline{u^{2}}\,\overline{v^{2}}}} \Rightarrow -\rho\,\overline{u\,v}
-=-\,C_{uv}\,\rho\,u^{*}\,v^{*}
-$$
-where $u^{*}=(\overline{u^{2}})^{1/2}$ and $v^{*}=(\overline{v^{2}})^{1/2}$ are the root-mean-square values of $u$ and $v$. Obviously, $-1 < C_{uv} < 1$. For simple shear turbulence, experiments show $C_{uv}\approx -0.4$.
-In fully developed turbulence far from a solid wall, $u^{*}$ and $v^{*}$ are of the same order of magnitude
-\[-\rho\,\overline{u\,v}
-=-\,C_{uv}\,\rho\,u^{*}\,v^{*} \Rightarrow -\rho\,\overline{u\,v}=C_{1}\,\rho\,{v^{*}}^{2}\]
-$$
-\Longrightarrow\;
-C\,\cancel{\rho}\,v^{*}\,l\,\frac{\partial U}{\partial y}
-= C_{1}\,\cancel{\rho}\,(v^{*})^{2}
+<div class="description">
+\[
+\overline{u_i u_j}
+=\frac{2}{3}\,k\,\delta_{ij}
+-\nu_t\!\left(\frac{\partial U_i}{\partial x_j}
++\frac{\partial U_j}{\partial x_i}\right)
+\Rightarrow -\overline{u_i u_j}
+=2\,C_\mu\,\frac{k^{2}}{\varepsilon}\,S_{ij}
+-\frac{2}{3}\,k\,\delta_{ij}
+\] where $S_{ij}=(\partial U_i/\partial x_j+\partial U_j/\partial x_i)/2$ is the mean strain rate tensor
+</div>
 
-\Longrightarrow\;
-C\,\cancel{v^{*}}\,l\,\frac{\partial U}{\partial y}
-= C_{1}\,(\,v^{*}\,)\,\cancel{v^{*}}
-\Rightarrow
-C\,l\,\frac{\partial U}{\partial y}=C_{1}\,v^{*}
-
-\Longrightarrow
-v^{*}=\frac{C}{C_{1}}\,l\,\frac{\partial U}{\partial y}
-=
-C_{2}\,l\,\frac{\partial U}{\partial y}
+<div class="description">
+Define the <span class="sql">turbulent Reynolds number</span> as
 $$
-
-\[\Longrightarrow -\rho\,\overline{u\,v}
-=\rho\,l^{2}\left|\frac{\partial U}{\partial y}\right|\frac{\partial U}{\partial y}\]
-The constants $C_{1}$ and $C_{2}$ have been absorbed into the scale variable $l$; the absolute value sign on the right is introduced so that the Reynolds shear stress $-\rho\,\overline{u\,v}$ has the same sign as the strain-rate component $\partial U/\partial y>0$
+\mathrm{Re}_t=\frac{k^{2}}{\varepsilon\,\nu}
 $$
-\Longrightarrow \nu_{t}=l^{2}\,\frac{\partial U}{\partial y}
-$$
-<span class="highlighttall">\(\boxed{\nu_{t}=l^{2}\,\frac{\partial U}{\partial y}}\) is the Prandtl's mixing-length model for eddy viscosity</span>
-</p>
+In turbulent flows, if $\mathrm{Re}_t\gg1$ (or $\nu_t\gg\nu$) in a region of space, the flow in that region is called <span class="sql">high-Reynolds-number turbulence</span>; otherwise it is called <span class="sql">low-Reynolds-number turbulence</span>
+</div>
 
+<p>In general, fully developed free turbulence is of high Reynolds number, whereas flows in the laminar-turbulent transition region or turbulence very near solid walls are typically of low Reynolds number. 
+A <span class="sql"><span class="highlight">standard turbulence model</span></span> refers to one intended for high-Reynolds-number flows without strong complicating effects (e.g., 
+pronounced three-dimensionality, near-wall effects, strong curvature effects, or nonequilibrium flow). For flows where such effects are important, turbulence models are usually obtained by adding appropriate corrections to the corresponding baseline model.</p>
 
         <!-- Footnote Section -->
         <div class="footnote-container">
