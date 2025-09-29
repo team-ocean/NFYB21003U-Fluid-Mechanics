@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <title>Standard k-ε Model</title>
+    <link rel="stylesheet" href="styles.css">
+<script>
+  window.MathJax = {
+    tex: {
+      packages: {'[+]': ['ams']},  // add ams package
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    },
+    loader: {load: ['[tex]/ams']}
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+        /* Center the table horizontally */
+        .slide table {
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        /* Left-align table text */
+        .slide table th,
+        .slide table td {
+        text-align: left;
+        }
+
+        /* Custom bullet list styled as flex container */
+    ul.custom {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
+    }
+    ul.custom li {
+      flex: 0 0 45%; /* roughly two items per row */
+      display: flex;
+      align-items: center;
+      gap: 10px; /* space between the text and image */
+      position: relative;
+      padding-left: 20px; /* extra padding for the bullet */
+    }
+    ul.custom li::before {
+      content: "■"; /* Unicode for small square bullet */
+      color: #7DCDF4;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Ensure images align properly */
+    ul.custom li img {
+      max-width: 49%;
+      height: auto;
+    }
+
+    .highlight {
+    background-color:rgba(221, 241, 243, 0.8); 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    .highlighttall {
+    background-color:rgba(221, 241, 243, 0.9); 
+    padding: 23px 4px;
+    border-radius: 3px;
+    }
+
+    .highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+
+.image-container {
+    margin-bottom: 0px; /* or even 0 if you want no space */
+}
+
+.image-container p {
+    margin-bottom: 0px; /* reduce space under paragraphs */
+}
+
+.image-container img {
+    margin-top: 0px; /* reduce space above images */
+}
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  td { 
+    border: 1px solid #444; 
+    padding: 0.25rem 0.5rem; 
+    vertical-align: top; 
+    text-align: left;
+  }
+  .text { width: 65%; }
+  .equation { width: 35%; }
+    </style>
+<script>
+function scaleContainer() {
+  const container = document.querySelector('.container');
+  const padding = 0; // optional padding margin
+  const viewportHeight = window.innerHeight - padding;
+  const containerHeight = container.offsetHeight;
+  // Compute the scale ratio
+  const scale = Math.min(1, viewportHeight / containerHeight);
+  container.style.transform = `scale(${scale})`;
+}
+// Run on load
+window.addEventListener('load', scaleContainer);
+// Run on resize
+window.addEventListener('resize', scaleContainer);
+</script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="title">Standard $k\!-\!\varepsilon$ Model</div>
+
+<div class="description">
+For flows that satisfy the Boussinesq approximation, 
+the buoyancy source term in the transport equations for the turbulent kinetic energy \(k\) and its dissipation rate \(\varepsilon\) can be neglected
+\(\Longrightarrow \frac{\partial \varepsilon}{\partial t}
++ U_k \frac{\partial \varepsilon}{\partial x_k}
+  = -\frac{\partial}{\partial x_j}
+  \left(
+  \nu u_j\overline{\frac{\partial u_i}{\partial x_k},\frac{\partial u_i}{\partial x_k}}
+  -\nu\frac{\partial \varepsilon}{\partial x_k}
+  \right)
+- 2\nu\frac{\partial^2 U_i}{\partial x_j\partial x_k}
+  \overline{u_j
+  \frac{\partial u_i}{\partial x_k}}
+- 2\nu
+  \overline{\frac{\partial u_i}{\partial x_j}
+  \frac{\partial u_i}{\partial x_k}
+  \frac{\partial u_j}{\partial x_k}}
+- 2\nu^{2}
+  \overline{\frac{\partial^{2} u_i}{\partial x_j\partial x_k}
+  \frac{\partial^{2} u_i}{\partial x_j\partial x_k}}\)
+</div>
+
+<div class="description">
+When analyze the order of magnitude of each term on its right-hand side and discard those of smaller order, the following sets of turbulent scales should be considered
+<ul>
+<li>
+The characteristic length scale $L$ and velocity scale $U$ of the turbulent mean motion
+</li>
+<li>
+The characteristic length scale $\ell$ of the energy-containing eddies in the inertial range and the characteristic turbulent-fluctuation velocity scale $u$, with $u\sim k^{1/2}$
+</li>
+<li>
+The smallest eddy length scale \(\eta\) and velocity scale \(v\) associated with the dissipation of turbulent kinetic energy (the Kolmogorov scales). 
+Dimensional analysis gives
+$$
+\eta=\left(\frac{\nu^{3}}{\varepsilon}\right)^{1/4},\qquad
+v=\left(\nu\,\varepsilon\right)^{1/4}
+$$
+</li>
+</ul>
+</div>
+
+<div class="description">
+Velocity fluctuations that appear inside spatial derivative operators
+(e.g., \(\frac{\partial u_i}{\partial x_k}, \frac{\partial^2 u_i}{\partial x_j \partial x_k}\)) should be interpreted as 
+velocity fluctuations generated by dissipation of eddies, 
+whereas velocity fluctuations outside the space derivative operators should be interpreted as fluctuations generated by energy-containing eddies. 
+For example, 
+the order of magnitude of the “small-eddy stretching/production” term may be estimated as
+$$
+-2\nu
+\overline{\frac{\partial u_i}{\partial x_j}
+\frac{\partial u_i}{\partial x_k}
+\frac{\partial u_j}{\partial x_k}}
+\;\sim\;
+\varepsilon\,\Big(\frac{\varepsilon}{\nu}\Big)^{1/2}
+$$
+</div>
+
+<p>
+For correlation quantities involving velocity fluctuations and spatial derivatives of velocity fluctuation, such as
+\(
+\overline{u_j \frac{\partial u_i}{\partial x_k}}
+\),
+since the correlation between large-scale energy-containing eddies and 
+small-scale dissipative eddies decreases as the turbulent Reynolds number \(Re_t\) increases, 
+its order of magnitude should include a decay factor \(Re_t^{n}\).
+The exponent \(n\) of this factor can be determined as
+\[
+\overline{u_i \frac{\partial u_i}{\partial x_j}} = \frac{\partial k}{\partial x_j}
+\Rightarrow
+\sqrt{k \left(\frac{\varepsilon}{\nu}\right)} Re_t^{n} \sim \frac{k}{l}
+\]
+\(\because \varepsilon \sim k^{1.5}/l, Re_t \sim k^{0.5} l / \nu \Rightarrow n = -0.5\)
+</p>
+
+
+
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>Song Fu & Liang Wang (2023). Theory of Turbulence Modelling. ISBN 978-7-03-074639-9.
+            </p>
+        </div>
+
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture7BSlide34.html" class="nav-button left">&#9664;</a>
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture7BSlide36.html" class="nav-button right">&#9654;</a>
+    </div>
+    <!-- Footer -->
+<div class="footer">
+    <div style="display:inline-block; width:0; height:0; overflow:hidden; visibility:hidden;">
+        <script type='text/javascript' 
+                id='clustrmaps' 
+                src='//cdn.clustrmaps.com/map_v2.js?cl=ddf1f3&w=120&t=n&d=OPKQOGhHo-7gCMldcljdv8lVxlAlOY6UExXXPy46lfI&co=ffffff&cmo=4b8ddf&cmn=7dcdf4&ct=808080'>
+        </script>
+    </div>
+</div>
+</body>
+</html>
