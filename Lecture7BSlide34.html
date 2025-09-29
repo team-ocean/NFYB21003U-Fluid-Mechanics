@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <title>Standard k-ε Model</title>
+    <link rel="stylesheet" href="styles.css">
+<script>
+  window.MathJax = {
+    tex: {
+      packages: {'[+]': ['ams']},  // add ams package
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    },
+    loader: {load: ['[tex]/ams']}
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+        /* Center the table horizontally */
+        .slide table {
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        /* Left-align table text */
+        .slide table th,
+        .slide table td {
+        text-align: left;
+        }
+
+        /* Custom bullet list styled as flex container */
+    ul.custom {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
+    }
+    ul.custom li {
+      flex: 0 0 45%; /* roughly two items per row */
+      display: flex;
+      align-items: center;
+      gap: 10px; /* space between the text and image */
+      position: relative;
+      padding-left: 20px; /* extra padding for the bullet */
+    }
+    ul.custom li::before {
+      content: "■"; /* Unicode for small square bullet */
+      color: #7DCDF4;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Ensure images align properly */
+    ul.custom li img {
+      max-width: 49%;
+      height: auto;
+    }
+
+    .highlight {
+    background-color:rgba(221, 241, 243, 0.8); 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    .highlighttall {
+    background-color:rgba(221, 241, 243, 0.9); 
+    padding: 23px 4px;
+    border-radius: 3px;
+    }
+
+    .highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+
+.image-container {
+    margin-bottom: 0px; /* or even 0 if you want no space */
+}
+
+.image-container p {
+    margin-bottom: 0px; /* reduce space under paragraphs */
+}
+
+.image-container img {
+    margin-top: 0px; /* reduce space above images */
+}
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  td { 
+    border: 1px solid #444; 
+    padding: 0.25rem 0.5rem; 
+    vertical-align: top; 
+    text-align: left;
+  }
+  .text { width: 65%; }
+  .equation { width: 35%; }
+    </style>
+<script>
+function scaleContainer() {
+  const container = document.querySelector('.container');
+  const padding = 0; // optional padding margin
+  const viewportHeight = window.innerHeight - padding;
+  const containerHeight = container.offsetHeight;
+  // Compute the scale ratio
+  const scale = Math.min(1, viewportHeight / containerHeight);
+  container.style.transform = `scale(${scale})`;
+}
+// Run on load
+window.addEventListener('load', scaleContainer);
+// Run on resize
+window.addEventListener('resize', scaleContainer);
+</script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="title">Standard $k\!-\!\varepsilon$ Model</div>
+
+<div class="description">
+Consider flows that satisfy the Boussinesq approximation (i.e., the fluid is approximately incompressible, and any influence of non-uniform temperature on the mean velocity field acts only through buoyancy). In this case, the exact transport equation for turbulent kinetic energy (the $k\!-\!\varepsilon$ equation) is
+$$
+\frac{Dk}{Dt}
+=\frac{\partial}{\partial x_j}\!\left[
+\nu\,\frac{\partial k}{\partial x_j}
+-\overline{\,u_j\!\left(\frac{u_i u_i}{2}+\frac{p}{\rho}\right)}\right]
+-\overline{u_i u_j}\,\frac{\partial U_i}{\partial x_j}
+-\beta\,g_i\,\overline{u_i\vartheta}
+-\varepsilon
+$$
+where $D/Dt=\partial/\partial t+U_j\,\partial/\partial x_j$.
+$\overline{u_i u_j}$ is given by \(\boxed{-\overline{u_i u_j}
+=2\,C_\mu\,\frac{k^{2}}{\varepsilon}\,S_{ij}
+-\frac{2}{3}\,k\,\delta_{ij}}\), while $k$ and $\varepsilon$ are unknowns to be solved for. Only the turbulent diffusion term and the buoyancy production term on the right-hand side need to be modeled approximately
+</div>
+
+<div class="description">
+Referring to the laws of molecular diffusion and molecular heat conduction, the turbulent diffusivity of $k$ and the turbulent heat flux are approximated by the following <span class="sql">gradient models</span>
+$$
+-\overline{\,u_j\!\left(\frac{u_i u_i}{2}+\frac{p}{\rho}\right)}
+=\frac{\nu_t}{\sigma_k}\,\frac{\partial k}{\partial x_j}
+\quad,\quad
+-\overline{u_i\vartheta}
+=\frac{\nu_t}{\sigma_t}\,\frac{\partial \Theta}{\partial x_i}
+$$
+where $\Theta$ is the mean relative temperature; $\sigma_k$ and $\sigma_t$ are empirical constants ($\sigma_t$ is named the turbulent Prandtl number)
+</div>
+
+<p>
+Substituting \(\boxed{-\overline{u_i u_j}
+=2\,C_\mu\,\frac{k^{2}}{\varepsilon}\,S_{ij}
+-\frac{2}{3}\,k\,\delta_{ij}}\), \(\boxed{-\overline{\,u_j\!\left(\frac{u_i u_i}{2}+\frac{p}{\rho}\right)}
+=\frac{\nu_t}{\sigma_k}\,\frac{\partial k}{\partial x_j}}\) and \(\boxed{-\overline{u_i\vartheta}
+=\frac{\nu_t}{\sigma_t}\,\frac{\partial \Theta}{\partial x_i}}\) into <span class="highlighttall">\(\boxed{\frac{Dk}{Dt}
+=\frac{\partial}{\partial x_j}\!\left[
+\nu\,\frac{\partial k}{\partial x_j}
+-\overline{\,u_j\!\left(\frac{u_i u_i}{2}+\frac{p}{\rho}\right)}\right]
+-\overline{u_i u_j}\,\frac{\partial U_i}{\partial x_j}
+-\beta\,g_i\,\overline{u_i\vartheta}
+-\varepsilon}\)</span>, and neglecting molecular diffusion under high-Reynolds-number conditions, yields the <span class="sql"><span class="highlightkumon">$k\!-\!\varepsilon$ turbulence model</span></span>
+\[
+\frac{Dk}{Dt}
+=\frac{\partial}{\partial x_j}\!\left(\frac{\nu_t}{\sigma_k}\,\frac{\partial k}{\partial x_j}\right)
++2C_\mu\,\frac{k^2}{\varepsilon}\,S_{ij}S_{ij}
++\beta\,g_i\,\frac{\nu_t}{\sigma_t}\,\frac{\partial \Theta}{\partial x_i}
+-\varepsilon
+\]
+For high-Reynolds-number turbulence, the empirical constants are determined experimentally as
+$$
+C_\mu=0.09,\qquad
+\sigma_k=1.0,\qquad
+\sigma_t=0.9
+$$
+Taking $C_\mu=0.09$ is a consequence of the local equilibrium characteristics of turbulent boundary layers.
+</p>
+
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>Song Fu & Liang Wang (2023). Theory of Turbulence Modelling. ISBN 978-7-03-074639-9.
+            </p>
+        </div>
+
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture7BSlide33.html" class="nav-button left">&#9664;</a>
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture7BSlide35.html" class="nav-button right">&#9654;</a>
+    </div>
+    <!-- Footer -->
+<div class="footer">
+    <div style="display:inline-block; width:0; height:0; overflow:hidden; visibility:hidden;">
+        <script type='text/javascript' 
+                id='clustrmaps' 
+                src='//cdn.clustrmaps.com/map_v2.js?cl=ddf1f3&w=120&t=n&d=OPKQOGhHo-7gCMldcljdv8lVxlAlOY6UExXXPy46lfI&co=ffffff&cmo=4b8ddf&cmn=7dcdf4&ct=808080'>
+        </script>
+    </div>
+</div>
+</body>
+</html>
