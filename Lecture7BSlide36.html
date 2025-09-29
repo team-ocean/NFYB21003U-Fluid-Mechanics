@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <title>Standard k-ε Model</title>
+    <link rel="stylesheet" href="styles.css">
+<script>
+  window.MathJax = {
+    tex: {
+      packages: {'[+]': ['ams']},  // add ams package
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    },
+    loader: {load: ['[tex]/ams']}
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <style>
+        /* Custom Bullet Points */
+        .custom-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 20px; /* Adjust indentation */
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+            text-align: left; /* Align text to the left */
+        }
+
+        .custom-list li::before {
+            content: "■"; /* Unicode for small square */
+            color: #7DCDF4; /* Adjusted to match the blue color */
+            font-size: 14px; /* Adjust size */
+            position: absolute;
+            left: 0;
+            top: 2px; /* Align with text */
+        }
+
+        /* Image Row */
+        .image-row {
+            display: flex;
+            justify-content: space-between; /* Space images evenly */
+            align-items: center; /* Align images vertically */
+            margin-top: 20px; /* Add some space after description */
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .image-row img {
+            width: 25%; /* Make sure all images take equal space */
+            max-width: 100%; /* Prevent overflow */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+        .bullet::before {
+        content: "■ ";
+        color: #7DCDF4;
+        }
+        /* Center the table horizontally */
+        .slide table {
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        /* Left-align table text */
+        .slide table th,
+        .slide table td {
+        text-align: left;
+        }
+
+        /* Custom bullet list styled as flex container */
+    ul.custom {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
+    }
+    ul.custom li {
+      flex: 0 0 45%; /* roughly two items per row */
+      display: flex;
+      align-items: center;
+      gap: 10px; /* space between the text and image */
+      position: relative;
+      padding-left: 20px; /* extra padding for the bullet */
+    }
+    ul.custom li::before {
+      content: "■"; /* Unicode for small square bullet */
+      color: #7DCDF4;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Ensure images align properly */
+    ul.custom li img {
+      max-width: 49%;
+      height: auto;
+    }
+
+    .highlight {
+    background-color:rgba(221, 241, 243, 0.8); 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    .highlighttall {
+    background-color:rgba(221, 241, 243, 0.9); 
+    padding: 23px 4px;
+    border-radius: 3px;
+    }
+
+    .highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+
+.image-container {
+    margin-bottom: 0px; /* or even 0 if you want no space */
+}
+
+.image-container p {
+    margin-bottom: 0px; /* reduce space under paragraphs */
+}
+
+.image-container img {
+    margin-top: 0px; /* reduce space above images */
+}
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  td { 
+    border: 1px solid #444; 
+    padding: 0.05rem 0.5rem; 
+    vertical-align: top; 
+    text-align: left;
+  }
+  .text { width: 65%; }
+  .equation { width: 35%; }
+    </style>
+<script>
+function scaleContainer() {
+  const container = document.querySelector('.container');
+  const padding = 0; // optional padding margin
+  const viewportHeight = window.innerHeight - padding;
+  const containerHeight = container.offsetHeight;
+  // Compute the scale ratio
+  const scale = Math.min(1, viewportHeight / containerHeight);
+  container.style.transform = `scale(${scale})`;
+}
+// Run on load
+window.addEventListener('load', scaleContainer);
+// Run on resize
+window.addEventListener('resize', scaleContainer);
+</script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="title">Standard $k\!-\!\varepsilon$ Model</div>
+<div class="description">
+For flows that satisfy the Boussinesq approximation, 
+the transport equations for the turbulent kinetic energy \(k\) and its dissipation rate \(\varepsilon\) 
+\(\Longrightarrow \frac{\partial \varepsilon}{\partial t}
++ U_k \frac{\partial \varepsilon}{\partial x_k}
+  = -\frac{\partial}{\partial x_j}
+  \left(
+  \nu u_j\overline{\frac{\partial u_i}{\partial x_k},\frac{\partial u_i}{\partial x_k}}
+  -\nu\frac{\partial \varepsilon}{\partial x_k}
+  \right)
+- 2\nu\frac{\partial^2 U_i}{\partial x_j\partial x_k}
+  \overline{u_j
+  \frac{\partial u_i}{\partial x_k}}
+- 2\nu
+  \overline{\frac{\partial u_i}{\partial x_j}
+  \frac{\partial u_i}{\partial x_k}
+  \frac{\partial u_j}{\partial x_k}}
+- 2\nu^{2}
+  \overline{\frac{\partial^{2} u_i}{\partial x_j\partial x_k}
+  \frac{\partial^{2} u_i}{\partial x_j\partial x_k}}\)
+</div>
+<table>
+  <tr>
+    <td class="equation">Term</td>
+    <td class="equation">Order of Magnitude</td>
+    <td class="equation">Normalized Order of Magnitude</td>
+  </tr>
+
+  <tr>
+    <td class="equation">Convection</td>
+    <td class="equation">
+      \[
+      \frac{U \varepsilon}{L}
+      \]
+    </td>
+    <td class="equation">
+      \[
+      1
+      \]
+    </td>
+  </tr>
+
+  <tr>
+    <td class="equation">Turbulent Diffusion</td>
+    <td class="equation">
+      \[
+      \frac{k^{1/2}\varepsilon}{L} \, Re_t^{-1/2}
+      \]
+    </td>
+    <td class="equation">
+      \[
+      \frac{k^{1/2}}{U} \, Re_t^{-1/2}
+      \]
+    </td>
+  </tr>
+
+  <tr>
+    <td class="equation">Molecular Diffusion</td>
+    <td class="equation">
+      \[
+      \frac{\nu \varepsilon}{L^2}
+      \]
+    </td>
+    <td class="equation">
+      \[
+      \frac{l}{L} \frac{k^{1/2}}{U} Re_t^{-1}
+      \]
+    </td>
+  </tr>
+
+  <tr>
+    <td class="equation">Small-Eddy Stretching Production</td>
+    <td class="equation">
+      \[
+      \varepsilon \left( \frac{\varepsilon}{\nu} \right)^{1/2}
+      \]
+    </td>
+    <td class="equation">
+      \[
+      \frac{l}{L} \frac{k^{1/2}}{U} Re_t^{1/2}
+      \]
+    </td>
+  </tr>
+
+  <tr>
+    <td class="equation">Mean Vorticity Gradient Production</td>
+    <td class="equation">
+      \[
+      \nu \frac{U}{L^{2}}\frac{k}{l}
+      \]
+    </td>
+    <td class="equation">
+      \[
+      \frac{l}{L} Re_t^{-1}
+      \]
+    </td>
+  </tr>
+
+  <tr>
+    <td class="equation">Viscous Dissipation</td>
+    <td class="equation">
+      \[
+      \varepsilon^{3/2}\,\nu^{-1/2}
+      \]
+    </td>
+    <td class="equation">
+      \[
+      \frac{L}{l} \frac{k^{1/2}}{U} Re_t^{1/2}
+      \]
+    </td>
+  </tr>
+</table>
+<p>
+If \(Re_t \gg 1\), the small-eddy stretching production term and the viscous dissipation term are much larger than the other terms in the equation.
+For the equation to be satisfied, these two dominant terms must have opposite signs: the dissipation term acts as a negative source term, 
+while the production term acts as a positive source term.
+In other words, 
+<span class="highlightkumon">the stretching of small eddies induced by strain-rate fluctuations is the primary factor responsible for the increase of \(\varepsilon\) along the mean flow streamlines, 
+    and this effect is almost entirely balanced by viscous dissipation.</span>
+Because the rate of change of \(\varepsilon\) depends on the difference between these two dominant terms, the order of magnitude of this difference is at least \(Re_t^{1/2}\) times smaller than either term individually.
+Moreover, both terms represent correlation quantities of small-scale velocity fluctuations, and it is very difficult to evaluate them quantitatively either theoretically or experimentally.
+Therefore, direct modeling is challenging.
+A reasonable approach is to treat the difference of these two dominant terms as a single combined quantity for modeling purposes.
+</p>
+
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup>1</sup>Song Fu & Liang Wang (2023). Theory of Turbulence Modelling. ISBN 978-7-03-074639-9.
+            </p>
+        </div>
+
+
+        <!-- Left Arrow to go back to Slide  -->
+        <a href="Lecture7BSlide35.html" class="nav-button left">&#9664;</a>
+        <!-- Right Arrow to go to Slide  -->
+        <a href="Lecture7BSlide37.html" class="nav-button right">&#9654;</a>
+    </div>
+    <!-- Footer -->
+<div class="footer">
+    <div style="display:inline-block; width:0; height:0; overflow:hidden; visibility:hidden;">
+        <script type='text/javascript' 
+                id='clustrmaps' 
+                src='//cdn.clustrmaps.com/map_v2.js?cl=ddf1f3&w=120&t=n&d=OPKQOGhHo-7gCMldcljdv8lVxlAlOY6UExXXPy46lfI&co=ffffff&cmo=4b8ddf&cmn=7dcdf4&ct=808080'>
+        </script>
+    </div>
+</div>
+</body>
+</html>
