@@ -157,29 +157,42 @@ window.addEventListener('resize', scaleContainer);
         <div class="title">Prandtl's Mixing-Length Hypothesis</div>
 
 <div class="description">
-The simplest eddy-viscosity model is the mixing-length hypothesis proposed by Prandtl.
-Building on Boussinesq's idea of representing turbulent friction by analogy with the Newton's law of viscosity, Prandtl further treated turbulent transport as analogous to molecular transport and thus constructed a simple model for determining the eddy viscosity
+Now we explain the physical meaning of the mixing-length hypothesis.
+<div class="image-container">
+<p>
+Consider a statistically steady and statistically uniform turbulent shear flow in which the mean velocity has only a streamwise component $U$ that varies only with the normal coordinate $y$.
+At time $t$, a unit-volume fluid parcel located at $(x,y,z)$ has a streamwise momentum component $\rho\,\tilde{u}(x,y,z,t)$, 
+where $\tilde{u}$ denotes the streamwise velocity component associated with the irregular turbulent motion. Because of turbulence, this parcel moves to $(x+\Delta x,\; y+\Delta y,\; z+\Delta z)$ at time $t+\Delta t$, and during the interval $\Delta t$ it is assumed not to change its original momentum
+</p>
+<img src="Figures/Lecture7B_MixLengthTurbulenceMomentumTransport.png" alt="MixLengthTurbulenceMomentumTransport" style="max-width: 45%; height: auto; display: block; margin: 0 auto;">
+</div>
+At $t+\Delta t$ the <span class="sql">momentum defect</span> of this parcel relative to the surrounding fluid is
+$$
+\Delta m \;=\; \rho\,\tilde{u}(x+\Delta x,\; y+\Delta y,\; z+\Delta z,\; t+\Delta t)
+\;-\;\rho\,\tilde{u}(x,\; y,\; z,\; t)
+$$
 </div>
 
 <div class="description">
-The basic idea is:
-<span class="sql">in a turbulent flow, small fluid parcels (eddies) are assumed to move discretely like gas molecules. These parcels exchange momentum with the surrounding fluid only after traveling an effective distance. The average of this effective distance is called the mixing length.</span>
-According to the kinetic theory of gases, the kinematic viscosity of a gas can be written as
+Decomposing the instantaneous velocity into its mean and fluctuating parts, and neglecting the momentum fluctuation compared with the mean momentum obtain
 $$
-\nu = K\,\overline{c}\,\lambda
+\Delta m \;=\; \rho\,U(y+\Delta y)\;-\;\rho\,U(y)
+\;\approx\; \rho\,\Delta y\,\frac{\partial U}{\partial y}
 $$
-where $\overline{c}$ is the mean molecular speed, $\lambda$ is the mean free path, and $K$ is a constant.<br>
-As an example, for air at 1 standard atmosphere (atm) and $15^\circ\mathrm{C}$, $\overline{c}=340~\mathrm{m\,s^{-1}}$, $\lambda=7\times10^{-8}~\mathrm{m}$, taking $K=0.499$ \(\longrightarrow\) $\nu=1.2\times10^{-5}~\mathrm{m^2\,s^{-1}}$
 </div>
 
-<div class="description">
-For simple turbulent shear flow, the eddy viscosity coefficient can be expressed as
+<p>The volumetric flux across a unit area in the normal direction caused by the turbulent fluctuation is $v$. Therefore, per unit time, the statistical average of the streamwise momentum defect transported by turbulence through a unit area at $y+\Delta y$, namely the Reynolds shear-stress component
+    $$
+-\rho\,\overline{uv}
+  \;=\;\rho\,\overline{\,v\,\Delta y\,}\,\frac{\partial U}{\partial y}
 $$
-\nu_t = C\,v^{*}\,l
+where the overbar denotes an ensemble average over all fluid parcels that, starting from the position $y$, undergo turbulent displacements in the wall-normal direction. 
+Let the mean of this distance be the mixing length $\ell$, and let $v^{*}=(\overline{v^{2}})^{1/2}$
 $$
-where $v^{*}$ is the scale of the normal-direction velocity fluctuation, $l$ is the mixing length, and $C$ is a constant
-</div>
-
+-\rho\,\overline{u\,v}=C\,\rho\,v^{*}\,\ell\,\frac{\partial U}{\partial y}
+$$
+where $C$ is a constant. Thus we recover the eddy-viscosity coefficient $\nu_t=C\,v^{*}\ell$
+</p>
 
 
         <!-- Footnote Section -->
@@ -192,9 +205,9 @@ where $v^{*}$ is the scale of the normal-direction velocity fluctuation, $l$ is 
 
 
         <!-- Left Arrow to go back to Slide  -->
-        <a href="Lecture7BSlide29.html" class="nav-button left">&#9664;</a>
+        <a href="Lecture7BSlide30.html" class="nav-button left">&#9664;</a>
         <!-- Right Arrow to go to Slide  -->
-        <a href="Lecture7BSlide31.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture7BSlide32.html" class="nav-button right">&#9654;</a>
     </div>
 </body>
 </html>
