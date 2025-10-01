@@ -1,19 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
   const path = window.location.pathname;
-  const file = path.substring(path.lastIndexOf("/") + 1); // e.g., PS4Slide2.html or Lecture7BSlide12.html
+  const file = path.substring(path.lastIndexOf("/") + 1); // e.g., Lecture7BSlide12.html, PS4Slide2.html, TestExamSlide6.html
 
   if (file.includes("Slide")) {
-    let overview = "";
-
-    if (file.startsWith("PS")) {
-      // Case for PS1, PS2, PS3, PS4
-      const base = file.split("Slide")[0]; // e.g., "PS4"
-      overview = base + "Overview.html";   // "PS4Overview.html"
-    } else {
-      // General case: Lecture..., etc.
-      const base = file.split("Slide")[0]; // e.g., "Lecture7B"
-      overview = base + "Overview.html";   // "Lecture7BOverview.html"
-    }
+    // Build overview filename by removing everything after "Slide"
+    const base = file.split("Slide")[0];    // e.g., "Lecture7B", "PS4", "TestExam"
+    const overview = base + "Overview.html"; // e.g., "Lecture7BOverview.html", "PS4Overview.html", "TestExamOverview.html"
 
     // Create the image
     const img = document.createElement("img");

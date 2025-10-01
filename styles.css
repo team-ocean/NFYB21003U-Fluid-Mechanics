@@ -306,3 +306,6 @@ a.no-style-link:hover {
 .exit-rubber:hover {
     transform: scale(1.1); /* slightly enlarge on hover */
 }
+.test-exam {
+    display: none;
+}
