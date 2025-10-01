@@ -292,7 +292,17 @@ a.no-style-link:hover {
 }
 
 
+.exit-rubber {
+    position: fixed;
+    top: 15px;       /* adjust spacing from top */
+    right: 15px;     /* adjust spacing from right */
+    width: 80px;     /* increase from 50px to 80px */
+    height: auto;    /* keep aspect ratio */
+    z-index: 9999;   /* always on top */
+    cursor: pointer; /* show hand cursor */
+    transition: transform 0.2s ease-in-out;
+}
 
-
-
-
+.exit-rubber:hover {
+    transform: scale(1.1); /* slightly enlarge on hover */
+}
