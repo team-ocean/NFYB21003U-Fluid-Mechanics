@@ -65,6 +65,18 @@
             font-style: normal; /* Ensures code text is not italic */
         }
 
+    .highlight {
+    background-color:rgba(221, 241, 243, 0.8); 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    .highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
 
     </style>
 <script>
@@ -93,9 +105,14 @@ window.addEventListener('resize', scaleContainer);
         <div class="title">Problem 1: Velocity Field with Streamlines and Pathlines in Two-Dimensional Flow</div>
 
         <div class="slide"> 
-        <p>Experimental arrangement for PIV in a wind tunnel</p> 
+        <p>When multiple streaklines are introduced along a line, 
+            this configuration is referred to as a <span class="highlight"><span class="sql">rake</span></span> of streaklines. 
+            Because of the unsteady vortices shed from the cylinder in an alternating pattern, 
+            the smoke collects into a clearly defined structure known as a 
+            <span class="highlightkumon"><span class="sql">Kármán vortex street</span></span></p>
+        <p>Streak lines can be computed efficiently by simple curve integration. In the 2D time-dependent flow around a cylinder, the von Kármán vortex street is revealed by the rolling-up behavior of streak lines, which becomes more pronounced for larger values of the streak-line age parameter</p>
                 <div class="image-container" style="text-align: left;">
-                    <img src="Figures/PS1_PIV.png" alt="PIV" style="max-width: 100%; height: auto; display: block; margin: auto;">                            
+                    <img src="Figures/PS1_KármánVortexStreet.png" alt="KármánVortexStreet" style="max-width: 100%; height: auto; display: block; margin: auto;">                            
                 </div>
         </div>
 
@@ -103,13 +120,13 @@ window.addEventListener('resize', scaleContainer);
         <div class="footnote-container">
             <hr class="footnote-line">
             <p class="footnote">
-                <p class="footnote"><sup>1</sup> Raffel et al. 2018. Particle Image Velocimetry: A Practical Guide. 10.1007/978-3-540-72308-0. 
-            </p>
+                <p class="footnote"><sup>1</sup> Modal Analysis of Fluid Flows: Applications and Outlook. Kunihiko Taira, Maziar S. Hemati, Steven L. Brunton, Yiyang Sun, Karthik Duraisamy, Shervin Bagheri, Scott T. M. Dawson, and Chi-An Yeh. AIAA Journal 2020 58:3, 998-1022
+
         </div>
 
         <!-- Navigation Arrows -->
-        <a href="PS1Slide10.html" class="nav-button left">&#9664;</a>
-        <a href="PS1Slide12.html" class="nav-button right">&#9654;</a>
+        <a href="PS1Slide11.html" class="nav-button left">&#9664;</a>
+        <a href="PS1Overview.html" class="nav-button right">&#9654;</a>
     </div>
 <!-- Footer -->
 <div class="footer">
