@@ -171,57 +171,35 @@ window.addEventListener('resize', scaleContainer);
     <div class="container">
         <div class="title">Problem 1: Expanded Knowledge</div>
         <div class="slide"> 
-<p>Example python code for plotting vector fields</p>
 <div class="codebox">
-  <div class="codebox-title">Python Code 1: Velocity field (quiver)</div>
+  <div class="codebox-title">
+    Python Code 2: Eulerian velocity evaluation at selected spatial points
+  </div>
+
   <div class="codebox-body">
-<pre><code><span class="py-kw">import</span> <span class="py-fn">numpy</span> <span class="py-kw">as</span> <span class="py-fn">np</span>
-<span class="py-kw">import</span> <span class="py-fn">matplotlib.pyplot</span> <span class="py-kw">as</span> <span class="py-fn">plt</span>
-
-x0 <span class="py-op">=</span> <span class="py-num">-1</span>
-x1 <span class="py-op">=</span> <span class="py-num">1</span>
-y0 <span class="py-op">=</span> <span class="py-num">-1</span>
-y1 <span class="py-op">=</span> <span class="py-num">1</span>
-Nx <span class="py-op">=</span> <span class="py-num">21</span>
-Ny <span class="py-op">=</span> <span class="py-num">21</span>
-S <span class="py-op">=</span> <span class="py-num">104</span>
-A <span class="py-op">=</span> <span class="py-num">14</span>
-
-x <span class="py-op">=</span> np.linspace(x0, x1, Nx)
-y <span class="py-op">=</span> np.linspace(y0, y1, Ny)
-X, Y <span class="py-op">=</span> np.meshgrid(x, y)
-u <span class="py-op">=</span> A<span class="py-op">*</span>Y
-v <span class="py-op">=</span> <span class="py-op">-</span>S<span class="py-op">*</span>X
-<span class="py-cm"># even when the v or u field are zero, multiply with the mesh grid to achieve the correct dimensions</span>
-
-fig, ax <span class="py-op">=</span> plt.subplots(figsize<span class="py-op">=</span>(<span class="py-num">10</span>, <span class="py-num">7</span>), tight_layout<span class="py-op">=</span><span class="py-kw">True</span>)
-ax.quiver(X, Y, u, v)
-ax.set_title(<span class="py-str">'Velocity field'</span>, fontsize<span class="py-op">=</span><span class="py-num">20</span>)
-ax.set_xlabel(<span class="py-str">'xs'</span>, fontsize<span class="py-op">=</span><span class="py-num">20</span>)
-ax.set_ylabel(<span class="py-str">'ys'</span>, fontsize<span class="py-op">=</span><span class="py-num">20</span>)
-ax.set_xticklabels(ax.get_xticks(), fontsize<span class="py-op">=</span><span class="py-num">18</span>)
-ax.set_yticklabels(ax.get_yticks(), fontsize<span class="py-op">=</span><span class="py-num">18</span>)
-</code></pre>
+<pre><code><span class="py-fn">selected_points</span> <span class="py-op">=</span> [(<span class="py-num">0.5</span>, <span class="py-num">0.5</span>), (<span class="py-num">2.0</span>, <span class="py-num">8.0</span>), (<span class="py-num">-0.8</span>, <span class="py-num">0.3</span>)]
+<span class="py-kw">for</span> (<span class="py-fn">xp</span>, <span class="py-fn">yp</span>) <span class="py-kw">in</span> <span class="py-fn">selected_points</span>:
+    <span class="py-fn">vx</span> <span class="py-op">=</span> A <span class="py-op">*</span> yp
+    <span class="py-fn">vy</span> <span class="py-op">=</span> <span class="py-op">-</span>S <span class="py-op">*</span> xp
+    <span class="py-fn">speed</span> <span class="py-op">=</span> np.sqrt(vx<span class="py-op">**</span><span class="py-num">2</span> <span class="py-op">+</span> vy<span class="py-op">**</span><span class="py-num">2</span>)
+    <span class="py-fn">print</span>(
+        <span class="py-str">f"Point (x, y) = ({xp:.2f}, {yp:.2f}) : "</span>
+        <span class="py-str">f"v = ({vx:>7.2f}, {vy:>7.2f}) , "</span>
+        <span class="py-str">f"|v| = {speed:>7.2f}"</span>
+    )
+<span class="py-fn">print</span>(<span class="py-str">"-"</span> <span class="py-op">*</span> <span class="py-num">60</span>)
+<span class="py-fn">print</span>(<span class="py-str">"Note: The velocity field is steady, so velocity does not depend on time."</span>)</code></pre>
   </div>
 </div>
-<div class="codebox">
-  <div class="codebox-title">Python Code 2: Velocity streamlines (streamplot)</div>
-  <div class="codebox-body">
-<pre><code>fig, ax <span class="py-op">=</span> plt.subplots(figsize<span class="py-op">=</span>(<span class="py-num">10</span>, <span class="py-num">7</span>), tight_layout<span class="py-op">=</span><span class="py-kw">True</span>)
-plt.streamplot(x, y, u, v)
-ax.set_title(<span class="py-str">'Velocity streamlines'</span>, fontsize<span class="py-op">=</span><span class="py-num">20</span>)
-ax.set_xlabel(<span class="py-str">'xs'</span>, fontsize<span class="py-op">=</span><span class="py-num">20</span>)
-ax.set_ylabel(<span class="py-str">'ys'</span>, fontsize<span class="py-op">=</span><span class="py-num">20</span>)
-ax.set_xticklabels(ax.get_xticks(), fontsize<span class="py-op">=</span><span class="py-num">18</span>)
-ax.set_yticklabels(ax.get_yticks(), fontsize<span class="py-op">=</span><span class="py-num">18</span>)
-</code></pre>
-  </div>
+<div class="image-container" style="text-align: left;">
+<img src="Figures/PS1_StreamLineUnlock.png" alt="StreamLineUnlock" style="max-width: 100%; height: auto; display: block; margin: auto;">                            
 </div>
-        </div>
+</div>
+
 
         <!-- Navigation Arrows -->
-        <a href="PS1Slide17.html" class="nav-button left">&#9664;</a>
-        <a href="PS1Slide19.html" class="nav-button right">&#9654;</a>
+        <a href="PS1Slide18.html" class="nav-button left">&#9664;</a>
+        <a href="PS1Overview.html" class="nav-button right">&#9654;</a>
     </div>
 <!-- Footer -->
 <div class="footer">
