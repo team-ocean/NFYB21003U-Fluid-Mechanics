@@ -53,8 +53,8 @@ window.addEventListener('resize', scaleContainer);
             </div>
             <div class="description">
                 \begin{equation}
-                \underbrace{\frac{\partial \mathbf{u}}{\partial t}}_{\text{Unsteady Term}} + 
-                \underbrace{(\mathbf{u} \cdot \nabla) \mathbf{u}}_{\text{Convection}} = 
+                \underbrace{\frac{\partial \mathbf{u}}{\partial t}}_{\text{Local acceleration}} + 
+                \underbrace{(\mathbf{u} \cdot \nabla) \mathbf{u}}_{\text{Advection}} = 
                 \underbrace{-\frac{1}{\rho} \nabla p}_{\text{Pressure Gradient}} + 
                 \underbrace{g\mathbf{k}}_{\text{Gravity}} + 
                 \underbrace{\nu \nabla^2 \mathbf{u}}_{\text{Viscous Term}}
