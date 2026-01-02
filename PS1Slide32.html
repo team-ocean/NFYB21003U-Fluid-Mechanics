@@ -168,65 +168,68 @@ window.addEventListener('resize', scaleContainer);
 
 </head>
 <body>
-<body>
 <div class="container">
         <div class="title">Problem 4: Expanded Knowledge</div>
         <div class="slide"> 
 <div class="codebox">
   <div class="codebox-title">
-    Transpose \( B_{ji} = A_{ij} \)
-  </div>
-  <div class="codebox-body">
-<pre><code><span class="py-kw">import</span> <span class="py-fn">numpy</span> <span class="py-kw">as</span> <span class="py-fn">np</span>
-a <span class="py-op">=</span> np.arange(<span class="py-num">0</span>, <span class="py-num">9</span>).reshape(<span class="py-num">3</span>, <span class="py-num">3</span>)
-b <span class="py-op">=</span> np.einsum(<span class="py-str">'ij-&gt;ji'</span>, a)
-</code></pre>
-  </div>
-</div>
-
-<div class="codebox">
-  <div class="codebox-title">
-    Full Sum \( \sum_i \sum_j A_{ij} \)
-  </div>
-  <div class="codebox-body">
-<pre><code><span class="py-kw">import</span> <span class="py-fn">numpy</span> <span class="py-kw">as</span> <span class="py-fn">np</span>
-a <span class="py-op">=</span> np.arange(<span class="py-num">0</span>, <span class="py-num">9</span>).reshape(<span class="py-num">3</span>, <span class="py-num">3</span>)
-b <span class="py-op">=</span> np.einsum(<span class="py-str">'ij-&gt;'</span>, a)
-</code></pre>
-  </div>
-</div>
-
-<div class="codebox">
-  <div class="codebox-title">
-    Row-wise Sum \( \sum_j A_{ij} \)
-  </div>
-  <div class="codebox-body">
-<pre><code><span class="py-kw">import</span> <span class="py-fn">numpy</span> <span class="py-kw">as</span> <span class="py-fn">np</span>
-a <span class="py-op">=</span> np.arange(<span class="py-num">0</span>, <span class="py-num">9</span>).reshape(<span class="py-num">3</span>, <span class="py-num">3</span>)
-b <span class="py-op">=</span> np.einsum(<span class="py-str">'ij-&gt;i'</span>, a)
-</code></pre>
-  </div>
-</div>
-
-<div class="codebox">
-  <div class="codebox-title">
-    Elementwise (Hadamard-style) \( C_{ij} = A_{ij} B_j \)
+    Dot Product (Vector Result) \( C_i = \sum_j A_{ij} B_j \)
   </div>
   <div class="codebox-body">
 <pre><code><span class="py-kw">import</span> <span class="py-fn">numpy</span> <span class="py-kw">as</span> <span class="py-fn">np</span>
 a <span class="py-op">=</span> np.arange(<span class="py-num">0</span>, <span class="py-num">12</span>).reshape(<span class="py-num">3</span>, <span class="py-num">4</span>)
 b <span class="py-op">=</span> np.arange(<span class="py-num">0</span>, <span class="py-num">4</span>)
-c <span class="py-op">=</span> np.einsum(<span class="py-str">'ij,j-&gt;ij'</span>, a, b)
+c <span class="py-op">=</span> np.einsum(<span class="py-str">'ij,j-&gt;i'</span>, a, b)
 </code></pre>
   </div>
 </div>
 
+<div class="codebox">
+  <div class="codebox-title">
+    Full Scalar Contraction \( C = \sum_i \sum_j A_{ij} B_{ij} \)
+  </div>
+  <div class="codebox-body">
+<pre><code><span class="py-kw">import</span> <span class="py-fn">numpy</span> <span class="py-kw">as</span> <span class="py-fn">np</span>
+a <span class="py-op">=</span> np.arange(<span class="py-num">0</span>, <span class="py-num">12</span>).reshape(<span class="py-num">3</span>, <span class="py-num">4</span>)
+b <span class="py-op">=</span> np.arange(<span class="py-num">0</span>, <span class="py-num">12</span>).reshape(<span class="py-num">3</span>, <span class="py-num">4</span>)
+c <span class="py-op">=</span> np.einsum(<span class="py-str">'ij,ij-&gt;'</span>, a, b)
+</code></pre>
+  </div>
+</div>
+
+<div class="codebox">
+  <div class="codebox-title">
+    Matrix Multiplication \( C_{ij} = \sum_k A_{ik} B_{kj} \)
+  </div>
+  <div class="codebox-body">
+<pre><code><span class="py-kw">import</span> <span class="py-fn">numpy</span> <span class="py-kw">as</span> <span class="py-fn">np</span>
+a <span class="py-op">=</span> np.arange(<span class="py-num">0</span>, <span class="py-num">12</span>).reshape(<span class="py-num">3</span>, <span class="py-num">4</span>)
+b <span class="py-op">=</span> np.arange(<span class="py-num">0</span>, <span class="py-num">12</span>).reshape(<span class="py-num">4</span>, <span class="py-num">3</span>)
+c <span class="py-op">=</span> np.einsum(<span class="py-str">'ik,kj-&gt;ij'</span>, a, b)
+</code></pre>
+  </div>
+</div>
+
+<div class="codebox">
+  <div class="codebox-title">
+    High-Order Tensor Contraction \( C_{ijkmno} = \sum_l A_{ijklno} B_{ijlmno} \)
+  </div>
+  <div class="codebox-body">
+<pre><code><span class="py-kw">import</span> <span class="py-fn">torch</span>
+A <span class="py-op">=</span> torch.randn(<span class="py-num">16</span>, <span class="py-num">8</span>, <span class="py-num">5</span>, <span class="py-num">128</span>, <span class="py-num">128</span>)
+B <span class="py-op">=</span> torch.randn(<span class="py-num">16</span>, <span class="py-num">8</span>, <span class="py-num">5</span>, <span class="py-num">128</span>, <span class="py-num">128</span>)
+A <span class="py-op">=</span> A.unsqueeze(<span class="py-num">3</span>)
+B <span class="py-op">=</span> B.unsqueeze(<span class="py-num">2</span>)
+C <span class="py-op">=</span> torch.einsum(<span class="py-str">'ijklno,ijlmno-&gt;ijkmno'</span>, A, B)
+</code></pre>
+  </div>
+</div>
 
 </div>
 
         <!-- Navigation Arrows -->
-        <a href="PS1Slide30.html" class="nav-button left">&#9664;</a>
-        <a href="PS1Slide32.html" class="nav-button right">&#9654;</a>
+        <a href="PS1Slide31.html" class="nav-button left">&#9664;</a>
+        <a href="PS1Slide33.html" class="nav-button right">&#9654;</a>
     </div>
 <!-- Footer -->
 <div class="footer">
