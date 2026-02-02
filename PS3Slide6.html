@@ -107,27 +107,10 @@ window.addEventListener('resize', scaleContainer);
                 <img src="Figures/PS3_ArakawaCScheme.png" alt="ArakawaCScheme" style="max-width: 27%; height: auto; display: block; margin: auto;">
                 <img src="Figures/PS3_ArakawaCShallowWater.png" alt="ArakawaCShallowWater" style="max-width: 27%; height: auto; display: block; margin: auto;">
             </div>
-<p>(1) Create a 2D geopotential field on a square domain using an Arakawa C-grid.
-    Initialize the height field with a localized positive perturbation at the center of the domain and zero elsewhere.
-    Use a uniform grid and second-order centered finite differences to compute the horizontal divergence of the velocity field,
-    and update the height field using the linearised shallow-water continuity equation.
-    Visualize this field at several time steps using functions such as <code>matplotlib.pyplot.contourf</code> or <code>imshow</code>.
+<p>(1) Simulate the 2D linearised rotating shallow-water equations on a square domain using an Arakawa C-grid: initialize a cell-centered geopotential field with a localized positive perturbation at the domain center (zero elsewhere), define staggered zonal and meridional velocities on the C-grid, and advance the coupled system forward in time with an explicit scheme using second-order centered finite differences (including Coriolis coupling and appropriate velocity averaging for interpolation). Report the gravity-wave Courant number for the chosen grid spacing and time step, and visualize the evolving geopotential field together with the velocity field (e.g., using <code>contourf</code>/<code>imshow</code> for height and arrows/streamlines for velocity) over several time steps to illustrate wave propagation and the flow response to the initial perturbation.
 </p>
 
-
-<p>(2) Initialize the horizontal velocity components on a staggered Arakawa C-grid.
-    Write functions to update the zonal and meridional velocities using finite differences and Coriolis coupling.
-    Use centered spatial derivatives for pressure gradients and appropriate averaging to interpolate velocities between grid points.
-    Plot the velocity field using arrows or streamlines, and verify that the flow responds to the height perturbation.
-</p>
-
-<p>(3) Integrate the linearised rotating shallow-water equations forward in time using an explicit time-stepping scheme.
-    Compute and report the gravity-wave Courant number based on the chosen time step and grid spacing.
-    Evolve the system for several time steps and create a visualization showing the coupled evolution of the height and velocity fields.
-    Use sequential plots or an animation to illustrate wave propagation on the C-grid.
-</p>
-
-<p>(4) Implement the linearised rotating shallow-water equations on an Arakawa A-grid or Arakawa B-grid using the same numerical parameters as in the C-grid case. Compare the solutions obtained with different grid staggers and discuss any differences.
+<p>(2) Implement the linearised rotating shallow-water equations on an Arakawa A-grid or Arakawa B-grid using the same numerical parameters as in the C-grid case. Compare the solutions obtained with different grid staggers and discuss any differences.
 </p>
 
         <!-- Footnote Section -->
