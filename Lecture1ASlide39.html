@@ -88,18 +88,17 @@ window.addEventListener('resize', scaleContainer);
 
         <div class="description">
             <p>Leibniz's theorem states the time derivative of the integral of \( F(x,t) \) between \( x = a(t) \) and \( x = b(t) \) is
-
                 \[
                 \frac{d}{dt} \int_{x = a(t)}^{x = b(t)} F(x,t)\, dx = \int_{a}^{b} \frac{\partial F}{\partial t} \, dx + \frac{db}{dt} F(b,t) - \frac{da}{dt} F(a,t)
                 \]
             </p>
         </div>
 
-        <p><span class="sql">Example:</span> Find  
+        <p><span class="sql">[Ex]</span> Find  
             \(
             \frac{d}{dt} \int_{x=0}^{x=ct} e^{-x^2} \, dx
-            \)
-            This integral cannot be solved in closed form and then differentiated. However, with Leibniz’s rule, the solution is easily found</p>
+            \)<br>
+            <span class="sql">[Sol]</span> This integral cannot be solved in closed form and then differentiated. However, with Leibniz’s rule, the solution is easily found</p>
 
         <p>
             \(
