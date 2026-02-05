@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <title>Example</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],  // Allow inline math with $...$ and \( ... \)
+            displayMath: [['$$', '$$'], ['\\[', '\\]']] // Allow display math with $$...$$ and \[ ... \]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+        </script>
+        <script type="text/javascript" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        
+    <style>
+        .custom-list { list-style: none; padding-left: 20px; }
+        .custom-list li { position: relative; padding-left: 20px; text-align: left; }
+        .custom-list li::before { content: "■"; color: #7DCDF4; font-size: 14px; position: absolute; left: 0; top: 2px; }
+        .image-container { display: flex; align-items: center; justify-content: center; text-align: left; }
+        .image-container img { max-width: 100%; height: auto; }
+        .image-text { max-width: 100%; padding-left: 10px; font-size: 16px; }
+        /* Ensure all text and equations are left-aligned */
+        body {
+            text-align: left;
+            margin-left: 20px;  /* Add some left margin for better readability */
+        }
+
+        .description {
+            text-align: left;
+        }
+        p {
+            text-align: left;
+        }
+        /* Force MathJax equations to be left-aligned */
+        .MathJax_Display {
+            text-align: left !important;
+            display: block !important;
+        }
+        /* Proper alignment for the equation table */
+
+        .footnote-container {
+            margin-top: 20px;
+            font-size: 12px;
+            text-align: left;
+        }
+        .footnote-line {
+            border: 0;
+            height: 1px;
+            background: #000;
+        }
+
+        .footnote a code, .footnote code {
+            font-family: monospace;
+            color: #1e1e1e;
+            text-decoration: none;
+            font-family: 'Noto Sans JP', sans-serif; /* Apply Noto Sans JP Medium 500 */
+        }
+
+    .highlight {
+    background-color:rgba(221, 241, 243, 0.8); 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    .highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+    </style>
+    <style>
+/* --- Code box (tcolorbox-like) --- */
+.codebox {
+  border: 2px solid #7DCDF4;
+  border-radius: 8px;
+  background: rgba(220, 244, 255, 0.35);
+  margin: 14px 0;
+  overflow: hidden;
+  text-align: left; /* force left */
+}
+
+.codebox-title {
+  background: #7DCDF4;
+  color: #0b0b0b;
+  font-weight: 700;
+  padding: 8px 12px;
+  font-family: 'Noto Sans JP', sans-serif; /* Apply Noto Sans JP Medium 500 */
+  font-size: 14px;
+  text-align: left; /* force left */
+}
+
+.codebox-body {
+  padding: 10px 12px 12px 12px;
+  text-align: left; /* force left */
+}
+
+/* Tight code formatting */
+.codebox pre {
+  margin: 0;
+  padding: 0;
+  white-space: pre;       /* keep exact indentation */
+  overflow-x: auto;
+  line-height: 1.15;      /* tight, no extra gaps */
+  font-size: 13.5px;
+  tab-size: 4;
+  text-align: left;       /* force left */
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* Keywords (import, for, def, if, etc.) */
+.py-kw  { 
+  color: #4B8DDF;          /* darker version of #7DCDF4 */
+  font-weight: 600;
+}
+
+/* Functions, modules, attributes */
+.py-fn  { 
+  color: #5A6FAE;          /* muted blue-violet, academic */
+}
+/* Numbers */
+.py-num { 
+  color: #A3A6E8;          /* warm brown, low contrast */
+}
+/* Strings */
+.py-str { 
+  color: #2F8F9D;          /* teal-blue, matches DCF4FF family */
+}
+/* Comments */
+.py-cm  { 
+  color: #7A7A7A;          /* soft gray, consistent with captions */
+  font-style: italic;
+}
+/* Operators, punctuation, default text */
+.py-op  { 
+  color: #1E1E1E;          /* same as body text */
+}
+                 /* operators/default */
+</style>
+
+<script>
+function scaleContainer() {
+  const container = document.querySelector('.container');
+  const padding = 0; // optional padding margin
+  const viewportHeight = window.innerHeight - padding;
+  const containerHeight = container.offsetHeight;
+
+  // Compute the scale ratio
+  const scale = Math.min(1, viewportHeight / containerHeight);
+
+  container.style.transform = `scale(${scale})`;
+}
+
+// Run on load
+window.addEventListener('load', scaleContainer);
+// Run on resize
+window.addEventListener('resize', scaleContainer);
+</script>
+<script src="exit.js" defer></script>
+
+</head>
+<body>
+<body>
+<div class="container">
+        <div class="title">Example: Calculation of the Velocity Field from the Stream Function</div>
+        <div class="slide"> 
+<div class="codebox">
+  <div class="codebox-title">
+    Imports and Parameters
+  </div>
+  <div class="codebox-body">
+<pre><code><span class="py-kw">import</span> <span class="py-fn">numpy</span> <span class="py-kw">as</span> <span class="py-fn">np</span>
+<span class="py-kw">import</span> <span class="py-fn">matplotlib.pyplot</span> <span class="py-kw">as</span> <span class="py-fn">plt</span>
+a <span class="py-op">=</span> <span class="py-num">0.50</span>      <span class="py-cm"># (m s)^-1</span>
+b <span class="py-op">=</span> <span class="py-num">-2.0</span>      <span class="py-cm"># m/s</span>
+c <span class="py-op">=</span> <span class="py-num">-1.5</span>      <span class="py-cm"># m/s</span>
+</code></pre>
+  </div>
+</div>
+
+<div class="codebox">
+  <div class="codebox-title">
+    Computational Grid
+  </div>
+  <div class="codebox-body">
+<pre><code><span class="py-cm"># Computational grid</span>
+x <span class="py-op">=</span> np.linspace(<span class="py-num">0</span>, <span class="py-num">5.5</span>, <span class="py-num">500</span>)
+y <span class="py-op">=</span> np.linspace(<span class="py-num">-1</span>, <span class="py-num">5.5</span>, <span class="py-num">500</span>)
+X, Y <span class="py-op">=</span> np.meshgrid(x, y)
+</code></pre>
+  </div>
+</div>
+
+<div class="codebox">
+  <div class="codebox-title">
+    Stream Function and Velocities
+  </div>
+  <div class="codebox-body">
+<pre><code>psi <span class="py-op">=</span> a<span class="py-op">*</span>X<span class="py-op">**</span><span class="py-num">3</span> <span class="py-op">+</span> b<span class="py-op">*</span>Y <span class="py-op">+</span> c<span class="py-op">*</span>X
+u <span class="py-op">=</span> b <span class="py-op">*</span> np.ones_like(X)
+v <span class="py-op">=</span> <span class="py-op">-</span><span class="py-num">3</span><span class="py-op">*</span>a<span class="py-op">*</span>X<span class="py-op">**</span><span class="py-num">2</span> <span class="py-op">-</span> c
+</code></pre>
+  </div>
+</div>
+
+
+
+
+
+
+</div>
+
+        <!-- Navigation Arrows -->
+        <a href="PS1Slide41.html" class="nav-button left">&#9664;</a>
+        <a href="PS1Slide43.html" class="nav-button right">&#9654;</a>
+    </div>
+<!-- Footer -->
+<div class="footer">
+    <div style="display:inline-block; width:0; height:0; overflow:hidden; visibility:hidden;">
+        <script type='text/javascript' 
+                id='clustrmaps' 
+                src='//cdn.clustrmaps.com/map_v2.js?cl=ddf1f3&w=120&t=n&d=OPKQOGhHo-7gCMldcljdv8lVxlAlOY6UExXXPy46lfI&co=ffffff&cmo=4b8ddf&cmn=7dcdf4&ct=808080'>
+        </script>
+    </div>
+</div>
+</body>
+</html>
