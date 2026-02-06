@@ -69,10 +69,10 @@ window.addEventListener('resize', scaleContainer);
             <!-- Left Side: Descriptions -->
             <div class="text-container">
                 <div class="description">
-                    <p><span class="sql">Vorticity</span>, \( \mathbf{\omega} \), is defined to be the curl of velocity and so is given by
+                    <span class="sql">Vorticity</span>, \( \mathbf{\omega} \), is defined to be the curl of the velocity field, and is twice the rotation rate of fluid particles
                     \begin{equation}
                         \mathbf{\omega} \equiv \nabla \times \mathbf{u}
-                    \end{equation}
+                    \end{equation} 
                 </div> 
 
 
@@ -100,6 +100,13 @@ window.addEventListener('resize', scaleContainer);
 
             </div>
         </div>
+
+            <div class="footnote-container">
+                <hr class="footnote-line">
+                    <p class="footnote">
+                The notation for vorticity is considered inconsistent. The angular velocity is typically denoted by \(\boldsymbol{\Omega}\) or \(\boldsymbol{\omega}\), while the vorticity is denoted by \(\boldsymbol{\xi}\), \(\boldsymbol{\zeta}\) or also sometimes \(\boldsymbol{\omega}\), with the relationship \(\boldsymbol{\omega} = 2\boldsymbol{\Omega}\) 
+                clarifying their connection in fluid dynamics.
+            </div>
 
 
         <!-- Navigation Buttons -->

@@ -226,6 +226,18 @@ body {
     top: 2px; /* Align with text */
 }
 
+.highlight {
+    background-color:rgba(221, 241, 243, 0.8); 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+.highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
 p:not(.description p) {
     text-align: left;
 }

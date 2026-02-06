@@ -58,59 +58,45 @@ window.addEventListener('resize', scaleContainer);
 
         <div class="slide">
             <div class="description">
-                <p>Starting with:</p>
-
-                <p>
+                <p>Starting with:
                     \[
                     \frac{d}{dt} \int_{V^*(t)} F(\mathbf{x},t) dV = 
                     \lim_{\Delta t \to 0} \frac{1}{\Delta t} 
                     \left\{ \int_{V^*(t)} \Delta t \frac{\partial F(\mathbf{x},t)}{\partial t} dV
-                    + \int_{\Delta V} F(\mathbf{x},t) dV \right\}
-                    \]
-                </p>
-
-                <p>Substituting Equation:</p>
-
-                <p>
+                    + \int_{\Delta V} F(\mathbf{x},t) dV \right\}\]
+Substituting Equation:
                     \[
-                    \int_{\Delta V} F(\mathbf{x},t) dV \approx \int_{A^*(t)} F(\mathbf{x},t) (\mathbf{b} \Delta t \cdot \mathbf{n}) dA.
+                    \int_{\Delta V} F(\mathbf{x},t) dV \approx \int_{A^*(t)} F(\mathbf{x},t) (\mathbf{b} \Delta t \cdot \mathbf{n}) dA
                     \]
                 </p>
             </div>
         </div>
 
         <div class="slide">
-                <p>Substituting:</p>
-                <p>
+                <p>Substituting:
                     \[
                     \frac{d}{dt} \int_{V^*(t)} F(\mathbf{x},t) dV = 
                     \lim_{\Delta t \to 0} \frac{1}{\Delta t} 
                     \left\{ \int_{V^*(t)} \Delta t \frac{\partial F(\mathbf{x},t)}{\partial t} dV
                     + \fbox{$\int_{\Delta V} F(\mathbf{x},t) dV$} \right\}
                     \]
-                </p>
-
-                <p>Replacing the boxed term:</p>
-
-
+                Replacing the boxed term:
                     \[
                     \frac{d}{dt} \int_{V^*(t)} F(\mathbf{x},t) dV = 
                     \lim_{\Delta t \to 0} \frac{1}{\Delta t} 
                     \left\{ \int_{V^*(t)} \Delta t \frac{\partial F(\mathbf{x},t)}{\partial t} dV
                     + \fbox{$\int_{A^*(t)} F(\mathbf{x},t) (\mathbf{b} \Delta t \cdot \mathbf{n}) dA$} \right\}
                     \]
-
-
-                <p>\( \Delta t \) is a common factor, divide by \( \Delta t \):</p>
+                \( \Delta t \) is a common factor, divide by \( \Delta t \):</p>
                 <div class="description">
                     \[
                     \frac{d}{dt} \int\limits_{V^*(t)} F(\mathbf{x},t) dV =
                     \int\limits_{\substack{V^*(t)}} \frac{\partial F(\mathbf{x},t)}{\partial t} dV
-                    + \int\limits_{\substack{A^*(t)}} F(\mathbf{x},t) \mathbf{b} \cdot \mathbf{n} dA.
+                    + \int\limits_{\substack{A^*(t)}} F(\mathbf{x},t) \mathbf{b} \cdot \mathbf{n} dA
                     \]
-                <p>It produces the statement of <strong>Reynolds Transport Theorem</strong>.</p>
+                It produces the statement of <span class="sql">Reynolds Transport Theorem</span>
                 </div>
-                <p>This final result follows the pattern set by Liebniz’s theorem that the total time derivative of an integral with time-dependent limits equals the integral of the partial time derivative of the integrand plus a term that accounts for the motion of the integration boundary.</p>
+                <p>This final result follows the pattern set by Liebniz's theorem that the total time derivative of an integral with time-dependent limits equals the integral of the partial time derivative of the integrand plus a term that accounts for the motion of the integration boundary.</p>
         </div>
 
         <!-- Navigation Buttons -->
