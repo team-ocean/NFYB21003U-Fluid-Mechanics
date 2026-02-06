@@ -6,99 +6,67 @@
     <link rel="icon" href="favicon.png" type="image/x-icon">
     <title>Approximations for Deep and Shallow Water</title>
     <link rel="stylesheet" href="styles.css">
-
-    
-    <!-- Include MathJax for LaTeX Rendering -->
-    <script type="text/javascript" async 
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
-    </script>
-
+    <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],  // Allow inline math with $...$ and \( ... \)
+            displayMath: [['$$', '$$'], ['\\[', '\\]']] // Allow display math with $$...$$ and \[ ... \]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+        </script>
+        <script type="text/javascript" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        
     <style>
-        /* Custom Bullet Points */
-        .custom-list {
-            list-style: none; /* Remove default bullets */
-            padding-left: 20px; /* Adjust indentation */
+        .custom-list { list-style: none; padding-left: 20px; }
+        .custom-list li { position: relative; padding-left: 20px; text-align: left; }
+        .custom-list li::before { content: "■"; color: #7DCDF4; font-size: 14px; position: absolute; left: 0; top: 2px; }
+        .image-container { display: flex; align-items: center; justify-content: center; text-align: left; }
+        .image-container img { max-width: 100%; height: auto; }
+        .image-text { max-width: 100%; padding-left: 10px; font-size: 16px; }
+        /* Ensure all text and equations are left-aligned */
+        body {
+            text-align: left;
+            margin-left: 20px;  /* Add some left margin for better readability */
         }
 
-        .custom-list li {
-            position: relative;
-            padding-left: 20px; /* Space for custom bullet */
-            text-align: left; /* Align text to the left */
+        .description {
+            text-align: left;
+        }
+        p {
+            text-align: left;
+        }
+        /* Force MathJax equations to be left-aligned */
+        .MathJax_Display {
+            text-align: left !important;
+            display: block !important;
+        }
+        /* Proper alignment for the equation table */
+
+        .footnote-container {
+            margin-top: 20px;
+            font-size: 12px;
+            text-align: left;
+        }
+        .footnote-line {
+            border: 0;
+            height: 1px;
+            background: #000;
         }
 
-        .custom-list li::before {
-            content: "■"; /* Unicode for small square */
-            color: #7DCDF4; /* Adjusted to match the blue color */
-            font-size: 14px; /* Adjust size */
-            position: absolute;
-            left: 0;
-            top: 2px; /* Align with text */
+        .footnote a code, .footnote code {
+            font-family: monospace;
+            color: #1e1e1e;
+            text-decoration: none;
+            font-family: 'Noto Sans JP', sans-serif; /* Apply Noto Sans JP Medium 500 */
         }
-
-        /* Image Row */
-        .image-row {
-            display: flex;
-            justify-content: space-between; /* Space images evenly */
-            align-items: center; /* Align images vertically */
-            margin-top: 20px; /* Add some space after description */
-            flex-wrap: wrap; /* Ensure responsiveness */
-        }
-
-        .image-row img {
-            width: 25%; /* Make sure all images take equal space */
-            max-width: 100%; /* Prevent overflow */
-            height: auto; /* Maintain aspect ratio */
-            border-radius: 5px; /* Optional: Rounded corners */
-        }
-        .bullet::before {
-        content: "■ ";
-        color: #7DCDF4;
-        }
-        /* Center the table horizontally */
-        .slide table {
-        margin-left: auto;
-        margin-right: auto;
-        }
-
-        /* Left-align table text */
-        .slide table th,
-        .slide table td {
-        text-align: left;
-        }
-
-        /* Custom bullet list styled as flex container */
-    ul.custom {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      padding-left: 0;
-      gap: 10px 40px; /* 10px between items in a row, 40px between rows */
-    }
-    ul.custom li {
-      flex: 0 0 45%; /* roughly two items per row */
-      display: flex;
-      align-items: center;
-      gap: 10px; /* space between the text and image */
-      position: relative;
-      padding-left: 20px; /* extra padding for the bullet */
-    }
-    ul.custom li::before {
-      content: "■"; /* Unicode for small square bullet */
-      color: #7DCDF4;
-      font-size: 14px;
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    /* Ensure images align properly */
-    ul.custom li img {
-      max-width: 49%;
-      height: auto;
-    }
 
     .highlight {
-    background-color:#ddf1f3; 
+    background-color:rgba(221, 241, 243, 0.8); 
     padding: 2px 4px;
     border-radius: 3px;
     }
@@ -108,19 +76,89 @@
     padding: 2px 4px;
     border-radius: 3px;
     }
-
-
     </style>
-    <script>
+    <style>
+/* --- Code box (tcolorbox-like) --- */
+.codebox {
+  border: 2px solid #7DCDF4;
+  border-radius: 8px;
+  background: rgba(220, 244, 255, 0.35);
+  margin: 14px 0;
+  overflow: hidden;
+  text-align: left; /* force left */
+}
+
+.codebox-title {
+  background: #7DCDF4;
+  color: #0b0b0b;
+  font-weight: 700;
+  padding: 8px 12px;
+  font-family: 'Noto Sans JP', sans-serif; /* Apply Noto Sans JP Medium 500 */
+  font-size: 14px;
+  text-align: left; /* force left */
+}
+
+.codebox-body {
+  padding: 10px 12px 12px 12px;
+  text-align: left; /* force left */
+}
+
+/* Tight code formatting */
+.codebox pre {
+  margin: 0;
+  padding: 0;
+  white-space: pre;       /* keep exact indentation */
+  overflow-x: auto;
+  line-height: 1.15;      /* tight, no extra gaps */
+  font-size: 13.5px;
+  tab-size: 4;
+  text-align: left;       /* force left */
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* Keywords (import, for, def, if, etc.) */
+.py-kw  { 
+  color: #4B8DDF;          /* darker version of #7DCDF4 */
+  font-weight: 600;
+}
+
+/* Functions, modules, attributes */
+.py-fn  { 
+  color: #5A6FAE;          /* muted blue-violet, academic */
+}
+/* Numbers */
+.py-num { 
+  color: #A3A6E8;          /* warm brown, low contrast */
+}
+/* Strings */
+.py-str { 
+  color: #2F8F9D;          /* teal-blue, matches DCF4FF family */
+}
+/* Comments */
+.py-cm  { 
+  color: #7A7A7A;          /* soft gray, consistent with captions */
+  font-style: italic;
+}
+/* Operators, punctuation, default text */
+.py-op  { 
+  color: #1E1E1E;          /* same as body text */
+}
+                 /* operators/default */
+</style>
+
+<script>
 function scaleContainer() {
   const container = document.querySelector('.container');
   const padding = 0; // optional padding margin
   const viewportHeight = window.innerHeight - padding;
   const containerHeight = container.offsetHeight;
+
   // Compute the scale ratio
   const scale = Math.min(1, viewportHeight / containerHeight);
+
   container.style.transform = `scale(${scale})`;
 }
+
 // Run on load
 window.addEventListener('load', scaleContainer);
 // Run on resize
@@ -132,35 +170,65 @@ window.addEventListener('resize', scaleContainer);
 <body>
     <div class="container">
         <div class="title">Approximations for Deep and Shallow Water</div>
-        <div class="description">
-            The depth-dependent wave speed \(\boxed{c = \sqrt{gH}}\) in shallow water leads to the phenomenon of shallow-water wave <span class="sql">refraction</span> observed at coastlines around the world
-        </div>
+<div class="codebox">
+  <div class="codebox-title">Particle Orbits: Shallow, Intermediate, Deep</div>
+  <div class="codebox-body">
+<pre><code><span class="py-kw">import</span> numpy <span class="py-kw">as</span> np
+<span class="py-kw">import</span> matplotlib.pyplot <span class="py-kw">as</span> plt
+<span class="py-cm"># Parameters</span>
+a <span class="py-op">=</span> <span class="py-num">1</span>                          <span class="py-cm"># wave amplitude</span>
+lambda_wave <span class="py-op">=</span> <span class="py-num">10</span>              <span class="py-cm"># wavelength</span>
+k <span class="py-op">=</span> <span class="py-num">2</span> <span class="py-op">*</span> np.pi <span class="py-op">/</span> lambda_wave   <span class="py-cm"># wave number</span>
+omega <span class="py-op">=</span> <span class="py-num">2</span> <span class="py-op">*</span> np.pi <span class="py-op">/</span> <span class="py-num">5</span>         <span class="py-cm"># wave frequency</span>
+t <span class="py-op">=</span> np.linspace(<span class="py-num">0</span>, <span class="py-num">2</span> <span class="py-op">*</span> np.pi <span class="py-op">/</span> omega, <span class="py-num">400</span>)  <span class="py-cm"># time</span>
+<span class="py-cm"># Depths to evaluate</span>
+z_vals <span class="py-op">=</span> [<span class="py-op">-</span><span class="py-num">0.1</span>, <span class="py-op">-</span><span class="py-num">0.3</span>, <span class="py-op">-</span><span class="py-num">0.9</span>]
+<span class="py-cm"># Water depths for regimes</span>
+H_shallow <span class="py-op">=</span> <span class="py-num">0.5</span>
+H_intermediate <span class="py-op">=</span> <span class="py-num">2.5</span>
+H_deep <span class="py-op">=</span> <span class="py-num">50</span>
+colors <span class="py-op">=</span> plt.cm.Blues(np.linspace(<span class="py-num">0.5</span>, <span class="py-num">1.0</span>, len(z_vals)))
+<span class="py-cm"># Orbit functions</span>
+<span class="py-kw">def</span> shallow_orbit(z, H, a, k, omega, t):
+    xi <span class="py-op">=</span> <span class="py-op">-</span>a <span class="py-op">/</span> (k <span class="py-op">*</span> H) <span class="py-op">*</span> np.sin(omega <span class="py-op">*</span> t)
+    zeta <span class="py-op">=</span> a <span class="py-op">*</span> (<span class="py-num">1</span> <span class="py-op">+</span> z <span class="py-op">/</span> H) <span class="py-op">*</span> np.cos(omega <span class="py-op">*</span> t)
+    <span class="py-kw">return</span> xi, zeta
+<span class="py-kw">def</span> intermediate_orbit(z, H, a, k, omega, t):
+    sinh_kH <span class="py-op">=</span> np.sinh(k <span class="py-op">*</span> H)
+    xi <span class="py-op">=</span> <span class="py-op">-</span>a <span class="py-op">*</span> np.cosh(k <span class="py-op">*</span> (z <span class="py-op">+</span> H)) <span class="py-op">/</span> sinh_kH <span class="py-op">*</span> np.sin(omega <span class="py-op">*</span> t)
+    zeta <span class="py-op">=</span> a <span class="py-op">*</span> np.sinh(k <span class="py-op">*</span> (z <span class="py-op">+</span> H)) <span class="py-op">/</span> sinh_kH <span class="py-op">*</span> np.cos(omega <span class="py-op">*</span> t)
+    <span class="py-kw">return</span> xi, zeta
+<span class="py-kw">def</span> deep_orbit(z, a, k, omega, t):
+    factor <span class="py-op">=</span> np.exp(k <span class="py-op">*</span> z)
+    xi <span class="py-op">=</span> <span class="py-op">-</span>a <span class="py-op">*</span> factor <span class="py-op">*</span> np.sin(omega <span class="py-op">*</span> t)
+    zeta <span class="py-op">=</span> a <span class="py-op">*</span> factor <span class="py-op">*</span> np.cos(omega <span class="py-op">*</span> t)
+    <span class="py-kw">return</span> xi, zeta
+fig, ax <span class="py-op">=</span> plt.subplots(figsize<span class="py-op">=</span>(<span class="py-num">8</span>, <span class="py-num">6</span>))
+<span class="py-kw">for</span> i, z <span class="py-kw">in</span> enumerate(z_vals):
+    xi_s, zeta_s <span class="py-op">=</span> shallow_orbit(z, H_shallow, a, k, omega, t)
+    xi_i, zeta_i <span class="py-op">=</span> intermediate_orbit(z, H_intermediate, a, k, omega, t)
+    xi_d, zeta_d <span class="py-op">=</span> deep_orbit(z, a, k, omega, t)
+    ax.plot(xi_s, zeta_s, color<span class="py-op">=</span>colors[i], label<span class="py-op">=</span><span class="py-str">f'Shallow, z={z}'</span>)
+    ax.plot(xi_i, zeta_i, <span class="py-str">'--'</span>, color<span class="py-op">=</span>colors[i], label<span class="py-op">=</span><span class="py-str">f'Intermediate, z={z}'</span>)
+    ax.plot(xi_d, zeta_d, <span class="py-str">':'</span>, color<span class="py-op">=</span>colors[i], label<span class="py-op">=</span><span class="py-str">f'Deep, z={z}'</span>)
+ax.set_xlabel(<span class="py-str">"Horizontal Displacement (ξ)"</span>)
+ax.set_ylabel(<span class="py-str">"Vertical Displacement (ζ)"</span>)
+ax.set_aspect(<span class="py-str">'equal'</span>)
+ax.grid(<span class="py-kw">True</span>)
+ax.legend(fontsize<span class="py-op">=</span><span class="py-num">8</span>, loc<span class="py-op">=</span><span class="py-str">'center left'</span>, bbox_to_anchor<span class="py-op">=</span>(<span class="py-num">1.02</span>, <span class="py-num">0.5</span>))
+plt.tight_layout()
+plt.show()</code></pre>
+  </div>
+</div>
+<img src="Figures/Lecture2A_WaveOrbitsThreebyPythonFixedLegend.png" alt="WaveOrbitsThreebyPythonFixedLegend" style="max-width: 100%; height: auto; display: block; margin: auto;">
 
-        <div class="image-container" style="text-align: left;">
-            <img src="Figures/Lecture2A_RefractionSurfaceGravityWave.png" alt="RefractionSurfaceGravityWave" style="max-width: 49%; height: auto; display: block; margin: auto;">
-            <p>
-                <span class="bullet"></span>Consider a sloping beach, with depth contours parallel to the coastline. 
-                Assume that waves are propagating toward the coast from the deep ocean with their crests at an angle to the coastline. Sufficiently near the coastline they begin to feel the effect of the bottom and finally become shallow-water waves. 
-                Their frequency does not change along the path, but their speed of propagation \(\boxed{c = \sqrt{gH}}\) and their wavelength \( \lambda \) become smaller.
-                The crest lines which are perpendicular to the local direction of \( c \) tend to become parallel to the coast. This is why the waves coming toward a gradually sloping beach always seem to have their crests parallel to the coastline.
-            </p>
-        </div>
-        <div class="image-container" style="text-align: left;">
-            <img src="Figures/Lecture2A_IslandRefractionSurfaceGravityWave.png" alt="IslandRefractionSurfaceGravityWave" style="max-width: 49%; height: auto; display: block; margin: auto;">
-            <p>
-                <span class="bullet"></span>An interesting example of wave refraction occurs when a deep-water wave train with straight crests approaches an island. 
-                Assume that the water gradually becomes shallower as the island is approached, and the constant depth contours are circles concentric with the island. 
-                The waves always come in <span class="sql">toward</span> the island, even on the shadowed-side marked A.<br>
-                The bending of wave paths in an inhomogeneous medium is called <span class="sql">wave refraction</span>. 
-                In this case the source of inhomogeneity is the spatial dependence of \( H \). The analogous phenomenon in optics is the bending of light due to refractive index changes along its path.
-            </p>
-        </div>
-    
+
+
 
         
         <!-- Navigation Buttons -->
         <a href="Lecture2ASlide38.html" class="nav-button left">&#9664;</a>
-        <a href="Lecture2AOverview.html" class="nav-button right">&#9654;</a>
+        <a href="Lecture2ASlide40.html" class="nav-button right">&#9654;</a>
     </div>
 <!-- Footer -->
 <div class="footer">
