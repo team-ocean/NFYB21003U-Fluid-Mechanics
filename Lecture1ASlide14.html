@@ -58,6 +58,17 @@
             font-weight: bold;
             margin-bottom: 20px;
         }
+    .highlight {
+    background-color:rgba(221, 241, 243, 0.8); 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    .highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
     </style>
     <script>
 function scaleContainer() {
@@ -99,8 +110,8 @@ window.addEventListener('resize', scaleContainer);
             <p>where the operator  
             $ \frac{D( \ )}{D t} = \frac{\partial ( \ )}{\partial t} + v_x \frac{\partial ( \ )}{\partial x} + v_y \frac{\partial ( \ )}{\partial y} + v_z \frac{\partial ( \ )}{\partial z} $</p>
 
-            <p>It is termed the <em>material derivative</em> or <em>substantial derivative</em>. An often-used shorthand notation for the material derivative operator is:  
-            $ \frac{D( \ )}{D t} = \frac{\partial ( \ )}{\partial t} + ( \vec{V} \cdot \nabla )( \ ) $</p>
+            <p>It is termed the <span class="highlightkumon"><span class="sql">material derivative</span></span> or <em>substantial derivative</em>. An often-used shorthand notation for the material derivative operator is:  
+            <span class="highlight">$\frac{D( \ )}{D t} = \frac{\partial ( \ )}{\partial t} + ( \vec{V} \cdot \nabla )( \ )$</span></p>
         </div>
 
         <div class="slide">

@@ -58,6 +58,17 @@
             font-weight: bold;
             margin-bottom: 20px;
         }
+    .highlight {
+    background-color:rgba(221, 241, 243, 0.8); 
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+    .highlightkumon {
+    background-color: rgba(220, 244, 255, 0.8); /* #7DCDF4 with % opacity */
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
     </style>
     <script>
 function scaleContainer() {
@@ -81,7 +92,7 @@ window.addEventListener('resize', scaleContainer);
     <div class="container">
         Fluid Acceleration in a Velocity Field
         <div class="slide">
-            <p>The derivative, \( D/Dt \), defined by the previous slide, is commonly called the <em>substantial derivative</em> to remind us that it is computed for a particle of "substance." It is often also called the <em>material derivative</em> or <em>particle derivative</em>.</p>
+            <p>The derivative, \( D/Dt \), defined by the previous slide, is commonly called the <em>substantial derivative</em> to remind us that it is computed for a particle of "substance." It is often also called the <span class="highlightkumon"><span class="sql">material derivative</span></span> or <em>particle derivative</em>.</p>
 
             <p>The physical significance of the terms is:  
             \( \underbrace{\frac{D \vec{V}}{D t} = \vec{a}_p}_{\text{total acceleration of a particle}} = 
