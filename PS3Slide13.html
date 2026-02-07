@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.png" type="image/x-icon">
+  <title>Expanded Knowledge</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Configure MathJax -->
+  <script>
+    window.MathJax = {
+      tex: {
+        packages: {'[+]': ['ams']},
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      loader: {load: ['[tex]/ams']}
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
+  <style>
+    .container {
+      width: 100%;
+      max-width: 1000px;
+      height: 63%;
+      margin: auto;
+      text-align: center;
+    }
+    iframe {
+      width: 100%;
+      height: 800px; /* adjust height as needed */
+      border: 0;
+      border-radius: 0px;
+    }
+  </style>
+
+    <script>
+function scaleContainer() {
+  const container = document.querySelector('.container');
+  const padding = 0; // optional padding margin
+  const viewportHeight = window.innerHeight - padding;
+  const containerHeight = container.offsetHeight;
+
+  // Compute the scale ratio
+  const scale = Math.min(1, viewportHeight / containerHeight);
+
+  container.style.transform = `scale(${scale})`;
+}
+
+// Run on load
+window.addEventListener('load', scaleContainer);
+// Run on resize
+window.addEventListener('resize', scaleContainer);
+</script>
+
+<script src="exit.js" defer></script>
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="title">Problem 1: Expanded Knowledge</div>
+
+<iframe title="VisualPDE simulation" style="border:0;width:100%;height:100%;" src="https://visualpde.com/sim/?options=N4IgRgqiBcIHYFMCuBbAhnOIA04BqMIAJgJYBOJAxgBYA2CALjuAOqGkU31O5hqEBnFAHthDamiJFmYMoQBMABhkA3QgFpFAOkUBGZpUJhaSBAYEFYAGQQAzBtAAEjgCLkqdRo4C8jxQG5HABVhAAcnRwA5ZHRMHz9AgCUSAHNqB2c3Tk8GeIDHACExBmEUCOjUDDg8-3M2azsMqJiqmuCwiKyPbjbktKaK2OrffKKGErLM9y4vEdrcIggoWGUFvEt4JGYiFnrN7YFCABZFVeImaG1TgFZcM2gGMlM7gEEYXTuAZWoYeS+UGBXW4gBCfUKArRHO5BQG4SjLEBnADWhAAEgB9BDxXT+FLxACcWgAHDjbNj-Ei8jo9P44Egqdd-AhQgISLRhMM-NSccx0IRtPpcCgSBogcwsNAAMy4UIw2ACJBkWxoShmGWEADCSAEE2YoTIwjACAAYkgJSAfjKDUabHAUuJ3tdFLgyAj1I4ABRIdEAD0cAGpHCp0QBPACUACoPdR-RiEGH1NHfRGkP7qKGIyoE8zWey4BHLSAyBt1CkC77HO6kSn1EgU771Cp6yH-bZM8wyHtS+WQ5XHNWVLXMw2m8GQ+o21tcAJwbB5MwBObqI56WppwBHGCPZ4gATGwjUCO6U5nNTQADaoDQZANAHcNcJ2YqYAA2a7XSXA693lwIOCshgQwhL8b2EW9bXtagAFk0B9QhBRAb8wM+Sg0HoQg0CQEpmCQ28AA1CCsX0AHp5D7ODcFwgBNQjQ1IvsgMorDhE+RgHyfMhEgwFJ7mVWgBAQOE0BQBAyDQIJqEYfgpWdEBUJEsSAAVqBFGShIUtAAC1RABS5iThR9hEVdBZ3AEw1TkwzFT4ORoD4gSDLgEpFUOOy0IcyynKMsh2O82FPOcsgAFEWTZDkIT0RzAsiVAYGBShtQmT5FWVVUYHswSQRQMBhAEVzt0yhBstygQXmykg-wuD4spyvK3FsWxtXubQXzuYq8uU1TdC0a4AHZFCJNraoEb4SDgIDoD+GqSs+EQxGoRA8oi4EiuGsEEAS2hrwhKFpryiSpP82xaBIUJQgQIhfOMtBZwy3ATsQFgSCIcQoKQWh3iFWCruLNDTH5LQEOFOAfrwP77hATQdGuZhhBUUStomu6QDhhG0BDH7-NRshEZC3Nwr0m5cGx3GfX1eDYfhnH0asMaECel7oPez6QFCdkGCCENzsEFKVQs-VDTGlJ0vczKBaNU0lz1a0EAgh1oF0J0rUNBBOe52AxoYBAUjEj7laNAiVmllWaKN6dedVSWDyPE9mHEMgEAQFxUQQVJ0hQtDmq0XrcHhygSjIY0KtoaQHieTLbwkDnhEU9mD3FYSIclFxHAAEmoVOQAAX2wK9QPvKzbLfD8QJ-P8AIm7RS7AuXoNginKPzj30NgTDsMbu9DZAIifXo90KMQ-PTe7uiyPdRjEOY1iGB+ri7V40X1NE8TJIYaSPx0XQX0lSUX0VxQ316olBrkxOlJUmBJUJIld4P99eslXr+qOeRWtPjTtNKCET8oQuTKMcy6h0A8ScvwAyHEbJbnDlFbyrlka-y8oqTGlwYGKjxmFCUVxqoIOirFaA8VEqlGSkqPmUCdyrRKmQwq7VSrlUqizChdUSANSahCN+jCBCdXeD1fqJ8OGjXGr8IaM05riEWq5IEwi8rrU2ttPSu0OEHTXkdE6Z0Lo-X-m5fimUHr02eq9ZmCsvo+lBuDAGNxeRjVMeZUU1IYbEypojEW2iHFowxoXLGjj0boLzBFRQwISbeLJrZEACFAkhlpo9fRTMPpGNZuzNWEMFQkLSvrIWziPLixNGaeO+tZZ-kgo6WSWTEmEE1trXWxsDb8iqQgYeZxkmpWyUuG2pw7bUAdk7F2bsGDNy9j7EAfsA5BwQCHDJEco4hFjmIQgwYfS1lDAnEShBk5pwADprNKNrNAmcc55zvMg4un4O5gV-P+EggFgInPAgU169dYAIVwn0jCzEcL5y7j3PujgB7UVoiGL5E824sTYoXOePFxlLzEko6SkpZLyWXlwtS79l6f10toH+f8boANMEAtAIDlHgO8pAsOO4cGwIhQFbyyC4UckCj4gmWDUFkBirpAhOoiEW3uAVKR+VoF7VoWACqTkGE0Pqo1ASbCeWIu6n1AaPKBETSmvw0RC0EBLUJitGhMj3pyO0Aomh0KVGnXOpdTFt1F4gF0QzAxsTqroBMYXMGNiVh2MsSDR1ZjYBQwsa46mSMLXhOpb63GoVfGE38cGoJ5MHmUzcZEvRjM3q2plAkrmEM2YYH5tadJWjMkyytrAQsWTa5FLyaUjWTkKloVqV3M4WT6kLk5QWi0rSzj20ds7V2-Rnl6QGUM4Qgdg6h2RpHNA0dpkXEGQ2b0E84CJwUCnVOGytkpB2dnAAurgW8ocLTMFvKZH4WcgA" frameborder="0"></iframe>        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup><img src="Figures/PS3_VisualPDELogo.png" 
+                     alt="VisualPDELogo.png" 
+                     style="height: 1.6em; vertical-align: middle;"></sup> Walker, B.J., Townsend, A.K., Chudasama, A.K. et al. VisualPDE: Rapid Interactive Simulations of Partial Differential Equations. Bull Math Biol 85, 113 (2023). https://doi.org/10.1007/s11538-023-01218-4
+            </p>
+            <p class="footnote">
+                <sup>2</sup> The World Turning.                
+                 <a href="https://visualpde.com/sim/?mini=L7Qv6k7D" target="_blank">
+                    <code>https://visualpde.com/sim/?mini=L7Qv6k7D</code>
+                </a> 
+            </p>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <a href="PS3Slide11.html" class="nav-button left">&#9664;</a>
+        <a href="PS3Slide13.html" class="nav-button right">&#9654;</a>
+    </div>
+<!-- Footer -->
+<div class="footer">
+    <div style="display:inline-block; width:0; height:0; overflow:hidden; visibility:hidden;">
+        <script type='text/javascript' 
+                id='clustrmaps' 
+                src='//cdn.clustrmaps.com/map_v2.js?cl=ddf1f3&w=120&t=n&d=OPKQOGhHo-7gCMldcljdv8lVxlAlOY6UExXXPy46lfI&co=ffffff&cmo=4b8ddf&cmn=7dcdf4&ct=808080'>
+        </script>
+    </div>
+</div>
+</body>
+</html>
