@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="favicon.png" type="image/x-icon">
-    <title>Expanded Knowledge</title>
+    <title>Example</title>
     <link rel="stylesheet" href="styles.css">
     <script>
         window.MathJax = {
@@ -162,12 +162,82 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Problem 6: Expanded Knowledge</div>
+        <div class="title">Example: Group Velocity and Dispersion of a Gaussian Wave Packet in Deep Water</div>
 
         <div class="slide">
-<div class="image-container">
-<img src="Figures/PS2_ScientificResearchMethods.png" alt="ScientificResearchMethods" style="max-width: 100%; height: 100%; border: none;">
-</div>
+<p>
+Consider a deep-water wave train with a Gaussian envelope that resides
+near \( x = 0 \) at \( t = 0 \) and travels in the positive-\(x\) direction. The surface shape at
+any time is a Fourier superposition of waves with all possible wave
+numbers:
+\[
+\eta(x,t)
+=
+\int_{-\infty}^{+\infty}
+\tilde{\eta}(k)
+\exp\!\left[
+i\left(
+kx - (g|k|)^{1/2} t
+\right)
+\right] dk
+\tag{†}
+\]
+
+where \( \tilde{\eta}(k) \) is the amplitude of the wave component with wave number \(k\),
+and the dispersion relation is \( \omega = (gk)^{1/2} \).
+For the following items assume the surface shape at \( t = 0 \) is:
+\[
+\eta(x,0)
+=
+\frac{a}{\sqrt{2\pi}\,\alpha}
+\exp\!\left\{
+-\frac{x^2}{2\alpha^2}
++
+i k_d x
+\right\}
+\]
+
+Here, \( k_d > 0 \) is the dominant wave number, and \( \alpha \) sets the initial horizontal
+extent of the wave train, with larger \( \alpha \) producing a longer wave train.<br><br>
+
+(1) Plot \( \Re[\eta(x,0)] \) for \( |x| \le 40 \,\text{m} \) when \( \alpha = 10 \,\text{m} \) and
+\( k_d = 2\pi/\lambda_d = 2\pi/10 \,\text{m}^{-1} \).<br><br>
+
+(2) Use the inverse Fourier transform at \( t = 0 \),
+\[
+\tilde{\eta}(k)
+=
+\frac{1}{2\pi}
+\int_{-\infty}^{+\infty}
+\eta(x,0)\, e^{-ikx}\, dx,
+\]
+to find the wave amplitude distribution:
+\[
+\tilde{\eta}(k)
+=
+\frac{1}{2\pi}
+\exp\!\left\{
+-\frac{1}{2}(k - k_d)^2 \alpha^2
+\right\},
+\]
+and plot this function for \( 0 < k < 2k_d \) using the numerical values
+from question (1). Does the dominant contribution to the wave activity come from wave
+numbers near \( k_d \) for the question (1) values?<br><br>
+
+(3) For large \(x\) and \(t\), the integrand of (†) happens to be constant.
+Thus, for any \(x\) and \(t\), the primary contribution to \( \eta \) will
+come from the region where the phase in (†) does not depend on \(k\).
+Thus, set \( d\Phi/dk = 0 \), and solve for \( k_s \) (the wave number
+where the phase is independent of \(k\)) in terms of \(x\), \(t\), and \(g\).<br><br>
+
+(4) Using the result of question (2), set \( k_s = k_d \) to find the \(x\)-location
+where the dominant portion of the wave activity occurs.
+At this location, the ratio \(x/t\) is the propagation speed of the dominant
+portion of the wave activity.
+Is this propagation speed the phase speed, the group speed,
+or another speed altogether?
+
+</p>
 
 
         <!-- Navigation Arrows -->
