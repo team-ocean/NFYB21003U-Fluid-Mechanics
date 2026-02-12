@@ -171,48 +171,14 @@ window.addEventListener('resize', scaleContainer);
         <div class="title">Example: Group Velocity and Dispersion of a Gaussian Wave Packet in Deep Water</div>
 
         <div class="slide">
-<div class="codebox">
-  <div class="codebox-title">
-    \(\tilde{\eta}(k)\)
-  </div>
-  <div class="codebox-body">
-<pre><code><span class="py-kw">import</span> <span class="py-fn">numpy</span> <span class="py-kw">as</span> <span class="py-fn">np</span>
-<span class="py-kw">import</span> <span class="py-fn">matplotlib.pyplot</span> <span class="py-kw">as</span> <span class="py-fn">plt</span>
-
-<span class="py-cm"># Parameters</span>
-alpha <span class="py-op">=</span> <span class="py-num">10.0</span>                  <span class="py-cm"># m</span>
-lambda_d <span class="py-op">=</span> <span class="py-num">10.0</span>               <span class="py-cm"># m</span>
-k_d <span class="py-op">=</span> <span class="py-num">2</span> <span class="py-op">*</span> np.pi <span class="py-op">/</span> lambda_d    <span class="py-cm"># dominant wave number (m^-1)</span>
-
-<span class="py-cm"># Wavenumber grid: 0 &lt; k &lt; 2 k_d</span>
-k <span class="py-op">=</span> np.linspace(<span class="py-num">0.0</span>, <span class="py-num">2.0</span> <span class="py-op">*</span> k_d, <span class="py-num">2000</span>)
-
-<span class="py-cm"># Analytic result for \tilde{eta}(k)</span>
-eta_tilde <span class="py-op">=</span> (<span class="py-num">1</span> <span class="py-op">/</span> (<span class="py-num">2</span> <span class="py-op">*</span> np.pi)) <span class="py-op">*</span> np.exp(
-    <span class="py-op">-</span><span class="py-num">0.5</span> <span class="py-op">*</span> (k <span class="py-op">-</span> k_d)<span class="py-op">**</span><span class="py-num">2</span> <span class="py-op">*</span> alpha<span class="py-op">**</span><span class="py-num">2</span>
-)
-
-plt.figure(figsize=(<span class="py-num">7</span>, <span class="py-num">4.5</span>))
-plt.plot(k, eta_tilde, color=<span class="py-str">'black'</span>, linewidth=<span class="py-num">1.5</span>)
-plt.xlim(<span class="py-num">0</span>, <span class="py-num">2</span> <span class="py-op">*</span> k_d)
-plt.xlabel(r<span class="py-str">"$k\ \mathrm{(m^{-1})}$"</span>)
-plt.ylabel(r<span class="py-str">"$\tilde{\eta}(k)$"</span>)
-plt.title(
-    r<span class="py-str">"Wave-number amplitude distribution $\tilde{\eta}(k)$"</span>
-    <span class="py-str">"\n"</span>
-    r<span class="py-str">"$\alpha = 10\,\mathrm{m},\quad k_d = 2\pi/10\,\mathrm{m^{-1}}$"</span>
-)
-plt.tight_layout()
-plt.show()</code></pre>
-  </div>
-</div>
-<img src="Figures/PS2_KunduSixth8.13(2)Plot.png" alt="PS2_KunduSixth8.13(2)Plot" style="max-width: 100%; height: 100%; border: none;">
+<p><span class="sql">[Sol]</span></p>
+<img src="Figures/PS2_BlackboardKundu8-13SolNotebook.png" alt="BlackboardKundu8-13SolNotebook" style="max-width: 100%; height: 100%; border: none;">
 
 
 
         <!-- Navigation Arrows -->
-        <a href="PS2Slide32.html" class="nav-button left">&#9664;</a>
-        <a href="PS2Slide34.html" class="nav-button right">&#9654;</a>
+        <a href="PS2Slide33.html" class="nav-button left">&#9664;</a>
+        <a href="PS2Slide35.html" class="nav-button right">&#9654;</a>
     </div>
 <!-- Footer -->
 <div class="footer">
