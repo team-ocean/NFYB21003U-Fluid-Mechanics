@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.png" type="image/x-icon">
+  <title>Expanded Knowledge</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Configure MathJax -->
+  <script>
+    window.MathJax = {
+      tex: {
+        packages: {'[+]': ['ams']},
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      loader: {load: ['[tex]/ams']}
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
+  <style>
+    .container {
+      width: 100%;
+      max-width: 1000px;
+      height: 61%;
+      margin: auto;
+      text-align: center;
+    }
+    iframe {
+      width: 100%;
+      height: 800px; /* adjust height as needed */
+      border: 0;
+      border-radius: 0px;
+    }
+  </style>
+
+    <script>
+function scaleContainer() {
+  const container = document.querySelector('.container');
+  const padding = 0; // optional padding margin
+  const viewportHeight = window.innerHeight - padding;
+  const containerHeight = container.offsetHeight;
+
+  // Compute the scale ratio
+  const scale = Math.min(1, viewportHeight / containerHeight);
+
+  container.style.transform = `scale(${scale})`;
+}
+
+// Run on load
+window.addEventListener('load', scaleContainer);
+// Run on resize
+window.addEventListener('resize', scaleContainer);
+</script>
+
+<script src="exit.js" defer></script>
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="title">Problem 3: Expanded Knowledge</div>
+<iframe title="VisualPDE simulation" style="border:0;width:100%;height:100%;" src="https://visualpde.com/sim/?options=N4IgRgqiBcIHYFMCuBbAhnOIA04BqM8y6mO4ahAzigPY0AuAFmgCYtlgBOhArAAxl6YQgDcANgEtEHEYT4A6Pnx5kAxgBEY9TkgS4WEKLAQAHShLE0s+vAVgD9AdUdyyLCYQCMbyl6UOQFnoYBT4AZlxVIxBQvk8AagVPACoEAA8TAAoAWlilHmTMtOyAGQB9NIB6HgBKAD0AJhqyAGtCU3NLOAACAF5uvL4AbhM+7oAWIbJ0OXlvXDgKaE8FgBUYTwA2XBN12ElpHcIAYSRKehoUMhNOGjAEADEkLFgka9v7koQ4AHMmGHGAA4lLhONFst1Mp5KpkTMkkHVYdkmjUaskRBVhKC7CAESYyJwXPYyJR8bB5iBKC9cd1ZLhKG9oNpdLh6OwmTo9CB6L5YAAlADS4zIsmgAG1QGhOLcAO7HGiWJDcaCbHg8MI8XBS2Xqb7megATxC8k1IG1NBlX1+TAAsmg0l4yOaZQBlVRoMQIQhoJAXJ3Si0ADUI5SqDW6EIdWoDMoAmiGygbKuGIUatb6aC6EPR5YrOHyMD8vdAAGYeyhc90oBCcNCrRjZpZhPiRNDV2sABUYHmgzdb7bQAC06FdoApAZEFTQlegydylWAaGopwupTAy2IK5O4BclbyN1uQKorLvOLnp8qW0eTxeAKJmCxWY1xbengByqBgptUZwuKBdSplqoxYHlyCAoIulD7uWYEQTQUEAIIQRI3zBGOJq4OBkGUOoEgliWZzFgo2wgFh8GUF2PaeCaADsfATqRcFQS63ZwEayxXmRzG0AwjCIFBxoNJhTGUC6JgID+YhruhQmMdh9aNsaNGAjw4y4CWkgmOJLDnjOaBkqBuAHAgjgSEEjA2kgYgbLg6BpLpnB4B6uizBSKBSA5TliC59iKGQNAiDWUnsYZIABUFaAGg5IS4OFnDBfenRPuh+SxYF8WRbeGTKiAFJxcFJRSCZZm2lZNkgCYlj0KsBriYQxnvHcUg-OuME7B8jzPIQbztXcCBWn8jAAsCV43H1NV1bAUj0AgPy1tZvX3MGxKLQg8YrZSgFoMBTzUgETCcAgCDqAAEggEg-Iw9Buh6RHyDRuCBaoFycA8KFiOyoUysw1U0B2VXdWQizVo6AC+AC6uAyuyuJkDKc49ZSEgoKsEj0J6hCZHgEiUMeZw1N0ABCSpFpwlAAOTdAgACOSBoPQEhPqDQA" frameborder="0"></iframe>
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup><img src="Figures/PS3_VisualPDELogo.png" 
+                     alt="VisualPDELogo.png" 
+                     style="height: 1.6em; vertical-align: middle;"></sup> Walker, B.J., Townsend, A.K., Chudasama, A.K. et al. VisualPDE: Rapid Interactive Simulations of Partial Differential Equations. Bull Math Biol 85, 113 (2023). https://doi.org/10.1007/s11538-023-01218-4
+            </p>
+            <p class="footnote">
+                <sup>2</sup> Interactive Inviscid Shock Simulation             
+                 <a href="https://visualpde.com/sim/?preset=InviscidBurgers" target="_blank">
+                    <code>https://visualpde.com/sim/?preset=InviscidBurgers</code>
+                </a> 
+            </p>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <a href="PS3Slide19.html" class="nav-button left">&#9664;</a>
+        <a href="PS3Slide21.html" class="nav-button right">&#9654;</a>
+    </div>
+<!-- Footer -->
+<div class="footer">
+    <div style="display:inline-block; width:0; height:0; overflow:hidden; visibility:hidden;">
+        <script type='text/javascript' 
+                id='clustrmaps' 
+                src='//cdn.clustrmaps.com/map_v2.js?cl=ddf1f3&w=120&t=n&d=OPKQOGhHo-7gCMldcljdv8lVxlAlOY6UExXXPy46lfI&co=ffffff&cmo=4b8ddf&cmn=7dcdf4&ct=808080'>
+        </script>
+    </div>
+</div>
+</body>
+</html>

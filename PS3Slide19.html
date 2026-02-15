@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.png" type="image/x-icon">
+  <title>Expanded Knowledge</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Configure MathJax -->
+  <script>
+    window.MathJax = {
+      tex: {
+        packages: {'[+]': ['ams']},
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      loader: {load: ['[tex]/ams']}
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
+  <style>
+    .container {
+      width: 100%;
+      max-width: 1000px;
+      height: 61%;
+      margin: auto;
+      text-align: center;
+    }
+    iframe {
+      width: 100%;
+      height: 800px; /* adjust height as needed */
+      border: 0;
+      border-radius: 0px;
+    }
+  </style>
+
+    <script>
+function scaleContainer() {
+  const container = document.querySelector('.container');
+  const padding = 0; // optional padding margin
+  const viewportHeight = window.innerHeight - padding;
+  const containerHeight = container.offsetHeight;
+
+  // Compute the scale ratio
+  const scale = Math.min(1, viewportHeight / containerHeight);
+
+  container.style.transform = `scale(${scale})`;
+}
+
+// Run on load
+window.addEventListener('load', scaleContainer);
+// Run on resize
+window.addEventListener('resize', scaleContainer);
+</script>
+
+<script src="exit.js" defer></script>
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="title">Problem 3: Expanded Knowledge</div>
+<iframe title="VisualPDE simulation" style="border:0;width:100%;height:100%;" src="https://visualpde.com/sim/?options=N4IgRgqiBcIHYFMCuBbAhnOIA040xAGcUB7EgFwAsAnBABwBs0BjBHcaggVgAZ3ywBAG4MAlonZghBHgDoAjOwAmEKLHqFRDEllxKAavpnKA6ieN7RBRXsLWeD5eRhyeAFlzM1IOfIBUCAAedAAUALSuDjxcfiGBYQAyAPqBAPRcAJQAegBMGewA1gQaWjoAvK5cANzs6DIK7FjQ8rhwACowOQDMObh0HbBiEn0EAMJIhOQkKOx01CRgCABiSE0gSLPziwkIcADmVDBuABwOuNTeYQAESFd+NymC50awfOfmr+yEdAQ5X2sbXCEDbQcjUJAIXDkJQwMEQ3DSaAAbVAaGo8wA7qMSNokJxoAA2LhcLpcXBozEAEV2mnIAE8XLIySAKSQMTt9lQALJoQLWdisjEAZWYaAYbFgaCQUwF6LZAA0CMk0jkrtc+eS5RiAJpKpJ01Kq64M8nSkhChDkbG46gAJQwewlADMxYRISBRSgENQ0G1KJb8NAujxPGgvT6AAqUKxBkMesPetAALTIM2gcmOnhxJDx6B+sHIeLAJHYzGzRbRMBdDDdWbgUzxdmg1drHp0Deo1pz+LjZfr3YAonRNNomq4Wm3+3iAHKoGDM5gTKYoIV4l2sKuu90IFDFwhNlvb3ckfcAQV3ol2znTTNwO73hEpoidTomErkBLvx-3UZj8iZADsPCZiA94noQQrRnADLNHGYH7kKpAUJQiD7oyvSgd+EF0Agi5MD2sgYfBhB+gGjIAccXAeCATpiHQOFKF2uZoPmh64EMCAmKISjckgDAwBO6CBEx1D6GKEL1DYIAoOIIliQwEmvLIbwgCQQjekwMFsap6nUJpIkuLgakaWgdJDiOOiMg4zLGXppkDsE+IgFJtmaQk4icdxvH8c0fTaOQbR0jhBAcZsCziHsm41u6cwLMsqwEICICxdsuwHJQRynHGKUIIFwWwOI5AIHsPr8X0WwIIqnzlXFurVUQa4sPFawqVQtAIJSAASCCiHslDkCKYrvrIAEIrhUzUEsl4MDCzZbrgGKUGgAUkBG-mJY0Cb8gAvgAugts3rOwGL5kdQKiCgbSiOQ4oECE+iiIQZYTBkVwAEJ4o61CEAA5FcCAAI5IMtoiWdtQA" frameborder="0"></iframe> 
+
+
+        <!-- Footnote Section -->
+        <div class="footnote-container">
+            <hr class="footnote-line">
+            <p class="footnote">
+                <sup><img src="Figures/PS3_VisualPDELogo.png" 
+                     alt="VisualPDELogo.png" 
+                     style="height: 1.6em; vertical-align: middle;"></sup> Walker, B.J., Townsend, A.K., Chudasama, A.K. et al. VisualPDE: Rapid Interactive Simulations of Partial Differential Equations. Bull Math Biol 85, 113 (2023). https://doi.org/10.1007/s11538-023-01218-4
+            </p>
+            <p class="footnote">
+                <sup>2</sup> (Viscous) Burgers' equation.                
+                 <a href="https://visualpde.com/sim/?preset=BurgersEquation" target="_blank">
+                    <code>https://visualpde.com/sim/?preset=BurgersEquation</code>
+                </a> 
+            </p>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <a href="PS3Slide18.html" class="nav-button left">&#9664;</a>
+        <a href="PS3Slide20.html" class="nav-button right">&#9654;</a>
+    </div>
+<!-- Footer -->
+<div class="footer">
+    <div style="display:inline-block; width:0; height:0; overflow:hidden; visibility:hidden;">
+        <script type='text/javascript' 
+                id='clustrmaps' 
+                src='//cdn.clustrmaps.com/map_v2.js?cl=ddf1f3&w=120&t=n&d=OPKQOGhHo-7gCMldcljdv8lVxlAlOY6UExXXPy46lfI&co=ffffff&cmo=4b8ddf&cmn=7dcdf4&ct=808080'>
+        </script>
+    </div>
+</div>
+</body>
+</html>
