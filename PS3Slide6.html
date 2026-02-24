@@ -107,15 +107,10 @@ window.addEventListener('resize', scaleContainer);
                 <img src="Figures/PS3_ArakawaCScheme.png" alt="ArakawaCScheme" style="max-width: 27%; height: auto; display: block; margin: auto;">
                 <img src="Figures/PS3_ArakawaCShallowWater.png" alt="ArakawaCShallowWater" style="max-width: 27%; height: auto; display: block; margin: auto;">
             </div>
-<p>(1) Simulate the 2D linearised rotating shallow-water equations on a square domain using an Arakawa C-grid: initialize a cell-centered geopotential field with a localized positive perturbation at the domain center (zero elsewhere), define staggered zonal and meridional velocities on the C-grid, and advance the coupled system forward in time with an explicit scheme using second-order centered finite differences (including Coriolis coupling and appropriate velocity averaging for interpolation). Report the gravity-wave Courant number for the chosen grid spacing and time step, and visualize the evolving geopotential field together with the velocity field (e.g., using <code>contourf</code>/<code>imshow</code> 
-    for height and arrows/streamlines for velocity) 
-    over several time steps to illustrate wave propagation and the flow response 
-    to the initial perturbation.
+<p>(1) Using the provided shallow-water model (or your previously implemented code), simulate the two-dimensional linearised rotating shallow-water equations on a square domain using an Arakawa C-grid. Initialize a cell-centered geopotential field with a localized positive perturbation at the domain center (zero elsewhere), define staggered zonal and meridional velocities on the C-grid, and advance the coupled system forward in time using an explicit scheme with second-order centered finite differences, including Coriolis coupling and appropriate velocity averaging. Report the gravity-wave Courant number for your chosen grid spacing and time step, and visualize the evolving geopotential and velocity fields over several time steps.
 </p>
 
-<p>(2) Implement the linearised rotating shallow-water equations on an Arakawa A-grid or 
-    Arakawa B-grid using the same numerical parameters as in the C-grid case. 
-    Compare the solutions obtained with different grid staggers and discuss any differences.
+<p>(2) Modify your implementation from part (1) so that it instead uses an Arakawa A-grid (i.e., all variables defined at the same grid points), while keeping the same numerical parameters and initial condition. Compare the results obtained with the C-grid and A-grid formulations, and discuss the differences in wave behavior and numerical properties.
 </p>
 
         <!-- Footnote Section -->
