@@ -170,13 +170,47 @@ window.addEventListener('resize', scaleContainer);
     <div class="container">
         <div class="title">Example: 1D Shallow Water Equations Wind Forcing</div>
         <div class="slide">  
-
-<p>(★) Now consider that you are simulating the Baltic Sea as a one-dimensional basin where the wind pushes water from Copenhagen (left) to Saint Petersburg (right). 
-Search for appropriate parameters such as basin length, average water depth, and wind velocity, and run the simulation to observe the resulting sea surface response.</p>
-
+<div class="codebox">
+<div class="codebox-title">Animation and visualization</div>
+<div class="codebox-body">
+<pre><code>x = np.loadtxt(<span class="py-str">f"{data_dir}/x_grid.dat"</span>) <span class="py-cm"># Load data for animation</span>
+eta_files = sorted([f <span class="py-kw">for</span> f <span class="py-kw">in</span> os.listdir(data_dir) <span class="py-kw">if</span> f.startswith(<span class="py-str">"eta_"</span>)])
+u_files   = sorted([f <span class="py-kw">for</span> f <span class="py-kw">in</span> os.listdir(data_dir) <span class="py-kw">if</span> f.startswith(<span class="py-str">"u_"</span>)])
+nt = len(eta_files)
+eta_array = np.zeros((nt, nx))
+u_array   = np.zeros((nt, nx))
+<span class="py-kw">for</span> i <span class="py-kw">in</span> range(nt):
+    eta_array[i] = np.loadtxt(<span class="py-str">f"{data_dir}/{eta_files[i]}"</span>)
+    u_array[i]   = np.loadtxt(<span class="py-str">f"{data_dir}/{u_files[i]}"</span>)
+bottom_display = -<span class="py-num">0.2</span>
+fig, axes = plt.subplots(<span class="py-num">3</span>,<span class="py-num">1</span>, figsize=(<span class="py-num">15</span>,<span class="py-num">8</span>), sharex=<span class="py-kw">True</span>)
+fig.suptitle(<span class="py-str">"1D Shallow Water Basin (Wind Forced)"</span>, fontsize=<span class="py-num">12</span>)
+ax0, ax1, ax2 = axes
+surface_line, = ax1.plot(x/<span class="py-num">1000</span>, eta_array[<span class="py-num">0</span>], color=<span class="py-str">"midnightblue"</span>, lw=<span class="py-num">2</span>)
+vel_line,     = ax2.plot([], [], lw=<span class="py-num">2</span>, color=<span class="py-str">"hotpink"</span>)
+<span class="py-kw">def</span> update(frame):
+    eta = eta_array[frame]
+    u   = u_array[frame]
+    surface_line.set_data(x/<span class="py-num">1000</span>, eta)
+    vel_line.set_data(x/<span class="py-num">1000</span>, u)
+    time_hours = time_array[frame] / <span class="py-num">3600</span>
+    ax1.set_title(<span class="py-str">f"Surface Evolution (t = {time_hours:.2f} hours)"</span>)
+    ax2.set_title(<span class="py-str">f"Velocity (t = {time_hours:.2f} hours)"</span>)
+    <span class="py-kw">return</span> surface_line, vel_line
+ani = animation.FuncAnimation(
+    fig,
+    update,
+    frames=min(nt,<span class="py-num">200</span>),
+    interval=<span class="py-num">120</span>
+)
+ani.save(<span class="py-str">"swe_exaggerated_surface.gif"</span>, writer=<span class="py-str">"pillow"</span>, fps=<span class="py-num">8</span>)
+print(<span class="py-str">"Saved: swe_exaggerated_surface.gif"</span>)
+plt.close(fig)</code></pre>
+</div>
+</div>
         <!-- Navigation Arrows -->
-        <a href="PS3Slide33.html" class="nav-button left">&#9664;</a>
-        <a href="PS3Slide35.html" class="nav-button right">&#9654;</a>
+        <a href="PS3Slide44.html" class="nav-button left">&#9664;</a>
+        <a href="PS3Slide46.html" class="nav-button right">&#9654;</a>
     </div>
 <!-- Footer -->
 <div class="footer">

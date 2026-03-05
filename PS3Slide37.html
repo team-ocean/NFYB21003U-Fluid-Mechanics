@@ -168,15 +168,91 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Example: 1D Shallow Water Equations Wind Forcing</div>
+        <div class="title">Example: 1D Shallow Water Equations Dam Break</div>
         <div class="slide">  
+<div class="codebox">
+<div class="codebox-title">Finite-volume update and output</div>
+<div class="codebox-body">
+<pre><code>        U1_new = U1.copy()
+        U2_new = U2.copy()
+        <span class="py-kw">for</span> j <span class="py-kw">in</span> range(<span class="py-num">1</span>, N+<span class="py-num">1</span>): <span class="py-cm"># finite volume discretization</span>
+            U1_new[j] = U1[j] - (dt/dx)*(F1[j] - F1[j-<span class="py-num">1</span>])       <span class="py-cm"># Continuity Equation update water depth h</span>
+            U2_new[j] = U2[j] - (dt/dx)*(F2L[j] - F2R[j-<span class="py-num">1</span>])     <span class="py-cm"># Momentum Equation h*v</span>
+        U1, U2 = U1_new, U2_new
+        h = U1
+        v = U2 / U1
+        eta = h[<span class="py-num">1</span>:N+<span class="py-num">1</span>] + b_phys
+        h_store.append(eta.copy())
+        v_store.append(v[<span class="py-num">1</span>:N+<span class="py-num">1</span>].copy())
+        t_store.append(t)
+        plt.cla()
+        plt.subplot(<span class="py-num">2</span>,<span class="py-num">1</span>,<span class="py-num">1</span>)
+        plt.plot(x, eta, label=<span class="py-str">"η (free surface)"</span>)
+        plt.plot(x, b_phys, <span class="py-str">'--'</span>, label=<span class="py-str">"bottom"</span>)
+        plt.plot(x, eta_initial, <span class="py-str">':'</span>, label=<span class="py-str">"initial η"</span>)
+        plt.legend()
+        plt.subplot(<span class="py-num">2</span>,<span class="py-num">1</span>,<span class="py-num">2</span>)
+        plt.plot(x, v[<span class="py-num">1</span>:N+<span class="py-num">1</span>])
+        plt.pause(pausetime)
+    pbar.close()
+    h_array = np.array(h_store)
+    v_array = np.array(v_store)
+    np.savez(<span class="py-str">"dam_break_data_bottomtopo.npz"</span>,
+             h_array=h_array,
+             v_array=v_array,
+             t_store=np.array(t_store),
+             x=x)
+    print(<span class="py-str">"Saved: dam_break_data_bottomtopo.npz"</span>)
+    plt.close()
+SWE_DamBreak_JA()</code></pre>
+</div>
+</div>
 
-<p>(★) Now consider that you are simulating the Baltic Sea as a one-dimensional basin where the wind pushes water from Copenhagen (left) to Saint Petersburg (right). 
-Search for appropriate parameters such as basin length, average water depth, and wind velocity, and run the simulation to observe the resulting sea surface response.</p>
+<div class="codebox">
+<div class="codebox-title">Visualization setup</div>
+<div class="codebox-body">
+<pre><code><span class="py-kw">import</span> numpy <span class="py-kw">as</span> np
+<span class="py-kw">import</span> matplotlib.pyplot <span class="py-kw">as</span> plt
+<span class="py-kw">import</span> matplotlib.animation <span class="py-kw">as</span> animation
+
+data = np.load(<span class="py-str">"dam_break_data_bottomtopo.npz"</span>) <span class="py-cm"># Load data</span>
+h_array = data[<span class="py-str">"h_array"</span>]   
+v_array = data[<span class="py-str">"v_array"</span>]
+t_store = data[<span class="py-str">"t_store"</span>]
+x = data[<span class="py-str">"x"</span>]
+nt, nx = h_array.shape
+print(<span class="py-str">"Loaded:"</span>, h_array.shape, v_array.shape)
+<span class="py-kw">def</span> bottom(x):
+    <span class="py-kw">return</span> np.zeros_like(x) <span class="py-cm"># Reconstruct bottom</span>
+b = bottom(x)
+h0 = np.min(h_array) <span class="py-cm"># Base water level</span>
+fig, axes = plt.subplots(<span class="py-num">3</span>, <span class="py-num">1</span>, figsize=(<span class="py-num">15</span>, <span class="py-num">8</span>), sharex=<span class="py-kw">True</span>)
+fig.suptitle(<span class="py-str">"1D Shallow Water - Dam Break (Filled Water + Velocity)"</span>, fontsize=<span class="py-num">12</span>)
+ax0, ax1, ax2 = axes
+h_min, h_max = np.min(h_array), np.max(h_array) <span class="py-cm"># Axis limit</span>
+v_min, v_max = np.min(v_array), np.max(v_array)
+b_min = np.min(b)
+<span class="py-kw">for</span> ax <span class="py-kw">in</span> (ax0, ax1):
+    ax.set_xlim(x.min(), x.max())
+    ax.set_ylim(b_min - <span class="py-num">1</span>, h_max + <span class="py-num">2</span>)
+    ax.set_ylabel(<span class="py-str">"Height (h)"</span>)
+    ax.grid()
+ax2.set_xlim(x.min(), x.max())
+ax2.set_ylim(v_min * <span class="py-num">1.05</span>, v_max * <span class="py-num">1.05</span>)
+ax2.set_ylabel(<span class="py-str">"Velocity (v)"</span>)
+ax2.set_xlabel(<span class="py-str">"Distance (m)"</span>)
+ax2.grid()
+ax0.set_title(<span class="py-str">"Initial Water Surface"</span>, color=<span class="py-str">"midnightblue"</span>)
+ax1.set_title(<span class="py-str">"Wave Propagation"</span>, color=<span class="py-str">"midnightblue"</span>)
+ax2.set_title(<span class="py-str">"Velocity"</span>, color=<span class="py-str">"midnightblue"</span>)
+</code></pre>
+</div>
+</div>
+
 
         <!-- Navigation Arrows -->
-        <a href="PS3Slide33.html" class="nav-button left">&#9664;</a>
-        <a href="PS3Slide35.html" class="nav-button right">&#9654;</a>
+        <a href="PS3Slide36.html" class="nav-button left">&#9664;</a>
+        <a href="PS3Slide38.html" class="nav-button right">&#9654;</a>
     </div>
 <!-- Footer -->
 <div class="footer">

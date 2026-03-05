@@ -170,13 +170,73 @@ window.addEventListener('resize', scaleContainer);
     <div class="container">
         <div class="title">Example: 1D Shallow Water Equations Wind Forcing</div>
         <div class="slide">  
+<div class="codebox">
+<div class="codebox-title">Flux functions</div>
+<div class="codebox-body">
+<pre><code><span class="py-kw">def</span> flux(h, hu):
+    u = np.where(h &gt; <span class="py-num">1e-12</span>, hu/h, <span class="py-num">0.0</span>)
+    f1 = hu
+    f2 = hu*u + <span class="py-num">0.5</span>*g*h*h
+    <span class="py-kw">return</span> f1, f2
+<span class="py-kw">def</span> rusanov_flux(hL, huL, hR, huR):
+    uL = huL/hL <span class="py-kw">if</span> hL &gt; <span class="py-num">1e-12</span> <span class="py-kw">else</span> <span class="py-num">0.0</span>
+    uR = huR/hR <span class="py-kw">if</span> hR &gt; <span class="py-num">1e-12</span> <span class="py-kw">else</span> <span class="py-num">0.0</span>
+    cL = np.sqrt(g*hL)
+    cR = np.sqrt(g*hR)
+    smax = max(abs(uL)+cL, abs(uR)+cR)
+    f1L, f2L = flux(hL, huL)
+    f1R, f2R = flux(hR, huR)
+    f1 = <span class="py-num">0.5</span>*(f1L + f1R) - <span class="py-num">0.5</span>*smax*(hR - hL)
+    f2 = <span class="py-num">0.5</span>*(f2L + f2R) - <span class="py-num">0.5</span>*smax*(huR - huL)
+    <span class="py-kw">return</span> f1, f2
+</code></pre>
+</div>
+</div>
 
-<p>(★) Now consider that you are simulating the Baltic Sea as a one-dimensional basin where the wind pushes water from Copenhagen (left) to Saint Petersburg (right). 
-Search for appropriate parameters such as basin length, average water depth, and wind velocity, and run the simulation to observe the resulting sea surface response.</p>
-
+<div class="codebox">
+<div class="codebox-title">Finite volume time stepping</div>
+<div class="codebox-body">
+<pre><code><span class="py-kw">def</span> step_fv(h, hu, dt):
+    hg = np.zeros(nx+<span class="py-num">2</span>)
+    hug = np.zeros(nx+<span class="py-num">2</span>)
+    hg[<span class="py-num">1</span>:-<span class="py-num">1</span>] = h
+    hug[<span class="py-num">1</span>:-<span class="py-num">1</span>] = hu
+    hg, hug = fill_reflective_ghosts(hg, hug)
+    Fh = np.zeros(nx+<span class="py-num">1</span>)
+    Fhu = np.zeros(nx+<span class="py-num">1</span>)
+    <span class="py-kw">for</span> i <span class="py-kw">in</span> range(nx+<span class="py-num">1</span>):
+        hL, huL = hg[i], hug[i]
+        hR, huR = hg[i+<span class="py-num">1</span>], hug[i+<span class="py-num">1</span>]
+        f1, f2 = rusanov_flux(hL, huL, hR, huR)
+        Fh[i] = f1
+        Fhu[i] = f2
+    h_new = h.copy()
+    hu_new = hu.copy()
+    <span class="py-kw">for</span> j <span class="py-kw">in</span> range(nx):
+        h_new[j]  = h[j]  - (dt/dx)*(Fh[j+<span class="py-num">1</span>]  - Fh[j])
+        hu_new[j] = hu[j] - (dt/dx)*(Fhu[j+<span class="py-num">1</span>] - Fhu[j])
+    <span class="py-cm"># wind forcing</span>
+    <span class="py-kw">if</span> use_wind:
+        hu_new += dt * (h_new * a_wind)
+    h_new = np.maximum(h_new, <span class="py-num">1e-8</span>)
+    <span class="py-kw">return</span> h_new, hu_new
+<span class="py-cm"># Run simulation</span>
+t = <span class="py-num">0.0</span>
+<span class="py-kw">while</span> t &lt; t_end:
+    u_now = np.where(h &gt; <span class="py-num">1e-12</span>, hu/h, <span class="py-num">0.0</span>)
+    c_now = np.sqrt(g*h)
+    smax = np.max(np.abs(u_now) + c_now)
+    dt = CFL * dx / (smax + <span class="py-num">1e-12</span>)
+    t += dt
+    h, hu = step_fv(h, hu, dt)
+    u = np.where(h &gt; <span class="py-num">1e-12</span>, hu/h, <span class="py-num">0.0</span>)
+    eta = h - H0
+</code></pre>
+</div>
+</div>
         <!-- Navigation Arrows -->
-        <a href="PS3Slide33.html" class="nav-button left">&#9664;</a>
-        <a href="PS3Slide35.html" class="nav-button right">&#9654;</a>
+        <a href="PS3Slide43.html" class="nav-button left">&#9664;</a>
+        <a href="PS3Slide45.html" class="nav-button right">&#9654;</a>
     </div>
 <!-- Footer -->
 <div class="footer">

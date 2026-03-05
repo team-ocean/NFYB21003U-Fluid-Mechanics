@@ -170,13 +170,63 @@ window.addEventListener('resize', scaleContainer);
     <div class="container">
         <div class="title">Example: 1D Shallow Water Equations Wind Forcing</div>
         <div class="slide">  
+<div class="codebox">
+<div class="codebox-title">Parameters</div>
+<div class="codebox-body">
+<pre><code><span class="py-kw">import</span> numpy <span class="py-kw">as</span> np
+<span class="py-kw">import</span> matplotlib.pyplot <span class="py-kw">as</span> plt
+<span class="py-kw">import</span> matplotlib.animation <span class="py-kw">as</span> animation
+<span class="py-kw">import</span> imageio
+<span class="py-kw">import</span> os
 
-<p>(★) Now consider that you are simulating the Baltic Sea as a one-dimensional basin where the wind pushes water from Copenhagen (left) to Saint Petersburg (right). 
-Search for appropriate parameters such as basin length, average water depth, and wind velocity, and run the simulation to observe the resulting sea surface response.</p>
+g = <span class="py-num">9.81</span>
+rho = <span class="py-num">1000.0</span>
+H0 = <span class="py-num">10.0</span>
+eta0 = <span class="py-num">0.0</span>
+tau_x0 = <span class="py-num">0.05</span>
+use_wind = <span class="py-kw">True</span>
+a_wind = tau_x0/(rho*H0) <span class="py-kw">if</span> use_wind <span class="py-kw">else</span> <span class="py-num">0.0</span>
+nx = <span class="py-num">254</span> <span class="py-cm"># Grid</span>
+L = <span class="py-num">190e3</span>
+dx = L/(nx-<span class="py-num">1</span>)
+x = np.linspace(<span class="py-num">0</span>, L, nx)
+CFL = <span class="py-num">0.8</span>
+forecast_length_days = <span class="py-num">10</span>
+t_end = forecast_length_days * <span class="py-num">24</span> * <span class="py-num">3600</span>
+save_interval = <span class="py-num">3600.0</span>
+next_save = save_interval
+data_dir = <span class="py-str">"swe_output"</span>
+os.makedirs(data_dir, exist_ok=<span class="py-kw">True</span>)
+np.savetxt(<span class="py-str">f"{data_dir}/x_grid.dat"</span>, x)
+</code></pre>
+</div>
+</div>
+
+<div class="codebox">
+<div class="codebox-title">Initial conditions</div>
+<div class="codebox-body">
+<pre><code>h = np.ones(nx) * (H0 + eta0)
+u = np.zeros(nx)
+hu = h * u
+snapshot_id = <span class="py-num">1</span>
+eta = h - H0
+np.savetxt(<span class="py-str">f"{data_dir}/eta_{snapshot_id:04d}.dat"</span>, eta) <span class="py-cm"># Save initial conditions</span>
+np.savetxt(<span class="py-str">f"{data_dir}/u_{snapshot_id:04d}.dat"</span>, u)
+print(<span class="py-str">"Snapshot 0001 | time = 0.00 hours | initial condition"</span>)
+snapshot_id += <span class="py-num">1</span>
+<span class="py-kw">def</span> fill_reflective_ghosts(hg, hug): <span class="py-cm"># Reflective BC</span>
+    hg[<span class="py-num">0</span>]  = hg[<span class="py-num">1</span>]
+    hg[-<span class="py-num">1</span>] = hg[-<span class="py-num">2</span>]
+    hug[<span class="py-num">0</span>]  = -hug[<span class="py-num">1</span>]
+    hug[-<span class="py-num">1</span>] = -hug[-<span class="py-num">2</span>]
+    <span class="py-kw">return</span> hg, hug
+</code></pre>
+</div>
+</div>
 
         <!-- Navigation Arrows -->
-        <a href="PS3Slide33.html" class="nav-button left">&#9664;</a>
-        <a href="PS3Slide35.html" class="nav-button right">&#9654;</a>
+        <a href="PS3Slide42.html" class="nav-button left">&#9664;</a>
+        <a href="PS3Slide44.html" class="nav-button right">&#9654;</a>
     </div>
 <!-- Footer -->
 <div class="footer">

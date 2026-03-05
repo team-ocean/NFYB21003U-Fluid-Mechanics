@@ -168,15 +168,85 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Example: 1D Shallow Water Equations Wind Forcing</div>
+        <div class="title">Example: 1D Shallow Water Equations Dam Break</div>
         <div class="slide">  
+<div class="codebox">
+<div class="codebox-title">Reflective boundary conditions</div>
+<div class="codebox-body">
+<pre><code>    <span class="py-kw">def</span> apply_reflective(U1, U2):
+        U1[<span class="py-num">0</span>]  = U1[<span class="py-num">1</span>]
+        U1[-<span class="py-num">1</span>] = U1[-<span class="py-num">2</span>]
+        U2[<span class="py-num">0</span>]  = -U2[<span class="py-num">1</span>]
+        U2[-<span class="py-num">1</span>] = -U2[-<span class="py-num">2</span>]
+        <span class="py-kw">return</span> U1, U2
+    <span class="py-cm"># Storage</span>
+    h_store = []
+    v_store = []
+    t_store = []
+    plt.ion()
+    pbar = tqdm()</code></pre>
+</div>
+</div>
+<div class="codebox">
+<div class="codebox-title">Finite-volume time stepping</div>
+<div class="codebox-body">
+<pre><code>    <span class="py-kw">while</span> t &lt; runningtime: <span class="py-cm"># Time loop</span>
+        U1, U2 = apply_reflective(U1, U2) <span class="py-cm"># enforce reflective BC every step </span>
+        h = U1
+        v = U2 / U1
+        dt = CFL * dx / np.max(np.abs(v) + np.sqrt(g * h))
+        t += dt
+        c = dt / dx
+        pbar.set_description(<span class="py-str">f"t={t:.2f}"</span>)
+        pbar.update(<span class="py-num">1</span>)
+        <span class="py-cm"># WELL-BALANCED FLUX</span>
+        F1 = np.zeros(N+<span class="py-num">1</span>)
+        F2L = np.zeros(N+<span class="py-num">1</span>)
+        F2R = np.zeros(N+<span class="py-num">1</span>)
+        <span class="py-kw">for</span> i <span class="py-kw">in</span> range(<span class="py-num">0</span>, N+<span class="py-num">1</span>):
+            <span class="py-cm"># Left state for interface 'i'</span>
+            hL, huL, bL = U1[i], U2[i], b[i]
+            <span class="py-cm"># Right state for interface 'i'</span>
+            hR, huR, bR = U1[i+<span class="py-num">1</span>], U2[i+<span class="py-num">1</span>], b[i+<span class="py-num">1</span>]
+            <span class="py-cm"># Free surface elevations</span>
+            etaL = hL + bL
+            etaR = hR + bR
+            <span class="py-cm"># Interface bed elevation for hydrostatic reconstruction</span>
+            b_int = max(bL, bR)
+            <span class="py-cm"># Reconstructed depths at the interface (h_star)</span>
+            hL_star = max(<span class="py-num">0.0</span>, etaL - b_int)
+            hR_star = max(<span class="py-num">0.0</span>, etaR - b_int)
+            <span class="py-cm"># Velocities based on original momentum and depth</span>
+            uL = huL / hL <span class="py-kw">if</span> hL &gt; <span class="py-num">1e-12</span> <span class="py-kw">else</span> <span class="py-num">0.0</span>
+            uR = huR / hR <span class="py-kw">if</span> hR &gt; <span class="py-num">1e-12</span> <span class="py-kw">else</span> <span class="py-num">0.0</span>
+            <span class="py-cm"># Reconstructed momentum at the interface</span>
+            huL_star = hL_star * uL
+            huR_star = hR_star * uR
+            <span class="py-cm"># Wave speeds</span>
+            cL = np.sqrt(g*hL_star)
+            cR = np.sqrt(g*hR_star)
+            a = max(abs(uL)+cL, abs(uR)+cR)
+            <span class="py-cm"># Homogeneous part of the fluxes</span>
+            f1L_hom = huL_star
+            f2L_hom = huL_star*uL + <span class="py-num">0.5</span>*g*hL_star**<span class="py-num">2</span>
+            f1R_hom = huR_star
+            f2R_hom = huR_star*uR + <span class="py-num">0.5</span>*g*hR_star**<span class="py-num">2</span>
+            f1 = <span class="py-num">0.5</span>*(f1L_hom + f1R_hom) - <span class="py-num">0.5</span>*a*(hR_star - hL_star)
+            f2 = <span class="py-num">0.5</span>*(f2L_hom + f2R_hom) - <span class="py-num">0.5</span>*a*(huR_star - huL_star)
+            <span class="py-cm"># Pressure corrections for well-balanced property</span>
+            corrL = <span class="py-num">0.5</span> * g * (hL**<span class="py-num">2</span> - hL_star**<span class="py-num">2</span>) 
+            corrR = <span class="py-num">0.5</span> * g * (hR**<span class="py-num">2</span> - hR_star**<span class="py-num">2</span>)
+            F1[i] = f1
+            F2L[i] = f2 + corrL <span class="py-cm"># Pressure correction</span>
+            F2R[i] = f2 + corrR
+</code></pre>
+</div>
+</div>
 
-<p>(★) Now consider that you are simulating the Baltic Sea as a one-dimensional basin where the wind pushes water from Copenhagen (left) to Saint Petersburg (right). 
-Search for appropriate parameters such as basin length, average water depth, and wind velocity, and run the simulation to observe the resulting sea surface response.</p>
 
         <!-- Navigation Arrows -->
-        <a href="PS3Slide33.html" class="nav-button left">&#9664;</a>
-        <a href="PS3Slide35.html" class="nav-button right">&#9654;</a>
+        <a href="PS3Slide35.html" class="nav-button left">&#9664;</a>
+        <a href="PS3Slide37.html" class="nav-button right">&#9654;</a>
     </div>
 <!-- Footer -->
 <div class="footer">

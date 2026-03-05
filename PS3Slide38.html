@@ -168,15 +168,54 @@ window.addEventListener('resize', scaleContainer);
 </head>
 <body>
     <div class="container">
-        <div class="title">Example: 1D Shallow Water Equations Wind Forcing</div>
+        <div class="title">Example: 1D Shallow Water Equations Dam Break</div>
         <div class="slide">  
+<div class="codebox">
+<div class="codebox-title">Animation</div>
+<div class="codebox-body">
+eta_initial = h_array[<span class="py-num">0</span>] <pre><code><span class="py-cm"># Initial panel</span>
+ax0.fill_between(x, -<span class="py-num">2</span>, b, color=<span class="py-str">"silver"</span>)
+ax0.fill_between(x, b, eta_initial, color=<span class="py-str">"skyblue"</span>)
+ax0.plot(x, eta_initial, color=<span class="py-str">"midnightblue"</span>, lw=<span class="py-num">2</span>, label=<span class="py-str">"Initial Surface"</span>)
+ax0.plot(x, b, color=<span class="py-str">"silver"</span>, lw=<span class="py-num">3</span>, zorder=<span class="py-num">10</span>, label=<span class="py-str">"Bottom"</span>)
+ax0.axhline(<span class="py-num">0</span>, color=<span class="py-str">'black'</span>, lw=<span class="py-num">1</span>, linestyle=<span class="py-str">':'</span>)
+ax0.legend()
+vel_line, = ax2.plot([], [], lw=<span class="py-num">2</span>)
+plt.tight_layout()
+<span class="py-kw">def</span> update(frame):
+    eta = h_array[frame]
+    v = v_array[frame]
+    <span class="py-kw">for</span> coll <span class="py-kw">in</span> list(ax1.collections):
+        coll.remove()
+    ax1.fill_between(x, -<span class="py-num">2</span>, b, color=<span class="py-str">"silver"</span>)
+    ax1.fill_between(x, b, eta, color=<span class="py-str">"skyblue"</span>)
+    ax1.plot(x, b, color=<span class="py-str">"silver"</span>, lw=<span class="py-num">3</span>, zorder=<span class="py-num">10</span>)
+    ax1.axhline(<span class="py-num">0</span>, color=<span class="py-str">'black'</span>, lw=<span class="py-num">1</span>, linestyle=<span class="py-str">':'</span>)
+    ax1.set_title(<span class="py-str">f"Wave Propagation (t = {t_store[frame]:.2f})"</span>, color=<span class="py-str">"midnightblue"</span>)
+    vel_line.set_data(x, v)
+    ax2.set_title(<span class="py-str">f"Velocity (t = {t_store[frame]:.2f})"</span>, color=<span class="py-str">"midnightblue"</span>)
+    <span class="py-kw">return</span> (vel_line,)
 
-<p>(★) Now consider that you are simulating the Baltic Sea as a one-dimensional basin where the wind pushes water from Copenhagen (left) to Saint Petersburg (right). 
-Search for appropriate parameters such as basin length, average water depth, and wind velocity, and run the simulation to observe the resulting sea surface response.</p>
+<span class="py-cm">#Animation</span>
+frames = min(<span class="py-num">200</span>, nt)
+ani = animation.FuncAnimation(
+    fig,
+    update,
+    frames=frames,
+    interval=<span class="py-num">100</span>,
+    blit=<span class="py-kw">False</span>
+)
+save_path = <span class="py-str">"flatbottomtopo_dam_break.gif"</span>
+ani.save(save_path, writer=<span class="py-str">"pillow"</span>, fps=<span class="py-num">8</span>)
+print(<span class="py-str">"Saved:"</span>, save_path)
+plt.close(fig)</code></pre>
+</div>
+</div>
+
 
         <!-- Navigation Arrows -->
-        <a href="PS3Slide33.html" class="nav-button left">&#9664;</a>
-        <a href="PS3Slide35.html" class="nav-button right">&#9654;</a>
+        <a href="PS3Slide37.html" class="nav-button left">&#9664;</a>
+        <a href="PS3Slide39.html" class="nav-button right">&#9654;</a>
     </div>
 <!-- Footer -->
 <div class="footer">
