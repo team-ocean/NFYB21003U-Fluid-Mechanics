@@ -164,49 +164,14 @@ window.addEventListener('resize', scaleContainer);
     <div class="container">
         <div class="title">Example: Turbulent Plane Couette Flow</div>
         <div class="slide">
-<p>Consider a fully-developed turbulent flow of water in between two parallel plates as illustrated in the figure below. 
-The plates move in opposite directions at a velocity $u=-u_w$ at $y=-h$ and $u=u_w$ at $y=h$ where $u_w=0.045\,\text{m/s}$. The mean flow is point-symmetric in $y=0$ (the channel centerline). It is given that $u_w/u_\tau \approx 15$, where $u_\tau=\sqrt{\nu \left(\partial \bar{u}/\partial y\right)_{y=h}}$ is the wall friction velocity. 
-The half-channel height is equal to $h=0.025\,\text{m}$ and the kinematic viscosity of water is $\nu = 10^{-6}\,\text{m}^2/\text{s}$.
-<img src="Figures/PS4_JMBCTurbulencePlaneCouetteFlow.png" alt="JMBCTurbulencePlaneCouetteFlow" style="max-width: 100%; height: 100%; border: none;">
-In index notation the full Reynolds-averaged Navier-Stokes (RANS) equations are given by
-\[
-\frac{\partial \bar{u}_i}{\partial x_i} = 0,
-\tag{1a}
-\]
-\[
-\frac{\partial \bar{u}_i}{\partial t} + \bar{u}_j\frac{\partial \bar{u}_i}{\partial x_j}
-=
--\frac{1}{\rho}\frac{\partial \bar{p}}{\partial x_i}
-+
-\nu\frac{\partial^2 \bar{u}_i}{\partial x_j^2}
--
-\frac{\partial \overline{u_i' u_j'}}{\partial x_j}.
-\tag{1b}
-\]
-(1) Given that the characteristic wall roughness height $s=0.1\,\text{mm}$, determine whether the channel is hydraulically smooth or rough. <br>
-(2) Show that for this flow geometry the RANS equations reduce to
-\[
-\begin{align}
-\bar{v} &= \bar{w} = 0,
-\tag{2a} \\
-0 &= -\frac{\partial \bar{p}}{\partial x} - \frac{\partial \tau_{xy}}{\partial y},
-\tag{2b} \\
-0 &= -\frac{\partial \bar{p}}{\partial y} - \frac{\partial (\rho \overline{v'^2})}{\partial y},
-\tag{2c}
-\end{align}
-\]
-where
-\(
-\tau_{xy} = -\rho \nu \frac{\partial \bar{u}}{\partial y} + \rho \overline{u'v'}
-\)
-is the mean total shear stress acting in the $x$-direction.<br>
-(3) Prove that $\partial p/\partial x = 0$ everywhere in the flow.<br>
-Hint: use first Eq.(2c), then Eq.(2b) and remember that the mean flow is point-symmetric in $y=0$.
-</p>
+<div class="image-container" style="text-align: left;">
+<img src="Figures/PS4_HandWrittenPlanCouetteSolution.png" alt="HandWrittenPlanCouetteSolution" style="max-width: 100%; height: 100%;">
+</div>        
+
 
         <!-- Navigation Arrows -->
-        <a href="PS4Slide22.html" class="nav-button left">&#9664;</a>
-        <a href="PS4Slide24.html" class="nav-button right">&#9654;</a>
+        <a href="PS4Slide23.html" class="nav-button left">&#9664;</a>
+        <a href="PS4Overview.html" class="nav-button right">&#9654;</a>
     </div>
 <!-- Footer -->
 <div class="footer">
